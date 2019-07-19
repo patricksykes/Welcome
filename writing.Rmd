@@ -199,8 +199,7 @@ Replacing more complex words with simpler (and usually shorter) words will make 
 | anticipate       | expect                   |
 +------------------+--------------------------+
 | approximately    | remove where possible,   |
-|                  |                          |
-|                  | or use about, \~ or ca.  |
+|                  | or use about, ~ or ca.  |
 +------------------+--------------------------+
 | biota            | species                  |
 +------------------+--------------------------+
@@ -285,16 +284,12 @@ Low and high and are over-used. Usually more-specific adjectives are more descri
 | biodiversity                      |                                   |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher) cost    | cheap (expensive)/cheaper (more |
-|                                   | expensive)                      |
-|                                   |                                 |
-|                                   | ~~cost~~                        |
+|                                   | expensive) ~~cost~~             |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher)         | weak (strong)/weaker (stronger) |
-|                                   |                                   |
 | currents/forcing/stress/winds     |                                   |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher)         | low (high)/lower (higher)       |
-|                                   |                                   |
 | density/pitch/pressure/mountains/ |                                   |
 | relief                            |                                   |
 +-----------------------------------+-----------------------------------+
@@ -306,26 +301,20 @@ Low and high and are over-used. Usually more-specific adjectives are more descri
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher)         | slow (fast)/slower (faster)     |
 | growth/photosynthetic/production/ |                                   |
-| speed                             |                                   |
-| rates                             |                                   |
+| speed rates                       |                                   |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher)         | flat, weak (steep,              |
 | gradients                         | strong)/flatter, weaker         |
-|                                   |                                 |
 |                                   | (steepr/stronger)               |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher) numbers | few (many, several)/fewer       |
-|                                   | (more, greater)                 |
-|                                   |                                 |
-|                                   | ~~number~~                      |
+|                                   | (more, greater) ~~number~~      |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher) amount  | small (larger)/smaller, lesser  |
 |                                   | (larger, greater)               |
 +-----------------------------------+-----------------------------------+
 | low (high)/lower (higher)         | cold, cool (warm, hot)/colder,  |
-| temperature                       | cooler                          |
-|                                   |                                 |
-|                                   | (warmer, hotter)                |
+| temperature                       | cooler (warmer, hotter)         |
 |                                   | ~~temperature~~                 |
 +-----------------------------------+-----------------------------------+
 
@@ -337,13 +326,11 @@ Low and high and are over-used. Usually more-specific adjectives are more descri
 
 +-------------------+---------------------------------------+
 | **Rather than**   | **Try**                             |
-+===================+=======================================+
-| biased for        | biased toward. (e.g., Biased toward |
-|                   |                                     |
++-------------------+---------------------------------------+
+| biased for        | biased toward. (e.g., Biased toward  |
 |                   | temperate latitudes)                |
 +-------------------+---------------------------------------+
-| comparative to    | compared with                       |
-|                   |                                     |
+| comparative to    | compared with  <br>                     |
 |                   | in comparison to                    |
 +-------------------+---------------------------------------+
 | compared to       | compared with                       |
@@ -372,101 +359,47 @@ Low and high and are over-used. Usually more-specific adjectives are more descri
 Using the appropriate word choice can be more powerful and comfortable, but also is sometimes needed to be correct. There are several examples below where the word "addressed" can be replaced with something more appropriate.
 
 +-----------------------------------+-----------------------------------+
-| **Rather than**                   | **Try**                         |
+| **Rather than**                   | **Try**                           |
 +===================================+===================================+
-| There are many questions to be    | There are many *questions* to   |
-| addressed.                        | be                              |
-|                                   |                                 |
-|                                   | *answered*                      |
+| There are many questions to be    | There are many *questions* to     |
+| addressed.                        | be *answered*                     |
 +-----------------------------------+-----------------------------------+
-| There are many gaps to be         | There are many *gaps* to be     |
-| addressed.                        | *filled*.                       |
+| There are many gaps to be         | There are many *gaps* to be       |
+| addressed.                        | *filled*.                         |
 +-----------------------------------+-----------------------------------+
-| There are many problems to be     | There are many *problems* to be |
-|                                   | *solved*.                       |
-| addressed.                        |                                   |
+| There are many problems to be     | There are many *problems* to be   |
+| addressed.                        | *solved*.                         |
 +-----------------------------------+-----------------------------------+
-| There are many questions to be    | There are many *questions* to   |
-|                                   | be                              |
-| addressed.                        |                                 |
-|                                   | *answered*.                     |
+| There are many questions to be    | There are many *questions* to     |
+| addressed.                        | be *answered*.                    |
 +-----------------------------------+-----------------------------------+
-| There are many challenges to      | There are many *challenges* to  |
-| solve                             |                                   |
+| There are many challenges to      | There are many *challenges* to    |
+| solve                             |   *address* /*meet*               |
 +-----------------------------------+-----------------------------------+
-
-+-------------+-------------+-------------+-------------+-------------+
-|             | *address* |             |             |             |
-|             | /*meet*     |             |             |             |
-+=============+=============+=============+=============+=============+
-| The goals   | The       |             |             |             |
-| to be       | *goals*   |             |             |             |
-| addressed   | to *meet* |             |             |             |
-| were:       | were:     |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| The issue   | The issue |             |             |             |
-| arises      | raised    |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| The         | The       |             |             |             |
-| question is | question  |             |             |             |
-| raised      | arises    |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| a number of | a number  |             |             |             |
-| caveats     | of        |             |             |             |
-| were        | caveats   |             |             |             |
-| conceded    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| Greater     | Greater   |             |             |             |
-| shifts in   | shifts in |             |             |             |
-| summer      | summer    |             |             |             |
-| relative to | *than*    |             |             |             |
-|             | winter    |             |             |             |
-| winter      |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| Ranged      | from      | 0.008°C/y | and       | Ranged    |
-|             |             | r           |             | *from*    |
-| 0.016°C/yr  |             |             |             | 0.008°C/y |
-|             |             |             |             | r           |
-|             |             |             |             | *to*      |
-|             |             |             |             | 0.016°C/y |
-|             |             |             |             | r           |
-+-------------+-------------+-------------+-------------+-------------+
-| The clear   | The clear |             |             |             |
-| difference  | differenc |             |             |             |
-| between     | e           |             |             |             |
-| oceanic and | between   |             |             |             |
-| shelf break | oceanic   |             |             |             |
-| stations    | and shelf |             |             |             |
-| *indicates* | break     |             |             |             |
-| that        | stations  |             |             |             |
-| temperature | *suggests |             |             |             |
-| influences  | *           |             |             |             |
-| chaetognath | that      |             |             |             |
-| community   | temperatu |             |             |             |
-| structure,  | re          |             |             |             |
-| *a premise* | influence |             |             |             |
-| that is     | s           |             |             |             |
-| strongly    | chaetogna |             |             |             |
-| supported   | th          |             |             |             |
-| in other    | community |             |             |             |
-| regions     | structure |             |             |             |
-|             | ,         |             |             |             |
-|             | *a premise*|             |             |             |
-|             | that is   |             |             |             |
-|             | strongly  |             |             |             |
-|             | supported |             |             |             |
-|             | in other  |             |             |             |
-|             | regions.  |             |             |             |
-|             |           |             |             |             |
-|             | *Can      |             |             |             |
-|             | something |             |             |             |
-|             | that is   |             |             |             |
-|             | indicated |             |             |             |
-|             | be a*     |             |             |             |
-|             |           |             |             |             |
-|             | *premise?*|             |             |             |
-|             |           |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
+| The goals to be addressed were:   | The *goals* to *meet* were:       |
++-----------------------------------+-----------------------------------+
+| The issue arises                  | The issue raised                  |
++-----------------------------------+-----------------------------------+
+| The question is raised            | The question arises               |
++-----------------------------------+-----------------------------------+
+| a number of caveats were          | a number of caveats               |
+| conceded                          |                                   |
++-----------------------------------+-----------------------------------+
+| Greater shifts in summer relative | Greater  shifts in summer *than*  |
+| to winter                         | *winter*                          |
++-----------------------------------+-----------------------------------+
+| Ranged from 0.008°C/y and         | Ranged *from* 0.008°C/yr *to*     |
+| 0.016°C/yr                        | 0.016°C/y                         |
++-----------------------------------+-----------------------------------+
+| The clear difference between      | The clear difference between      |
+| oceanic and shelf break stations  | oceanic and shelf break stations  | 
+| *indicates* that temperature      | *suggests* that temperature       |
+| influences chaetognath community  | influences chaetognath community  |
+| structure, *a premise* that is    | structure, a *premise* that is    |
+| strongly supported in other       | strongly supported in other       |
+| regions.                          | regions. *Can something that is   |
+|                                   | indicated be a premise?*          |
++-----------------------------------+-----------------------------------+
 
 ## Overused words
 
@@ -1953,8 +1886,8 @@ The Table below gives a list of waste words that can be removed to make your wri
 
 ### Removing Removing redundant words
 +------------------------------------+------------------------------------+
-**Rather than**                     **Try**
+| **Rather than**                    | **Try**                            |
 +------------------------------------+------------------------------------+
-| A quantitatively rigorous approach | A quantitative approach |
-|                                    | A rigorous approach |
+| A quantitatively rigorous approach | A quantitative approach            |
+|                                    | A rigorous approach                |
 +------------------------------------+------------------------------------+
