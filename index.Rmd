@@ -3,7 +3,7 @@ title: "Introduction to the Mathematical Marine Ecology (MME) Lab"
 author: "The Mathematical Marine Ecology Lab Team"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-# output: bookdown::gitbook
+output: bookdown::gitbook
 documentclass: book
 #bibliography: [book.bib, packages.bib]
 #biblio-style: apalike
@@ -18,23 +18,23 @@ Welcome to the Mathematical Marine Ecology Lab.
 
 This book has been put together as the main source of information for all members of the MME Lab. It includes info on lab meetings, administration, data-storage, open data-science, R programming, writing skills and GitHub. 
 
-# Lab Meetings
+## Lab Meetings
 
 The MME lab meets up every fortnight in the on Level 5 of the Queenland Bioscience Precinct. We generally use this as an opportunity to catch up on what everyone is doing, and share tips and tricks around data, programming and open data-science. Each meeting, one person is nominated to lead a discussion on a specific topic. Contact Anthony to be added to the email list. You can also attend virtually.
 
-# General Administration
+## General Administration
 
-## Lab Contact:
+### Lab Contact:
 For any lab-specific issues, you should contact Anthony in the first instance:
 Professory Anthony Richardson: ajr@maths.uq.edu.au
 
-## SMP Contacts
+### SMP Contacts
 
-## General IT Support
+### General IT Support
 All general UQ IT-related information can be found at:
 https://my.uq.edu.au/information-and-services/information-technology
 
-## High Performance Computing
+### High Performance Computing
 
 Core Computational Facility @ UQ School of Mathematics and Physics
 http://research.smp.uq.edu.au/computing/
@@ -49,14 +49,14 @@ Howto - Run GPU Calculations
 http://research.smp.uq.edu.au/computing/gpu.html
 
 
-# Open Data Science
+## Open Data Science
 
 While we have always made our data and code available to those who have asked, in 2019 the MME Lab has decided to adopt a full open data-science model. We attended the wonderful Data Science Training (http://ohi-science.org/data-science-training/) run by the _The Ocean Health Index Team_. We acknowledge all the help and resources they have made available which has allowed us to get up and running so quickly.
 
 Many sections of this book introduce open data science so we can work with data in an open, reproducible, and collaborative way. Open data science means that methods, data, and code are available so that others can access, reuse, and build from it without much fuss. Here we demonstrate a workflow with R, RStudio, Git, and GitHub, as described in [Lowndes *et al. 2017, Nature Ecology & Evolution*: Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160).
 
 
-# Behaviour online
+## Online Code of Conduct
 
 We have adopted the code of conduct from Mozilla to govern participation in all online communities associated with the MME Lab, including GitHub, Gitter, GoogleDocs, email and lab meetings. 
 As part of this we must always:
@@ -70,8 +70,62 @@ For a full description of the Community Participation Guidelines see:  https://w
 
 
 
-## Student Support
+### Student Support
 
 The University of Queensland Student Support Services can be found at: https://www.uq.edu.au/student-services/
 
 This includes information and support services for student welfare, learning support, faith, health etc. All students are encouraged to familiarise themseleves with this page.
+
+<!-- NOTES FORM OUR CHAT -->
+<!-- 13:07 -->
+<!-- Guest -->
+
+<!-- bookdown -->
+<!-- 13:19 -->
+<!-- Guest -->
+
+<!-- https://github.com/MathMarEcol/MathMarEcol_Welcome/issues/2 -->
+<!-- 13:29 -->
+<!-- Guest -->
+
+<!-- Ask SMP for a mathmarecol folder on getafix -->
+<!-- /data/mathmarecol -->
+<!-- 13:31 -->
+<!-- Guest -->
+
+<!-- Raw -> someone else hosts -->
+<!-- regridded -> unique to us, but still static -->
+<!-- work in progress data -> each person generates versions -->
+<!-- 13:43 -->
+<!-- Guest -->
+
+<!-- Static data should be in a central place -->
+<!-- subsets can be local/dropbox -->
+<!-- 13:44 -->
+<!-- Guest -->
+
+<!-- Was, ALL DROPBOX -->
+<!-- now, some in dropbox, some in getafix, some in github -->
+<!-- 13:46 -->
+<!-- Guest -->
+
+<!-- Data - Getafix -->
+<!-- Code -Github -->
+<!-- Collaboration - ? -->
+<!-- Pubication - ? -->
+<!-- In Progress - ? -->
+<!-- 13:49 -->
+<!-- Guest -->
+
+<!-- https://github.com/OSGeo/proj-datumgrid -->
+
+<!-- OSGeo/proj-datumgrid -->
+
+<!-- GitHub -->
+<!-- https://git-lfs.github.com/ -->
+
+<!-- Git Large File Storage -->
+
+<!-- Git Large File Storage -->
+<!-- Say something nice -->
+<!-- Send -->

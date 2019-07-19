@@ -1,0 +1,8 @@
+# Using Global Climate Models {#gcm}
+
+In progress.....
+
+## Overview
+- Link for a user guide: https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html
+
+- Summary table with more info: https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_experiment_id.html
