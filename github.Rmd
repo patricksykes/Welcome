@@ -4,9 +4,7 @@
 knitr::opts_chunk$set(echo = TRUE)
 library(htmltools)
 ```
-<!---TODO
-Philosophy: gh repo and Rproject
---->
+
 
 I would like to edit and update this. It is a direct close from the OHI Training Workbook.
 ## Objectives
@@ -410,45 +408,11 @@ The files you added should be on github.com:
 <br />
 
 
----
-
 **Your turn!**
 
 This time let's edit an existing file instead of adding something new. Open your README file by clicking on it in the Files pane (lower right corner). Write a few lines of text, save, and see what happens in your Git Tab. Sync it to your remote repository (Github.com).
 
 Also, go to your Finder/Windows Explorer, and copy-paste something into your local GitHub repo. Then go back to RStudio and confirm that git tracked it. Remember, git will track anything within that folder (the way Dropbox does), it's not specific to RStudio!
-
-
-**Create a new R Markdown file**
-
-Now, we are going to return to using R Markdown so you can write notes to yourself in Markdown and have a record of all your R code. Writing R commands in the console like we did this morning is great, but limited; it's hard to keep track of and hard to efficiently share with others. Plus, as your analyses get more complicated, it basically becomes impossible to use.
-
-Go to File > New File > R Markdown ... (or click the green plus in the top left corner).
-
-Let's set up this file so we can use it later. I'm going to replace all the automatic text with the following: 
-
-
-```
----
-title: "Graphics with ggplot2"
-author: "Julie"
-date: "11/21/2017"
-output: html_document
----
-
-# Learning ggplot2
-
-We're learning ggplot2 It's going to be amazing. 
-
-```
-
-Now, let's save it. I'm going to call my file `ggplot2.Rmd`.
-
-Then, sync your file to GitHub.
-
-What if a file doesn't show up in the Git tab and you expect that it should? Check to make sure you've saved the file. If the filename is red with an asterix, there have been changes since it was saved. Remember to save before syncing to GitHub!
-
----
 
 
 ## Going back in time

@@ -11,20 +11,19 @@
   <meta property="og:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="img/richardsonlab_banner_small.png" />
   <meta property="og:description" content="This is the primary information document for members of the MME Lab." />
-  
+  <meta name="github-repo" content="MathMarEcol/MathMarEcol_Welcome" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   
   <meta name="twitter:description" content="This is the primary information document for members of the MME Lab." />
-  
+  <meta name="twitter:image" content="img/richardsonlab_banner_small.png" />
 
 <meta name="author" content="The Mathematical Marine Ecology Lab Team" />
 
 
-<meta name="date" content="2019-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,9 +138,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="comm.html"><a href="comm.html"><i class="fa fa-check"></i><b>2</b> Lab Communication</a><ul>
-<li class="chapter" data-level="2.1" data-path="comm.html"><a href="comm.html#gitter"><i class="fa fa-check"></i><b>2.1</b> Gitter</a></li>
-<li class="chapter" data-level="2.2" data-path="comm.html"><a href="comm.html#email"><i class="fa fa-check"></i><b>2.2</b> Email</a></li>
-<li class="chapter" data-level="2.3" data-path="comm.html"><a href="comm.html#github-issues-tracking"><i class="fa fa-check"></i><b>2.3</b> GitHub Issues Tracking</a></li>
+<li class="chapter" data-level="2.1" data-path="comm.html"><a href="comm.html#email"><i class="fa fa-check"></i><b>2.1</b> Email</a></li>
+<li class="chapter" data-level="2.2" data-path="comm.html"><a href="comm.html#github-issues-tracking"><i class="fa fa-check"></i><b>2.2</b> GitHub Issues Tracking</a></li>
+<li class="chapter" data-level="2.3" data-path="comm.html"><a href="comm.html#gitter"><i class="fa fa-check"></i><b>2.3</b> Gitter</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3</b> Getting started with R</a></li>
 <li class="chapter" data-level="4" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>4</b> GitHub</a><ul>
@@ -328,9 +327,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="github" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> GitHub</h1>
-<!---TODO
-Philosophy: gh repo and Rproject
---->
 <p>I would like to edit and update this. It is a direct close from the OHI Training Workbook.
 ## Objectives</p>
 <p>After today you will be able to start incorporating GitHub into your workflow.</p>
@@ -633,29 +629,9 @@ when we cloned this from RStudio, it created an RStudio project, which you can t
 <p><img src="img/Github_remote.png" />
 <br />
 <br /></p>
-<hr />
 <p><strong>Your turn!</strong></p>
 <p>This time let’s edit an existing file instead of adding something new. Open your README file by clicking on it in the Files pane (lower right corner). Write a few lines of text, save, and see what happens in your Git Tab. Sync it to your remote repository (Github.com).</p>
 <p>Also, go to your Finder/Windows Explorer, and copy-paste something into your local GitHub repo. Then go back to RStudio and confirm that git tracked it. Remember, git will track anything within that folder (the way Dropbox does), it’s not specific to RStudio!</p>
-<p><strong>Create a new R Markdown file</strong></p>
-<p>Now, we are going to return to using R Markdown so you can write notes to yourself in Markdown and have a record of all your R code. Writing R commands in the console like we did this morning is great, but limited; it’s hard to keep track of and hard to efficiently share with others. Plus, as your analyses get more complicated, it basically becomes impossible to use.</p>
-<p>Go to File &gt; New File &gt; R Markdown … (or click the green plus in the top left corner).</p>
-<p>Let’s set up this file so we can use it later. I’m going to replace all the automatic text with the following:</p>
-<pre><code>---
-title: &quot;Graphics with ggplot2&quot;
-author: &quot;Julie&quot;
-date: &quot;11/21/2017&quot;
-output: html_document
----
-
-# Learning ggplot2
-
-We&#39;re learning ggplot2 It&#39;s going to be amazing. 
-</code></pre>
-<p>Now, let’s save it. I’m going to call my file <code>ggplot2.Rmd</code>.</p>
-<p>Then, sync your file to GitHub.</p>
-<p>What if a file doesn’t show up in the Git tab and you expect that it should? Check to make sure you’ve saved the file. If the filename is red with an asterix, there have been changes since it was saved. Remember to save before syncing to GitHub!</p>
-<hr />
 </div>
 <div id="going-back-in-time" class="section level2">
 <h2><span class="header-section-number">4.6</span> Going back in time</h2>
