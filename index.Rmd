@@ -5,7 +5,7 @@ date: "`r format(Sys.Date(),'%a %d %B %Y')`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
-    self_contained: FALSE
+    split_by: none
 documentclass: book
 #bibliography: [book.bib, packages.bib]
 #biblio-style: apalike
