@@ -2,6 +2,13 @@ book_filename: "MathMarEcol_Welcome"
 language:
   ui:
     chapter_name: "Chapter "
-rmd_files: ["index.Rmd", "communication.Rmd", "r.Rmd", "github.Rmd", "writing.Rmd", "getafix.Rmd", "gcm.Rmd"]
+rmd_files: [
+  "index.Rmd", 
+  "rstudio.Rmd",
+  "programming.Rmd",
+  "github.Rmd", 
+  "writing.Rmd", 
+  "getafix.Rmd", 
+  "gcm.Rmd"]
 delete_merged_file: true
 output_dir: "docs"
