@@ -2,7 +2,7 @@
 
 <http://research.smp.uq.edu.au/computing/getafix.html>
 
-## Getafix structures
+## Getafix structure
 
 ![](img/getafix_rendered.png)
 
