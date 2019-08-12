@@ -1655,8 +1655,7 @@ The Table below gives a list of waste words that can be removed to make your wri
 | It is generally accepted that     | remove                            |
 +-----------------------------------+-----------------------------------+
 | It is important to                | remove or Note that or            |
-|                                   | Importantly                       |
-| note/understand that              |                                   |
+| note/understand that              | Importantly                       |
 +-----------------------------------+-----------------------------------+
 | it is increasingly acknowledged   | remove                            |
 | that                              |                                   |

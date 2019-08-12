@@ -6,7 +6,8 @@ library(htmltools)
 ```
 
 
-I would like to edit and update this. It is a direct close from the OHI Training Workbook.
+I would like to edit and update this. It is a direct clone from the OHI Training Workbook at the moment.
+
 ## Objectives
 
 After today you will be able to start incorporating GitHub into your workflow.  
