@@ -27,7 +27,7 @@ This book has been put together as the main source of information for all member
 
 ## Lab Meetings
 
-The MME lab meets up every fortnight in the on Level 5 of the Queenland Bioscience Precinct. We generally use this as an opportunity to catch up on what everyone is doing, and share tips and tricks around data, programming and open data-science. Each meeting, one person is nominated to lead a discussion on a specific topic. Contact Anthony to be added to the email list. You can also attend virtually.
+The MME lab meets up every week on Level 5 of the Queenland Bioscience Precinct. We generally use this as an opportunity to catch up on what everyone is doing, and share tips and tricks around data, programming and open data-science. Each meeting, one person is nominated to lead a discussion on a specific topic. Contact Anthony to be added to the email list. You can also attend virtually.
 
 ## General Administration
 
@@ -85,6 +85,7 @@ Many sections of this book introduce open data science so we can work with data 
 
 We have adopted the code of conduct from Mozilla to govern participation in all online communities associated with the MME Lab, including GitHub, Gitter, GoogleDocs, email and lab meetings. 
 As part of this we must always:
+
 - Be respectful and value each other’s ideas, styles and viewpoints.
 - Be direct but professional; we cannot withhold hard truths.
 - Be inclusive and help new perspectives be heard.
