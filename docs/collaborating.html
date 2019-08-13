@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
+  <title>Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta property="og:title" content="Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MathMarEcol/Welcome" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta name="twitter:title" content="Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   
   <meta name="twitter:description" content="This is the primary information document for members of the MME Lab." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="programming.html">
-<link rel="next" href="collaborating.html">
+<link rel="prev" href="github.html">
+<link rel="next" href="how-to-write-well.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -409,340 +409,336 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="github" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> GitHub</h1>
-<p>I would like to edit and update this. It is a direct clone from the OHI Training Workbook at the moment.</p>
-<div id="objectives-2" class="section level2">
-<h2><span class="header-section-number">4.1</span> Objectives</h2>
-<p>After today you will be able to start incorporating GitHub into your workflow.</p>
-<p><strong>This will change you life (for the better!)</strong></p>
-<p>Github was developed for social coding (i.e., sort of like an open source Wikipedia for programmers). Consequently, much of the functionality and terminology of Github (e.g., branches and pull requests) will not be relevant for most scientists.</p>
-<p><strong>We will skip over all this stuff!</strong></p>
-<p>To get the full functionality of Github, you will eventually want to learn other concepts.</p>
-<p><strong>But, this can wait.</strong></p>
-<p>Basically, we have figured out exactly what you need to know to get started!</p>
-</div>
-<div id="what-are-git-and-github" class="section level2">
-<h2><span class="header-section-number">4.2</span> What are Git and Github?</h2>
-<p>Git and GitHub are two distinct programs, but I think of them as a bundle because I always use them together.</p>
+<div id="collaborating" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Collaborating with GitHub</h1>
+<div id="objectives-resources-2" class="section level2">
+<h2><span class="header-section-number">5.1</span> Objectives &amp; Resources</h2>
+<p>The collaborative power of GitHub and RStudio is really game changing. So far we’ve been collaborating with our most important collaborator: ourselves. But, we are lucky that in science we have so many other collaborators, so let’s learn how to accelerate our collaborations with them through GitHub!</p>
+<p>We are going to teach you the simplest way to collaborate with someone, which is for both of you to have privileges to edit and add files to a repository. GitHub is built for software developer teams, and there is a lot of features that limit who can directly edit files, but we don’t need to start there.</p>
+<p>We will do this all with a partner, and we’ll walk through some things all together, and then give you a chance to work with your collaborator on your own.</p>
+<div id="objectives-3" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Objectives</h3>
+<p>We are going to create a website with a collaborator!</p>
 <ul>
-<li><p><strong>Git</strong> is a version control system that lets you track changes to files over time.</p></li>
-<li><p><strong>Github</strong> is a website for storing your git versioned files remotely. It has many nice features to be able visualize differences between <a href="https://help.github.com/articles/rendering-and-diffing-images/">images</a>, <a href="https://help.github.com/articles/mapping-geojson-files-on-github/">rendering</a> &amp; <a href="https://github.com/blog/1772-diffable-more-customizable-maps">diffing</a> map data files, <a href="https://help.github.com/articles/rendering-csv-and-tsv-data/">render text data files</a>, and <a href="https://help.github.com/articles/rendering-differences-in-prose-documents/">track changes in text</a>.</p></li>
+<li>create a new repo and give permission to a collaborator</li>
+<li>open as a new RStudio project!</li>
+<li>collaborate with a partner</li>
+<li>explore github.com blame, history, issues</li>
 </ul>
+<!---**Resources**--->
 </div>
-<div id="why-should-scientists-use-github" class="section level2">
-<h2><span class="header-section-number">4.3</span> Why should scientists use GitHub?</h2>
-<ol style="list-style-type: decimal">
-<li>Ends (or, nearly ends) the horror of keeping track of versions.
-Basically, we get away from this:
-<br />
-<br />
-<img src="img/MessySaves.png" />
-<br />
-<br />
-When you open your repository, you only see the most recent version. But, it easy to compare versions, and you can easily revert to previous versions.
-<br />
-<br /></li>
-<li>Provides peace of mind because you make changes to your work…and know that you can easily access earlier versions.</li>
-<li>Improves collaborative efforts. Different researchers can work on the same files at the same time!</li>
-<li>It is easy to share and distribute files through the Github website.</li>
-<li>Your files are available anywhere, you just need internet connection!</li>
-</ol>
-<p>We’ll interface with GitHub from our local computers using RStudio because it works well with the R/RStudio workflow. But, there are many other ways to interact with GitHub, including GitHub’s Desktop App or the command line (<a href="http://stat545.com/git02_git-clients.html">here is Jenny Bryan’s list of git clients</a>).</p>
-<p>At some point you will need to use the command line to interface with Git, but this isn’t necessary for starting. There are great resources for learning the command line, check out <a href="http://remi-daigle.github.io/2016-04-15-UCSB/shell/">this tutorial from SWC at UCSB</a>.</p>
 </div>
-<div id="resources-1" class="section level2">
-<h2><span class="header-section-number">4.4</span> Resources</h2>
-<p>These are materials we borrow from:</p>
-<ul>
-<li>Jenny Bryan’s lectures from STAT545 at UBC: <a href="http://stat545.com/git09_shell.html">The Shell</a></li>
-<li>Jenny Bryan’s <a href="http://happygitwithr.com">Happy git with R</a> tutorial</li>
-<li>Melanie Frazier’s <a href="https://rawgit.com/nazrug/Quickstart/master/GithubQuickstart.html">GitHub Quickstart</a></li>
-<li>Ben Best’s <a href="http://remi-daigle.github.io/2016-04-15-UCSB/git/">Software Carpentry at UCSB</a></li>
-</ul>
+<div id="create-repo-partner-1" class="section level2">
+<h2><span class="header-section-number">5.2</span> Create repo (Partner 1)</h2>
+<p>Team up with a partner sitting next to you. Partner 1 will create a new repository. We will do this in the same way that we did in Chapter <a href="github.html#github">4</a>: <a href="github.html#create-a-repository-on-github.com">Create a repository on Github.com</a>.</p>
 </div>
-<div id="lets-get-started" class="section level2">
-<h2><span class="header-section-number">4.5</span> Let’s get started</h2>
-<div id="some-github-terminology" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Some Github terminology</h3>
-<ul>
-<li><strong>User</strong>: A Github account for you (e.g., jules32).</li>
-<li><strong>Organization</strong>: The Github account for one or more user (e.g., datacarpentry).</li>
-<li><strong>Repository</strong>: A folder within the organization that includes files dedicated to a project.</li>
-<li><strong>Local Github</strong>: Copies of Github files located your computer.</li>
-<li><strong>Remote Github</strong>: Github files located on the <a href="https://github.com" class="uri">https://github.com</a> website.</li>
-<li><strong>Clone</strong>: Process of making a local copy of a remote Github repository. This only needs to be done once (unless you mess up your local copy).</li>
-<li><strong>Pull</strong>: Copy changes on the remote Github repository to your local Github repository. This is useful if multiple people are making changes to a repository.</li>
-<li><strong>Push</strong>: Save local changes to remote Github
-<br />
-<br /></li>
-</ul>
-<p><img src="img/push_pull_clone.png" />
-<br />
-<br /></p>
-<p>After we set up git on your computers, we’ll explore the full GitHub process:</p>
-<ol style="list-style-type: decimal">
-<li>create a repository on GitHub.com</li>
-<li>clone locally using RStudio</li>
-<li>learn the RStudio-GitHub workflow by syncing to Github.com: pull, stage, commit, push</li>
-<li>explore github.com: files, commit history, file history</li>
-<li>practice the RStudio-GitHub workflow by editing and adding files</li>
-<li>practice R Markdown</li>
-</ol>
-</div>
-<div id="setup-git-github" class="section level3">
-<h3><span class="header-section-number">4.5.2</span> Setup Git &amp; GitHub</h3>
-<p>The GitHub setup is a one-time thing! You will only have to do this once per computer. We’ll walk through this together.</p>
-<blockquote>
-<p>NOTE: If you are a student you can get the micro account which includes 5 private repositories for free (normally a $7/month value). You can sign up for the student account <a href="https://education.github.com/pack">here</a>. Instructors can also request a free organization <a href="https://education.github.com/">account, “Request a discount”</a>.</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><p>Download and install Git (<a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>)</p></li>
-<li><p>Create a <strong>Github</strong> account at <a href="http://github.com" class="uri">http://github.com</a>, if you don’t already have one. For a username, I recommend all lower-case letters, short as you can. I recommend using your <em>.edu email</em>, since you can request free private repositories via <a href="https://education.github.com/">GitHub Education</a> discount.</p></li>
-<li><p>You will use the <code>usethis</code> package to configure <strong>git</strong> with global commands, which means it will apply ‘globally’ to all files on your computer, rather than to a specific folder.</p></li>
-</ol>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)</a>
-<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">library</span>(usethis)</a>
-<a class="sourceLine" id="cb77-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb77-4" data-line-number="4"><span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;Melsteroni&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;Melsteroni@example.org&quot;</span>)</a></code></pre></div>
+<div id="create-a-gh-pages-branch-partner-1" class="section level2">
+<h2><span class="header-section-number">5.3</span> Create a gh-pages branch (Partner 1)</h2>
+<p>We aren’t going to talk about branches very much, but they are a powerful feature of git/GitHub. I think of it as creating a copy of your work that becomes a parallel universe that you can modify safely because it’s not affecting your original work. And then you can choose to merge the universes back together if and when you want. By default, when you create a new repo you begin with one branch, and it is named <code>master</code>. When you create new branches, you can name them whatever you want. However, if you name one <code>gh-pages</code> (all lowercase, with a <code>-</code> and no spaces), this will let you create a website. And that’s our plan. So, Partner 1, do this to create a <code>gh-pages</code> branch:</p>
+<p>On the homepage for your repo on GitHub.com, click the button that says “Branch:master”. Here, you can switch to another branch (right now there aren’t any others besides <code>master</code>), or create one by typing a new name.</p>
+<p><img src="img/github-branch.png" width="350px"></p>
 <p><br></p>
-<p><em>BACKUP PLAN</em> If <code>usethis</code> fails, the following is the classic approach to configuring <strong>git</strong>. Open the Git Bash program (Windows) or the Terminal (Mac) and type the following:</p>
-<pre><code>    # display your version of git
-    git --version
-    
-    # replace USER with your Github user account
-    git config --global user.name USER
-    
-    # replace NAME@EMAIL.EDU with the email you used to register with Github
-    git config --global user.email NAME@EMAIL.EDU
-    
-    # list your config to confirm user.* variables set
-    git config --list</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Make sure Git and RStudio are tallking: Click on “Project (None)” on the top right –&gt; “New Project” –&gt; “Version Control” –&gt; Git</li>
-</ol>
-<p><img src="img/check_git_rstudio.png" />
-<br></p>
-<p>Do any ominous messages pop up?</p>
-<div id="troubleshooting-1" class="section level4">
-<h4><span class="header-section-number">4.5.2.1</span> Troubleshooting</h4>
-<p>If you have problems setting up git, please see the <a href="http://happygitwithr.com/troubleshooting.html">Troubleshooting section</a> in Jenny Bryan’s amazing <a href="http://happygitwithr.com">HappyGitWithR</a>.</p>
-<p><strong>New(ish) Error on a Mac</strong>
-We’ve also seen the following errors from RStudio:</p>
-<pre><code>error key does not contain a section --global terminal</code></pre>
-<p>and</p>
-<pre><code>fatal: not in a git directory</code></pre>
-<p>To solve this, go to the Terminal and type:
-<code>which git</code></p>
-<p><img src="img/git_whichgit.png" width="250px"></p>
-<p>Look at the filepath that is returned. Does it say anything to do with Apple?</p>
-<p>-&gt; If yes, then the <a href="https://git-scm.com/downloads">Git you downloaded</a> isn’t installed, please redownload if necessary, and follow instructions to install.</p>
-<p>-&gt; If no, (in the example image, the filepath does not say anything with Apple) then proceed below:</p>
-<p>In RStudio, navigate to: Tools &gt; Global Options &gt; Git/SVN.</p>
-<p><img src="img/git_options.png" width="250px"></p>
+<p>Let’s type <code>gh-pages</code>.</p>
 <p><br></p>
-<p>Does the <strong>“Git executable”</strong> filepath match what the url in Terminal says?</p>
+<p><img src="img/github_create-branch_gh-pages.png" width="350px"></p>
+<p>Let’s also change <code>gh-pages</code> to the default branch and delete the master branch: this will be a one-time-only thing that we do here:</p>
+<p>First click to control branches:</p>
+<p><img src="img/github-branch2.png" width="350px"></p>
+<p>And then click to change the default branch to <code>gh-pages</code>. I like to then delete the <code>master</code> branch when it has the little red trash can next to it. It will make you confirm that you really want to delete it, which I do!</p>
+<p><img src="img/github-change-branch.png" width="450px"></p>
+</div>
+<div id="give-your-collaborator-administration-privileges-partner-1-and-2" class="section level2">
+<h2><span class="header-section-number">5.4</span> Give your collaborator administration privileges (Partner 1 and 2)</h2>
+<p>Now, Partner 1, go into Settings &gt; Collaborators &gt; enter Partner 2’s (your collaborator’s) username.</p>
+<p>Partner 2 then needs to check their email and accept as a collaborator. Notice that your collaborator has “Push access to the repository” (highlighted below):</p>
+<p><img src="img/github_collab.png" /></p>
+</div>
+<div id="clone-to-a-new-rproject-partner-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> Clone to a new Rproject (Partner 1)</h2>
+<p>Now let’s have Partner 1 clone the repository to their local computer. We’ll do this through RStudio like we did before (see Chapter <a href="github.html#github">4</a>: <a href="github.html#clone-your-repository-using-rstudio">Clone your repository using RStudio</a>), but with a final additional step before hitting “Create Project”: select “Open in a new Session”.</p>
 <p><br></p>
-<p><img src="img/git_options_filepath.png" width="500px"></p>
-<p>If not, click the browse button and navigate there.</p>
-<blockquote>
-<p><em>Note</em>: on my laptop, even though I navigated to /usr/local/bin/git, it then automatically redirect because /usr/local/bin/git was an alias on my computer. That is fine. Click OK.</p>
-</blockquote>
-<p>Quit RStudio.</p>
-<p>Then relaunch RStudio.</p>
-<p>Try syncing or cloning, and if that works and then you don’t need to worry about typing into the Terminal, you’re all done!</p>
-</div>
-</div>
-<div id="create-a-repository-on-github.com" class="section level3">
-<h3><span class="header-section-number">4.5.3</span> Create a repository on Github.com</h3>
-<p>First, go to your account on github.com and click “New repository”.
-<br />
-<br />
-<img src="img/create_repository.png" />
-<br />
-<br /></p>
-<p>Choose a name. Call it whatever you want (the shorter the better), or follow me for convenience. I will call mine <code>quickstart</code>.</p>
-<p>Also, add a description, make it public, create a README file, and create your repo!
-<br />
-<br />
-<img src="img/create_repository_2.png" />
-<br />
-<br /></p>
-<p>The <em>Add gitignore</em> option adds a document where you can identify files or file-types you want Github to ignore. These files will stay in on the local Github folder (the one on your computer), but will not be uploaded onto the web version of Github.</p>
-<p>The <em>Add a license</em> option adds a license that describes how other people can use your Github files (e.g., open source, but no one can profit from them, etc.). We won’t worry about this today.</p>
-<p>Check out our new repository!</p>
-<p>Notice how the README.md file we created is automatically displayed at the bottom. The .md means that it is Markdown (remember how .Rmd was RMarkdown?) so the formatting we learned in the last lesson apply here.
-<br />
-<br /></p>
-<p><img src="img/New_repository.png" />
-<br />
-<br /></p>
-<p><strong>From here, you will work locally (on your computer).</strong></p>
-</div>
-<div id="clone-your-repository-using-rstudio" class="section level3">
-<h3><span class="header-section-number">4.5.4</span> Clone your repository using RStudio</h3>
-<p>We are going to be cloning a copy of our remote repository on Github.com to our local computers. Unlike downloading, cloning keeps all the version control and user information bundled with the files.</p>
-<p><strong>Step 0</strong>: Create your <code>github</code> folder</p>
-<p>This is really important! We need to be organized and deliberate about where we want to keep all of our GitHub repositories (since this is the first of many in your career).</p>
-<p>Let’s all make a folder called <code>github</code> (all lowercase!) in our home directories. So it will look like this:</p>
-<ul>
-<li>Windows: <code>Users\[User]\Documents\github\</code></li>
-<li>Mac: <code>Users/[User]/github/</code></li>
-</ul>
-<p>This will let us take advantage of something that is really key about GitHub.com: cloned repositories are saved as folders that you can navigate on your computer. The greatness of this will be evident soon.</p>
-<p>So really. Make sure that you have an all-lowercase folder called <code>github</code> in your home directory!!</p>
-<p><strong>Step 1</strong>: Copy the web address of the repository you want to clone.
-<br /></p>
-<p><img src="img/clone_step1.png" /></p>
-<p><br />
-<br /></p>
-<p><strong>Step 2</strong>: from RStudio, go to New Project (also in the File menu).</p>
-<p><img src="img/new_project_1.png" />
-<br />
-<br /></p>
-<p><strong>Step 3</strong>: Select Version Control</p>
-<p><br />
-<br /></p>
-<p><img src="img/new_project_2.png" />
-<br />
-<br /></p>
-<p><strong>Step 4</strong>: Select Git</p>
-<p><br />
-<br /></p>
-<p><img src="img/new_project_3.png" />
-<br />
-<br /></p>
-<p><strong>Step 5</strong>: Paste it in the Repository URL field, and type <strong>tab</strong> to autofill the Project Directory name. Make sure you keep the Project Directory Name <strong>THE SAME</strong> as the repository name from the URL.</p>
-<p>Save it in your github folder (click on Browse) to do this.</p>
-<p><br />
-<br /></p>
-<p><img src="img/new_project_4.png" /></p>
-<p><br />
-<br /></p>
-</div>
-<div id="inspect-results" class="section level3">
-<h3><span class="header-section-number">4.5.5</span> Inspect results</h3>
-<p>If everything went well, the repository will be added to the list located here:
-<img src="img/select_project.png" /></p>
-<p><br />
-<br />
-when we cloned this from RStudio, it created an RStudio project, which you can tell because:</p>
-<pre><code>- our working directory is set to `~/github/Quickstart`  
-- there&#39;s an `.RProj` file in the &quot;Files&quot; tab 
-- the project is named in the top right hand corner
-- we have a git tab! This is how we will interface with Github.com</code></pre>
+<p><img src="img/github_clone_newproject.png" width="450px"></p>
+<p><br>
+<br>
+Opening this Project in a new Session opens up a new world of awesomeness from RStudio. Having different RStudio project sessions allows you to keep your work separate and organized. So you can collaborate with this collaborator on this repository while also working on your other repository from this morning. I tend to have a lot of projects going at one time:</p>
 <p><br></p>
-<p>When you first clone a repo through RStudio, RStudio will add an <code>.Rproj</code> file to your repo folder. If you didn’t add a <code>.gitignore</code> file when you originally created the repo on GitHub.com, RStudio will also add this for you. These will show up with little yellow <code>?</code> icons in your git tab. This is GitHub’s way of saying: “ooohh…..something changed in the repository”. In this case, when you click the box to stage them, they will turn into <code>A</code>s because they have been added to the repo.</p>
+<p><img src="img/Rproj_screenshot.jpg" /></p>
 <p><br></p>
-<p>And the repository will be saved to the Github folder on your computer:
-<br />
-<br /></p>
-<p><img src="img/cloned_repository.png" />
-<br />
-<br /></p>
-<p>Ta da!!!! The folder doesn’t contain much of interest, but we are going to change that.</p>
+<p>Have a look in your git tab.</p>
+<p>Like we saw this morning, when you first clone a repo through RStudio, RStudio will add an <code>.Rproj</code> file to your repo. And if you didn’t add a <code>.gitignore</code> file when you originally created the repo on GitHub.com, RStudio will also add this for you. So, Partner 1, let’s go ahead and sync this back to GitHub.com.</p>
+<p>Remember:</p>
+<p><img src="img/commit_overview.png" /></p>
+<p><br></p>
+<p>Let’s confirm that this was synced by looking at GitHub.com again. You may have to refresh the page, but you should see this commit where you added the <code>.Rproj</code> file.</p>
 </div>
-<div id="add-files-to-our-local-repo" class="section level3">
-<h3><span class="header-section-number">4.5.6</span> Add files to our local repo</h3>
-<p>The repository will contain:</p>
-<ul>
-<li>.gitignore file</li>
-<li>README.md</li>
-<li>Rproj</li>
-</ul>
-<p>And, I typically create the following:</p>
-<ul>
-<li>folders for “data” and “figures”<br />
-</li>
-<li>R scripts</li>
-<li>etc.</li>
-</ul>
-<p>We can use the Git tab of RStudio to monitor changes to files in the local repository. When files change, RStudio uses the following codes to describe how the files have been modified:</p>
-<p><img src="img/modified.png" /></p>
-<p>We will demonstrate this by copying a file into the repository folder on my computer. This file will be added to the Git tab beside a green box with an “A”!</p>
-<p>From this, you can see how the repository is being tracked, even when changes aren’t made through RStudio.</p>
-<p>We can also make changes through RStudio!</p>
+<div id="clone-to-a-new-rproject-partner-2" class="section level2">
+<h2><span class="header-section-number">5.6</span> Clone to a new Rproject (Partner 2)</h2>
+<p>Now it’s Partner 2’s turn! Partner 2, clone this repository following the same steps that Partner 1 just did. When you clone it, RStudio should not create any new files — why? Partner 1 already created and pushed eht the <code>.Rproj</code> and <code>.gitignore</code> files so they already exist in the repo.</p>
 </div>
-<div id="committing-your-changes-and-syncing-with-github.com" class="section level3">
-<h3><span class="header-section-number">4.5.7</span> Committing your changes and syncing with GitHub.com</h3>
-<p>Eventually you will want to commit the files you have created in your local repository and then send them to GitHub.com</p>
-<p>I tend to do this every time I finish a task (basically when I start getting nervous that I will lose my work). Once something is committed, it is very difficult to lose it.</p>
-<p>Committing saves the current saved version of your files to the official Git History. The commit includes all the staged files as well as a corresponding commit message (which you will write) and a unique identifier called a SHA ID. When you are ready to commit your changes, follow these steps:
-<br />
-<br /></p>
-<p><img src="img/commit_overview.png" />
-<br />
-<br /></p>
-<p>We walk through this process below:</p>
-<div id="pull" class="section level4">
-<h4><span class="header-section-number">4.5.7.1</span> Pull</h4>
-<p>From the Git tab, “Pull” the repository. This makes sure your local repository is synced with the remote repository. This is very important if other people are making changes to the repository or if you are working from multiple computers.
-<br />
-<br /></p>
-<p><img src="img/pull.png" />
-<br />
-<br /></p>
-</div>
-<div id="stage" class="section level4">
-<h4><span class="header-section-number">4.5.7.2</span> Stage</h4>
-<p>Stage the files you want to commit. In RStudio, this involves checking the “Staged” boxes:
-<br /></p>
-<p><img src="img/staged.png" />
-<br />
-<br /></p>
-</div>
-<div id="commit" class="section level4">
-<h4><span class="header-section-number">4.5.7.3</span> Commit</h4>
-<p>Add a commit message that describes the updates you made to these files. The message will be for your reference, so make it something you will find useful.</p>
-<p><br /></p>
-<p><img src="img/commit.png" />
-<br />
-<br /></p>
-</div>
-<div id="push" class="section level4">
-<h4><span class="header-section-number">4.5.7.4</span> Push</h4>
-<p>You will “Push” to save your local changes to Github.com.</p>
-<p><br /></p>
-<p><img src="img/push.png" />
-<br /></p>
-</div>
-</div>
-</div>
-<div id="explore-remote-github" class="section level2">
-<h2><span class="header-section-number">4.6</span> Explore remote Github</h2>
-<p>The files you added should be on github.com:
-<br /></p>
-<p><img src="img/Github_remote.png" />
-<br />
-<br /></p>
-<p><strong>Your turn!</strong></p>
-<p>This time let’s edit an existing file instead of adding something new. Open your README file by clicking on it in the Files pane (lower right corner). Write a few lines of text, save, and see what happens in your Git Tab. Sync it to your remote repository (Github.com).</p>
-<p>Also, go to your Finder/Windows Explorer, and copy-paste something into your local GitHub repo. Then go back to RStudio and confirm that git tracked it. Remember, git will track anything within that folder (the way Dropbox does), it’s not specific to RStudio!</p>
-</div>
-<div id="going-back-in-time" class="section level2">
-<h2><span class="header-section-number">4.7</span> Going back in time</h2>
-<p>One thing that I love about about Github is that it is easy to see how files have changed over time. Usually I compare commits through github.com:
-<br />
-<br /></p>
-<p><img src="img/commit_history.png" />
-<br />
-<br />
-<br />
-<br /></p>
-<p><img src="img/commit_compare_2.png" />
-<br />
-<br /></p>
-<p>You can click on the commits to see how the files changed from the previous commit:
-<br />
-<br /></p>
-<p><img src="img/commit_compare_3.png" />
-<br />
-<br /></p>
-</div>
-<div id="happy-git-with-r" class="section level2">
-<h2><span class="header-section-number">4.8</span> Happy Git with R</h2>
-<p>If you have problems, we’ll help you out using Jenny Bryan’s <a href="http://happygitwithr.com">HappyGitWithR</a>, particularly the sections on <a href="http://happygitwithr.com/rstudio-see-git.html">Detect Git from RStudio</a> and <a href="http://happygitwithr.com/troubleshooting.html">RStudio, Git, GitHub Hell (troubleshooting)</a>. So as we are coming around, have a look at it and see if you can help troubleshoot too!</p>
+<div id="edit-a-file-and-sync-partner-2" class="section level2">
+<h2><span class="header-section-number">5.7</span> Edit a file and sync (Partner 2)</h2>
+<p>Let’s have Partner 2 add some information to the README.md. Let’s have them write:</p>
+<pre><code>Collaborators: 
 
+- Partner 2&#39;s name
+</code></pre>
+<p>When we save the README.md, And now let’s sync back to GitHub.</p>
+<p><img src="img/commit_overview.png" /></p>
+<p><br></p>
+<p>When we inspect on GitHub.com, click to view all the commits, you’ll see commits logged from both Partner 1 and 2!</p>
+<blockquote>
+<p>Question: Would you still be able clone a repository that you are not a collaborator on? What do you think would happen? Try it! Can you sync back?</p>
+</blockquote>
+</div>
+<div id="state-of-the-repository" class="section level2">
+<h2><span class="header-section-number">5.8</span> State of the Repository</h2>
+<p>OK, so where do things stand right now? GitHub.com has the most recent versions of all the repository’s files. Partner 2 also has these most recent versions locally. How about Partner 1?</p>
+<p>Partner 1 does not have the most recent versions of everything on their computer.</p>
+<p>Question: How can we change that? Or how could we even check?</p>
+<p>Answer: PULL.</p>
+<p>Let’s have Partner 1 go back to RStudio and Pull. If their files aren’t up-to-date, this will pull the most recent versions to their local computer. And if they already did have the most recent versions? Well, pulling doesn’t cost anything (other than an internet connection), so if everything is up-to-date, pulling is fine too.</p>
+<p>I recommend pulling every time you come back to a collaborative repository. Whether you haven’t opened RStudio in a month or you’ve just been away for a lunch break, pull. It might not be necessary, but it can save a lot of heartache later.</p>
+</div>
+<div id="merge-conflicts" class="section level2">
+<h2><span class="header-section-number">5.9</span> Merge conflicts</h2>
+<p>What kind of heartache are we talking about? Let’s explore. <strong>Stop and watch me create and solve a merge conflict with my Partner 2, and then you will have time to recreate this with your partner.</strong> Here’s what I am going to do:</p>
+<p>Within a file, GitHub tracks changes line-by-line. So you can also have collaborators working on different lines within the same file and GitHub will be able to weave those changes into each other – that’s it’s job! It’s when you have collaborators working on <em>the same lines within the same file</em> that you can have <strong>merge conflicts</strong>. Merge conflicts can be frustrating, but they are actually trying to help you (kind of like R’s error messages). They occur when GitHub can’t make a decision about what should be on a particular line and needs a human (you) to decide. And this is good – you don’t want GitHub to decide for you, it’s important that you make that decision.</p>
+<p>So let’s test this. Let’s have both Partners 1 and 2 go to RStudio and pull so you have the most recent versions of all your files. Now, Partners 1 and 2, both go to the README, and on Line 7, write something, anything. I’m not going to give any examples because I want both Partners to write something different. And be sure to save the README.</p>
+<p>OK. Now, let’s have Partner 2 sync: pull, stage, commit, push. Great.</p>
+<p>Now, when Partner 2 is done, let’s have Partner 1 (me) try.</p>
+<p>Partner 1: pull —- Error! Merge conflict!</p>
+<p><img src="img/github_mergeconflict.png" /></p>
+<p>So Partner 1 is not allowed to pull, it failed. GitHub is protecting Partner 1 because if they did successfully pull, their work would be overwritten by whatever Partner 2 had written. So GitHub is going to make a human (Partner 1 in this case) decide. GitHub says, either commit this work first, or “stash it” (I interpret that as saving a copy of the README in another folder somewhere outside of this GitHub repository).</p>
+<p>Let’s follow their advice and have Partner 1 commit. Great. Now let’s pull again.</p>
+<p>Still not happy!</p>
+<p><img src="img/github_mergeconflict2.png" /></p>
+<p><br></p>
+<p>OK, actually, we’re just moving along this same problem that we know that we’ve created: Both Partner 1 and 2 have both added new information to the same line. You can see that the pop-up box is saying that there is a CONFLICT and the merge has not happened. OK. We can close that window and inspect.</p>
+<p>Notice that in the git tab, there are orange <code>U</code>s; this means that there is an unresolved conflict, and it is not staged with a check anymore because modifications have occurred to the file since it has been staged.</p>
+<p>Let’s look at the README file itself. We got a preview in the diff pane that there is some new text going on in our README file:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="op">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="st"> </span>HEAD</a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">Julie is collaborating on this README.</a>
+<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="op">==</span><span class="er">=====</span></a>
+<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="er">**</span>Jamie is adding lines here.<span class="op">**</span></a>
+<a class="sourceLine" id="cb83-5" data-line-number="5"><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="st"> </span>05a189b23372f0bdb5b42630f8cb318003cee19b</a></code></pre></div>
+<p>In this example, Partner 1 is Jamie and Partner 2 is Julie. GitHub is displaying the line that Julie wrote and the line Jamie wrote separated by <code>=======</code>. So these are the two choices that Partner 2 has to decide between, which one do you want to keep? Where where does this decision start and end? The lines are bounded by <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;long commit identifier</code>.</p>
+<p>So, to resolve this merge conflict, Partner 2 has to chose, and delete everything except the line they want. So, they will delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code>, <code>=====</code>, <code>&gt;&gt;&gt;&gt;long commit identifier</code> and one of the lines that they don’t want to keep.</p>
+<p>Do that, and let’s try again. In this example, we’ve kept Jamie’s line:</p>
+<p><img src="img/github_mergeconflict3.png" /></p>
+<p><br></p>
+<p>Then be sure to stage, and write a commit message. I often write “resolving merge conflict” or something so I know what I was up to. When I stage the file, notice how now my edits look like a simple line replacement (compare with the image above before it was re-staged):</p>
+<p><img src="img/github_mergeconflict4.png" /></p>
+<div id="your-turn-6" class="section level3">
+<h3><span class="header-section-number">5.9.1</span> Your turn</h3>
+<p>Create a merge conflict with your partner, like we did in the example above. And try other ways to get and solve merge conflicts. For example, when you get the following error message, try both ways (commit or stash. Stash means copy/move it somewhere else, for example, on your Desktop temporarily).</p>
+<p><img src="img/github_mergeconflict.png" /></p>
+</div>
+</div>
+<div id="how-do-you-avoid-merge-conflicts" class="section level2">
+<h2><span class="header-section-number">5.10</span> How do you avoid merge conflicts?</h2>
+<p>I’d say pull often, commit and sync often.</p>
+<p>Also, talk with your collaborators. Although our Ocean Health Index project is highly collaborative, we are actually rarely working on the exact same file at any given time. And if we are, we are also on Slack, Gchat, or sitting next to the person.</p>
+<p>But merge conflicts will occur and some of them will be heartbreaking and demoralizing. They happen to me when I collaborate with myself between my work computer and laptop. So protect yourself by pulling and syncing often!</p>
+</div>
+<div id="create-your-collaborative-website" class="section level2">
+<h2><span class="header-section-number">5.11</span> Create your collaborative website</h2>
+<p>OK. Let’s have Partner 2 create a new RMarkdown file. Here’s what they will do:</p>
+<ol style="list-style-type: decimal">
+<li>Pull!</li>
+<li>Create a new RMarkdown file <strong>and name it <code>index.Rmd</code></strong>. Make sure it’s all lowercase, and named <code>index.Rmd</code>. This will be the homepage for our website!</li>
+<li>Maybe change the title inside the Rmd, call it “Our website”</li>
+<li>Knit!</li>
+<li>Save and sync your .Rmd and your .html files
+<ul>
+<li>(pull, stage, commit, pull, push)</li>
+</ul></li>
+<li>Go to GitHub.com and go to your rendered website! Where is it? Figure out your website’s url from your github repo’s url. For example:
+<ul>
+<li>my github repo: <a href="https://github.com/jules32/collab-research" class="uri">https://github.com/jules32/collab-research</a></li>
+<li>my website url: <a href="https://jules32.github.io/collab-research/" class="uri">https://jules32.github.io/collab-research/</a></li>
+<li>note that the url starts with my <strong>username.github.io</strong></li>
+</ul></li>
+</ol>
+<p>So cool! On websites, if something is called <code>index.html</code>, that defaults to the home page. So <a href="https://jules32.github.io/collab-research/" class="uri">https://jules32.github.io/collab-research/</a> is the same as <a href="https://jules32.github.io/collab-research/index.html" class="uri">https://jules32.github.io/collab-research/index.html</a>. If you name your RMarkdown file <code>my_research.Rmd</code>, the url will become <a href="https://jules32.github.io/collab-research/my_research.html" class="uri">https://jules32.github.io/collab-research/my_research.html</a>.</p>
+</div>
+<div id="your-turn-7" class="section level2">
+<h2><span class="header-section-number">5.12</span> Your turn</h2>
+<p>Here is some collaborative analysis you can do on your own. We’ll be playing around with airline flights data, so let’s get setup a bit.</p>
+<ol style="list-style-type: decimal">
+<li>Person 1: clean up the README to say something about you two, the authors.</li>
+<li>Person 2: edit the <code>index.Rmd</code> or create a new RMarkdown file: maybe add something about the authors, and knit it.</li>
+<li>Both of you: sync to GitHub.com (pull, stage, commit, push).</li>
+<li>Both of you: once you’ve both synced (talk to each other about it!), pull again. You should see each others’ work on your computer.</li>
+<li>Person 1: in the RMarkdown file, add a bit of the plan. We’ll be exploring the <code>nycflights13</code> dataset. This is data on flights departing New York City in 2013.</li>
+<li>Person 2: in the README, add a bit of the plan.</li>
+<li>Both of you: sync</li>
+</ol>
+</div>
+<div id="explore-on-github.com" class="section level2">
+<h2><span class="header-section-number">5.13</span> Explore on GitHub.com</h2>
+<p>Now, let’s look at the repo again on GitHub.com. You’ll see those new files appear, and the commit history has increased.</p>
+<div id="commit-history" class="section level3">
+<h3><span class="header-section-number">5.13.1</span> Commit History</h3>
+<p>You’ll see that the number of commits for the repo has increased, let’s have a look. You can see the history of both of you.</p>
+</div>
+<div id="blame" class="section level3">
+<h3><span class="header-section-number">5.13.2</span> Blame</h3>
+<p>Now let’s look at a single file, starting with the README file. We’ve explored the “Raw” and “History” options in the top-right of the file, but we haven’t really explored the “Blame” option. Let’s look now. Blame shows you line-by-line who authored the most recent version of the file you see. This is super useful if you’re trying to understand logic; you know who to ask for questions or attribute credit.</p>
+</div>
+<div id="issues" class="section level3">
+<h3><span class="header-section-number">5.13.3</span> Issues</h3>
+<p>Now let’s have a look at issues. This is a way you can communicate to others about plans for the repo, questions, etc. Note that issues are public if the repository is public.</p>
+<p><img src="img/github-issues.png" /></p>
+<p>Let’s create a new issue with the title “NYC flights”.</p>
+<p>In the text box, let’s write a note to our collaborator. You can use Markdown in this text box, which means all of your header and bullet formatting will come through. You can also select these options by clicking them just above the text box.</p>
+<p>Let’s have one of you write something here. I’m going to write:</p>
+<pre><code>Hi @jafflerbach! 
+
+# first priority
+
+- explore NYC flights
+- plot interesting things</code></pre>
+<p>Note that I have my collaborator’s GitHub name with a <code>@</code> symbol. This is going to email her directly so that she sees this issue. I can click the “Preview” button at the top left of the text box to see how this will look rendered in Markdown. It looks good!</p>
+<p>Now let’s click submit new issue.</p>
+<p>On the right side, there are a bunch of options for categorizing and organizing your issues. You and your collaborator may want to make some labels and timelines, depending on the project.</p>
+<p>Another feature about issues is whether you want any notifications to this repository. Click where it says “Unwatch” up at the top. You’ll see three options: “Not watching”, “Watching”, and “Ignoring”. By default, you are watching these issues because you are a collaborator to the repository. But if you stop being a big contributor to this project, you may want to switch to “Not watching”. Or, you may want to ask an outside person to watch the issues. Or you may want to watch another repo yourself!</p>
+<p><img src="img/github-collab.png" /></p>
+<p>Let’s have Person 2 respond to the issue affirming the plan.</p>
+</div>
+</div>
+<div id="nyc-flights-exploration" class="section level2">
+<h2><span class="header-section-number">5.14</span> NYC flights exploration</h2>
+<p>Let’s continue this workflow with your collaborator, syncing to GitHub often and practicing what we’ve learned so far. We will get started together and then you and your collaborator will work on your own.</p>
+<p>Here’s what we’ll be doing (from <a href="http://r4ds.had.co.nz/transform.html">R for Data Science’s Transform Chapter</a>):</p>
+<p><strong>Data</strong>: You will be exploring a dataset on flights departing New York City in 2013. These data are actually in a package called <code>nycflights13</code>, so we can load them the way we would any other package.</p>
+<p>Let’s have Person 1 write this in the RMarkdown document (Person 2 just listen for a moment; we will sync this to you in a moment).</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">library</span>(nycflights13) <span class="co"># install.packages(&#39;nycflights13&#39;)</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>This data frame contains all 336,776 flights that departed from New York City in 2013. The data comes from the US <a href="http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&amp;Link=0">Bureau of Transportation Statistics</a>, and is documented in <code>?flights</code>.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">flights</a></code></pre></div>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # … with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Let’s select all flights on January 1st with:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 842 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # … with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>To use filtering effectively, you have to know how to select the observations that you want using the comparison operators. R provides the standard suite: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal). We learned these operations yesterday. But there are a few others to learn as well.</p>
+<div id="sync" class="section level4">
+<h4><span class="header-section-number">5.14.0.1</span> Sync</h4>
+<p>Sync this RMarkdown back to GitHub so that your collaborator has access to all these notes. Person 2 should then pull and will continue with the following notes:</p>
+</div>
+<div id="logical-operators" class="section level3">
+<h3><span class="header-section-number">5.14.1</span> Logical operators</h3>
+<p>Multiple arguments to <code>filter()</code> are combined with “and”: every expression must be true in order for a row to be included in the output. For other types of combinations, you’ll need to use Boolean operators yourself:</p>
+<ul>
+<li><code>&amp;</code> is “and”</li>
+<li><code>|</code> is “or”</li>
+<li><code>!</code> is “not”</li>
+</ul>
+<p>Let’s have a look:</p>
+<p>The following code finds all flights that departed in November or December:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</a></code></pre></div>
+<p>The order of operations doesn’t work like English. You can’t write <code>filter(flights, month == 11 | 12)</code>, which you might literally translate into “finds all flights that departed in November or December”. Instead it finds all months that equal <code>11 | 12</code>, an expression that evaluates to <code>TRUE</code>. In a numeric context (like here), <code>TRUE</code> becomes one, so this finds all flights in January, not November or December. This is quite confusing!</p>
+<p>A useful short-hand for this problem is <code>x %in% y</code>. This will select every row where <code>x</code> is one of the values in <code>y</code>. We could use it to rewrite the code above:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">nov_dec &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</a></code></pre></div>
+<p>Sometimes you can simplify complicated subsetting by remembering De Morgan’s law: <code>!(x &amp; y)</code> is the same as <code>!x | !y</code>, and <code>!(x | y)</code> is the same as <code>!x &amp; !y</code>. For example, if you wanted to find flights that weren’t delayed (on arrival or departure) by more than two hours, you could use either of the following two filters:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">filter</span>(flights, <span class="op">!</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span> <span class="op">|</span><span class="st"> </span>dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>))</a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">filter</span>(flights, arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>, dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>)</a></code></pre></div>
+<p>Whenever you start using complicated, multipart expressions in <code>filter()</code>, consider making them explicit variables instead. That makes it much easier to check your work.</p>
+</div>
+</div>
+<div id="your-turn-8" class="section level2">
+<h2><span class="header-section-number">5.15</span> Your turn</h2>
+<p>OK: Person 2, sync this to GitHub, and Person 1 will pull so that we all have the most current information.</p>
+<p>With your partner, do the following tasks. Each of you should work on one task at a time. Since we’re working closely on the same document, talk to each other and have one person create a heading and a R chunk, and then sync; the other person can then create a heading and R chunk and sync, and then you can both work safely.</p>
+<p>Remember to make your commit messages useful!</p>
+<p>As you work, you may get merge conflicts. This is part of collaborating in GitHub; we will walk through and help you with these and also teach the whole group.</p>
+<div id="use-logicals" class="section level3">
+<h3><span class="header-section-number">5.15.1</span> Use logicals</h3>
+<ol style="list-style-type: decimal">
+<li><p>Find all flights that:</p>
+<ol style="list-style-type: decimal">
+<li>Had an arrival delay of two or more hours</li>
+<li>Flew to Houston (<code>IAH</code> or <code>HOU</code>)</li>
+<li>Were operated by United, American, or Delta</li>
+<li>Departed in summer (July, August, and September)</li>
+<li>Arrived more than two hours late, but didn’t leave late</li>
+<li>Were delayed by at least an hour, but made up over 30 minutes in flight</li>
+<li>Departed between midnight and 6am (inclusive)</li>
+</ol></li>
+<li><p>Another useful dplyr filtering helper is <code>between()</code>. What does it do?
+Can you use it to simplify the code needed to answer the previous
+challenges?</p></li>
+</ol>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">5.15.2</span> Missing values</h3>
+<p>To answer these questions: read some background below.</p>
+<ol style="list-style-type: decimal">
+<li><p>How many flights have a missing <code>dep_time</code>? What other variables are
+missing? What might these rows represent?</p></li>
+<li><p>Why is <code>NA ^ 0</code> not missing? Why is <code>NA | TRUE</code> not missing?
+Why is <code>FALSE &amp; NA</code> not missing? Can you figure out the general
+rule? (<code>NA * 0</code> is a tricky counterexample!)</p></li>
+</ol>
+<p>One important feature of R that can make comparison tricky are missing values, or <code>NA</code>s (“not availables”). <code>NA</code> represents an unknown value so missing values are “contagious”: almost any operation involving an unknown value will also be unknown.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="ot">NA</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="dv">10</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="ot">NA</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>The most confusing result is this one:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>It’s easiest to understand why this is true with a bit more context:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># Let x be Mary&#39;s age. We don&#39;t know how old she is.</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="co"># Let y be John&#39;s age. We don&#39;t know how old he is.</span></a>
+<a class="sourceLine" id="cb103-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb103-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb103-7" data-line-number="7"><span class="co"># Are John and Mary the same age?</span></a>
+<a class="sourceLine" id="cb103-8" data-line-number="8">x <span class="op">==</span><span class="st"> </span>y</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># We don&#39;t know!</span></a></code></pre></div>
+<p>If you want to determine if a value is missing, use <code>is.na()</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">is.na</span>(x)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+
+</div>
 </div>
 </div>
             </section>
@@ -750,8 +746,8 @@ when we cloned this from RStudio, it created an RStudio project, which you can t
           </div>
         </div>
       </div>
-<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="collaborating.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="how-to-write-well.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
