@@ -19,7 +19,7 @@ description: "This is the primary information document for members of the MME La
 
 # Welcome {#welcome}
 
-<img src="img/richardsonlab_banner_small.png" width="600px" style="left" />
+<img src="img/richardsonlab_banner_small.png" width="800px" style="left" />
 
 Welcome to the Mathematical Marine Ecology Lab. 
 

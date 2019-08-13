@@ -13,4 +13,4 @@ RnwWeave: knitr
 LaTeX: XeLaTeX
 
 BuildType: Website
-WebsitePath: /System/Volumes/Data/Users/jason/GitHub/MathMarEcol_Welcome
+WebsitePath: /System/Volumes/Data/Users/jason/GitHub/Welcome
