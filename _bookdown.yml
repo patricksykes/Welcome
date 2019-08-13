@@ -6,7 +6,8 @@ rmd_files: [
   "index.Rmd", 
   "rstudio.Rmd",
   "programming.Rmd",
-  "github.Rmd", 
+  "github.Rmd",
+  "collaborating.Rmd",
   "writing.Rmd", 
   "getafix.Rmd", 
   "gcm.Rmd"]

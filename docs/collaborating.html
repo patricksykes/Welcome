@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Programming in R | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
+  <title>Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Programming in R | Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta property="og:title" content="Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="MathMarEcol/Welcome" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Programming in R | Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta name="twitter:title" content="Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   
   <meta name="twitter:description" content="This is the primary information document for members of the MME Lab." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rstudio.html">
-<link rel="next" href="github.html">
+<link rel="prev" href="github.html">
+<link rel="next" href="how-to-write-well.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -66,7 +65,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -410,487 +409,336 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="programming" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Programming in R</h1>
-<div id="objectives-resources-1" class="section level2">
-<h2><span class="header-section-number">3.1</span> Objectives &amp; Resources</h2>
-<p>Now we are going to build a little analysis. We will learn to automate our analyses with a for loop. We will make figures, and save them each with automated labeling. Then, we will join data from different files and conditionally label them with if/else statements.</p>
-<div id="objectives-1" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Objectives</h3>
+<div id="collaborating" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Collaborating with GitHub</h1>
+<div id="objectives-resources-2" class="section level2">
+<h2><span class="header-section-number">5.1</span> Objectives &amp; Resources</h2>
+<p>The collaborative power of GitHub and RStudio is really game changing. So far we’ve been collaborating with our most important collaborator: ourselves. But, we are lucky that in science we have so many other collaborators, so let’s learn how to accelerate our collaborations with them through GitHub!</p>
+<p>We are going to teach you the simplest way to collaborate with someone, which is for both of you to have privileges to edit and add files to a repository. GitHub is built for software developer teams, and there is a lot of features that limit who can directly edit files, but we don’t need to start there.</p>
+<p>We will do this all with a partner, and we’ll walk through some things all together, and then give you a chance to work with your collaborator on your own.</p>
+<div id="objectives-3" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Objectives</h3>
+<p>We are going to create a website with a collaborator!</p>
 <ul>
-<li>create an R script</li>
-<li>for loops</li>
-<li>joining data</li>
-<li>if statements</li>
+<li>create a new repo and give permission to a collaborator</li>
+<li>open as a new RStudio project!</li>
+<li>collaborate with a partner</li>
+<li>explore github.com blame, history, issues</li>
 </ul>
-<!---
-- make sure your loop worked like you wanted
-- if statements (conditionals) 
-- write message() to yourself
-- list.files()
-- importing and writing data
-- write a local copy of gapminder data to data/ folder
-- installing packages from github
-
-**Resources**
---->
-<!--- Would love to include:
-
-When trying to see if a number or text is equal to some *single* value, use `==`. To check it against *multiple* values, use `%in%`. mine’s "%!in%" <- Negate("%in%")
-
-list.files
-file.path()
-message() (with an if statement maybe)
-get file extensions https://stat.ethz.ch/R-manual/R-devel/library/tools/html/fileutils.html
---->
+<!---**Resources**--->
 </div>
 </div>
-<div id="analysis-plan" class="section level2">
-<h2><span class="header-section-number">3.2</span> Analysis plan</h2>
-<p>OK, here is the plan for our analysis. We want to plot the gdpPercap for each country in the gapminder data frame. So that’s 142 separate plots! We will automate this, labeling each one with its name and saving it in a folder called figures. We will learn a bunch of things as we go.</p>
+<div id="create-repo-partner-1" class="section level2">
+<h2><span class="header-section-number">5.2</span> Create repo (Partner 1)</h2>
+<p>Team up with a partner sitting next to you. Partner 1 will create a new repository. We will do this in the same way that we did in Chapter <a href="github.html#github">4</a>: <a href="github.html#create-a-repository-on-github.com">Create a repository on Github.com</a>.</p>
 </div>
-<div id="create-an-r-script" class="section level2">
-<h2><span class="header-section-number">3.3</span> Create an R script</h2>
-<p>OK, now, we are going to create an R script. What is an R script? It’s a text file with a .R extension. We’ve been writing R code in R Markdown files so far; R scripts are just R code without the Markdown along with it.</p>
-<p>Go to File &gt; New File &gt; R Script (or click the green plus in the top left corner).</p>
-<p>Let’s start off with a few comments so that we know what it is for, and save it:</p>
-<pre><code>## gapminder-analysis.R
-## analysis with gapminder data
-## J Lowndes lowndes@nceas.ucsb.edu</code></pre>
-<p>We’ll be working with the gapminder data again so let’s read it in here:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## load libraries</span>
-<span class="kw">library</span>(tidyverse)
+<div id="create-a-gh-pages-branch-partner-1" class="section level2">
+<h2><span class="header-section-number">5.3</span> Create a gh-pages branch (Partner 1)</h2>
+<p>We aren’t going to talk about branches very much, but they are a powerful feature of git/GitHub. I think of it as creating a copy of your work that becomes a parallel universe that you can modify safely because it’s not affecting your original work. And then you can choose to merge the universes back together if and when you want. By default, when you create a new repo you begin with one branch, and it is named <code>master</code>. When you create new branches, you can name them whatever you want. However, if you name one <code>gh-pages</code> (all lowercase, with a <code>-</code> and no spaces), this will let you create a website. And that’s our plan. So, Partner 1, do this to create a <code>gh-pages</code> branch:</p>
+<p>On the homepage for your repo on GitHub.com, click the button that says “Branch:master”. Here, you can switch to another branch (right now there aren’t any others besides <code>master</code>), or create one by typing a new name.</p>
+<p><img src="img/github-branch.png" width="350px"></p>
+<p><br></p>
+<p>Let’s type <code>gh-pages</code>.</p>
+<p><br></p>
+<p><img src="img/github_create-branch_gh-pages.png" width="350px"></p>
+<p>Let’s also change <code>gh-pages</code> to the default branch and delete the master branch: this will be a one-time-only thing that we do here:</p>
+<p>First click to control branches:</p>
+<p><img src="img/github-branch2.png" width="350px"></p>
+<p>And then click to change the default branch to <code>gh-pages</code>. I like to then delete the <code>master</code> branch when it has the little red trash can next to it. It will make you confirm that you really want to delete it, which I do!</p>
+<p><img src="img/github-change-branch.png" width="450px"></p>
+</div>
+<div id="give-your-collaborator-administration-privileges-partner-1-and-2" class="section level2">
+<h2><span class="header-section-number">5.4</span> Give your collaborator administration privileges (Partner 1 and 2)</h2>
+<p>Now, Partner 1, go into Settings &gt; Collaborators &gt; enter Partner 2’s (your collaborator’s) username.</p>
+<p>Partner 2 then needs to check their email and accept as a collaborator. Notice that your collaborator has “Push access to the repository” (highlighted below):</p>
+<p><img src="img/github_collab.png" /></p>
+</div>
+<div id="clone-to-a-new-rproject-partner-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> Clone to a new Rproject (Partner 1)</h2>
+<p>Now let’s have Partner 1 clone the repository to their local computer. We’ll do this through RStudio like we did before (see Chapter <a href="github.html#github">4</a>: <a href="github.html#clone-your-repository-using-rstudio">Clone your repository using RStudio</a>), but with a final additional step before hitting “Create Project”: select “Open in a new Session”.</p>
+<p><br></p>
+<p><img src="img/github_clone_newproject.png" width="450px"></p>
+<p><br>
+<br>
+Opening this Project in a new Session opens up a new world of awesomeness from RStudio. Having different RStudio project sessions allows you to keep your work separate and organized. So you can collaborate with this collaborator on this repository while also working on your other repository from this morning. I tend to have a lot of projects going at one time:</p>
+<p><br></p>
+<p><img src="img/Rproj_screenshot.jpg" /></p>
+<p><br></p>
+<p>Have a look in your git tab.</p>
+<p>Like we saw this morning, when you first clone a repo through RStudio, RStudio will add an <code>.Rproj</code> file to your repo. And if you didn’t add a <code>.gitignore</code> file when you originally created the repo on GitHub.com, RStudio will also add this for you. So, Partner 1, let’s go ahead and sync this back to GitHub.com.</p>
+<p>Remember:</p>
+<p><img src="img/commit_overview.png" /></p>
+<p><br></p>
+<p>Let’s confirm that this was synced by looking at GitHub.com again. You may have to refresh the page, but you should see this commit where you added the <code>.Rproj</code> file.</p>
+</div>
+<div id="clone-to-a-new-rproject-partner-2" class="section level2">
+<h2><span class="header-section-number">5.6</span> Clone to a new Rproject (Partner 2)</h2>
+<p>Now it’s Partner 2’s turn! Partner 2, clone this repository following the same steps that Partner 1 just did. When you clone it, RStudio should not create any new files — why? Partner 1 already created and pushed eht the <code>.Rproj</code> and <code>.gitignore</code> files so they already exist in the repo.</p>
+</div>
+<div id="edit-a-file-and-sync-partner-2" class="section level2">
+<h2><span class="header-section-number">5.7</span> Edit a file and sync (Partner 2)</h2>
+<p>Let’s have Partner 2 add some information to the README.md. Let’s have them write:</p>
+<pre><code>Collaborators: 
 
-<span class="co">## read in gapminder data</span>
-gapminder &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv&#39;</span>)</code></pre>
-<p>Remember, like in R Markdown, hitting return does not execute this command. To execute it, we need to get what we typed in the script down into the console. Here is how we can do that:</p>
+- Partner 2&#39;s name
+</code></pre>
+<p>When we save the README.md, And now let’s sync back to GitHub.</p>
+<p><img src="img/commit_overview.png" /></p>
+<p><br></p>
+<p>When we inspect on GitHub.com, click to view all the commits, you’ll see commits logged from both Partner 1 and 2!</p>
+<blockquote>
+<p>Question: Would you still be able clone a repository that you are not a collaborator on? What do you think would happen? Try it! Can you sync back?</p>
+</blockquote>
+</div>
+<div id="state-of-the-repository" class="section level2">
+<h2><span class="header-section-number">5.8</span> State of the Repository</h2>
+<p>OK, so where do things stand right now? GitHub.com has the most recent versions of all the repository’s files. Partner 2 also has these most recent versions locally. How about Partner 1?</p>
+<p>Partner 1 does not have the most recent versions of everything on their computer.</p>
+<p>Question: How can we change that? Or how could we even check?</p>
+<p>Answer: PULL.</p>
+<p>Let’s have Partner 1 go back to RStudio and Pull. If their files aren’t up-to-date, this will pull the most recent versions to their local computer. And if they already did have the most recent versions? Well, pulling doesn’t cost anything (other than an internet connection), so if everything is up-to-date, pulling is fine too.</p>
+<p>I recommend pulling every time you come back to a collaborative repository. Whether you haven’t opened RStudio in a month or you’ve just been away for a lunch break, pull. It might not be necessary, but it can save a lot of heartache later.</p>
+</div>
+<div id="merge-conflicts" class="section level2">
+<h2><span class="header-section-number">5.9</span> Merge conflicts</h2>
+<p>What kind of heartache are we talking about? Let’s explore. <strong>Stop and watch me create and solve a merge conflict with my Partner 2, and then you will have time to recreate this with your partner.</strong> Here’s what I am going to do:</p>
+<p>Within a file, GitHub tracks changes line-by-line. So you can also have collaborators working on different lines within the same file and GitHub will be able to weave those changes into each other – that’s it’s job! It’s when you have collaborators working on <em>the same lines within the same file</em> that you can have <strong>merge conflicts</strong>. Merge conflicts can be frustrating, but they are actually trying to help you (kind of like R’s error messages). They occur when GitHub can’t make a decision about what should be on a particular line and needs a human (you) to decide. And this is good – you don’t want GitHub to decide for you, it’s important that you make that decision.</p>
+<p>So let’s test this. Let’s have both Partners 1 and 2 go to RStudio and pull so you have the most recent versions of all your files. Now, Partners 1 and 2, both go to the README, and on Line 7, write something, anything. I’m not going to give any examples because I want both Partners to write something different. And be sure to save the README.</p>
+<p>OK. Now, let’s have Partner 2 sync: pull, stage, commit, push. Great.</p>
+<p>Now, when Partner 2 is done, let’s have Partner 1 (me) try.</p>
+<p>Partner 1: pull —- Error! Merge conflict!</p>
+<p><img src="img/github_mergeconflict.png" /></p>
+<p>So Partner 1 is not allowed to pull, it failed. GitHub is protecting Partner 1 because if they did successfully pull, their work would be overwritten by whatever Partner 2 had written. So GitHub is going to make a human (Partner 1 in this case) decide. GitHub says, either commit this work first, or “stash it” (I interpret that as saving a copy of the README in another folder somewhere outside of this GitHub repository).</p>
+<p>Let’s follow their advice and have Partner 1 commit. Great. Now let’s pull again.</p>
+<p>Still not happy!</p>
+<p><img src="img/github_mergeconflict2.png" /></p>
+<p><br></p>
+<p>OK, actually, we’re just moving along this same problem that we know that we’ve created: Both Partner 1 and 2 have both added new information to the same line. You can see that the pop-up box is saying that there is a CONFLICT and the merge has not happened. OK. We can close that window and inspect.</p>
+<p>Notice that in the git tab, there are orange <code>U</code>s; this means that there is an unresolved conflict, and it is not staged with a check anymore because modifications have occurred to the file since it has been staged.</p>
+<p>Let’s look at the README file itself. We got a preview in the diff pane that there is some new text going on in our README file:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="op">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="st"> </span>HEAD</a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">Julie is collaborating on this README.</a>
+<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="op">==</span><span class="er">=====</span></a>
+<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="er">**</span>Jamie is adding lines here.<span class="op">**</span></a>
+<a class="sourceLine" id="cb83-5" data-line-number="5"><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="st"> </span>05a189b23372f0bdb5b42630f8cb318003cee19b</a></code></pre></div>
+<p>In this example, Partner 1 is Jamie and Partner 2 is Julie. GitHub is displaying the line that Julie wrote and the line Jamie wrote separated by <code>=======</code>. So these are the two choices that Partner 2 has to decide between, which one do you want to keep? Where where does this decision start and end? The lines are bounded by <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;long commit identifier</code>.</p>
+<p>So, to resolve this merge conflict, Partner 2 has to chose, and delete everything except the line they want. So, they will delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code>, <code>=====</code>, <code>&gt;&gt;&gt;&gt;long commit identifier</code> and one of the lines that they don’t want to keep.</p>
+<p>Do that, and let’s try again. In this example, we’ve kept Jamie’s line:</p>
+<p><img src="img/github_mergeconflict3.png" /></p>
+<p><br></p>
+<p>Then be sure to stage, and write a commit message. I often write “resolving merge conflict” or something so I know what I was up to. When I stage the file, notice how now my edits look like a simple line replacement (compare with the image above before it was re-staged):</p>
+<p><img src="img/github_mergeconflict4.png" /></p>
+<div id="your-turn-6" class="section level3">
+<h3><span class="header-section-number">5.9.1</span> Your turn</h3>
+<p>Create a merge conflict with your partner, like we did in the example above. And try other ways to get and solve merge conflicts. For example, when you get the following error message, try both ways (commit or stash. Stash means copy/move it somewhere else, for example, on your Desktop temporarily).</p>
+<p><img src="img/github_mergeconflict.png" /></p>
+</div>
+</div>
+<div id="how-do-you-avoid-merge-conflicts" class="section level2">
+<h2><span class="header-section-number">5.10</span> How do you avoid merge conflicts?</h2>
+<p>I’d say pull often, commit and sync often.</p>
+<p>Also, talk with your collaborators. Although our Ocean Health Index project is highly collaborative, we are actually rarely working on the exact same file at any given time. And if we are, we are also on Slack, Gchat, or sitting next to the person.</p>
+<p>But merge conflicts will occur and some of them will be heartbreaking and demoralizing. They happen to me when I collaborate with myself between my work computer and laptop. So protect yourself by pulling and syncing often!</p>
+</div>
+<div id="create-your-collaborative-website" class="section level2">
+<h2><span class="header-section-number">5.11</span> Create your collaborative website</h2>
+<p>OK. Let’s have Partner 2 create a new RMarkdown file. Here’s what they will do:</p>
 <ol style="list-style-type: decimal">
-<li>copy-paste this line into the console.</li>
-<li>select the line (or simply put the cursor there), and click ‘Run’. This is available from</li>
+<li>Pull!</li>
+<li>Create a new RMarkdown file <strong>and name it <code>index.Rmd</code></strong>. Make sure it’s all lowercase, and named <code>index.Rmd</code>. This will be the homepage for our website!</li>
+<li>Maybe change the title inside the Rmd, call it “Our website”</li>
+<li>Knit!</li>
+<li>Save and sync your .Rmd and your .html files
+<ul>
+<li>(pull, stage, commit, pull, push)</li>
+</ul></li>
+<li>Go to GitHub.com and go to your rendered website! Where is it? Figure out your website’s url from your github repo’s url. For example:
+<ul>
+<li>my github repo: <a href="https://github.com/jules32/collab-research" class="uri">https://github.com/jules32/collab-research</a></li>
+<li>my website url: <a href="https://jules32.github.io/collab-research/" class="uri">https://jules32.github.io/collab-research/</a></li>
+<li>note that the url starts with my <strong>username.github.io</strong></li>
+</ul></li>
 </ol>
-<ol style="list-style-type: lower-alpha">
-<li>the bar above the script (green arrow)</li>
-<li>the menu bar: Code &gt; Run Selected Line(s)</li>
-<li>keyboard shortcut: command-return</li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
-<li>source the script, which means running the whole thing. This is also great for to see if there are any typos in your code that you’ve missed. You can do this by:</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>clicking Source (blue arrow in the bar above the script).</li>
-<li>typing <code>source('gapminder-analysis.R')</code> in the console (or from another R file!!!).</li>
-</ol>
+<p>So cool! On websites, if something is called <code>index.html</code>, that defaults to the home page. So <a href="https://jules32.github.io/collab-research/" class="uri">https://jules32.github.io/collab-research/</a> is the same as <a href="https://jules32.github.io/collab-research/index.html" class="uri">https://jules32.github.io/collab-research/index.html</a>. If you name your RMarkdown file <code>my_research.Rmd</code>, the url will become <a href="https://jules32.github.io/collab-research/my_research.html" class="uri">https://jules32.github.io/collab-research/my_research.html</a>.</p>
 </div>
-<div id="automation-with-for-loops" class="section level2">
-<h2><span class="header-section-number">3.4</span> Automation with for loops</h2>
-<p>Our plan is to plot gdpPercap for each country. This means that we want to do the same operation (plotting gdpPercap) on a bunch of different things (countries). Yesterday we learned the dplyr’s <code>group_by()</code> function, and this is super powerful to automate through groups. But there are things that you may not want to do with <code>group_by()</code>, like plotting. So we will use a for loop.</p>
-<p>Let’s start off with what this would look like for just one country. I’m going to demonstrate with Afghanistan:</p>
-<!---TODO
-For the figures, we want it to label the currency, which we have in another data file (=join). And, we'll want to add Westeros to the dataframe (=rbind) and create that figure too. 
---->
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## filter the country to plot</span>
-gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Afghanistan&quot;</span>)
-
-<span class="co">## plot</span>
-my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Afghanistan&quot;</span>)</code></pre>
-<p>Let’s actually give this a better title than just the country name. Let’s use the <code>base::paste()</code> function from to paste two strings together so that the title is more descriptive. Use <code>?paste</code> to see what the “sep” variable does.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## filter the country to plot</span>
-gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Afghanistan&quot;</span>)
-
-<span class="co">## plot</span>
-my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="co">## add title and save</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Afghanistan&quot;</span>, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))</code></pre>
-<p>And as a last step, let’s save this figure.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## filter the country to plot</span>
-gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Afghanistan&quot;</span>)
-
-<span class="co">## plot</span>
-my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="co">## add title and save</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Afghanistan&quot;</span>, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-
-<span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;Afghanistan_gdpPercap.png&quot;</span>, <span class="dt">plot =</span> my_plot)</code></pre>
-<p>OK. So we can check our repo in the file pane (bottom right of RStudio) and see the generated figure:</p>
-<p><img src="img/Afghanistan_gdpPercap.png" /></p>
-<div id="thinking-ahead-cleaning-up-our-code" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Thinking ahead: cleaning up our code</h3>
-<p>Now, in our code above, we’ve had to write out “Afghanistan” several times. This makes it not only typo-prone as we type it each time, but if we wanted to plot another country, we’d have to write that in 3 places too. It is not setting us up for an easy time in our future, and thinking ahead in programming is something to keep in mind.</p>
-<p>Instead of having “Afghanistan” written 3 times, let’s instead create an object that we will assign to “Afghanistan”. We won’t name our object “country” because that’s a column header with gapminder, and will just confuse us. Let’s make it distinctive: let’s write cntry (country without vowels):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## create country variable</span>
-cntry &lt;-<span class="st"> &quot;Afghanistan&quot;</span></code></pre>
-<p>Now, we can replace each <code>"Afghanistan"</code> with our variable <code>cntry</code>. We will have to introduce a <code>paste</code> statement here too, and we want to separate by nothing (<code>""</code>). Note: there are many ways to create the filename, and we are doing it this way for a specific reason right now.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## create country variable</span>
-cntry &lt;-<span class="st"> &quot;Afghanistan&quot;</span>
-
-<span class="co">## filter the country to plot</span>
-gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-
-<span class="co">## plot</span>
-my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="co">## add title and save</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-
-<span class="co">## note: there are many ways to create filenames with paste() or file.path(); we are doing this way for a reason.</span>
-<span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;_gdpPercap.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">plot =</span> my_plot)</code></pre>
-<p>Let’s run this. Great! it saved our figure (I can tell this because the timestamp in the Files pane has updated!)</p>
-</div>
-<div id="for-loop-basic-structure" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> For loop basic structure</h3>
-<p>Now, how about if we want to plot not only Afghanistan, but other countries as well? There wasn’t actually that much code needed to get us here, but we definitely do not want to copy this for every country. Even if we copy-pasted and switched out the country assigned to the <code>cntry</code> variable, it would be very typo-prone. Plus, what if you wanted to instead plot lifeExp? You’d have to remember to change it each time…it gets messy quick.</p>
-<p>Better with a for loop. This will let us cycle through and do what we want to each thing in turn. If you want to iterate over a set of values, and perform the same operation on each, a <code>for</code> loop will do the job.</p>
-<p><strong>Sit back and watch me for a few minutes while we develop the for loop.</strong> Then we’ll give you time to do this on your computers as well.</p>
-<p>The basic structure of a <code>for</code> loop is:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>( each item <span class="cf">in</span> set of items ){
-  do a thing
-}</code></pre>
-<p>Note the <code>( )</code> and the <code>{ }</code>. We talk about iterating through each item in the for loop, which makes each item an iterator.</p>
-<p>So looking back at our Afghanistan code: all of this is pretty much the “do a thing” part. And we can see that there are only a few places that are specific to Afghanistan. If we could make those places not specific to Afghanistan, we would be set.</p>
-<p><img src="img/for_loop_logic.png" /></p>
-<p>Let’s paste from what we had before, and modify it. I’m also going to use RStudio’s indentation help to indent the lines within the for loop by highlighting the code in this chunk and going to Code &gt; Reindent Lines (shortcut: command I)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## create country variable</span>
-cntry &lt;-<span class="st"> &quot;Afghanistan&quot;</span>
-
-<span class="cf">for</span> (each cntry <span class="cf">in</span> a list of countries ) {
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;_gdpPercap.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">plot =</span> my_plot)
-  
-}</code></pre>
-</div>
-<div id="executable-for-loop" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Executable for loop!</h3>
-<p>OK. So let’s start with the beginning of the for loop. We want a list of countries that we will iterate through. We can do that by adding this code before the for loop.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## create a list of countries</span>
-country_list &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Albania&quot;</span>, <span class="st">&quot;Fiji&quot;</span>, <span class="st">&quot;Spain&quot;</span>)
-
-<span class="cf">for</span> ( cntry <span class="cf">in</span> country_list ) {
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;_gdpPercap.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">plot =</span> my_plot)
-
-}</code></pre>
-<p>At this point, we do have a functioning for loop. For each item in the <code>country_list</code>, the for loop will iterate over the code within the <code>{ }</code>, changing <code>cntry</code> each time as it goes through the list. And we can see it works because we can see them appear in the files pane at the bottom right of RStudio!</p>
-<p>Great! And it doesn’t matter if we just use these three countries or all the countries–let’s try it.</p>
-<p>But first let’s create a figure directory and make sure it saves there since it’s going to get out of hand quickly. We could do this from the Finder/Windows Explorer, or from the “Files” pane in RStudio by clicking “New Folder” (green plus button). But we are going to do it in R. A folder is called a directory:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&quot;figures&quot;</span>) 
-
-<span class="co">## create a list of countries</span>
-country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gapminder<span class="op">$</span>country) <span class="co"># ?unique() returns the unique values</span>
-
-<span class="cf">for</span>( cntry <span class="cf">in</span> country_list ){
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="co">## add the figures/ folder</span>
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(<span class="st">&quot;figures/&quot;</span>, cntry, <span class="st">&quot;_gdpPercap.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)), plot =<span class="st"> </span>my_plot<span class="er">)</span>
-} </code></pre>
-<p>So that took a little longer than just the 3, but still super fast. For loops are sometimes just the thing you need to iterate over many things in your analyses.</p>
-</div>
-<div id="clean-up-our-repo" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Clean up our repo</h3>
-<p>OK we now have 142 figures that we just created. They exist locally on our computer, and we have the code to recreate them anytime. But, we don’t really need to push them to GitHub. Let’s delete the figures/ folder and see it disappear from the Git tab.</p>
-</div>
-<div id="your-turn-5" class="section level3">
-<h3><span class="header-section-number">3.4.5</span> Your turn</h3>
+<div id="your-turn-7" class="section level2">
+<h2><span class="header-section-number">5.12</span> Your turn</h2>
+<p>Here is some collaborative analysis you can do on your own. We’ll be playing around with airline flights data, so let’s get setup a bit.</p>
 <ol style="list-style-type: decimal">
-<li>Modify our for loop so that it:</li>
+<li>Person 1: clean up the README to say something about you two, the authors.</li>
+<li>Person 2: edit the <code>index.Rmd</code> or create a new RMarkdown file: maybe add something about the authors, and knit it.</li>
+<li>Both of you: sync to GitHub.com (pull, stage, commit, push).</li>
+<li>Both of you: once you’ve both synced (talk to each other about it!), pull again. You should see each others’ work on your computer.</li>
+<li>Person 1: in the RMarkdown file, add a bit of the plan. We’ll be exploring the <code>nycflights13</code> dataset. This is data on flights departing New York City in 2013.</li>
+<li>Person 2: in the README, add a bit of the plan.</li>
+<li>Both of you: sync</li>
 </ol>
+</div>
+<div id="explore-on-github.com" class="section level2">
+<h2><span class="header-section-number">5.13</span> Explore on GitHub.com</h2>
+<p>Now, let’s look at the repo again on GitHub.com. You’ll see those new files appear, and the commit history has increased.</p>
+<div id="commit-history" class="section level3">
+<h3><span class="header-section-number">5.13.1</span> Commit History</h3>
+<p>You’ll see that the number of commits for the repo has increased, let’s have a look. You can see the history of both of you.</p>
+</div>
+<div id="blame" class="section level3">
+<h3><span class="header-section-number">5.13.2</span> Blame</h3>
+<p>Now let’s look at a single file, starting with the README file. We’ve explored the “Raw” and “History” options in the top-right of the file, but we haven’t really explored the “Blame” option. Let’s look now. Blame shows you line-by-line who authored the most recent version of the file you see. This is super useful if you’re trying to understand logic; you know who to ask for questions or attribute credit.</p>
+</div>
+<div id="issues" class="section level3">
+<h3><span class="header-section-number">5.13.3</span> Issues</h3>
+<p>Now let’s have a look at issues. This is a way you can communicate to others about plans for the repo, questions, etc. Note that issues are public if the repository is public.</p>
+<p><img src="img/github-issues.png" /></p>
+<p>Let’s create a new issue with the title “NYC flights”.</p>
+<p>In the text box, let’s write a note to our collaborator. You can use Markdown in this text box, which means all of your header and bullet formatting will come through. You can also select these options by clicking them just above the text box.</p>
+<p>Let’s have one of you write something here. I’m going to write:</p>
+<pre><code>Hi @jafflerbach! 
+
+# first priority
+
+- explore NYC flights
+- plot interesting things</code></pre>
+<p>Note that I have my collaborator’s GitHub name with a <code>@</code> symbol. This is going to email her directly so that she sees this issue. I can click the “Preview” button at the top left of the text box to see how this will look rendered in Markdown. It looks good!</p>
+<p>Now let’s click submit new issue.</p>
+<p>On the right side, there are a bunch of options for categorizing and organizing your issues. You and your collaborator may want to make some labels and timelines, depending on the project.</p>
+<p>Another feature about issues is whether you want any notifications to this repository. Click where it says “Unwatch” up at the top. You’ll see three options: “Not watching”, “Watching”, and “Ignoring”. By default, you are watching these issues because you are a collaborator to the repository. But if you stop being a big contributor to this project, you may want to switch to “Not watching”. Or, you may want to ask an outside person to watch the issues. Or you may want to watch another repo yourself!</p>
+<p><img src="img/github-collab.png" /></p>
+<p>Let’s have Person 2 respond to the issue affirming the plan.</p>
+</div>
+</div>
+<div id="nyc-flights-exploration" class="section level2">
+<h2><span class="header-section-number">5.14</span> NYC flights exploration</h2>
+<p>Let’s continue this workflow with your collaborator, syncing to GitHub often and practicing what we’ve learned so far. We will get started together and then you and your collaborator will work on your own.</p>
+<p>Here’s what we’ll be doing (from <a href="http://r4ds.had.co.nz/transform.html">R for Data Science’s Transform Chapter</a>):</p>
+<p><strong>Data</strong>: You will be exploring a dataset on flights departing New York City in 2013. These data are actually in a package called <code>nycflights13</code>, so we can load them the way we would any other package.</p>
+<p>Let’s have Person 1 write this in the RMarkdown document (Person 2 just listen for a moment; we will sync this to you in a moment).</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">library</span>(nycflights13) <span class="co"># install.packages(&#39;nycflights13&#39;)</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>This data frame contains all 336,776 flights that departed from New York City in 2013. The data comes from the US <a href="http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&amp;Link=0">Bureau of Transportation Statistics</a>, and is documented in <code>?flights</code>.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">flights</a></code></pre></div>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # … with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Let’s select all flights on January 1st with:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 842 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # … with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>To use filtering effectively, you have to know how to select the observations that you want using the comparison operators. R provides the standard suite: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal). We learned these operations yesterday. But there are a few others to learn as well.</p>
+<div id="sync" class="section level4">
+<h4><span class="header-section-number">5.14.0.1</span> Sync</h4>
+<p>Sync this RMarkdown back to GitHub so that your collaborator has access to all these notes. Person 2 should then pull and will continue with the following notes:</p>
+</div>
+<div id="logical-operators" class="section level3">
+<h3><span class="header-section-number">5.14.1</span> Logical operators</h3>
+<p>Multiple arguments to <code>filter()</code> are combined with “and”: every expression must be true in order for a row to be included in the output. For other types of combinations, you’ll need to use Boolean operators yourself:</p>
 <ul>
-<li>loops through countries in Europe only</li>
-<li>plots the cumulative mean gdpPercap (Hint: Use the <a href="https://www.rstudio.com/resources/cheatsheets/">Data Wrangling Cheatsheet</a>!)</li>
-<li>saves them to a new subfolder inside the (recreated) figures folder called “Europe”.</li>
+<li><code>&amp;</code> is “and”</li>
+<li><code>|</code> is “or”</li>
+<li><code>!</code> is “not”</li>
 </ul>
+<p>Let’s have a look:</p>
+<p>The following code finds all flights that departed in November or December:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</a></code></pre></div>
+<p>The order of operations doesn’t work like English. You can’t write <code>filter(flights, month == 11 | 12)</code>, which you might literally translate into “finds all flights that departed in November or December”. Instead it finds all months that equal <code>11 | 12</code>, an expression that evaluates to <code>TRUE</code>. In a numeric context (like here), <code>TRUE</code> becomes one, so this finds all flights in January, not November or December. This is quite confusing!</p>
+<p>A useful short-hand for this problem is <code>x %in% y</code>. This will select every row where <code>x</code> is one of the values in <code>y</code>. We could use it to rewrite the code above:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">nov_dec &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</a></code></pre></div>
+<p>Sometimes you can simplify complicated subsetting by remembering De Morgan’s law: <code>!(x &amp; y)</code> is the same as <code>!x | !y</code>, and <code>!(x | y)</code> is the same as <code>!x &amp; !y</code>. For example, if you wanted to find flights that weren’t delayed (on arrival or departure) by more than two hours, you could use either of the following two filters:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">filter</span>(flights, <span class="op">!</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span> <span class="op">|</span><span class="st"> </span>dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>))</a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">filter</span>(flights, arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>, dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>)</a></code></pre></div>
+<p>Whenever you start using complicated, multipart expressions in <code>filter()</code>, consider making them explicit variables instead. That makes it much easier to check your work.</p>
+</div>
+</div>
+<div id="your-turn-8" class="section level2">
+<h2><span class="header-section-number">5.15</span> Your turn</h2>
+<p>OK: Person 2, sync this to GitHub, and Person 1 will pull so that we all have the most current information.</p>
+<p>With your partner, do the following tasks. Each of you should work on one task at a time. Since we’re working closely on the same document, talk to each other and have one person create a heading and a R chunk, and then sync; the other person can then create a heading and R chunk and sync, and then you can both work safely.</p>
+<p>Remember to make your commit messages useful!</p>
+<p>As you work, you may get merge conflicts. This is part of collaborating in GitHub; we will walk through and help you with these and also teach the whole group.</p>
+<div id="use-logicals" class="section level3">
+<h3><span class="header-section-number">5.15.1</span> Use logicals</h3>
 <ol style="list-style-type: decimal">
-<li>Sync to GitHub</li>
+<li><p>Find all flights that:</p>
+<ol style="list-style-type: decimal">
+<li>Had an arrival delay of two or more hours</li>
+<li>Flew to Houston (<code>IAH</code> or <code>HOU</code>)</li>
+<li>Were operated by United, American, or Delta</li>
+<li>Departed in summer (July, August, and September)</li>
+<li>Arrived more than two hours late, but didn’t leave late</li>
+<li>Were delayed by at least an hour, but made up over 30 minutes in flight</li>
+<li>Departed between midnight and 6am (inclusive)</li>
+</ol></li>
+<li><p>Another useful dplyr filtering helper is <code>between()</code>. What does it do?
+Can you use it to simplify the code needed to answer the previous
+challenges?</p></li>
 </ol>
-<div id="answer" class="section level4">
-<h4><span class="header-section-number">3.4.5.1</span> Answer</h4>
-<p>No peeking!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&quot;figures&quot;</span>) 
-<span class="kw">dir.create</span>(<span class="st">&quot;figures/Europe&quot;</span>) 
-
-<span class="co">## create a list of countries. Calculations go here, not in the for loop</span>
-gap_europe &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gdpPercap_cummean =</span> dplyr<span class="op">::</span><span class="kw">cummean</span>(gdpPercap))
-
-country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gap_europe<span class="op">$</span>country) <span class="co"># ?unique() returns the unique values</span>
-
-<span class="cf">for</span>( cntry <span class="cf">in</span> country_list ){ <span class="co"># (cntry = country_list[1])</span>
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gap_europe <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## add a print message to see what&#39;s plotting</span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Plotting&quot;</span>, cntry))
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap_cummean)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(<span class="st">&quot;figures/Europe/&quot;</span>, cntry, <span class="st">&quot;_gdpPercap_cummean.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)), 
-  plot =<span class="st"> </span>my_plot<span class="er">)</span>
-} </code></pre>
-<p>Notice how we put the calculation for <code>cummean()</code> outside the for loop. It could have gone inside, but it’s an operation that could be done just one time before hand (outside the loop) rather than multiple times as you go (inside the for loop).</p>
 </div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">5.15.2</span> Missing values</h3>
+<p>To answer these questions: read some background below.</p>
+<ol style="list-style-type: decimal">
+<li><p>How many flights have a missing <code>dep_time</code>? What other variables are
+missing? What might these rows represent?</p></li>
+<li><p>Why is <code>NA ^ 0</code> not missing? Why is <code>NA | TRUE</code> not missing?
+Why is <code>FALSE &amp; NA</code> not missing? Can you figure out the general
+rule? (<code>NA * 0</code> is a tricky counterexample!)</p></li>
+</ol>
+<p>One important feature of R that can make comparison tricky are missing values, or <code>NA</code>s (“not availables”). <code>NA</code> represents an unknown value so missing values are “contagious”: almost any operation involving an unknown value will also be unknown.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="ot">NA</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="dv">10</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="ot">NA</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>The most confusing result is this one:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>It’s easiest to understand why this is true with a bit more context:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># Let x be Mary&#39;s age. We don&#39;t know how old she is.</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="co"># Let y be John&#39;s age. We don&#39;t know how old he is.</span></a>
+<a class="sourceLine" id="cb103-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb103-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb103-7" data-line-number="7"><span class="co"># Are John and Mary the same age?</span></a>
+<a class="sourceLine" id="cb103-8" data-line-number="8">x <span class="op">==</span><span class="st"> </span>y</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># We don&#39;t know!</span></a></code></pre></div>
+<p>If you want to determine if a value is missing, use <code>is.na()</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">is.na</span>(x)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+
 </div>
-</div>
-<div id="conditional-statements-with-if-and-else" class="section level2">
-<h2><span class="header-section-number">3.5</span> Conditional statements with <code>if</code> and <code>else</code></h2>
-<p>Often when we’re coding we want to control the flow of our actions. This can be done
-by setting actions to occur only if a condition or a set of conditions are met.</p>
-<p>In R and other languages, these are called “if statements”.</p>
-<div id="if-statement-basic-structure" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> if statement basic structure</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if</span>
-<span class="cf">if</span> (condition is true) {
-  do something
-}
-
-<span class="co"># if ... else</span>
-<span class="cf">if</span> (condition is true) {
-  do something
-} <span class="cf">else</span> {  <span class="co"># that is, if the condition is false,</span>
-  do something different
-}</code></pre>
-<p>Let’s bring this concept into our for loop for Europe that we’ve just done. What if we want to add the label “Estimated” to countries that were estimated? Here’s what we’d do.</p>
-<p>First, import csv file with information on whether data was estimated or reported, and join to gapminder dataset:</p>
-<pre class="sourceCode r"><code class="sourceCode r">est &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/countries_estimated.csv&#39;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   country = col_character(),
-##   estimated = col_character()
-## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">gapminder_est &lt;-<span class="st"> </span><span class="kw">left_join</span>(gapminder, est)</code></pre>
-<pre><code>## Joining, by = &quot;country&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&quot;figures&quot;</span>) 
-<span class="kw">dir.create</span>(<span class="st">&quot;figures/Europe&quot;</span>) 
-
-<span class="co">## create a list of countries</span>
-gap_europe &lt;-<span class="st"> </span>gapminder_est <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## use instead of gapminder</span>
-<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gdpPercap_cummean =</span> dplyr<span class="op">::</span><span class="kw">cummean</span>(gdpPercap))
-
-country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gap_europe<span class="op">$</span>country) 
-
-<span class="cf">for</span>( cntry <span class="cf">in</span> country_list ){ <span class="co"># (cntry = country_list[1])</span>
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gap_europe <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## add a print message </span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Plotting&quot;</span>, cntry))
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap_cummean)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="co">## if estimated, add that as a subtitle. </span>
-  <span class="cf">if</span> (gap_to_plot<span class="op">$</span>estimated <span class="op">==</span><span class="st"> &quot;yes&quot;</span>) {
-    
-    <span class="co">## add a print statement just to check</span>
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are estimated&quot;</span>))
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="kw">sutbtitle</span>(<span class="st">&quot;Estimated data&quot;</span>))
-  }
-  <span class="co">#   Warning message:</span>
-  <span class="co"># In if (gap_to_plot$estimated == &quot;yes&quot;) { :</span>
-  <span class="co">#   the condition has length &gt; 1 and only the first element will be used</span>
-  
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(<span class="st">&quot;figures/Europe/&quot;</span>, cntry, <span class="st">&quot;_gdpPercap_cummean.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), 
-         <span class="dt">plot =</span> my_plot)
-  
-} </code></pre>
-<p>This worked, but we got a warning message with the if statement. This is because if we look at <code>gap_to_plot$estimated</code>, it is many “yes”s or “no”s, and the if statement works just on the first one. We know that if any are yes, all are yes, but you can imagine that this could lead to problems down the line if you <em>didn’t</em> know that. So let’s be explicit:</p>
-</div>
-<div id="executable-if-statement" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Executable if statement</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&quot;figures&quot;</span>) 
-<span class="kw">dir.create</span>(<span class="st">&quot;figures/Europe&quot;</span>) 
-
-
-<span class="co">## create a list of countries</span>
-gap_europe &lt;-<span class="st"> </span>gapminder_est <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## use instead of gapminder</span>
-<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gdpPercap_cummean =</span> dplyr<span class="op">::</span><span class="kw">cummean</span>(gdpPercap))
-
-country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gap_europe<span class="op">$</span>country) 
-
-<span class="cf">for</span>( cntry <span class="cf">in</span> country_list ){ <span class="co"># (cntry = country_list[1])</span>
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gap_europe <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## add a print message </span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Plotting&quot;</span>, cntry))
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap_cummean)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="co">## if estimated, add that as a subtitle. </span>
-  <span class="cf">if</span> (<span class="kw">any</span>(gap_to_plot<span class="op">$</span>estimated <span class="op">==</span><span class="st"> &quot;yes&quot;</span>)) { <span class="co"># any() will return a single TRUE or FALSE</span>
-    
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are estimated&quot;</span>))
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;Estimated data&quot;</span>)
-  }
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(<span class="st">&quot;figures/Europe/&quot;</span>, cntry, <span class="st">&quot;_gdpPercap_cummean.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), 
-         <span class="dt">plot =</span> my_plot)
-  
-} </code></pre>
-<p>OK so this is working as we expect! Note that we do not need an <code>else</code> statement above, because we only want to do something (add a subtitle) if one condition is met. But what if we want to add a different subtitle based on another condition, say where the data are reported, to be extra explicit about it?</p>
-</div>
-<div id="executable-ifelse-statement" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Executable if/else statement</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir.create</span>(<span class="st">&quot;figures&quot;</span>) 
-<span class="kw">dir.create</span>(<span class="st">&quot;figures/Europe&quot;</span>) 
-
-<span class="co">## create a list of countries</span>
-gap_europe &lt;-<span class="st"> </span>gapminder_est <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## use instead of gapminder</span>
-<span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gdpPercap_cummean =</span> dplyr<span class="op">::</span><span class="kw">cummean</span>(gdpPercap))
-
-country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gap_europe<span class="op">$</span>country) 
-
-<span class="cf">for</span>( cntry <span class="cf">in</span> country_list ){ <span class="co"># (cntry = country_list[1])</span>
-  
-  <span class="co">## filter the country to plot</span>
-  gap_to_plot &lt;-<span class="st"> </span>gap_europe <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> </span>cntry)
-  
-  <span class="co">## add a print message </span>
-  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Plotting&quot;</span>, cntry))
-  
-  <span class="co">## plot</span>
-  my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> gap_to_plot, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdpPercap_cummean)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="co">## add title and save</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(cntry, <span class="st">&quot;GDP per capita&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>))
-  
-  <span class="co">## if estimated, add that as a subtitle. </span>
-  <span class="cf">if</span> (<span class="kw">any</span>(gap_to_plot<span class="op">$</span>estimated <span class="op">==</span><span class="st"> &quot;yes&quot;</span>)) { <span class="co"># any() will return a single TRUE or FALSE</span>
-    
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are estimated&quot;</span>))
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;Estimated data&quot;</span>)
-  } <span class="cf">else</span> {
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;Reported data&quot;</span>)
-    
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are reported&quot;</span>))
-    
-  }
-  <span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste</span>(<span class="st">&quot;figures/Europe/&quot;</span>, cntry, <span class="st">&quot;_gdpPercap_cummean.png&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), 
-         <span class="dt">plot =</span> my_plot)
-  
-} </code></pre>
-<p>Note that this works because we know there are only two conditions, <code>Estimated == yes</code> and <code>Estimated == no</code>. In the first <code>if</code> statement we asked for estimated data, and the <code>else</code> condition gives us everything else (which we know is reported). We can be explicit about setting these conditions in the <code>else</code> clause by instead using an <code>else if</code> statement. Below is how you would construct this in your for loop, similar to above:</p>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="cf">if</span> (<span class="kw">any</span>(gap_to_plot<span class="op">$</span>estimated <span class="op">==</span><span class="st"> &quot;yes&quot;</span>)) { <span class="co"># any() will return a single TRUE or FALSE</span>
-    
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are estimated&quot;</span>))
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;Estimated data&quot;</span>)
-  } <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">any</span>(gap_to_plot<span class="op">$</span>estimated <span class="op">==</span><span class="st"> &quot;no&quot;</span>)){
-    
-    my_plot &lt;-<span class="st"> </span>my_plot <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;Reported data&quot;</span>)
-    
-    <span class="kw">print</span>(<span class="kw">paste</span>(cntry, <span class="st">&quot;data are reported&quot;</span>))
-    
-  }</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: &#39;estimated&#39;.
-
-## Warning: Unknown or uninitialised column: &#39;estimated&#39;.</code></pre>
-<p>This construction is necessary if you have more than two conditions to test for.</p>
-</div>
-</div>
-<div id="more-r" class="section level2">
-<h2><span class="header-section-number">3.6</span> More R!</h2>
-<p>With just a little bit of time left, here are some things that you can look into more on your own.</p>
-<div id="importing-and-installing" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Importing and Installing</h3>
-<p>Here are some really helpful packages for you to work with:</p>
-<p>Remember you’ll use <code>install.packages("package-name-in-quotes")</code> to install from CRAN.</p>
-<ul>
-<li><code>readr</code> to read in .csv files</li>
-<li><code>readxl</code> to read in Excel files</li>
-<li><code>stringr</code> to work with strings</li>
-<li><code>lubridate</code> to work with dates</li>
-</ul>
-<p>You are also able to install packages directly with Github, using the <code>devtools</code> package. Then, instead of <code>install.packages()</code>, you’ll use <code>devtools::install_github()</code>. And you can create <em>your own</em> packages when you’re ready. Read <a href="http://r-pkgs.had.co.nz/" class="uri">http://r-pkgs.had.co.nz/</a> to learn how!</p>
-</div>
-<div id="organization-and-workflows" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Organization and workflows</h3>
-<ul>
-<li>set up a folder for figs, intermediate analyses, final outputs, figures</li>
-</ul>
-</div>
-<div id="getting-help" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> Getting help</h3>
-<p>You’ll soon have questions that are outside the scope of this workshop, how do you find answers?</p>
-<ul>
-<li>end with a ton of resources:
-<a href="https://peerj.com/collections/50-practicaldatascistats/" class="uri">https://peerj.com/collections/50-practicaldatascistats/</a></li>
-</ul>
-</div>
-</div>
-<div id="ideas-for-extended-analysis-2" class="section level2">
-<h2><span class="header-section-number">3.7</span> Ideas for Extended Analysis 2</h2>
-<ul>
-<li>stringr() <a href="http://r4ds.had.co.nz/strings.html" class="uri">http://r4ds.had.co.nz/strings.html</a></li>
-</ul>
-
 </div>
 </div>
             </section>
@@ -898,8 +746,8 @@ country_list &lt;-<span class="st"> </span><span class="kw">unique</span>(gap_eu
           </div>
         </div>
       </div>
-<a href="rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="how-to-write-well.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
