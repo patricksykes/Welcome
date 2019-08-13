@@ -1,0 +1,4024 @@
+--- 
+title: "Introduction to Open Data Science"
+author: "The Ocean Health Index Team"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+# output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: ohi-science/data-science-training
+description: "This is official open data science training for the Ocean Health Index."
+---
+
+# Welcome {#welcome}
+
+This training book will introduce you to open data science so you can work with data in an open, reproducible, and collaborative way. Open data science means that methods, data, and code are available so that others can access, reuse, and build from it without much fuss. Here you will learn a workflow with R, RStudio, Git, and GitHub, as we describe in [Lowndes *et al. 2017, Nature Ecology & Evolution*: Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160).
+
+This is going to be fun, because learning these open data science tools and practices is empowering! This training book is written (and always improving) so you can use it as self-paced learning, or it can be used to teach an in-person workshop where the instructor live-codes. Either way, you should do everything hands-on on your own computer as you learn. 
+
+Before you begin, be sure you are all set up: see the prerequisites in Chapter \@ref(overview). 
+
+Suggested breakdown for a 2-day workshop: 
+
+|time       |      Day 1|      Day 2|
+|:----------|----------:|----------:|
+|9-10:30    |  [Motivation](#overview), [R & RStudio, Rmarkdown](#rstudio) |  [Data Wrangling: `tidyr`](#tidyr) |
+|break      |  | |
+|11-12:30   | [GitHub](#github) | [Programming](#programming) |
+|lunch      |  ||
+|13:30-15:00 |  [Visualization: `ggplot2`](#ggplot2) | [Collaborating with GitHub](#collaborating) |
+|break      |  |  |
+|15:30-17:00 |  [Data Wrangling: `dplyr`](#dplyr) | Practice, [Be a champion for open data science](#champion) |
+
+----
+
+This book has been used in the following:
+
+[**Open Data Science Training** — 2 day workshop at the University of Queensland, Australia *2019-06-18*](http://ohi-science.org/uq-training/)
+
+[**Software Carpentry** — 2-day workshop at the Woods Hole Oceanographic Institution (WHOI) *2018-10-22*](https://jules32.github.io/2018-10-22-WHOI/overview) 
+
+[**Data integration and team science** — 4 day workshop at NCEAS, California, USA *2018-03-12*](https://nceas.github.io/crescynt-training/data-integration)
+
+[**Data Carpentry** — 2-day workshop at the University of California Merced *2017-08-17*](https://snacktavish.github.io/2017-08-17-Yosemite/overview/) 
+
+[**Software Carpentry** — 2-day workshop at the Monterey Bay Aquarium Research Institute (MBARI) *2017-11-30*](https://jules32.github.io/2017-11-30-MBARI/overview) 
+
+[**Software Carpentry: Reproducible Science with RStudio and GitHub**  —  2-day workshop at Oxford University *2016-07-12*](http://jules32.github.io/2016-07-12-Oxford/overview/)
+
+[**Software Carpentry**  —  2-day workshop at UC Santa Barbara *2016-04-15*](http://remi-daigle.github.io/2016-04-15-UCSB/overview/)
+
+
+
+<!--chapter:end:index.Rmd-->
+
+# Overview {#overview}
+
+Welcome. 
+
+In this training you will learn R, RStudio, Git, and GitHub. It's going to be fun and empowering! You will learn a reproducible workflow that can be used in research and analyses of all kinds, including Ocean Health Index assessments. This is really powerful, cool stuff, and not just for data: I made and published this book using those four tools and workflow.
+
+We will practice learning three main things all at the same time: coding with best practices (R/RStudio), collaborative version control (Git/GitHub), and communication/publishing (RMarkdown/GitHub). This training will teach these all together to reinforce skills and best practices, and get you comfortable with a workflow that you can use in your own projects. 
+
+## What to expect
+
+This is going to be a fun workshop. 
+
+The plan is to expose you to a lot of great tools that you can have confidence using in your research. You'll be working hands-on and doing the same things on your own computer as we do live on up on the screen. We're going to go through a lot in these two days and it's less important that you remember it all. More importantly, you'll have experience with it and confidence that you can do it. The main thing to take away is that there *are* good ways to approach your analyses; we will teach you to expect that so you can find what you need and use it! A theme throughout is that tools exist and are being developed by real, and extraordinarily nice, people to meet you where you are and help you do what you need to do. If you expect and appreciate that, you will be more efficient in doing your awesome science.
+
+You are all welcome here, please be respectful of one another. You are encouraged to help each other. 
+
+Everyone in this workshop is coming from a different place with different experiences and expectations. But everyone will learn something new here, because there is so much innovation in the data science world. Instructors and helpers learn something new every time, from each other and from your questions. If you are already familiar with some of this material, focus on how we teach, and how you might teach it to others. Use these workshop materials not only as a reference in the future but also for talking points so you can communicate the importance of these tools to your communities. A big part of this training is not only for you to learn these skills, but for you to also teach others and increase the value and practice of open data science in science as a whole. 
+
+## What you'll learn
+
+- how to THINK about data 
+    - how to think about data separately from your research questions
+    - how and why to tidy data and analyze tidy data, rather than making your analyses accommodate messy data
+    - how there is a lot of decision-making involved with data analysis, and a lot of creativity
+- how to increase efficiency in your science
+    - and increase reproducibility
+    - and facilitate collaboration with others — especially Future You!
+- how open science is a great benefit
+    - find solutions faster
+    - broaden the impact of your work
+- how to learn with intention and community
+    - think ahead instead of only to get a single job done now
+    - the #rstats online community is fantastic. The tools we're using are developed by real people. Real, nice people. They are building powerful and empowering tools and are welcoming to all skill-levels
+
+
+### Tidy data workflow
+
+We will be learning about tidy data. And how to use a tidyverse suite of tools to work with tidy data.
+
+[**Hadley Wickham**](http://hadley.nz/) and his team have developed a ton of the tools we'll use today. 
+Here's an overview of techniques to be covered in Hadley Wickham and Garrett Grolemund of RStudio's book [R for Data Science](http://r4ds.had.co.nz/):
+
+![](img/r4ds_data-science.png)
+
+We will be focusing on: 
+
+- **Tidy**: `tidyr` to organize rows of data into unique values
+- **Transform**: `dplyr` to manipulate/wrangle data based on subsetting by rows or columns, sorting and joining
+- **Visualize**: 
+    - `ggplot2` static plots, using grammar of graphics principles
+- **Communicate**
+    - dynamic documents with *R Markdown*
+    
+    
+This is really critical. Instead of building your analyses around whatever (likely weird) format your data are in, take deliberate steps to make your data tidy. When your data are tidy, you can use a growing assortment of powerful analytical and visualization tools instead of inventing home-grown ways to accommodate your data. This will save you time since you aren't reinventing the wheel, and will make your work more clear and understandable to your collaborators (most importantly, Future You). 
+
+    
+## Learning with data that are not your own
+
+One of the most important things you will learn is how to think about data separately from your own research context. Said in another way, you'll learn to distinguish your data questions from your research questions. Here, we are focusing on data questions, and we will use data that is not specific to your research.
+
+We will be using several different data sets throughout this training, and will help you see the patterns and parallels to your own data, which will ultimately help you in your research.
+
+## Emphasizing collaboration
+
+Collaborating efficiently has historically been really hard to do. It's only been the last 20 years or so that we've moved beyond mailing things with the postal service. Being able to email and get feedback on files through track changes was a huge step forward, but it comes with a lot of bookkeeping and reproduciblity issues (did I do my analyses with `thesis_final_final.xls` or `thesis_final_usethisone.xls`?). But now, open tools make it much easier to collaborate. 
+
+Working with collaborators in mind is critical for reproducibility. And, your most important collaborator is Future You. This training will introduce best practices using open tools, so that collaboration will become second nature to you!
+
+## By the end of the course...
+
+By the end of the course, you'll wrangle a few different data sets, and make your own graphics that you'll publish on webpages you've built collaboratively with GitHub and RMarkdown. Woop!
+
+Here are some important things to keep in mind as you learn (these are joke book covers): 
+
+![](img/practical_dev_both.png)
+
+## Prerequisites
+
+Before the training, please make sure you have done the following: 
+
+1. Download and install **up-to-date versions** of:
+    - R: https://cloud.r-project.org
+    - RStudio: http://www.rstudio.com/download 
+    - Git: https://git-scm.com/downloads *Note: open the download and follow normal install procedures on your computer but you won't see any software installed when you're done*
+1. Create a GitHub account: https://github.com *Note! Shorter names that kind of identify you are better, and use your work email!*
+1. Get comfortable: if you're not in a physical workshop, be set up with two screens if possible. You will be following along in RStudio on your own computer while also watching a virtual training or following this tutorial on your own.
+
+<!---
+## Motivation 
+
+
+More often than not, there are more than one way to do things. I'm going to focus mostly on what I have ended up using day-to-day; I try to incorporate better practices as I come upon them but that's not always the case. RStudio has some built-in redundancy too that I'll try to show you so that you can approach things in different ways and ease in.
+
+- based on literature: best and good enough practices
+- also based on our team's experience of how to do better science in less time
+
+
+
+
+## Collaboration
+
+Everything we learn today is to going to help you collaborate with your most important collaborator — YOU. Science is collaborative, starting with Future You, your current collaborators, and anyone wanting to build off your science later on. 
+
+## Reproducibility
+
+- record of your analyses. 
+- rerun them!
+- modify them, maybe change a threshold, try a different coefficient, etc, maybe today
+- modify them, make a new figure, in 6 months! 
+
+## Mindset
+
+New but will become increasingly familiar. We’ll start you off with some momentum, like if you were going to learn to ride a bike or ...
+
+Expect that there is a way to do what you want to do
+
+- stop confounding data science with your science. Expect that someone has had your problem before or done what you want to do. 
+
+
+If you plan to program mostly in one particular language on a single platform (such as Mac or Windows), you might try an integrated development environment (IDE). IDEs integrate text editing, syntax highlighting, version control, help, build tools, and debugging in one interface, simplifying development. 
+
+http://r-bio.github.io/intro-git-rstudio/
+
+## Data science is a discipline
+
+It has theories, methods, and tools. 
+
+Tidyverse and Hadley’s graphic. Tidy data.
+
+Going to teach you how to think differently, get into some of the theory but in the context of hands-on work.
+
+
+--->
+
+
+## Credit
+
+This material builds from a lot of fantastic materials developed by others in the open data science community. In particular, it pulls from the following resources, which are highly recommended for further learning and as resources later on. Specific lessons will also cite more resources.
+
+- [R for Data Science](http://r4ds.had.co.nz/) by Hadley Wickham and Garrett Grolemund
+- [STAT 545](http://stat545.com/) by Jenny Bryan
+- [Happy Git with R](http://happygitwithr.com) by Jenny Bryan
+- [Software Carpentry](https://software-carpentry.org/lessons/) by the Carpentries
+
+<!--chapter:end:overview.Rmd-->
+
+# R & RStudio, RMarkdown {#rstudio}
+
+
+```{r setup, include = FALSE, cache = FALSE}
+knitr::opts_chunk$set(error = TRUE)
+library(htmltools)
+```
+
+## Objectives & Resources
+
+### Objectives
+
+In this lesson we will:
+
+- get oriented to the RStudio interface
+- work with R in the console
+- be introduced to built-in R functions
+- learn to use the help pages
+- explore RMarkdown
+
+### Resources
+
+This lesson is a combination of excellent lessons by others (thank you Jenny Bryan and Data Carpentry!) that I have combined and modified for our workshop today. I definitely recommend reading through the original lessons and using them as reference:   
+
+[Dr. Jenny Bryan's lectures from STAT545 at UBC](https://stat545-ubc.github.io/)
+
+- [R basics, workspace and working directory, RStudio projects](http://stat545-ubc.github.io/block002_hello-r-workspace-wd-project.html)
+- [Basic care and feeding of data in R](http://stat545-ubc.github.io/block006_care-feeding-data.html)
+
+RStudio has great resources about its IDE (IDE stands for integrated development environment): 
+
+- [webinars](https://www.rstudio.com/resources/webinars/) 
+- [cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+### Data and packages
+
+We will be using data and packages that are installed with R (often called "Base R").
+
+## Why learn R with RStudio
+
+You are all here today to learn how to code. Coding made me a better scientist because I was able to think more clearly about analyses, and become more efficient in doing so. Data scientists are creating tools that make coding more intuitive for new coders like us, and there is a wealth of awesome instruction and resources available to learn more and get help.
+
+Here is an analogy to start us off. **Think of yourself as a pilot, and R is your airplane.** You can use R to go places! With practice you'll gain skills and confidence; you can fly further distances and get through tricky situations. You will become an awesome pilot and can fly your plane anywhere. 
+
+And **if R were an airplane, RStudio is the airport**. RStudio provides support! Runways, communication, community, and other services that makes your life as a pilot much easier. So it's not only the infrastructure (the user interface or IDE), although it is a great way to learn and interact with your variables, files, and interact directly with GitHub. It's also a data science philosophy, R packages, community, and more. So although you can fly your plane without an airport and we could learn R without RStudio, that's not what we're going to do. 
+
+> We are learning R together with RStudio and its many supporting features. 
+
+Something else to start us off is to mention that you are learning a new language here. It's an ongoing process, it takes time, you'll make mistakes, it can be frustrating, but it will be overwhelmingly awesome in the long run. We all speak at least one language; it's a similar process, really. And no matter how fluent you are, you'll always be learning, you'll be trying things in new contexts, learning words that mean the same as others, etc, just like everybody else. And just like any form of communication, there will be miscommunications that can be frustrating, but hands down we are all better off because of it. 
+
+While language is a familiar concept, programming languages are in a different context from spoken languages, but you will get to know this context with time. For example: you have a concept that there is a first meal of the day, and there is a name for that: in English it's "breakfast". So if you're learning Spanish, you could expect there is a word for this concept of a first meal. (And you'd be right: 'desayuno'). **We will get you to expect that programming languages also have words (called functions in R) for concepts as well**. You'll soon expect that there is a way to order values numerically. Or alphabetically. Or search for patterns in text. Or calculate the median. Or reorganize columns to rows. Or subset exactly what you want. We will get you increase your expectations and learn to ask and find what you're looking for.
+
+## R at the console, RStudio goodies
+
+Launch RStudio/R.
+
+![](img/RStudio_IDE.png)
+
+Notice the default panes:
+
+  * Console (entire left)
+  * Environment/History (tabbed in upper right)
+  * Files/Plots/Packages/Help (tabbed in lower right)
+
+FYI: you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio). 
+
+
+An important first question: **where are we?** 
+
+If you've have opened RStudio for the first time, you'll be in your Home directory. This is noted by the `~/` at the top of the console. You can see too that the Files pane in the lower right shows what is in the Home directory where you are. You can navigate around within that Files pane and explore, but note that you won't change where you are: even as you click through you'll still be Home: `~/`. 
+
+![](img/RStudio_IDE_homedir.png)
+
+
+OK let's go into the Console, where we interact with the live R process.
+
+Make an assignment and then inspect the object you created by typing its name on its own.
+
+```{r}
+x <- 3 * 4
+x
+```
+In my head I hear, e.g., "x gets 12".
+
+All R statements where you create objects -- "assignments" -- have this form: `objectName <- value`.  
+
+I'll write it in the console with a hashtag `#`, which is the way R comments so it won't be evaluated. 
+```{r eval = FALSE}
+## objectName <- value
+
+## This is also how you write notes in your code to explain what you are doing.
+```
+
+Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words](http://en.wikipedia.org/wiki/Snake_case) in names.
+
+```{r}
+# i_use_snake_case
+# other.people.use.periods
+# evenOthersUseCamelCase
+```
+
+Make an assignment
+```{r}
+this_is_a_really_long_name <- 2.5
+```
+
+To inspect this variable, instead of typing it, we can press the up arrow key and call your command history, with the most recent commands first. Let's do that, and then delete the assignment: 
+
+```{r}
+this_is_a_really_long_name
+```
+
+Another way to inspect this variable is to begin typing `this_`...and RStudio will automagically have suggested completions for you that you can select by hitting the tab key, then press return. 
+
+One more:
+```{r}
+science_rocks <- "yes it does!"
+```
+
+You can see that we can assign an object to be a word, not a number. In R, this is called a "string", and R knows it's a word and not a number because it has quotes `" "`. You can work with strings in your data in R pretty easily, thanks to the [`stringr`](http://stringr.tidyverse.org/) and [`tidytext`](https://github.com/juliasilge/tidytext#tidytext-text-mining-using-dplyr-ggplot2-and-other-tidy-tools) packages. We won't talk about strings very much specifically, but know that R can handle text, and it can work with text and numbers together (this is a huge benefit of using R). 
+
+Let's try to inspect:
+```{r, eval=FALSE}
+sciencerocks
+# Error: object 'sciencerocks' not found
+```
+
+### Error messages are your friends
+
+Implicit contract with the computer / scripting language: Computer will do tedious computation for you. In return, you will be completely precise in your instructions. Typos matter. Case matters. Pay attention to how you type.
+
+Remember that this is a language, not unsimilar to English! There are times you aren't understood -- it's going to happen. There are different ways this can happen. Sometimes you'll get an error. This is like someone saying 'What?' or 'Pardon'? Error messages can also be more useful, like when they say 'I didn't understand what you said, I was expecting you to say blah'. That is a great type of error message. Error messages are your friend. Google them (copy-and-paste!) to figure out what they mean. 
+
+`r htmltools::img(src='img/practicalDev_googleErrorMessage.jpg', width=400)`
+
+And also know that there are errors that can creep in more subtly, when you are giving information that is understood, but not in the way you meant. Like if I am telling a story about suspenders that my British friend hears but silently interprets in a very different way (true story). This can leave me thinking I've gotten something across that the listener (or R) might silently interpreted very differently. And as I continue telling my story you get more and more confused... Clear communication is critical when you code: write clean, well documented code and check your work as you go to minimize these circumstances!
+
+### Logical operators and expressions
+
+A moment about **logical operators and expressions**. We can ask questions about the objects we made. 
+
+- `==` means 'is equal to'
+- `!=` means 'is not equal to'
+- `<` means ` is less than'
+- `>` means ` is greater than'
+- `<=` means ` is less than or equal to'
+- `>=` means ` is greater than or equal to'
+```{r}
+x == 2
+x <= 30
+x != 5
+```
+
+> Shortcuts
+You will make lots of assignments and the operator `<-` is a pain to type. Don't be lazy and use `=`, although it would work, because it will just sow confusion later. Instead, utilize **RStudio's keyboard shortcut: Alt + - (the minus sign)**.
+Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+RStudio offers many handy [keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts). Also, Alt+Shift+K brings up a keyboard shortcut reference card.
+
+> My most common shortcuts include command-Z (undo), and combinations of arrow keys in combination with shift/option/command (moving quickly up, down, sideways, with or without highlighting.
+
+When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:
+
+```{r, purl=FALSE}
+weight_kg <- 55    # doesn't print anything
+(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+weight_kg          # and so does typing the name of the object
+```
+
+Now that R has `weight_kg` in memory, we can do arithmetic with it. For
+instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
+
+```{r, purl=FALSE}
+weight_kg * 2.2
+```
+
+We can also change a variable's value by assigning it a new one:
+
+```{r, purl=FALSE}
+weight_kg <- 57.5
+weight_kg * 2.2
+```
+
+And when we multiply it by 2.2, the outcome is based on the value currently assigned to the variable.  
+
+OK, let's store the animal's weight in pounds in a new variable, `weight_lb`:
+
+```{r, purl=FALSE}
+weight_lb <- weight_kg * 2.2
+```
+
+and then change `weight_kg` to 100.
+
+```{r, purl=FALSE}
+weight_kg <- 100
+```
+
+What do you think is the current content of the object `weight_lb`? 126.5 or 220? Why? 
+It's 125.6. Why? Because assigning a value to one variable does not change the values of
+other variables — if you want `weight_kg` updated to reflect the new value for `weight_lb`, you will have to re-execute that code. This is why we re-comment working in scripts and documents rather than the Console, and will introduce those concepts shortly and work there for the rest of the day.
+
+We can create a vector of multiple values using `c()`.
+```{r}
+c(weight_lb, weight_kg)
+
+names <- c("Jamie", "Melanie", "Julie")
+names
+```
+
+## Your Turn
+
+> **Exercise**
+> 1. Create a vector that contains the different weights of four fish (you pick the object name!):  
+> - one fish: 12 kg  
+> - two fish: 34 kg  
+> - red fish: 20 kg   
+> - blue fish: 6.6 kg  
+> 2. Convert the vector of kilos to pounds (hint: 1 kg = 2.2 pounds)  
+> 3. Calculate the total weight 
+
+
+```{r}
+fish_weights <- c(12, 34, 20, 6.6)
+fish_weights_lb <- fish_weights * 2.2
+
+sum(fish_weights_lb) #we haven't gone over functions like `sum()` yet but this is covered in the next section
+```
+
+## R functions, help pages
+
+R has a mind-blowing collection of built-in functions that are used with the same syntax: function name with parentheses around what the function needs to do what it is supposed to do. `function_name(argument1 = value1, argument2 = value2, ...)`. When you see this syntax, we say we are "calling the function".
+
+Let's try using `seq()` which makes regular sequences of numbers and, while we're at it, demo more helpful features of RStudio.
+
+Type `se` and hit TAB. A pop up shows you possible completions. Specify `seq()` by typing more to disambiguate or using the up/down arrows to select. Notice the floating tool-tip-type help that pops up, reminding you of a function's arguments. If you want even more help, press F1 as directed to get the full documentation in the help tab of the lower right pane. 
+
+Type the arguments `1, 10` and hit return. 
+```{r}
+seq(1, 10)
+```
+
+We could probably infer that the `seq()` function makes a sequence, but let's learn for sure. Type (and you can autocomplete) and let's explore the help page:
+
+```{r, eval=F}
+?seq 
+help(seq) # same as ?seq
+```
+
+The help page tells the name of the package in the top left, and broken down into sections:
+
+ - Description: An extended description of what the function does.
+ - Usage: The arguments of the function and their default values.
+ - Arguments: An explanation of the data each argument is expecting.
+ - Details: Any important details to be aware of.
+ - Value: The data the function returns.
+ - See Also: Any related functions you might find useful.
+ - Examples: Some examples for how to use the function.
+
+```{r}
+seq(from = 1, to = 10) # same as seq(1, 10); R assumes by position
+seq(from = 1, to = 10, by = 2)
+```
+
+The above also demonstrates something about how R resolves function arguments. You can always specify in `name = value` form. But if you do not, R attempts to resolve by position. So above, it is assumed that we want a sequence `from = 1` that goes `to = 10`. Since we didn't specify step size, the default value of `by` in the function definition is used, which ends up being 1 in this case. For functions I call often, I might use this resolve by position for the first
+argument or maybe the first two. After that, I always use `name = value`.
+
+The examples from the help pages can be copy-pasted into the console for you to understand what's going on. Remember we were talking about expecting there to be a function for something you want to do? Let's try it. 
+
+### Your turn
+
+> Exercise: Talk to your neighbor(s) and look up the help file for a function that you know or expect to exist. Here are some ideas: `?getwd()`, `?plot()`,  `min()`, `max()`, `?mean()`, `?log()`).
+
+And there's also help for when you only sort of remember the function name: double-question mark:
+```{r, eval=F}
+??install 
+```
+
+
+Not all functions have (or require) arguments:
+```{r}
+date()
+```
+
+## Packages
+
+So far we've been using a couple functions from base R, such as `seq()` and `date()`. But, one of the amazing things about R is that a vast user community is always creating new functions and packages that expand R's capabilities. In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others. They increase the power of R by improving existing base R functionalities, or by adding new ones. 
+
+The traditional place to download packages is from CRAN, the [Comprehensive R Archive Network](https://cran.r-project.org/), which is where you downloaded R. You can also install packages from GitHub, which we'll do tomorrow.
+
+You don't need to go to CRAN's website to install packages, this can be accomplished within R using the command `install.packages("package-name-in-quotes")`. Let's install a small, fun package `praise`. You need to use quotes around the package name.:
+
+```
+install.packages("praise")
+```
+
+Now we've installed the package, but we need to tell R that we are going to use the functions within the `praise` package. We do this by using the function `library()`.
+
+**What’s the difference between a package and a library?**  
+Sometimes there is a confusion between a package and a library, and you can find people calling “libraries” to packages.
+
+Please don’t get confused: `library()` is the command used to load a package, and it refers to the place where the package is contained, usually a folder on your computer, while a package is the collection of functions bundled conveniently.
+
+```{r}
+library(praise)
+```
+
+Now that we've loaded the `praise` package, we can use the single function in the package, `praise()`, which returns a randomized praise to make you feel better.
+
+```{r}
+praise()
+```
+
+
+## Clearing the environment
+Now look at the objects in your environment (workspace) -- in the upper right pane. The workspace is where user-defined objects accumulate. 
+
+![](img/RStudio_IDE_env.png)
+
+You can also get a listing of these objects with a few different R commands:
+
+```{r}
+objects()
+ls()
+```
+
+If you want to remove the object named `weight_kg`, you can do this:
+
+```{r}
+rm(weight_kg)
+```
+
+To remove everything:
+
+```{r}
+rm(list = ls())
+```
+
+or click the broom in RStudio's Environment pane.
+
+For reproducibility, it is critical that you delete your objects and restart your R session frequently. You don't want your whole analysis to only work in whatever way you've been working right now — you need it to work next week, after you upgrade your operating system, etc. Restarting your R session will help you identify and account for anything you need for your analysis. 
+
+We will keep coming back to this theme but let's restart our R session together: Go to the top menus: Session > Restart R. 
+
+### Your turn
+
+> Exercise: Clear your workspace, then create a few new variables. Create a variable that is the mean of a sequence of 1-20. What's a good name for your variable? Does it matter what your 'by' argument is? Why?
+
+## RMarkdown
+
+Now we are going to also introduce RMarkdown. This is really key for collaborative research, so we're going to get started with it early and then use it for the rest of the day. 
+
+This is also going to introduce us to the fact that RStudio is a sophisticated text editor (among all the other awesome things). You can use it to keep your files and scripts organized within one place (the RStudio IDE) while getting support that you expect from text editors (check-spelling and color, to name a few).
+
+An RMarkdown file will allow us to weave markdown text with chunks of R code to be evaluated and output content like tables and plots.
+
+File -> New File -> RMarkdown... -> Document of output format HTML, OK.
+
+`r img(src='img/rstudio_new-rmd-doc-html.png', width=300)`
+
+You can give it a Title like "My Project". Then click OK. 
+
+OK, first off: by opening a file, we are seeing the 4th pane of the RStudio console, which is essentially a text editor. This lets us organize our files within RStudio instead of having a bunch of different windows open.
+
+Let's have a look at this file — it's not blank; there is some initial text is already provided for you. Notice a few things about it: 
+
+- There are white and grey sections. R code is in grey sections, and other text is in white. 
+
+![](img/rmarkdown.png)
+
+<br>
+
+Let's go ahead and "Knit HTML" by clicking the blue yarn at the top of the RMarkdown file. 
+
+<br>
+
+![](img/rmarkdown_side_by_side.png)
+
+What do you notice between the two? So much of learning to code is looking for patterns.
+
+Notice how the grey **R code chunks** are surrounded by 3 backticks and `{r LABEL}`. These are evaluated and return the output text in the case of `summary(cars)` and the output plot in the case of `plot(pressure)`.
+
+Notice how the code `plot(pressure)` is not shown in the HTML output because of the R code chunk option `echo=FALSE`. 
+
+The hashtag (#) at lines 12 and 22 cause the following text to be displayed larger and in bold. 
+
+This RMarkdown file has 2 different languages within it: **R** and **Markdown**. 
+
+We don't know that much R yet, but you can see that we are taking a summary of some data called 'cars', and then plotting. We will focus on R for the rest of the workshop, but for the rest of this morning let's focus on the second language.
+
+The second language is Markdown. This is a formatting language for plain text, and there are only about 15 rules to know. 
+
+Notice the syntax for:
+
+- **headers** get rendered at multiple levels: `#`, `##`
+- **bold**: `**word**`
+
+There are some good [cheatsheets](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet) to get you started, and here is one built into RStudio: Go to Help > Markdown Quick Reference
+<br />
+<br />
+
+**Important**: note that the hashtag `#` is used differently in Markdown and in R: 
+
+- in R, a hashtag indicates a comment that will not be evaluated. You can use as many as you want: `#` is equivalent to `######`. It's a matter of style. I use two `##` to indicate a comment so that it's clearer what is a comment versus what I don't want to run at the moment.
+- in Markdown, a hashtag indicates a level of a header. And the number you use matters: `#` is a "level one header", meaning the biggest font and the top of the hierarchy. `###` is a level three header, and will show up nested below the `#` and `##` headers.
+
+If this seems confusing, take comfort in the fact that you are already used to using `#`s differently in real life: it can mean "number" or "pound" or hashtags on social media.
+
+Learn more: http://rmarkdown.rstudio.com/
+
+### Your Turn
+
+> 1. In Markdown write some italic text, make a numbered list, and add a few subheaders.
+ Use the Markdown Quick Reference (in the menu bar: Help > Markdown Quick Reference). 
+ 1. Reknit your html file. 
+
+
+### Code chunks
+
+OK. Now let's practice with some of those commands that we were working on this morning.
+
+Create a new chunk in your RMarkdown first in one of these ways: 
+
+- click "Insert > R" at the top of the editor pane
+- type by hand 
+   \```{r}
+   \```
+- if you haven't deleted a chunk that came with the new file, edit that one
+
+Now, let's write some R code. 
+
+```
+x <- seq(1:15)
+```
+
+Now, hitting return does not execute this command; remember, it's a text file in the text editor, it's not associated with the R engine. To execute it, we need to get what we typed in the the R chunk (the grey R code) down into the console. How do we do it? There are several ways (let's do each of them):
+
+1. copy-paste this line into the console.
+1. select the line (or simply put the cursor there), and click 'Run'. This is available from 
+    a. the bar above the file (green arrow)
+    b. the menu bar: Code > Run Selected Line(s)
+    c. keyboard shortcut: command-return
+1. click the green arrow at the right of the code chunk
+
+### Your turn
+
+> Add a few more commands to your file from this morning. Execute them by trying the three ways above. Then, save your R Markdown file. 
+
+## RMarkdown video (1-minute)
+
+Let's watch this to demonstrate all the amazing things you can now do: 
+
+[What is RMarkdown?](https://vimeo.com/178485416)
+
+## Troubleshooting
+
+Here are some additional things we didn't have time to discuss:
+
+### I entered a command and nothing's happening
+
+It may be because you didn't complete a command: is there a little `+` in your console? R is saying that it is waiting for you to finish. In the example below, I need to close that parenthesis.
+
+```{r, eval=FALSE}
+> x <- seq(1, 10
++ 
+```
+
+
+### How do I update RStudio?
+
+To see if you have the most current version of RStudio, go to the Help bar > Check for Updates. If there is an update available, you'll have the option to Quit and Download, which will take you to http://www.rstudio.com/download. When you download and install, choose to replace the previous version. 
+
+<!--chapter:end:rstudio.Rmd-->
+
+# GitHub {#github}
+
+```{r gh ops, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+<!---TODO
+Philosophy: gh repo and Rproject
+--->
+
+## Objectives
+
+After today you will be able to start incorporating GitHub into your workflow.  
+
+**This will change you life (for the better!)**
+
+Github was developed for social coding (i.e., sort of like an open source Wikipedia for programmers). Consequently, much of the functionality and terminology of Github (e.g., branches and pull requests) will not be relevant for most scientists.  
+
+**We will skip over all this stuff!** 
+
+To get the full functionality of Github, you will eventually want to learn other concepts. 
+
+**But, this can wait.**  
+
+Basically, we have figured out exactly what you need to know to get started!
+
+
+## What are Git and Github?
+
+Git and GitHub are two distinct programs,  but I think of them as a bundle because I always use them together.
+
+- **Git** is a version control system that lets you track changes to files over time.  
+
+- **Github** is a website for storing your git versioned files remotely. It has many nice features to be able visualize differences between [images](https://help.github.com/articles/rendering-and-diffing-images/), [rendering](https://help.github.com/articles/mapping-geojson-files-on-github/) & [diffing](https://github.com/blog/1772-diffable-more-customizable-maps) map data files, [render text data files](https://help.github.com/articles/rendering-csv-and-tsv-data/), and [track changes in text](https://help.github.com/articles/rendering-differences-in-prose-documents/).
+
+
+
+
+## Why should scientists use GitHub?
+
+1. Ends (or, nearly ends) the horror of keeping track of versions.
+  Basically, we get away from this: 
+<br />
+<br />
+![](img/MessySaves.png)
+<br />
+<br />
+When you open your repository, you only see the most recent version.  But, it easy to compare versions, and you can easily revert to previous versions. 
+<br />
+<br />
+2. Provides peace of mind because you make changes to your work...and know that you can easily access earlier versions.
+3. Improves collaborative efforts.  Different researchers can work on the same files at the same time!
+4. It is easy to share and distribute files through the Github website.
+5. Your files are available anywhere, you just need internet connection!  
+
+We'll interface with GitHub from our local computers using RStudio because it works well with the R/RStudio workflow. But, there are many other ways to interact with GitHub, including GitHub's Desktop App or the command line ([here is Jenny Bryan's list of git clients](http://stat545.com/git02_git-clients.html)).  
+
+At some point you will need to use the command line to interface with Git, but this isn't necessary for starting. There are great resources for learning the command line, check out [this tutorial from SWC at UCSB](http://remi-daigle.github.io/2016-04-15-UCSB/shell/). 
+
+
+## Resources
+
+These are materials we borrow from: 
+
+- Jenny Bryan's lectures from STAT545 at UBC: [The Shell](http://stat545.com/git09_shell.html)
+- Jenny Bryan's [Happy git with R](http://happygitwithr.com) tutorial
+- Melanie Frazier's [GitHub Quickstart](https://rawgit.com/nazrug/Quickstart/master/GithubQuickstart.html)
+- Ben Best's [Software Carpentry at UCSB](http://remi-daigle.github.io/2016-04-15-UCSB/git/)
+
+
+
+## Let's get started
+
+### Some Github terminology
+
+* **User**: A Github account for you (e.g., jules32).
+* **Organization**: The Github account for one or more user (e.g., datacarpentry).
+* **Repository**: A folder within the organization that includes files dedicated to a project.
+* **Local Github**: Copies of Github files located your computer.
+* **Remote Github**: Github files located on the https://github.com website.
+* **Clone**: Process of making a local copy of a remote Github repository.  This only needs to be done once (unless you mess up your local copy).
+* **Pull**: Copy changes on the remote Github repository to your local Github repository.  This is useful if multiple people are making changes to a repository.
+* **Push**: Save local changes to remote Github
+<br />
+<br />
+
+![](img/push_pull_clone.png)
+<br />
+<br />
+
+After we set up git on your computers, we'll explore the full GitHub process: 
+
+1. create a repository on GitHub.com
+2. clone locally using RStudio 
+3. learn the RStudio-GitHub workflow by syncing to Github.com: pull, stage, commit, push
+4. explore github.com: files, commit history, file history
+5. practice the RStudio-GitHub workflow by editing and adding files 
+6. practice R Markdown
+
+
+
+### Setup Git & GitHub
+
+The GitHub setup is a one-time thing! You will only have to do this once per computer. We'll walk through this together. 
+
+> NOTE: If you are a student you can get the micro account which includes 5 private repositories for free (normally a $7/month value).  You can sign up for the student account [here](https://education.github.com/pack).  Instructors can also request a free organization [account, "Request a discount"](https://education.github.com/).
+
+
+1.  Download and install Git (https://git-scm.com/downloads)
+
+2. Create a **Github** account at <http://github.com>, if you don't already have one. For a username, I recommend all lower-case letters, short as you can. I recommend using your *.edu email*, since you can request free private repositories via [GitHub Education](https://education.github.com/) discount.
+
+3. You will use the `usethis` package to configure **git** with global commands, which means it will apply 'globally' to all files on your computer, rather than to a specific folder. 
+
+```{r use this, eval=FALSE}
+
+install.packages("usethis")
+library(usethis)
+
+use_git_config(user.name = "Melsteroni", user.email = "Melsteroni@example.org")
+
+```
+<br>
+
+*BACKUP PLAN* If `usethis` fails, the following is the classic approach to configuring **git**.  Open the Git Bash program (Windows) or the Terminal (Mac) and type the following:
+
+        # display your version of git
+        git --version
+        
+        # replace USER with your Github user account
+        git config --global user.name USER
+        
+        # replace NAME@EMAIL.EDU with the email you used to register with Github
+        git config --global user.email NAME@EMAIL.EDU
+        
+        # list your config to confirm user.* variables set
+        git config --list
+
+
+4. Make sure Git and RStudio are tallking: Click on "Project (None)" on the top right --> "New Project" --> "Version Control" --> Git  
+
+
+![](img/check_git_rstudio.png)
+<br>
+
+Do any ominous messages pop up?
+
+#### Troubleshooting
+
+If you have problems setting up git, please see the [Troubleshooting section](http://happygitwithr.com/troubleshooting.html) in Jenny Bryan's amazing [HappyGitWithR](http://happygitwithr.com). 
+
+**New(ish) Error on a Mac**
+We've also seen the following errors from RStudio: 
+
+```
+error key does not contain a section --global terminal
+```
+and
+```
+fatal: not in a git directory
+```
+
+To solve this, go to the Terminal and type:
+    ```
+which git
+```
+
+<img src="img/git_whichgit.png" width="250px">
+
+  
+Look at the filepath that is returned. Does it say anything to do with Apple?
+
+-> If yes, then the [Git you downloaded](https://git-scm.com/downloads) isn't installed, please redownload if necessary, and follow instructions to install.  
+
+-> If no, (in the example image, the filepath does not say anything with Apple) then proceed below:
+
+In RStudio, navigate to: Tools > Global Options > Git/SVN. 
+
+<img src="img/git_options.png" width="250px">
+
+
+<br>
+
+Does the **“Git executable”** filepath match what the url in Terminal says? 
+
+<br>
+
+<img src="img/git_options_filepath.png" width="500px">
+
+
+If not, click the browse button and navigate there.   
+
+>*Note*: on my laptop, even though I navigated to /usr/local/bin/git, it then automatically redirect because /usr/local/bin/git was an alias on my computer. That is fine. Click OK.
+
+Quit RStudio.   
+
+Then relaunch RStudio.  
+
+Try syncing or cloning, and if that works and then you don’t need to worry about typing into the Terminal, you’re all done!
+
+
+### Create a repository on Github.com
+
+First, go to your account on github.com and click "New repository".
+<br />
+<br />
+![](img/create_repository.png)
+<br />
+<br />
+
+Choose a name. Call it whatever you want (the shorter the better), or follow me for convenience. I will call mine `quickstart`. 
+
+Also, add a description, make it public, create a README file, and create your repo!
+<br />
+<br />
+![](img/create_repository_2.png)
+<br />
+<br />
+
+The *Add gitignore* option adds a document where you can identify files or file-types you want Github to ignore. These files will stay in on the local Github folder (the one on your computer), but will not be uploaded onto the web version of Github.
+
+The *Add a license* option adds a license that describes how other people can use your Github files (e.g., open source, but no one can profit from them, etc.).  We won't worry about this today.
+
+Check out our new repository!  
+
+Notice how the README.md file we created is automatically displayed at the bottom. The .md means that it is Markdown (remember how .Rmd was RMarkdown?) so the formatting we learned in the last lesson apply here.
+<br />
+<br />
+
+![](img/new_repository.png)
+<br />
+<br />
+
+**From here, you will work locally (on your computer).**
+
+
+### Clone your repository using RStudio
+
+We are going to be cloning a copy of our remote repository on Github.com to our local computers. Unlike downloading, cloning keeps all the version control and user information bundled with the files. 
+
+**Step 0**: Create your `github` folder 
+
+This is really important! We need to be organized and deliberate about where we want to keep all of our GitHub repositories (since this is the first of many in your career). 
+
+Let's all make a folder called `github` (all lowercase!) in our home directories. So it will look like this: 
+
+- Windows: `Users\[User]\Documents\github\`
+- Mac: `Users/[User]/github/`
+
+This will let us take advantage of something that is really key about GitHub.com: cloned repositories are saved as folders that you can navigate on your computer. The greatness of this will be evident soon. 
+
+So really. Make sure that you have an all-lowercase folder called `github` in your home directory!!
+
+**Step 1**: Copy the web address of the repository you want to clone.
+<br />
+
+
+![](img/clone_step1.png)
+
+<br />
+<br />
+
+**Step 2**: from RStudio, go to New Project (also in the File menu).
+
+![](img/new_project_1.png)
+<br />
+<br />
+
+**Step 3**: Select Version Control
+
+<br />
+<br />
+
+![](img/new_project_2.png)
+<br />
+<br />
+
+**Step 4**: Select Git
+
+<br />
+<br />
+
+![](img/new_project_3.png)
+<br />
+<br />
+
+**Step 5**: Paste it in the Repository URL field, and type **tab** to autofill the Project Directory name. Make sure you keep the Project Directory Name **THE SAME** as the repository name from the URL.
+
+Save it in your github folder (click on Browse) to do this. 
+
+<br />
+<br />
+
+![](img/new_project_4.png)
+
+<br />
+<br />
+
+### Inspect results
+
+If everything went well, the repository will be added to the list located here:
+![](img/select_project.png)
+
+<br />
+<br />
+when we cloned this from RStudio, it created an RStudio project, which you can tell because:
+
+    - our working directory is set to `~/github/Quickstart`  
+    - there's an `.RProj` file in the "Files" tab 
+    - the project is named in the top right hand corner
+    - we have a git tab! This is how we will interface with Github.com
+
+<br>
+
+When you first clone a repo through RStudio, RStudio will add an `.Rproj` file to your repo folder. If you didn't add a `.gitignore` file when you originally created the repo on GitHub.com, RStudio will also add this for you. These will show up with little yellow `?` icons in your git tab. This is GitHub's way of saying: "ooohh.....something changed in the repository".  In this case, when you click the box to stage them, they will turn into `A`s because they have been added to the repo. 
+
+<br>
+
+And the repository will be saved to the Github folder on your computer:
+<br />
+<br />
+
+![](img/cloned_repository.png)
+<br />
+<br />
+
+Ta da!!!!  The folder doesn't contain much of interest, but we are going to change that.
+
+
+
+### Add files to our local repo
+
+The repository will contain:
+
+* .gitignore file
+* README.md
+* Rproj
+
+And, I typically create the following:
+
+* folders for "data" and "figures"  
+* R scripts
+* etc.
+
+We can use the Git tab of RStudio to monitor changes to files in the local repository.  When files change, RStudio uses the following codes to describe how the files have been modified:
+
+![](img/modified.png)
+
+We will demonstrate this by copying a file into the repository folder on my computer.  This file will be added to the Git tab beside a green box with an "A"!
+
+From this, you can see how the repository is being tracked, even when changes aren't made through RStudio.
+
+We can also make changes through RStudio!
+
+
+### Committing your changes and syncing with GitHub.com
+
+Eventually you will want to commit the files you have created in your local repository and then send them to GitHub.com  
+
+I tend to do this every time I finish a task (basically when I start getting nervous that I will lose my work).  Once something is committed, it is very difficult to lose it.
+
+Committing saves the current saved version of your files to the official Git History.   The commit includes all the staged files as well as a corresponding commit message (which you will write) and a unique identifier called a SHA ID.  When you are ready to commit your changes, follow these steps:
+<br />
+<br />
+
+![](img/commit_overview.png)
+<br />
+<br />
+
+We walk through this process below:
+
+#### Pull 
+From the Git tab, "Pull" the repository.  This makes sure your local repository is synced with the remote repository.  This is very important if other people are making changes to the repository or if you are working from multiple computers.
+<br />
+<br />
+
+![](img/pull.png)
+<br />
+<br />
+
+#### Stage
+Stage the files you want to commit.  In RStudio, this involves checking the "Staged" boxes:
+<br />
+
+![](img/staged.png)
+<br />
+<br />
+
+#### Commit
+Add a commit message that describes the updates you made to these files.  The message will be for your reference, so make it something you will find useful.
+
+<br />
+
+![](img/commit.png)
+<br />
+<br />
+
+#### Push
+You will "Push" to save your local changes to Github.com.
+
+<br />
+
+![](img/push.png)
+<br />
+
+## Explore remote Github
+The files you added should be on github.com:
+<br />
+
+![](img/Github_remote.png)
+<br />
+<br />
+
+
+---
+
+**Your turn!**
+
+This time let's edit an existing file instead of adding something new. Open your README file by clicking on it in the Files pane (lower right corner). Write a few lines of text, save, and see what happens in your Git Tab. Sync it to your remote repository (Github.com).
+
+Also, go to your Finder/Windows Explorer, and copy-paste something into your local GitHub repo. Then go back to RStudio and confirm that git tracked it. Remember, git will track anything within that folder (the way Dropbox does), it's not specific to RStudio!
+
+
+**Create a new R Markdown file**
+
+Now, we are going to return to using R Markdown so you can write notes to yourself in Markdown and have a record of all your R code. Writing R commands in the console like we did this morning is great, but limited; it's hard to keep track of and hard to efficiently share with others. Plus, as your analyses get more complicated, it basically becomes impossible to use.
+
+Go to File > New File > R Markdown ... (or click the green plus in the top left corner).
+
+Let's set up this file so we can use it later. I'm going to replace all the automatic text with the following: 
+
+
+```
+---
+title: "Graphics with ggplot2"
+author: "Julie"
+date: "11/21/2017"
+output: html_document
+---
+
+# Learning ggplot2
+
+We're learning ggplot2 It's going to be amazing. 
+
+```
+
+Now, let's save it. I'm going to call my file `ggplot2.Rmd`.
+
+Then, sync your file to GitHub.
+
+What if a file doesn't show up in the Git tab and you expect that it should? Check to make sure you've saved the file. If the filename is red with an asterix, there have been changes since it was saved. Remember to save before syncing to GitHub!
+
+---
+
+
+## Going back in time
+
+One thing that I love about about Github is that it is easy to see how files have changed over time.  Usually I compare commits through github.com:
+<br />
+<br />
+
+![](img/commit_history.png)
+<br />
+<br />
+<br />
+<br />
+
+
+![](img/commit_compare_2.png)
+<br />
+<br />
+
+You can click on the commits to see how the files changed from the previous commit:
+<br />
+<br />
+
+![](img/commit_compare_3.png)
+<br />
+<br />
+
+
+
+## Happy Git with R
+
+If you have problems, we'll help you out using Jenny Bryan's [HappyGitWithR](http://happygitwithr.com), particularly the sections on [Detect Git from RStudio](http://happygitwithr.com/rstudio-see-git.html) and [RStudio, Git, GitHub Hell (troubleshooting)](http://happygitwithr.com/troubleshooting.html). So as we are coming around, have a look at it and see if you can help troubleshoot too!
+
+
+
+<!--chapter:end:github_mel.Rmd-->
+
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Visualizing: `ggplot2` {#ggplot2}
+
+
+```{r viz ops, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
+library(htmltools)
+```
+
+
+## Why ggplot2?
+
+This tutorial focuses exclusively on data visualization using ggplot2 because this package:
+
+* provides a coherent language for visualizing data (vs. the original 'plot' function, which developed in an ad-hoc way)
+* makes many tasks easier, such as: visualizing a third (z) variable; saving figures; automating plotting and formatting tasks
+* creates beautiful figures and is flexible
+
+You should really use ggplot2 for nearly all data visualization!  
+
+
+## Additional resources for data visualization in R  
+
+The goal of this tutorial is to introduce you to the basics of ggplot2. I focus only on the features I use most often.  We will barely scratch the surface of ggplot2's functionality.  But there are many resources that will help you learn more. Here are some of the ones I use:   
+
+- The official ggplot2 [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) is amazing! 
+- Winston Chang's book converted me from someone who was slightly confused by ggplot2 to a superuser....so I can't recommend it enough! And, the [associated website](http://www.cookbook-r.com/Graphs/#graphs-with-ggplot2) is great too.  
+
+<br>
+
+![](img/ChangBook.png)
+
+<br>
+
+- Hadley Wickham's [R for Data Science book](http://r4ds.had.co.nz/data-visualisation.html), which is inspiration for much of this tutorial.
+
+
+## Objectives
+
+- install the `ggplot2` package by installing `tidyverse`
+- learn basics of ggplot2 with a dataset describing global ocean health
+- practice writing a script in RMarkdown
+- practice the rstudio-github workflow
+
+
+## Install tidyverse: `tidyverse`
+
+We will use the `ggplot2` package, which is bundled with a composite-package called `tidyverse`. Check out [tidyverse.org/](https://www.tidyverse.org) for more information.
+
+We will download and install `tidyverse`: 
+
+```{r, eval=FALSE, messages=FALSE}
+## from CRAN:
+install.packages("tidyverse") ## do this once only to install the package on your computer.
+```
+
+You will see some messages describing which packages were installed with `tidyverse`. Messages about name conflicts are also returned. This is not a problem its just an alert that two functions from dplyr will replace functions in the built-in stats package with the same name. 
+
+## Create an RMarkdown file to work from
+
+---
+
+**To do:**
+**Create a new R Markdown file**
+
+We will create the RMarkdown file you will be working from.  You can write notes to yourself in Markdown and have a record of all your R code. 
+
+Go to File > New File > R Markdown ... (or click the green plus in the top left corner).
+
+Next, replace all the automatic text with the following: 
+
+
+```
+---
+title: "Graphics with ggplot2"
+author: "Julie"
+date: "11/21/2017"
+output: html_document
+---
+
+# Learning ggplot2
+
+We're learning ggplot2 It's going to be amazing. 
+
+```
+
+Now, let's save the file. I'm going to call my file `ggplot2.Rmd`.  Do a *pull*...then *stage/commit* (to save to git history)...then *push* to sync with GitHub.com.
+
+
+---
+
+
+## Load the tidverse
+
+We have downloaded the tidyverse package but it is not yet loaded in the R workspace.  We will use the `library()` function to load tidyverse.  This will be the first code chunk in your RMarkdown: 
+
+```{r, messages = FALSE}
+library(tidyverse) ## do this every time you restart R and need it 
+```
+
+
+## Load and explore data
+
+We will load the dataset we will be using for this tutorial into our workspace directly from GitHub.com (I always find this GitHub functionality so cool!).  
+
+
+```{r load_data}
+
+ohi_data <- read_csv("https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/OHI_global_data.csv")
+
+```
+
+These data are from the global [Ocean Health Index](http://ohi-science.org/ohi-global/) which assesses the condition of marine resources for 220 countries or territories.  
+
+The dataset includes:
+
+variable  | description  | data type | examples
+-- | ------------------------- | -- | ----------------------------
+country   | OHI region name for country or territorial regions with marine coastline | character | Jarvis Island, Italy
+OHI_score | Ocean Health Index scores describing condition of marine resources based on the 2017 global assessment | numeric | values can range from 0-100, with 100 being the best possible score
+OHI_trend  | average annual change in OHI scores from 2012 to 2017 | numeric | values range from -3.9 to 1.86, with positive values indicating improving scores
+coastal_pop | human population within 25 miles of coast | numeric | values range from 0 to >317 million
+log_coastal_pop | log(coastal_pop + 1) | numeric | values range from 0 to ~20
+cumulative_human_impact | average cumulative impact of human stressors (e.g., SST, shipping, pollution) on marine ecosystems within the country's marine boundaries | numeric | values range from 1.419 to 6.762, with larger values indicating higher impact
+HDI | [Human Development Index](http://hdr.undp.org/en/content/human-development-index-hdi) scores, which measure average achievement in key dimensions of human development: a long and healthy life, being knowledgeable and have a decent standard of living.  | numeric | values are rescaled to be between 0 to 1, with higher scores indicating better human development
+georegion_one | lower resolution UN georegion designations based on georegional and social similarities | character | Africa, Americas, Asia
+georegion_two | higher resolution UN georegion designations based on georegional and social similarities | character | Australia and New Zealand, Eastern Asia, Caribbean
+
+<br>
+
+Let's explore these data, shall we:
+
+```{r explore_data}
+
+head(ohi_data)
+summary(ohi_data)
+table(ohi_data$georegion_one)
+table(ohi_data$georegion_two)
+
+```
+
+
+
+## Plotting with **`ggplot2`**
+
+Plots are created using a step-wise approach that is flexible and easily customized.  We will walk through the steps needed to build a plot in ggplot2.
+
+*HINT: Start with the simplest version of your plot and build onto it.*
+
+
+### Step 1: Identify the dataframe
+
+ggplot2 requires the data to be in a dataframe format.  The first step is to use the `ggplot()` function to identify the dataframe with the data you want to plot. 
+
+At this point, we will also assign the x and y axis variables within the aes function (this stands for aesthetics, and we will discuss this concept after we have a plot to work with).
+
+[NOTE: This step was confusing for me for a long time because it doesn't actually make the plot!]
+
+```{r, eval=FALSE}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI))
+
+```
+
+### Step 2: Identify the style of plot you want to create (i.e., the geom)
+
+Next, we will actually create the plot by adding a geom function using the `+` operator. 
+A __geom__ is the geometrical object that a plot uses to represent data. For example, bar charts use bar geoms, line charts use line geoms, boxplots use boxplot geoms, and so on. 
+
+You can use different geoms to plot the same data. To change the type of plot, change the geom function that you add to `ggplot()`. 
+
+`ggplot2` provides over 30 geoms, which are described in the official ggplot2 [cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf). To learn more about any single geom, use help: `?geom_smooth`. Extension packages provide even more geoms (see <https://www.ggplot2-exts.org> for a sampling). 
+
+
+We will start by creating a scatterplot of ohi scores within UN georegions by adding the `geom_point` function.
+
+```{r first-ggplot}
+
+ggplot(data = ohi_data, aes(x = georegion_one, y =OHI_score)) + 
+  geom_point()
+
+```
+
+
+Yay! A plot!
+
+Next we will replace geom_point() with geom_jitter() to create a style of plot with the same data. geom_jitter is similar to geom_point, but it adds random variation to values along the x-axis to separate points:
+
+```{r second-ggplot}
+
+ggplot(data = ohi_data, aes(x = georegion_one, y =OHI_score)) + 
+  geom_jitter(width=0.2) # the width argument describes how much scatter to add
+
+```
+<br>
+
+Now we will explore other geoms.
+
+The following bar plot uses geom_bar to describe the number of countries in each UN category:
+```{r barplot2}
+
+ggplot(data = ohi_data, aes(x = georegion_one)) + 
+  geom_bar() 
+
+```
+<br>
+
+A histogram using geom_histogram:
+```{r histogram}
+
+ggplot(data = ohi_data, aes(x = HDI)) + 
+  geom_histogram() 
+
+```
+<br>
+
+Multiple geoms can be layered on the same plot.  Geom layers can be added using either the same or different dataframes. To demonstrate this we will use a secondary dataset with the mean OHI score for each UN georegion. We will create a bar plot of the means for each region and then overlay the point data. 
+
+```{r third-ggplot}
+
+ohi_summary <- read_csv("https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/OHI_scores_georegion_summary.csv")
+
+ohi_summary
+
+ggplot(data = ohi_summary, aes(x = georegions, y = OHI_score_average)) + 
+  geom_bar(stat="identity") +
+  geom_jitter(data=ohi_data, aes(x=georegion_one, y=OHI_score))
+
+
+```
+<br>
+
+In the above example, the global mappings are designated by: `ggplot(data = ohi_summary, aes(x = georegions, y = OHI_score_average))`. These are then overwritten by the local mappings designated in the geom_jitter layer.  The global designations will apply to subsequent layers, unless otherwise changed. This makes it possible to display different aesthetics and data in different layers.
+
+<br>
+<br>
+
+---
+
+> **STOP: let's Commit, Pull and Push to GitHub**
+ **And discuss the following** 
+
+  1. In the code below, why isn't the data showing up?
+```{r, eval=FALSE}
+
+ggplot(data = ohi_data, aes(y = OHI_score, x = HDI, color=georegion_one))
+
+```
+<br>
+
+  2. Are these two approaches the same?
+```{r, eval=FALSE}
+
+ggplot(data = ohi_data, aes(y=OHI_score, x = HDI, color=georegion_one)) +
+  geom_point()
+  
+ggplot(data = ohi_data) +
+  geom_point(aes(y = OHI_score, x = HDI, color=georegion_one))  
+
+```
+
+<br>
+
+**Answers**
+
+1. The code is missing a geom to describe how the data should be plotted.
+2. These two approaches result in the same plot here, but there could be downstream effects as more layers are added.
+
+---
+
+<br>
+<br>
+
+**More about the aes function**
+
+The arguments within `aes()` link variables in the dataframe to some aspect of plot appearance.  As we have discussed, x and y describe the axes, but other arguments can be added to describe a z variable (e.g. size or color or shape of points).  Here are some examples of aes arguments:
+
+* *color* color of lines/points
+* *fill*  color within polygons
+* *label* name
+* *linetype* type of line
+* *shape* style of point
+* *alpha* transparency (0-1)
+* *size* size of shape
+
+
+This is very powerful! Let's explore.   
+
+
+Changing the point size:
+```{r aes-size}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, size = coastal_pop)) + 
+  geom_point()
+
+```
+
+<br>
+
+Changing the color: continuous variable
+```{r aes-color}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, color = coastal_pop)) + 
+  geom_point()
+
+```
+
+<br>
+
+Changing the color: discrete variable
+```{r aes-color_discrete}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, color = georegion_one)) + 
+  geom_point()
+
+```
+<br>
+
+Changing shape of points
+
+```{r aes_shape}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, shape = georegion_one)) + 
+  geom_point()
+
+````
+<br>
+
+Adding labels
+```{r}
+#This doesn't add the labels like it seems like it should:
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, label=country)) + 
+  geom_point(aes(x = OHI_score, y = HDI)) 
+
+# To do this we have to add a geom_text function
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, label=country)) + 
+  geom_point(aes(x = OHI_score, y = HDI)) +
+  geom_text()
+
+```
+
+### Step 3: Customize your plot
+
+So far, the plots we have created are fairly ugly and hard to read. We will now improve these basic plots using a stepwise approach.  
+
+
+#### Themes
+I do not like the default ggplot2 figures because I find them too busy.  A quick way to improve plot appearance is to use themes. Many themes are built into the `ggplot2` package. For example, `theme_bw()` removes the gray background.  Once you start typing `theme_` a list of options will pop up.  
+
+```{r themes}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI)) + 
+  geom_point() + 
+  theme_bw()
+
+```
+
+<br>
+
+The [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package provides many additional themes (including a Tufte theme..which is very clean and data oriented). The [**`ggplot2`** extensions website](https://www.ggplot2-exts.org) provides a list of packages that extend the capabilities of **`ggplot2`**, including additional themes.
+
+I often create my own themes to make figures that work well in publications or presentations. This also gives my figures a consistent look (without having to remember from figure to figure the size of labels, etc.). I have found that storing my themes on Github works well. Here is an example of a theme I created named "scatterTheme":
+
+```{r my theme}
+
+source('https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/R/scatterTheme.txt')       
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI)) + 
+  geom_point() + 
+  scatterTheme
+
+```
+
+
+
+#### Labels: axis, plot, legend
+One of the first things you will often want to do is alter labels for: titles, axes, figure legends, etc. These modifications involve manipulating the theme function and can quickly get complicated, and I typically have to Google the specifics or refer to a [cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf), despite using ggplot2 for years and years and years.  
+
+But, some key changes are easy to make using the labs function:  
+```{r labels}
+
+ggplot(data = ohi_data, aes(y = OHI_score, x = HDI, color=georegion_one)) + 
+  geom_point() + 
+    labs(y = "OHI score, 2017",
+       x = "Human Development Index",
+       title = "Countries with high human development have more sustainable oceans",
+      color = "Georegion") +  # if color doesn't work, use "fill"
+     theme_bw()
+
+```
+
+<br>
+<br>
+
+---
+
+> **We interrupt this section on customizing your plot for an exercise (5 min)**
+
+1. Make a histogram of the OHI_score variable and color by the georegion_one variable.
+2. How would you make all the bars on your histogram light gray? Hint: use argument `fill = "lightgray"`.  Where is the best place to add this in your code to get this to work?
+3. Play with some themes and customizing title and axes labels. Try changing the text sizes and angles (refer to the [cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf)). 
+
+<br>
+
+**Answers (no peeking)**
+
+```{r, echo=TRUE, eval=FALSE}
+# 1. This one is tricky because the color aesthetic only does the outline of the bars.
+# If you got that far, you were halfway there.  
+# You will need to use the fill argument to color shapes 
+
+my_plot <- ggplot(data = ohi_data, aes(x=OHI_score, fill=georegion_one)) +
+  geom_histogram()  
+my_plot
+
+
+# 2. This was something that confused me for a while.  My instinct was to add it to the aes function....BUT NO!!!
+# The arguments in aes should correspond to a column in the dataframe.  The best place for this argument is in 
+# the geom function (and not in an aes function)
+ggplot(data = ohi_data, aes(x=OHI_score)) +
+  geom_histogram(fill="lightgray")  
+
+
+# 3.
+my_plot +    # the plot created in question 1 continued...
+  labs(x = "OHI score",
+       y = "Number of countries",
+       title = "Distribution of OHI scores") +
+  theme_light() +
+  theme(legend.title = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+        axis.text.y = element_text(size = 14),
+        axis.title = element_text(size = 16)
+        )
+
+```
+
+
+**STOP: commit, pull and push to github**
+
+**We will now continue with customizing your plot.....**
+
+---
+
+<br>
+
+#### Global changes to plot attributes
+
+It is easy to make global changes to your plot's appearance (these go outside the aes function).  Here are some options:
+
+* *color* color of lines/points
+* *fill*  color within polygons
+* *label* if points are a character
+* *linetype* type of line
+* *shape* style of point
+* *alpha* transparency (0-1)
+* *size* size of shape
+
+Here are the R shapes with their reference numbers:
+
+![](img/shapes.png)
+
+<br>
+
+Here are the R line types with their reference numbers:
+
+![](img/lines.png)
+
+<br>
+
+With this information, we can improve the appearance of one of our previous figures:
+
+```{r fig_improve}
+
+ggplot(data = ohi_summary, aes(x = georegions, y = OHI_score_average)) + 
+  geom_bar(stat="identity", fill = "lightgray") +
+  geom_jitter(data=ohi_data, aes(x=georegion_one, y=OHI_score), color="red", size=3, alpha=0.3) +
+  theme_bw()
+
+```
+
+
+#### Color
+One of the more challenging aspects of creating a good plot is selecting colors.  We are here to help!
+
+**Hint 1** 
+Unless you are doing something very simple (e.g. 1-3 colors), I recommend using established color palettes.  There are many color palette packages (here is a good resource: https://github.com/EmilHvitfeldt/r-color-palettes), but one of the best known is [RColorBrewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3).
+
+Here we will explore using the RColorBrewer palettes.
+
+Install the RColorBrewer and colorspace packages (only needs to be done once).  Both RColorBrewer and colorspace have nice palettes and colorspace has additional functions for dealing with color. 
+```{r color_packs, eval=FALSE}
+
+install.packages("RColorBrewer")
+install.packages("colorspace")
+```
+
+
+Load packages into working space:
+```{r load_color}
+
+library("RColorBrewer")
+library("colorspace")
+
+```
+
+To see the available palettes in RColorBrewer:
+```{r colorbrewer2}
+
+display.brewer.all()
+
+```
+
+
+To select a palette:
+
+```{r palette}
+
+my_palette <- brewer.pal(n=9, "YlOrRd")
+
+```
+
+**Hint 2** 
+R uses hexidecimal to represent colors. Hexadecimal is a base-16 number system used to describe color.  Red, green, and blue are each represented by two characters (#rrggbb).  Each character has 16 possible symbols:  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 
+
+“00” can be interpreted as 0.0 and “FF” as 1.0, i.e., red= #FF0000 , black=#000000, white = #FFFFFF
+
+Two additional characters (with the same scale) can be added to the end to describe transparency (#rrggbbaa)
+
+A color palette is actually just a simple vector of hexidecimal values:
+
+```{r hexidecimal}
+
+my_palette
+
+```
+
+I always use hexidecimal format for colors in R because it is the most direct approach.
+<br>
+
+**Hint 3** 
+The function you will want to use to specify color in ggplot2 depends on whether the color is mapped to a  discrete/categorical data variable, or a continuous variable.  There are a LOT of options in ggplot2, but these are the approaches I have settled on because they are the most flexible:
+
+![](img/color_R_ggplot_functions.png)
+
+<br>
+
+In the following case we map color to a continuous variable, so we will use the scale_color_gradientn function with the palette we selected above:
+
+```{r palette_cont}
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = OHI_trend, color = HDI)) + 
+  geom_point(size =3) +
+  scale_colour_gradientn(colors = my_palette)
+  
+```
+
+<br>
+
+This function takes a vector of colors and interpolates between the colors to get a gradient.
+
+
+If we are mapping color to a discrete variable, we will use the scale_color_manual function:
+```{r palette_discrete}
+
+# lets use a discrete color scale
+my_palette <- brewer.pal(n=12, "Set3")
+
+ggplot(data = ohi_data, aes(x = OHI_score, y = HDI, color = georegion_one)) + 
+  geom_point(size = 3) +
+  scale_color_manual(values = my_palette)
+# Note the first 7 of the 12 colors are used in the plot
+
+```
+
+The scale_color_manual function also has a lot of great arguments that allow you to control which colors are associated with each factor level, the names used in the legend, and other controls. 
+
+**Hint 4** 
+If the "color" functions aren't working, try the "fill" version of the function.
+
+
+<br>
+
+---
+
+> **Challenge**
+
+With all of this information in hand, please take a few minutes to create a plot using the fake dataset we will create below (or one of the other datasets we have worked with).  
+
+```{r exercise data}
+
+# making a fake dataframe
+fake_data <- data.frame(animal = rep(c("cat", "dog", "hamster"), each=10),
+                        year = 2011:2020,
+                        values = c(rnorm(n=10, 5, 1) * seq(0.1, 0.5, length.out=10),
+                                   rnorm(n=10, 8, 1) * seq(0.1, 0.5, length.out=10),
+                                   rnorm(n=10, 10, 1) * seq(0.1, 0.5, length.out=10)))
+
+## Add your code to create a plot:
+
+```
+
+
+**Answers (no peeking!)**
+
+Here is one approach, but there is a lot more to do to make this really nice!
+```{r answers_make_plot, eval=FALSE, warning=FALSE, error=FALSE}
+
+library(ggthemes)
+
+ggplot(data = fake_data, aes(x = as.factor(year), y = values, group=animal, color=animal)) + 
+      geom_point(size = 3) +
+      geom_line(size=2, alpha = 0.5) + 
+      labs(x = "year", color = "") +
+      theme_tufte()
+  
+
+```
+
+---
+
+<br>
+
+## Saving plots
+
+After creating your plot, use the `ggsave()` function to save your plot.  This function allows you easily change the dimension, resolution, and format of your plot:
+
+```{r ggsave-example, eval=FALSE, warning=FALSE, error=FALSE}
+
+my_plot <- ggplot(data = fake_data, aes(x = as.factor(year), y = values, group=animal, color=animal)) + 
+      geom_point(size = 3) +
+      geom_line(size=2, alpha = 0.5) + 
+      labs(x = "year", color = "") +
+      theme_tufte()
+
+ggsave("name_of_file.png", my_plot, width = 15, height = 10, dpi=300)
+
+```
+
+<br>
+Note: The parameters `width` and `height` also determine the font size in the saved plot.
+
+## Arranging plots
+
+I am a huge fan of cowplots for making multiplot figures. Here is a nice [introduction](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+
+```{r cowplot_package, eval=FALSE}
+
+install.packages("cowplot")
+
+
+```
+
+```{r cowplot}
+
+library(cowplot)
+
+score_vs_trend <- ggplot(data=ohi_data, aes(x=OHI_score, y=OHI_trend)) +
+  geom_point(size=3, alpha=0.4)
+
+score_vs_trend  # notice that the default theme has been changed....I really like this theme!
+
+score_vs_HDI <- ggplot(data=ohi_data, aes(x=OHI_score, y=HDI)) +
+  geom_point(size=3, alpha=0.4) + 
+  geom_smooth()
+
+plot_grid(score_vs_trend, score_vs_HDI, labels = c('A', 'B'))
+
+```
+
+## Interactive plots
+
+So as you can see, `ggplot2` is a fantastic package for visualizing data. But there are some additional packages that let you make plots interactive. `plotly`, `gganimate`.  I use plotly all the time to check my data!
+
+```{r plotly_install, eval=FALSE}
+
+install.packages("plotly")
+
+
+```
+
+```{r plotly_example}
+
+
+library(plotly)
+
+score_vs_HDI <- ggplot(data=ohi_data, aes(x=OHI_score, y=HDI, text=paste0("Country: ", country))) +
+  geom_point(size=3, alpha=0.4)
+
+ggplotly(score_vs_HDI)
+
+```
+
+## Save and push to GitHub
+
+
+
+<!--chapter:end:ggplot2_mel.Rmd-->
+
+# Data Wrangling: `dplyr` {#dplyr} 
+
+```{r wrangling1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+
+> Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in the mundane labor of collecting and preparing data, before it can be explored for useful information. - [NYTimes (2014)](http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html)
+
+
+## Objectives & Resources
+
+What are some common things you like to do with your data? Maybe remove rows or columns, do calculations and maybe add new columns? This is called **data wrangling**. It's not data management or data manipulation: you **keep the raw data raw** and do these things programatically in R with the tidyverse.
+
+We are going to introduce you to data wrangling in R first with the tidyverse. The tidyverse is a suite of packages that match a philosophy of data science developed by Hadley Wickham and the RStudio team. I find it to be a more straight-forward way to learn R. We will also show you by comparison what code will look like in "Base R", which means, in R without any additional packages (like the "tidyverse" package)  installed. I like David Robinson's blog post on the topic of [teaching the tidyverse first](http://varianceexplained.org/r/teach-hard-way).
+
+For some things, base-R is more straight forward, and we'll show you that too. Whenever we use a function that is from the tidyverse, we will prefix it so you'll know for sure. 
+
+### Objectives
+
+- discuss tidy data
+- read data from online into R
+- explore `gapminder` data with base-R functions
+- wrangle `gapminder` data with `dplyr` tidyverse functions
+- practice RStudio-GitHub workflow
+
+### Resources 
+
+Today's materials are again borrowing from some excellent sources, including:
+
+- Jenny Bryan's lectures from STAT545 at UBC: [Introduction to dplyr](http://stat545.com/block009_dplyr-intro.html)
+- Hadley Wickham and Garrett Grolemund's [R for Data Science](http://r4ds.had.co.nz/)
+- Software Carpentry's R for reproducible scientific analysis materials: [Dataframe manipulation with dplyr](http://swcarpentry.github.io/r-novice-gapminder/13-dplyr.html)
+- First developed for [Software Carpentry at UCSB](http://remi-daigle.github.io/2016-04-15-UCSB/dplyr/)
+- [RStudio's data wrangling cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) 
+- [RStudio's data wrangling webinar](https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/) 
+
+### Data and packages
+
+**Gapminder data**
+
+We'll be using [Gapminder data](http://www.gapminder.org/world), which represents the health and wealth of nations. It was pioneered by [Hans Rosling](https://www.ted.com/speakers/hans_rosling), who is famous for describing the prosperity of nations over time through famines, wars and other historic events with this beautiful data visualization in his [2006 TED Talk: The best stats you've ever seen](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen): 
+
+[Gapminder Motion Chart<br\>![](https://github.com/remi-daigle/2016-04-15-UCSB/raw/gh-pages/viz/img/gapminder-world_motion-chart.png)](http://www.gapminder.org/world)
+
+We'll use the package `dplyr`, which is bundled within the `tidyverse` package. Please install the `tidyverse` ahead of time: 
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+
+## Tidy Data
+
+Let's start off discussing Tidy Data. 
+
+Hadley Wickham, RStudio's Chief Scientist, and his team have been building R packages for data wrangling and visualization based on the idea of **tidy data**. 
+
+Tidy data has a simple convention: put variables in the columns and observations in the rows.
+
+![](img/tidy_data.png)
+</br>
+</br>
+The Ocean Health Index dataset we were working with this morning was an example of tidy data. When data are tidy, you are set up to work with it for your analyses, plots, etc. 
+</br>
+</br>
+![](img/tidy_img_np.png) 
+
+Right now we are going to use `dplyr` to wrangle this tidy-ish data set (the transform part of the cycle), and then come back to tidying messy data using `tidyr` once we've had some fun wrangling. These are both part of the `tidyverse` package that we've already installed:
+
+![](img/r4ds_data-science.png)
+
+<br>
+
+Conceptually, making data tidy first is really critical. Instead of building your analyses around whatever (likely weird) format your data are in, take deliberate steps to make your data tidy. When your data are tidy, you can use a growing assortment of powerful analytical and visualization tools instead of inventing home-grown ways to accommodate your data. This will save you time since you aren't reinventing the wheel, and will make your work more clear and understandable to your collaborators (most importantly, Future You). 
+
+And actually, Hadley Wickham and RStudio have created a ton of packages that help you at every step of the way here. This is from one of Hadley's recent presentations: 
+
+![](img/tidyverse_wickham_pres.jpg)
+
+### Setup
+
+We'll do this in a new RMarkdown file. 
+
+**Here's what to do:**
+
+1. Clear your workspace (Session > Restart R)
+1. New File > R Markdown...
+1. Save as `gapminder-wrangle.Rmd`
+1. Delete the irrelevant text and write a little note to yourself about how we'll be wrangling gapminder data using dplyr. You can edit the title too if you need to.
+
+### load `tidyverse` (which has `dplyr` inside)
+
+In your R Markdown file, let's make sure we've got our libraries loaded. Write the following: 
+
+```{r, eval=FALSE}
+library(tidyverse)     ## install.packages("tidyverse")
+```
+
+This is becoming standard practice for how to load a library in a file, and if you get an error that the library doesn't exist, you can install the package easily by running the code within the comment (highlight `install.packages("tidyverse")` and run it).
+
+## Explore the gapminder data.frame
+
+In the ggplot2 chapter, we explored the Ocean Health Index data visually. Today, we'll explore a different dataset by the numbers. 
+
+We will work with some of the data from the [Gapminder project](http://www.gapminder.org). 
+
+The data are on GitHub. Navigate there by going to: 
+
+github.com > ohi-science > data-science-training > data > gapminder.csv
+
+or by copy-pasting url for data-view: `https://github.com/OHI-Science/data-science-training/blob/master/data/gapminder.csv`
+
+This is data-view mode: so we can have a quick look at the data. It's a .csv file, which you've probably encountered before, but GitHub has formatted it nicely so it's easy to look at. You can see that for every country and year, there are several columns with data in them. 
+
+![](img/gapminder_gh.png)
+
+### read data with `readr::read_csv()`
+
+We can read this data into R directly from GitHub, without downloading it. But we can't read this data in view-mode. We have to click on the **Raw button** on the top-right of the data. This displays it as the raw csv file, without formatting. 
+
+![](img/gapminder_gh_raw.png)
+
+Copy the url for raw data: 
+
+https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv
+
+Now, let's go back to RStudio. In our R Markdown, let's read this csv file and name the variable "gapminder". We will use the `read_csv()` function from the `readr` package (part of the tidyverse, so it's already installed!). 
+
+```{r, eval=FALSE}
+## read gapminder csv. Note the readr:: prefix identifies which package it's in
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv') 
+```
+
+Note: `read_csv` works with local filepaths as well, you could use one from your computer.
+
+Let's inspect: 
+```{r, eval=FALSE}
+## explore the gapminder dataset
+gapminder # this is super long! Let's inspect in different ways
+```
+
+Let's use `head` and `tail`: 
+```{r head, eval=FALSE}
+head(gapminder) # shows first 6
+tail(gapminder) # shows last 6
+
+head(gapminder, 10) # shows first X that you indicate
+tail(gapminder, 12) # guess what this does!
+```
+
+`str()` will provide a sensible description of almost anything: when in doubt, inspect using `str()` on some of the recently created objects to get some ideas about what to do next.
+```{r str, eval=FALSE}
+str(gapminder) # ?str - displays the structure of an object
+```
+
+`gapminder` is a `data.frame`. We aren't going to get into the other types of data receptacles today ('arrays', 'matrices'), because working with data.frames is what you should primarily use. Why?
+
+- data.frames package related variables neatly together, great for analysis
+- most functions, including the latest and greatest packages actually __require__ that your data be in a data.frame
+- data.frames can hold variables of different flavors such as
+    - character data (country or continent names; "Characters (chr)") 
+    - quantitative data (years, population; "Integers (int)" or "Numeric (num)")
+    - categorical information (male vs. female)
+  
+We can also see the `gapminder` variable in RStudio's Environment pane (top right)
+
+More ways to learn basic info on a data.frame. 
+```{r names, eval=FALSE}
+names(gapminder)
+dim(gapminder)    # ?dim dimension
+ncol(gapminder)   # ?ncol number of columns
+nrow(gapminder)   # ?nrow number of rows
+```
+
+A statistical overview can be obtained with `summary()`, or with `skimr::skim()`
+```{r summary, eval=FALSE}
+summary(gapminder)
+
+library(skimr) # install.packages('skimr')
+skim(gapminder)
+```
+
+### Look at the variables inside a data.frame
+
+To specify a single variable from a data.frame, use the dollar sign `$`. The `$` operator is a way to extract of replace parts of an object — check out the help menu for `$`. It's a common operator you'll see in R. 
+
+```{r $, eval=FALSE}
+gapminder$lifeExp # very long! hard to make sense of...
+head(gapminder$lifeExp) # can do the same tests we tried before
+str(gapminder$lifeExp) # it is a single numeric vector
+summary(gapminder$lifeExp) # same information, formatted slightly differently
+```
+
+
+## `dplyr` basics
+
+OK, so let's start wrangling with dplyr.
+
+There are five `dplyr` functions that you will use to do the vast majority of data manipulations:
+
+- **`filter()`**: pick observations by their values
+
+  `r htmltools::img(src='img/rstudio-cheatsheet-filter.png', width=300)` 
+    
+- **`select()`**: pick variables by their names
+
+  `r htmltools::img(src='img/rstudio-cheatsheet-select.png', width=300)`
+    
+- **`mutate()`**: create new variables with functions of existing variables 
+
+  `r htmltools::img(src='img/rstudio-cheatsheet-mutate.png', width=300)`
+    
+- **`summarise()`**: collapse many values down to a single summary 
+
+  `r htmltools::img(src='img/rstudio-cheatsheet-summarise.png', width=300)`
+  
+- **`arrange()`**: reorder the rows
+
+These can all be used in conjunction with `group_by()` which changes the scope of each function from operating on the entire dataset to operating on it group-by-group. These six functions provide the verbs for a language of data manipulation.
+
+All verbs work similarly:
+
+1. The first argument is a data frame.
+2. The subsequent arguments describe what to do with the data frame. You can refer to columns in the data frame directly without using `$`.
+3. The result is a new data frame.
+
+Together these properties make it easy to chain together multiple simple steps to achieve a complex result.
+
+
+## `filter()` subsets data row-wise (observations).
+
+You will want to isolate bits of your data; maybe you want to only look at a single country or a few years. R calls this subsetting. 
+
+`filter()` is a function in `dplyr` that takes logical expressions and returns the rows for which all are `TRUE`. 
+
+Visually, we are doing this (thanks RStudio for your [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)): 
+
+![](img/rstudio-cheatsheet-filter.png)
+Remember your logical expressions? We’ll use `<` and `==` here.
+
+```{r, eval=FALSE}
+filter(gapminder, lifeExp < 29)
+```
+
+You can say this out loud: "Filter the gapminder data for life expectancy less than 29". Notice that when we do this, all the columns are returned, but only the rows that have the life expectancy less than 29. We've subsetted by row.
+
+Let's try another: "Filter the gapminder data for the country Mexico".
+
+```{r, eval=FALSE}
+filter(gapminder, country == "Mexico")
+```
+
+How about if we want two country names? We can't use the `==` operator here, because it can only operate on one thing at a time. We will use the `%in%` operator: 
+
+```{r, eval=FALSE}
+filter(gapminder, country %in% c("Mexico", "Peru"))
+```
+
+How about if we want Mexico in 2002? You can pass filter different criteria:
+
+```{r, eval=FALSE}
+filter(gapminder, country == "Mexico", year == 2002)
+```
+
+
+## Your turn 
+
+> What was the average life expectency in Brazil between 1987 and 2007?   
+> Hint: do this in 2 steps by assigning a variable and then using the `mean()` function.
+>
+> Then, sync to Github.com (pull, stage, commit, push).
+
+### Answer 
+
+This is one way to do it based on what we have learned so far:
+
+```{r, eval=FALSE}
+x <- filter(gapminder, country == "Brazil", year > 1986)  
+mean(x$lifeExp)  
+```
+
+<!---Don't use this one for now because gets off track for %>%
+2. Choose a country. How much has the population changed since the earliest record? Hint: create variables for the earliest and most recent years, and subtract from each other.  
+x1 <- filter(gapminder, country == "Sweden", year == 1952)
+x2 <- filter(gapminder, country == "Sweden", year == 2007)
+x2$pop - x1$pop
+##  1906415
+--->
+
+## `select()` subsets data column-wise (variables)
+
+We use `select()` to subset the data on variables or columns. 
+
+Visually, we are doing this (thanks RStudio for your [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)): 
+
+![](img/rstudio-cheatsheet-select.png)
+
+We can select multiple columns with a comma, after we specify the data frame (gapminder). 
+
+```{r, eval=FALSE}
+select(gapminder, year, country, lifeExp) 
+```
+
+We can also use - to deselect columns
+
+```{r, eval=FALSE}
+select(gapminder, -continent, -lifeExp) # you can use - to deselect columns
+```
+
+## Use `select()` and `filter()` together
+
+Let's filter for Cambodia and remove the continent and lifeExp columns. We'll save this as a variable. Actually, as two temporary variables, which means that for the second one we need to operate on `gap_cambodia`, not `gapminder`. 
+
+```{r, eval=FALSE}
+gap_cambodia  <- filter(gapminder, country == "Cambodia")
+gap_cambodia2 <- select(gap_cambodia, -continent, -lifeExp) 
+```
+
+We also could have called them both `gap_cambodia` and overwritten the first assignment. Either way, naming them and keeping track of them gets super cumbersome, which means more time to understand what's going on and opportunities for confusion or error.
+
+Good thing there is an awesome alternative.
+
+## Meet the new pipe `%>%` operator
+
+Before we go any further, we should explore the new pipe operator that `dplyr` imports from the [`magrittr`](https://github.com/smbache/magrittr) package by Stefan Bache. **This is going to change your life**. You no longer need to enact multi-operation commands by nesting them inside each other. And we won't need to make temporary variables like we did in the Cambodia example above. This new syntax leads to code that is much easier to write and to read: it actually tells the story of your analysis.
+
+Here's what it looks like: `%>%`. The RStudio keyboard shortcut: Ctrl + Shift + M (Windows), Cmd + Shift + M (Mac).
+
+Let's demo then I'll explain:
+```{r, eval=FALSE}
+gapminder %>% head()
+```
+
+This is equivalent to `head(gapminder)`. This pipe operator takes the thing on the left-hand-side and __pipes__ it into the function call on the right-hand-side. It literally drops it in as the first argument.
+
+Never fear, you can still specify other arguments to this function! To see the first 3 rows of Gapminder, we could say `head(gapminder, 3)` or this:
+```{r, eval=FALSE}
+gapminder %>% head(3)
+```
+
+**I've advised you to think "gets" whenever you see the assignment operator, `<-`. Similarly, you should think "and then" whenever you see the pipe operator, `%>%`.**
+
+One of the most awesome things about this is that you START with the data before you say what you're doing to DO to it. So above: "take the gapminder data, and then give me the first three entries".
+
+This means that instead of this:
+
+```{r, eval=FALSE}
+
+## instead of this...
+gap_cambodia  <- filter(gapminder, country == "Cambodia")
+gap_cambodia2 <- select(gap_cambodia, -continent, -lifeExp) 
+
+## ...we can do this
+gap_cambodia  <- gapminder %>% filter(country == "Cambodia")
+gap_cambodia2 <- gap_cambodia %>% select(-continent, -lifeExp) 
+```
+
+So you can see that we'll start with gapminder in the first example line, and then gap_cambodia in the second. This makes it a bit easier to see what data we are starting with and what we are doing to it.
+
+...But, we still have those temporary variables so we're not truly that better off. But get ready to be majorly impressed:  
+
+<!---
+Fun break: check out [this gif about %>% from Twitter](https://twitter.com/backerman150/status/926479565869993984).
+--->
+
+### Revel in the convenience
+
+We can use the pipe to chain those two operations together:
+
+```{r, eval=FALSE}
+gap_cambodia  <- gapminder %>% 
+  filter(country == "Cambodia") %>%
+  select(-continent, -lifeExp) 
+```
+
+What's happening here? In the second line, we were able to delete `gap_cambodia2 <- gap_cambodia`, and put the pipe operator above. This is possible since we wanted to operate on the `gap_cambodia` data anyways. And we weren't truly excited about having a second variable named `gap_cambodia2` anyways, so we can get rid of it. This is huge, because most of your data wrangling will have many more than 2 steps, and we don't want a `gap_cambodia14`!
+
+By using multiple lines I can actually read this like a story and there aren't temporary variables that get super confusing. In my head: 
+
+>"start with the `gapminder` data, and then  
+filter for Cambodia, and then  
+drop the variables continent and lifeExp."
+
+Being able to read a story out of code like this is really game-changing. We'll continue using this syntax as we learn the other dplyr verbs. 
+
+## `mutate()` adds new variables
+
+Alright, let's keep going. 
+
+Let's say we needed to add an index column so we know which order these data came in. Let's not make a new variable, let's add a column to our gapminder data frame. How do we do that? With the `mutate()` function. 
+
+Visually, we are doing this (thanks RStudio for your [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)): 
+
+![](img/rstudio-cheatsheet-mutate.png)
+
+Imagine we want to know each country's annual GDP. We can multiply `pop` by `gdpPercap` to create a new column named `gdp`.
+
+```{r, eval=FALSE}
+gapminder %>%
+  mutate(gdp = pop * gdpPercap)
+```
+
+### Your turn 
+
+> Calculate the population in thousands for all Asian countries in the year 2007 and add it as a new column.
+>
+> Then, sync to Github.com (pull, stage, commit, push).
+
+#### Answer 
+```{r, eval=FALSE}
+gapminder %>%
+  filter(continent == "Asia",
+         year == 2007) %>%
+  mutate(pop_thousands = pop/1000) %>%
+  select(country, year, pop_thousands) #this cleans up the dataframe but isn't necessary
+```
+
+## `group_by()` operates on groups
+
+What if we wanted to know the total population on each continent in 2002? Answering this question requires a **grouping variable**.
+
+Visually, we are doing this (thanks RStudio for your [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)): 
+ 
+![](img/rstudio-cheatsheet-group_by.png)
+
+By using `group_by()` we can set our grouping variable to `continent` and create a new column called `cont_pop` that will add up all country populations by their associated continents.
+
+```{r, eval=FALSE}
+gapminder %>%
+  filter(year == 2002) %>%
+  group_by(continent) %>% 
+  mutate(cont_pop = sum(pop))
+```
+
+OK, this is great. But what if we don't care about the other columns and we only want each continent and their population in 2002? Here's the next function: 
+
+### `summarize()` with `group_by()`
+
+We want to operate on a group, but actually collapse or distill the output from that group. The `summarize()` function will do that for us.
+
+Visually, we are doing this (thanks RStudio for your [cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)): 
+ 
+![](img/rstudio-cheatsheet-summarise.png)
+Here we go:
+
+```{r, eval=FALSE}
+gapminder %>%
+  group_by(continent) %>%
+  summarize(cont_pop = sum(pop)) %>%
+  ungroup()
+```
+
+How cool is that! `summarize()` will actually only keep the columns that are grouped_by or summarized. So if we wanted to keep other columns, we'd have to do have a few more steps (we'll get into it tomorrow). `ungroup()` removes the grouping and it's good to get in the habit of using it after a `group_by()`.
+
+We can use more than one grouping variable. Let's get total populations by **continent** and **year**.
+
+```{r, eval = F}
+gapminder %>%
+  group_by(continent, year) %>%
+  summarize(cont_pop = sum(pop))
+```
+
+
+## `arrange()` orders columns
+
+This is ordered alphabetically, which is cool. But let's say we wanted to order it in ascending order for `year`. The dplyr function is `arrange()`. 
+
+```{r, eval=FALSE}
+gapminder %>%
+  group_by(continent, year) %>%
+  summarize(cont_pop = sum(pop)) %>%
+  arrange(year)
+```
+
+### Your turn
+
+> What is the maximum GDP per continent across all years?
+
+#### Answer
+
+```{r}
+gapminder %>%
+  mutate(gdp = pop * gdpPercap) %>%
+  group_by(continent) %>%
+  mutate(max_gdp = max(gdp)) %>%
+  filter(gdp == max_gdp)
+```
+
+### Your turn
+
+> 1. arrange your data frame in descending order (opposite of what we've done). Expect that this is possible: `?arrange`
+> 1. save your data frame as a variable
+> 1. find the maximum life expectancy for countries in Asia. What is the earliest year you encounter? The latest? Hint: you can use or `base::max` and `dplyr::arrange()`...
+> 
+> 1. Knit your RMarkdown file, and sync it to GitHub (pull, stage, commit, push)
+
+#### Answer (no peeking!)
+```{r, eval=FALSE}
+asia_life_exp <- gapminder %>%
+  filter(continent == 'Asia') %>%
+  group_by(country) %>%
+  filter(lifeExp == max(lifeExp)) %>%
+  arrange(year) 
+```
+
+
+## All together now
+
+We have done a pretty incredible amount of work in a few lines. Our whole analysis is this. Imagine the possibilities from here. It's very readable: you see the data as the first thing, it's not nested. Then, you can read the verbs. This is the whole thing, with explicit package calls from `readr::` and `dplyr::`: 
+
+```{r, eval=FALSE}
+## gapminder-wrangle.R
+## J. Lowndes lowndes@nceas.ucsb.edu
+
+
+## load libraries
+library(tidyverse) ## install.packages('tidyverse')
+
+## read in data
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv') 
+
+## summarize
+gap_max_life_exp <- gapminder %>% 
+  dplyr::select(-continent, -lifeExp) %>% # or select(country, year, pop, gdpPercap)
+  dplyr::group_by(country) %>%
+  dplyr::mutate(gdp = pop * gdpPercap) %>%
+  dplyr::summarize(max_gdp = max(gdp)) %>%
+  dplyr::ungroup() 
+```
+
+I actually am borrowing this "All together now" from Tony Fischetti's blog post [How dplyr replaced my most common R idioms](http://www.statsblogs.com/2014/02/10/how-dplyr-replaced-my-most-common-r-idioms/)). With that as inspiration, this is how what we have done would look like in Base R.
+
+### Compare to base R
+
+Let's compare with some base R code to accomplish the same things. Base R requires subsetting with the `[rows, columns]` notation. This notation is something you'll see a lot in base R. the brackets `[ ]` allow you to extract parts of an object. Within the brackets, the comma separates rows from columns. 
+
+If we don't write anything after the comma, that means "all columns". And if we don't write anything before the comma, that means "all rows". 
+
+Also, the `$` operator is how you access specific columns of your dataframe. You can also add new columns like we will do with `mex$gdp` below. 
+
+Instead of calculating the max for each country like we did with `dplyr` above, here we will calculate the max for one country, Mexico. Tomorrow we will learn how to do it for all the countries, like we did with `dplyr::group_by()`.
+
+```{r, eval = FALSE}
+## gapminder-wrangle.R --- baseR
+## J. Lowndes lowndes@nceas.ucsb.edu
+
+
+gapminder <- read.csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv', stringsAsFactors = FALSE) 
+x1  <- gapminder[ , c('country', 'year', 'pop', 'gdpPercap') ]# subset columns
+mex <- x1[x1$country == "Mexico", ] # subset rows
+mex$gdp <- mex$pop * mex$gdpPercap # add new columns
+mex$max_gdp <- max(mex$gdp)
+```
+
+Note too that the chain operator `%>%` that we used with the `tidyverse` lets us get away from the temporary variable x1. 
+
+<!---https://twitter.com/bencapistrant/status/932646247101534209--->
+
+### Your Turn 
+
+Get your RMarkdown file cleaned up and sync it for the last time today!
+
+#### Answers 
+...
+
+## Joining datasets 
+
+We've learned a ton in this session and we may not get to this right now. If we don't have time, we'll start here before getting into the next chapter: `tidyr`.
+
+Most of the time you will have data coming from different places or in different files, and you want to put them together so you can analyze them. Datasets you'll be joining can be called relational data, because it has some kind of relationship between them that you'll be acting upon. In the tidyverse, combining data that has a relationship is called "joining". 
+
+From the [RStudio cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) (note: this is an earlier version of the cheatsheet but I like the graphics):
+
+![](img/rstudio-cheatsheet-combine.png)
+
+<br>
+Let's have a look at this and pretend that the x1 column is a study site and x2 is the variables we've recorded (like species count) and x3 is data from an instrument (like temperature data). Notice how you may not have exactly the same observations in the two datasets: in the x1 column, observations A and B appear in both datasets, but notice how the table on the left has observation C, and the table on the right has observation D. 
+
+If you wanted to combine these two tables, how would you do it? There are some decisions you'd have to make about what was important to you. The cheatsheet visualizes it for us:
+
+![](img/rstudio-cheatsheet-combine-options1.png)
+
+We will only talk about this briefly here, but you can refer to this more as you have your own datasets that you want to join. This describes the figure above::
+
+- `left_join` keeps everything from the left table and matches as much as it can from the right table. In R, the first thing that you type will be the left table (because it's on the left)
+- `right_join` keeps everything from the right table and matches as much as it can from the left table
+- `inner_join` only keeps the observations that are similar between the two tables
+- `full_join` keeps all observations from both tables. 
+
+<!---
+These are all "mutating joins" because they add another column to what had been there previously. There are also "filtering joins" that do not add another column: 
+
+- `semi_join` keeps only the observations that are in both tables
+- `anti_join` keeps only the observations that are NOT in both tables.
+--->
+
+Let's play with [these](https://github.com/OHI-Science/data-science-training/blob/master/data/co2.csv) CO2 emissions data to illustrate:
+
+```{r, eval=FALSE}
+
+## read in the data. (same URL as yesterday, with co2.csv instead of gapminder.csv)
+co2 <- read_csv("https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/co2.csv")
+
+## explore
+co2 %>% head()
+co2 %>% dim() # 12
+
+## create new variable that is only 2007 data
+gap_2007 <- gapminder %>%
+  filter(year == 2007) 
+gap_2007 %>% dim() # 142  
+
+## left_join gap_2007 to co2
+lj <- left_join(gap_2007, co2, by = "country")
+
+## explore
+lj %>% dim() #142
+lj %>% summary() # lots of NAs in the co2_2017 columm
+lj %>% View() 
+
+## right_join gap_2007 and co2
+rj <- right_join(gap_2007, co2, by = "country")
+
+## explore
+rj %>% dim() # 12
+rj %>% summary()
+rj %>% View() 
+```
+
+That's all we're going to talk about today with joining, but there are more ways to think about and join your data. Check out the [Relational Data Chapter](http://r4ds.had.co.nz/relational-data.html) in [R for Data Science](http://r4ds.had.co.nz).
+
+## Key Points
+
+- Data manipulation functions in `dplyr` allow you to `filter()` by rows and `select()` by columns, create new columns with `mutate()`, and `group_by()` unique column values to apply `summarize()` for new columns that define aggregate values across groupings.
+- The "then" operator `%>%` allows you to chain successive operations without needing to define intermediary variables for creating the most parsimonious, easily read analysis.
+
+## Troubleshooting. 
+
+### Error: unexpected SPECIAL in "  %>%"
+If you get this error, it is probably because you have a line that starts with a pipe. The pipe should be at the end of the previous line, not the start of the current line. 
+
+Yes: 
+```{r, eval=FALSE}
+gap_cambodia  <- gapminder %>% filter(country == "Cambodia") %>%
+  select(-continent, -lifeExp)
+```
+
+No:
+```{r, eval=FALSE}
+gap_cambodia  <- gapminder %>% filter(country == "Cambodia") 
+  %>% select(-continent, -lifeExp)
+# Error: unexpected SPECIAL in "  %>%"
+```
+
+
+<!--chapter:end:dplyr.Rmd-->
+
+# Data Wrangling: `tidyr` {#tidyr} 
+
+```{r wrangling ops, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen = 999, digits = 3) #restrict scientific notation and long decimals
+library(htmltools)
+```
+
+## Objectives & Resources
+
+Now you have some experience working with tidy data and seeing the logic of wrangling when data are structured in a tidy way. But 'real' data often don't start off in a tidy way, and require some reshaping to become tidy. The `tidyr` package is for reshaping data. You won't use `tidyr` functions as much as you use `dplyr` functions, but it is incredibly powerful when you need it.
+
+### Objectives
+
+- learn `tidyr` with the `gapminder` package
+- practice the RStudio-GitHub workflow
+- your turn: use the data wrangling cheat sheet to explore window functions
+
+
+### Resources
+
+These materials borrow heavily from: 
+
+- [R for Data Science: Relational Data](http://r4ds.had.co.nz/relational-data)
+- [R for Data Science: Tidy Data](http://r4ds.had.co.nz/tidy-data.html#spreading-and-gathering)
+
+### Data and packages
+
+We'll use the package `tidyr` and `dplyr`, which are bundled within the `tidyverse` package. 
+
+We'll also be using the Gapminder data we used when learning `dplyr`. We will also explore several datasets that come in Base R, in the `datasets` package.
+
+
+## `tidyr` basics
+
+Remember, from the **`dplyr`** section, that tidy data means all rows are an observation and all columns are variables.
+![](img/tidy_data.png)
+
+Why is this important? Well, if your data are formatted in a standard way, you will be able to use analysis tools that operate on that standard way. Your analyses will be streamlined and you won't have to reinvent the wheel every time you see data in a different. 
+
+Let's take a look at some examples.
+
+Data are often entered in a *wide* format where each row is often a site/subject/patient and you have multiple observation variables containing the same type of data. 
+
+An example of data in a *wide* format is the `AirPassengers` dataset which provides information on monthly airline passenger numbers from 1949-1960. You'll notice that each row is a single year and the columns are each month Jan - Dec. 
+
+```{r wide_data_ex}
+AirPassengers
+```
+
+<!---TODO: gather this (it's not a dataframe...)--->
+This format is intuitive for data entry, but less so for data analysis. If you wanted to calculate the monthly mean, where would you put it? As another row? 
+
+Often, data must be reshaped for it to become tidy data. What does that mean? There are four main verbs we'll use, which are essentially pairs of opposites:
+
+- turn columns into rows (`gather()`),
+- turn rows into columns (`spread()`),
+- turn a character column into multiple columns (`separate()`),
+- turn multiple character columns into a single column (`unite()`)
+
+![](img/rstudio-cheatsheet-spread-gather-sep-unite.png)
+
+
+## Explore gapminder dataset.
+
+Yesterday we started off with the gapminder data in a format that was already tidy. But what if it weren't? Let's look at a different version of those data. 
+
+The data are on GitHub. Navigate there by going to: 
+
+github.com > ohi-science > data-science-training > data > gapminder_wide.csv
+
+or by copy-pasting this in the browser: `https://github.com/OHI-Science/data-science-training/blob/master/data/gapminder_wide.csv`
+
+First have a look at the data. 
+
+You can see there are a lot more columns than the version we looked at before. This format is pretty common, because it can be a lot more intuitive to *enter* data in this way.
+
+![](img/gapminder_wide_gh.png)
+
+<br>
+
+Sometimes, as with the gapminder dataset, we have multiple types of observed data. It is somewhere in between the purely 'long' and 'wide' data formats: 
+
+- 3 "ID variables" (`continent`, `country`, `year`) 
+- 3 "Observation variables" (`pop`,`lifeExp`,`gdpPercap`). 
+
+It's pretty common to have data in this format in most cases despite not having ALL observations in 1 column, since all 3 observation variables have different units. But we can play with switching it to long format and wide to show what that means (i.e. long would be 4 ID variables and 1 observation variable).
+
+
+But we want it to be in a tidy way so that we can work with it more easily. So here we go. 
+
+You use `spread()` and `gather()` to transform or reshape data between *wide* to *long* formats.
+
+### Setup
+
+OK let's get going. 
+
+We'll learn `tidyr` in an RMarkdown file within a GitHub repository so we can practice what we've learned so far. You can either continue from the same RMarkdown as yesterday, or begin a new one. 
+
+**Here's what to do:**
+
+1. Clear your workspace (Session > Restart R)
+1. New File > R Markdown..., save as something other than `gapminder-wrangle.Rmd` and delete irrelevant info, or just continue using `gapminder-wrangle.Rmd`
+
+I'm going to write this in my R Markdown file:
+
+```
+Data wrangling with `tidyr`, which is part of the tidyverse. We are going to tidy some data!
+```
+
+### load `tidyverse` (which has `tidyr` inside)
+
+First load `tidyr` in an R chunk. You already have installed the tidyverse, so you should be able to just load it like this (using the comment so you can run `install.packages("tidyverse")` easily if need be):
+
+```{r, message=FALSE, warning=F}
+library(tidyverse) # install.packages("tidyverse")
+```
+## `gather()` data from wide to long format
+
+`r img(src='img/rstudio-cheatsheet-reshaping-data-gather.png', width=500)` 
+
+<br>
+
+Read in the data from GitHub. Remember, you need to click on the 'Raw' button first so you can read it directly. Let's also read in the gapminder data from yesterday so that we can use it to compare later on. 
+
+```{r, eval=TRUE, message=FALSE}
+## wide format
+gap_wide <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder_wide.csv')
+
+## yesterday's format
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv')
+```
+
+Let's have a look:
+
+```{r, eval=FALSE}
+head(gap_wide)
+str(gap_wide)
+```
+
+While wide format is nice for data entry, it's not nice for calculations. Some of the columns are a mix of variable (e.g. "gdpPercap") and data ("1952").  What if you were asked for the mean population after 1990 in Algeria? Possible, but ugly. But we know it doesn't need to be so ugly. Let's tidy it back to the format we've been using. 
+
+> Question: let's talk this through together. If we're trying to turn the `gap_wide` format into `gapminder` format, what structure does it have that we like? And what do we want to change?
+
+- We like the continent and country columns. We won't want to change those. 
+- We want 1 column identifying the variable name (`tidyr` calls this a **'key'**), and 1 column for the data (`tidyr` calls this the '**value'**).
+- We actually want 3 different columns for variable: `gdpPercap`, `lifeExp`, and `pop`.
+- We would like year as a separate column. 
+
+Let's get it to long format. We'll have to do this in 2 steps. The first step is to take all of those column names (e.g. `lifeExp_1970`) and make them a variable in a new column, and transfer the values into another column. Let's learn by doing:
+
+Let's have a look at `gather()`'s help: 
+```{r, eval=FALSE}
+?gather
+```
+
+> Question: What is our **key-value pair**? 
+
+We need to name two new variables in the key-value pair, one for the key, one for the value. It can be hard to wrap your mind around this, so let's give it a try. Let's name them `obstype_year` and `obs_values`.  
+
+Here's the start of what we'll do: 
+```{r, eval=TRUE}
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values)
+```
+
+Although we were already planning to inspect our work, let's definitely do it now:
+
+```{r, eval=TRUE, message=FALSE}
+str(gap_long)
+head(gap_long)
+tail(gap_long)
+```
+
+We have reshaped our dataframe but this new format isn't really what we wanted.
+
+What went wrong? Notice that it didn't know that we wanted to keep `continent` and `country` untouched; we need to give it more information about which columns we want reshaped. We can do this in several ways.
+
+One way is to identify the columns is by name. Listing them explicitly can be a good approach if there are just a few. But in our case we have 30 columns. I'm not going to list them out here since there is way too much potential for error if I tried to list `gdpPercap_1952`, `gdpPercap_1957`, `gdpPercap_1962` and so on. But we could use some of `dplyr`'s awesome helper functions — because we expect that there is a better way to do this!
+
+```{r, eval=FALSE}
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         dplyr::starts_with('pop'),
+         dplyr::starts_with('lifeExp'),
+         dplyr::starts_with('gdpPercap'))  #here i'm listing all the columns to use in gather
+
+str(gap_long)
+head(gap_long)
+tail(gap_long)
+```
+
+Success! And there is another way that is nice to use if your columns don't follow such a structured pattern: you can exclude the columns you *don't* want. 
+
+```{r, eval=FALSE}
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         -continent, -country)
+
+str(gap_long)
+head(gap_long)
+tail(gap_long)
+```
+
+To recap: 
+
+Inside `gather()` we first name the new column for the new ID variable (`obstype_year`), the name for the new amalgamated observation variable (`obs_value`), then the names of the old observation variable. We could have typed out all the observation variables, but as in the `select()` function (see `dplyr` lesson), we can use the `starts_with()` argument to select all variables that starts with the desired character string. Gather also allows the alternative syntax of using the `-` symbol to identify which variables are not to be gathered (i.e. ID variables).
+
+
+OK, but we're not done yet. `obstype_year` actually contains two pieces of information, the observation type (`pop`,`lifeExp`, or `gdpPercap`) and the `year`. We can use the `separate()` function to split the character strings into multiple variables.
+
+`?separate` --> the main arguments are `separate(data, col, into, sep ...)`. So we need to specify which column we want separated, name the new columns that we want to create, and specify what we want it to separate by. Since the `obstype_year` variable has observation types and years separated by a `_`, we'll use that. 
+
+```{r, eval=TRUE, message=FALSE}
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         -continent, -country) %>%
+  separate(obstype_year,
+           into = c('obs_type','year'),
+           sep = "_",
+           convert = TRUE) #this ensures that the year column is an integer rather than a character
+``` 
+
+No warning messages...still we inspect:
+```{r, eval=TRUE}
+str(gap_long)
+head(gap_long)
+tail(gap_long)
+```
+Excellent. This is long format: every row is a unique observation. Yay!
+
+## Plot long format data
+
+The long format is the preferred format for plotting with `ggplot2`. Let's look at an example by plotting just Canada's life expectancy.
+
+```{r, eval=F}
+canada_df <- gap_long %>%
+  filter(obs_type == "lifeExp",
+         country == "Canada")
+
+ggplot(canada_df, aes(x = year, y = obs_values)) +
+  geom_line()
+```
+
+We can also look at all countries in the Americas:
+
+```{r,eval=F}
+life_df <- gap_long %>%
+  filter(obs_type == "lifeExp",
+         continent == "Americas")
+
+ggplot(life_df, aes(x = year, y = obs_values, color = country)) +
+  geom_line()
+
+```
+
+> ### Exercise
+>
+> 1. Using `gap_long`, calculate and plot the the mean life expectancy for each continent over time from 1982 to 2007. Give your plot a title and assign x and y labels. **Hint:** do this in two steps. First, do the logic and calculations using `dplyr::group_by()` and `dplyr::summarize()`. Second, plot using `ggplot()`.
+>
+> **STOP: Knit the R Markdown file and sync to Github (pull, stage, commit, push)**
+>
+
+```{r, eval=FALSE}
+# solution (no peeking!)
+continents <- gap_long %>% 
+  filter(obs_type == "lifeExp", 
+         year > 1980) %>% 
+  group_by(continent, year) %>% 
+  summarize(mean_le = mean(obs_values)) %>%
+  ungroup()
+
+ggplot(data = continents, aes(x = year, y = mean_le, color = continent)) + 
+  geom_line() +
+  labs(title = "Mean life expectancy",
+       x = "Year",
+       y = "Age (years)") 
+
+## Additional customization
+ggplot(data = continents, aes(x = year, y = mean_le, color = continent)) + 
+  geom_line() +
+  labs(title = "Mean life expectancy",
+       x = "Year",
+       y = "Age (years)",
+       color = "Continent") +
+  theme_classic() +
+  scale_fill_brewer(palette = "Blues")  
+```
+
+
+## `spread()` 
+
+The function `spread()` is used to transform data from long to wide format
+
+Alright! Now just to double-check our work, let's use the opposite of `gather()` to spread our observation variables back to the original format with the aptly named `spread()`. You pass `spread()` the key and value pair, which is now `obs_type` and `obs_values`.
+
+![](img/rstudio-cheatsheet-reshaping-data-spread.png)
+
+
+```{r, eval=FALSE}
+gap_normal <- gap_long %>% 
+  spread(obs_type, obs_values)
+```
+
+No warning messages is good...but still let's check:
+
+```{r, eval=FALSE}
+dim(gap_normal)
+dim(gapminder)
+names(gap_normal)
+names(gapminder)
+```
+
+Now we've got a dataframe `gap_normal` with the same dimensions as the original `gapminder`.
+
+> ### Exercise
+>
+>1. Convert `gap_long` all the way back to `gap_wide`. Hint: Do this in 2 steps. First, create appropriate labels for all our new variables (variable_year combinations) with the opposite of separate: `tidyr::unite()`. Second, `spread()` that variable_year column into wider format.
+>
+>2. Knit the R Markdown file and sync to Github (pull, stage, commit, push)
+>
+
+### Answer (no peeking)
+```{r, eval=FALSE}
+head(gap_long) # remember the columns
+
+gap_wide_new <- gap_long %>% 
+  # first unite obs_type and year into a new column called var_names. Separate by _
+  unite(col = var_names, obs_type, year, sep = "_") %>% 
+  # then spread var_names out by key-value pair.
+  spread(key = var_names, value = obs_values)
+str(gap_wide_new)
+```
+
+## clean up and save your .Rmd 
+
+Spend some time cleaning up and saving `gapminder-wrangle.Rmd`
+Restart R. In RStudio, use *Session > Restart R*. Otherwise, quit R with `q()` and re-launch it.
+
+This morning's .Rmd could look something like this: 
+
+```{r, eval=FALSE}
+
+## load tidyr (in tidyverse)
+library(tidyverse) # install.packages("tidyverse")
+
+## load wide data
+gap_wide <- read.csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder_wide.csv')
+
+head(gap_wide)
+str(gap_wide)
+
+## practice tidyr::gather() wide to long
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         -continent, -country) 
+# or 
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         dplyr::starts_with('pop'),
+         dplyr::starts_with('lifeExp'),
+         dplyr::starts_with('gdpPercap'))
+
+## gather() and separate() to create our original gapminder
+gap_long <- gap_wide %>% 
+  gather(key   = obstype_year,
+         value = obs_values,
+         -continent, -country) %>%
+  separate(obstype_year,
+           into = c('obs_type','year'),
+           sep="_")
+
+## practice: can still do calculations in long format
+gap_long %>% 
+  group_by(continent, obs_type) %>%
+  summarize(means = mean(obs_values))
+
+## spread() from normal to wide
+gap_normal <- gap_long %>% 
+  spread(obs_type, obs_values) %>%
+  select(country, continent, year, lifeExp, pop, gdpPercap)
+
+## check that all.equal()
+all.equal(gap_normal,gapminder)
+
+## unite() and spread(): convert gap_long to gap_wide
+head(gap_long) # remember the columns
+
+gap_wide_new <- gap_long %>% 
+  # first unite obs_type and year into a new column called var_names. Separate by _
+  unite(col = var_names, obs_type, year, sep = "_") %>% 
+  # then spread var_names out by key-value pair.
+  spread(key = var_names, value = obs_values)
+str(gap_wide_new)
+```
+
+### `complete()`
+
+One of the coolest functions in `tidyr` is the function `complete()`. Jarrett Byrnes has written up a [great blog piece](http://www.imachordata.com/you-complete-me/) showcasing the utility of this function so I'm going to use that example here.
+
+We'll start with an example dataframe where the data recorder enters the Abundance of two species of kelp, *Saccharina* and *Agarum* in the years 1999, 2000 and 2004.
+```{r, eval=F}
+kelpdf <- data.frame(
+  Year = c(1999, 2000, 2004, 1999, 2004),
+  Taxon = c("Saccharina", "Saccharina", "Saccharina", "Agarum", "Agarum"),
+  Abundance = c(4,5,2,1,8)
+)
+
+kelpdf
+```
+
+Jarrett points out that *Agarum* is not listed for the year 2000. Does this mean it wasn't observed (Abundance = 0) or that it wasn't recorded (Abundance = NA)? Only the person who recorded the data knows, but let's assume that the this means the Abundance was 0 for that year. 
+
+We can use the `complete()` function to make our dataset more complete.
+
+```{r, eval=F}
+kelpdf %>% 
+  complete(Year, Taxon)
+```
+
+This gives us an NA for *Agarum* in 2000, but we want it to be a 0 instead. We can use the `fill` argument to assign the fill value.
+```{r, eval=F}
+kelpdf %>% complete(Year, Taxon, fill = list(Abundance = 0))
+```
+
+Now we have what we want. Let's assume that all years between 1999 and 2004 that aren't listed should actually be assigned a value of 0. We can use the `full_seq()` function from `tidyr` to fill out our dataset with all years 1999-2004 and assign Abundance values of 0 to those years & species for which there was no observation.
+
+```{r, eval=F}
+
+kelpdf %>% complete(Year = full_seq(Year, period = 1),
+                   Taxon,
+                   fill = list(Abundance = 0))
+```
+
+------
+
+
+## Other links
+
+* [Tidying up Data - Env Info](http://ucsb-bren.github.io/env-info/wk04_tidyr.html) - [Rmd](https://github.com/ucsb-bren/env-info/blob/gh-pages/wk04_tidyr.Rmd)
+* [Data wrangling with dplyr and tidyr - Tyler Clavelle & Dan Ovando](http://bbest.github.io/dplyr-tidyr-tutorial/) - [Rmd](https://github.com/bbest/dplyr-tidyr-tutorial/blob/gh-pages/index.Rmd)
+
+
+<!--chapter:end:tidyr.Rmd-->
+
+# Programming in R {#programming}
+
+## Objectives & Resources
+
+Now we are going to build a little analysis. We will learn to automate our analyses with a for loop. We will make figures, and save them each with automated labeling. Then, we will join data from different files and conditionally label them with if/else statements.
+
+### Objectives
+
+- create an R script
+- for loops
+- joining data
+- if statements
+
+<!---
+- make sure your loop worked like you wanted
+- if statements (conditionals) 
+- write message() to yourself
+- list.files()
+- importing and writing data
+- write a local copy of gapminder data to data/ folder
+- installing packages from github
+
+**Resources**
+--->
+
+
+
+<!--- Would love to include:
+
+When trying to see if a number or text is equal to some *single* value, use `==`. To check it against *multiple* values, use `%in%`. mine’s "%!in%" <- Negate("%in%")
+
+list.files
+file.path()
+message() (with an if statement maybe)
+get file extensions https://stat.ethz.ch/R-manual/R-devel/library/tools/html/fileutils.html
+--->
+
+
+## Analysis plan
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gapminder)
+```
+
+
+OK, here is the plan for our analysis. We want to plot the gdpPercap for each country in the gapminder data frame. So that's 142 separate plots! We will automate this, labeling each one with its name and saving it in a folder called figures. We will learn a bunch of things as we go. 
+
+
+## Create an R script
+
+OK, now, we are going to create an R script. What is an R script? It's a text file with a .R extension. We've been writing R code in R Markdown files so far; R scripts are just R code without the Markdown along with it. 
+
+Go to File > New File > R Script (or click the green plus in the top left corner). 
+
+Let's start off with a few comments so that we know what it is for, and save it:
+
+```
+## gapminder-analysis.R
+## analysis with gapminder data
+## J Lowndes lowndes@nceas.ucsb.edu
+```
+
+We'll be working with the gapminder data again so let's read it in here: 
+
+```{r load, message=FALSE}
+## load libraries
+library(tidyverse)
+
+## read in gapminder data
+gapminder <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/gapminder.csv')
+```
+
+Remember, like in R Markdown, hitting return does not execute this command. To execute it, we need to get what we typed in the script down into the console. Here is how we can do that:
+
+1. copy-paste this line into the console.
+2. select the line (or simply put the cursor there), and click 'Run'. This is available from 
+a. the bar above the script (green arrow)
+b. the menu bar: Code > Run Selected Line(s)
+c. keyboard shortcut: command-return
+3. source the script, which means running the whole thing. This is also great for to see if there are any typos in your code that you've missed. You can do this by:
+a. clicking Source (blue arrow in the bar above the script).
+b. typing `source('gapminder-analysis.R')` in the console (or from another R file!!!). 
+
+## Automation with for loops
+
+Our plan is to plot gdpPercap for each country. This means that we want to do the same operation (plotting gdpPercap) on a bunch of different things (countries). Yesterday we learned the dplyr's `group_by()` function, and this is super powerful to automate through groups. But there are things that you may not want to do with `group_by()`, like plotting. So we will use a for loop.
+
+Let's start off with what this would look like for just one country. I'm going to demonstrate with Afghanistan:
+
+<!---TODO
+For the figures, we want it to label the currency, which we have in another data file (=join). And, we'll want to add Westeros to the dataframe (=rbind) and create that figure too. 
+--->
+
+```{r}
+## filter the country to plot
+gap_to_plot <- gapminder %>%
+  filter(country == "Afghanistan")
+
+## plot
+my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+  geom_point() +
+  labs(title = "Afghanistan")
+```
+
+Let's actually give this a better title than just the country name. Let's use the `base::paste()` function from to paste two strings together so that the title is more descriptive. Use `?paste` to see what the "sep" variable does. 
+```{r}
+## filter the country to plot
+gap_to_plot <- gapminder %>%
+  filter(country == "Afghanistan")
+
+## plot
+my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+  geom_point() +
+  ## add title and save
+  labs(title = paste("Afghanistan", "GDP per capita", sep = " "))
+```
+
+And as a last step, let's save this figure. 
+
+```{r, eval = FALSE}
+## filter the country to plot
+gap_to_plot <- gapminder %>%
+  filter(country == "Afghanistan")
+
+## plot
+my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+  geom_point() +
+  ## add title and save
+  labs(title = paste("Afghanistan", "GDP per capita", sep = " "))
+
+ggsave(filename = "Afghanistan_gdpPercap.png", plot = my_plot)
+```
+
+
+OK. So we can check our repo in the file pane (bottom right of RStudio) and see the generated figure:
+
+![](img/Afghanistan_gdpPercap.png)
+
+
+### Thinking ahead: cleaning up our code
+
+Now, in our code above, we've had to write out "Afghanistan" several times. This makes it not only typo-prone as we type it each time, but if we wanted to plot another country, we'd have to write that in 3 places too. It is not setting us up for an easy time in our future, and thinking ahead in programming is something to keep in mind. 
+
+Instead of having "Afghanistan" written 3 times, let's instead create an object that we will assign to "Afghanistan". We won't name our object "country" because that's a column header with gapminder, and will just confuse us. Let's make it distinctive: let's write cntry (country without vowels):
+
+```{r, eval = FALSE}
+## create country variable
+cntry <- "Afghanistan"
+```
+
+Now, we can replace each `"Afghanistan"` with our variable `cntry`. We will have to introduce a `paste` statement here too, and we want to separate by nothing (`""`). Note: there are many ways to create the filename, and we are doing it this way for a specific reason right now.
+
+```{r, eval = FALSE}
+## create country variable
+cntry <- "Afghanistan"
+
+## filter the country to plot
+gap_to_plot <- gapminder %>%
+  filter(country == cntry)
+
+## plot
+my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+  geom_point() +
+  ## add title and save
+  labs(title = paste(cntry, "GDP per capita", sep = " "))
+
+## note: there are many ways to create filenames with paste() or file.path(); we are doing this way for a reason.
+ggsave(filename = paste(cntry, "_gdpPercap.png", sep = ""), plot = my_plot)
+```
+
+Let's run this. Great! it saved our figure (I can tell this because the timestamp in the Files pane has updated!)
+
+
+### For loop basic structure
+
+Now, how about if we want to plot not only Afghanistan, but other countries as well? There wasn't actually that much code needed to get us here, but we definitely do not want to copy this for every country. Even if we copy-pasted and switched out the country assigned to the `cntry` variable, it would be very typo-prone. Plus, what if you wanted to instead plot lifeExp? You'd have to remember to change it each time...it gets messy quick. 
+
+Better with a for loop. This will let us cycle through and do what we want to each thing in turn. If you want to iterate over a set of values, and perform the same operation on each, a `for` loop will do the job.
+
+**Sit back and watch me for a few minutes while we develop the for loop.** Then we'll give you time to do this on your computers as well. 
+
+The basic structure of a `for` loop is:
+```{r, eval=FALSE}
+for( each item in set of items ){
+  do a thing
+}
+```
+Note the `( )` and the `{ }`. We talk about iterating through each item in the for loop, which makes each item an iterator.
+
+So looking back at our Afghanistan code: all of this is pretty much the "do a thing" part. And we can see that there are only a few places that are specific to Afghanistan. If we could make those places not specific to Afghanistan, we would be set. 
+
+![](img/for_loop_logic.png)
+
+Let's paste from what we had before, and modify it. I'm also going to use RStudio's indentation help to indent the lines within the for loop by highlighting the code in this chunk and going to Code > Reindent Lines (shortcut: command I)
+```{r, eval=FALSE}
+## create country variable
+cntry <- "Afghanistan"
+
+for (each cntry in a list of countries ) {
+  
+  ## filter the country to plot
+  gap_to_plot <- gapminder %>%
+    filter(country == cntry)
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ggsave(filename = paste(cntry, "_gdpPercap.png", sep = ""), plot = my_plot)
+  
+}
+```
+
+### Executable for loop!
+
+OK. So let's start with the beginning of the for loop. We want a list of countries that we will iterate through. We can do that by adding this code before the for loop.
+
+```{r, eval=FALSE}
+## create a list of countries
+country_list <- c("Albania", "Fiji", "Spain")
+
+for ( cntry in country_list ) {
+  
+  ## filter the country to plot
+  gap_to_plot <- gapminder %>%
+    filter(country == cntry)
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ggsave(filename = paste(cntry, "_gdpPercap.png", sep = ""), plot = my_plot)
+
+}
+```
+
+At this point, we do have a functioning for loop. For each item in the `country_list`, the for loop will iterate over the code within the `{ }`, changing `cntry` each time as it goes through the list. And we can see it works because we can see them appear in the files pane at the bottom right of RStudio!
+
+Great! And it doesn't matter if we just use these three countries or all the countries--let's try it. 
+
+But first let's create a figure directory and make sure it saves there since it's going to get out of hand quickly. We could do this from the Finder/Windows Explorer, or from the "Files" pane in RStudio by clicking "New Folder" (green plus button). But we are going to do it in R. A folder is called a directory:
+
+```{r, eval=FALSE}
+dir.create("figures") 
+
+## create a list of countries
+country_list <- unique(gapminder$country) # ?unique() returns the unique values
+
+for( cntry in country_list ){
+  
+  ## filter the country to plot
+  gap_to_plot <- gapminder %>%
+    filter(country == cntry)
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ## add the figures/ folder
+  ggsave(filename = paste("figures/", cntry, "_gdpPercap.png", sep = "")), plot = my_plot)
+} 
+```
+
+So that took a little longer than just the 3, but still super fast. For loops are sometimes just the thing you need to iterate over many things in your analyses. 
+
+### Clean up our repo
+
+OK we now have 142 figures that we just created. They exist locally on our computer, and we have the code to recreate them anytime. But, we don't really need to push them to GitHub. Let's delete the figures/ folder and see it disappear from the Git tab. 
+
+### Your turn
+
+1. Modify our for loop so that it: 
+- loops through countries in Europe only
+- plots the cumulative mean gdpPercap (Hint: Use the [Data Wrangling Cheatsheet](https://www.rstudio.com/resources/cheatsheets/)!)
+- saves them to a new subfolder inside the (recreated) figures folder called "Europe".
+1. Sync to GitHub
+
+#### Answer
+
+No peeking!
+
+```{r, eval=FALSE}
+dir.create("figures") 
+dir.create("figures/Europe") 
+
+## create a list of countries. Calculations go here, not in the for loop
+gap_europe <- gapminder %>%
+  filter(continent == "Europe") %>%
+  mutate(gdpPercap_cummean = dplyr::cummean(gdpPercap))
+
+country_list <- unique(gap_europe$country) # ?unique() returns the unique values
+
+for( cntry in country_list ){ # (cntry = country_list[1])
+  
+  ## filter the country to plot
+  gap_to_plot <- gap_europe %>%
+    filter(country == cntry)
+  
+  ## add a print message to see what's plotting
+  print(paste("Plotting", cntry))
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap_cummean)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ggsave(filename = paste("figures/Europe/", cntry, "_gdpPercap_cummean.png", sep = "")), 
+  plot = my_plot)
+} 
+```
+
+Notice how we put the calculation for `cummean()` outside the for loop. It could have gone inside, but it's an operation that could be done just one time before hand (outside the loop) rather than multiple times as you go (inside the for loop). 
+
+## Conditional statements with `if` and `else` 
+
+Often when we're coding we want to control the flow of our actions. This can be done
+by setting actions to occur only if a condition or a set of conditions are met.
+
+In R and other languages, these are called "if statements". 
+
+### if statement basic structure
+
+```{r, eval=FALSE}
+# if
+if (condition is true) {
+  do something
+}
+
+# if ... else
+if (condition is true) {
+  do something
+} else {  # that is, if the condition is false,
+  do something different
+}
+```
+
+Let's bring this concept into our for loop for Europe that we've just done. What if we want to add the label "Estimated" to countries that were estimated? Here's what we'd do.
+
+First, import csv file with information on whether data was estimated or reported, and join to gapminder dataset:
+
+```{r}
+est <- readr::read_csv('https://raw.githubusercontent.com/OHI-Science/data-science-training/master/data/countries_estimated.csv')
+gapminder_est <- left_join(gapminder, est)
+```
+
+```{r, eval=FALSE}
+dir.create("figures") 
+dir.create("figures/Europe") 
+
+## create a list of countries
+gap_europe <- gapminder_est %>% ## use instead of gapminder
+  filter(continent == "Europe") %>%
+  mutate(gdpPercap_cummean = dplyr::cummean(gdpPercap))
+
+country_list <- unique(gap_europe$country) 
+
+for( cntry in country_list ){ # (cntry = country_list[1])
+  
+  ## filter the country to plot
+  gap_to_plot <- gap_europe %>%
+    filter(country == cntry)
+  
+  ## add a print message 
+  print(paste("Plotting", cntry))
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap_cummean)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ## if estimated, add that as a subtitle. 
+  if (gap_to_plot$estimated == "yes") {
+    
+    ## add a print statement just to check
+    print(paste(cntry, "data are estimated"))
+    
+    my_plot <- my_plot +
+      labs(sutbtitle("Estimated data"))
+  }
+  #   Warning message:
+  # In if (gap_to_plot$estimated == "yes") { :
+  #   the condition has length > 1 and only the first element will be used
+  
+  ggsave(filename = paste("figures/Europe/", cntry, "_gdpPercap_cummean.png", sep = ""), 
+         plot = my_plot)
+  
+} 
+```
+
+This worked, but we got a warning message with the if statement. This is because if we look at `gap_to_plot$estimated`, it is many "yes"s or "no"s, and the if statement works just on the first one. We know that if any are yes, all are yes, but you can imagine that this could lead to problems down the line if you *didn't* know that. So let's be explicit:
+
+### Executable if statement
+
+```{r, eval=FALSE}
+dir.create("figures") 
+dir.create("figures/Europe") 
+
+
+## create a list of countries
+gap_europe <- gapminder_est %>% ## use instead of gapminder
+  filter(continent == "Europe") %>%
+  mutate(gdpPercap_cummean = dplyr::cummean(gdpPercap))
+
+country_list <- unique(gap_europe$country) 
+
+for( cntry in country_list ){ # (cntry = country_list[1])
+  
+  ## filter the country to plot
+  gap_to_plot <- gap_europe %>%
+    filter(country == cntry)
+  
+  ## add a print message 
+  print(paste("Plotting", cntry))
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap_cummean)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ## if estimated, add that as a subtitle. 
+  if (any(gap_to_plot$estimated == "yes")) { # any() will return a single TRUE or FALSE
+    
+    print(paste(cntry, "data are estimated"))
+    
+    my_plot <- my_plot +
+      labs(subtitle = "Estimated data")
+  }
+  ggsave(filename = paste("figures/Europe/", cntry, "_gdpPercap_cummean.png", sep = ""), 
+         plot = my_plot)
+  
+} 
+```
+
+OK so this is working as we expect! Note that we do not need an `else` statement above, because we only want to do something (add a subtitle) if one condition is met. But what if we want to add a different subtitle based on another condition, say where the data are reported, to be extra explicit about it?
+
+### Executable if/else statement
+
+```{r, eval=FALSE}
+dir.create("figures") 
+dir.create("figures/Europe") 
+
+## create a list of countries
+gap_europe <- gapminder_est %>% ## use instead of gapminder
+  filter(continent == "Europe") %>%
+  mutate(gdpPercap_cummean = dplyr::cummean(gdpPercap))
+
+country_list <- unique(gap_europe$country) 
+
+for( cntry in country_list ){ # (cntry = country_list[1])
+  
+  ## filter the country to plot
+  gap_to_plot <- gap_europe %>%
+    filter(country == cntry)
+  
+  ## add a print message 
+  print(paste("Plotting", cntry))
+  
+  ## plot
+  my_plot <- ggplot(data = gap_to_plot, aes(x = year, y = gdpPercap_cummean)) + 
+    geom_point() +
+    ## add title and save
+    labs(title = paste(cntry, "GDP per capita", sep = " "))
+  
+  ## if estimated, add that as a subtitle. 
+  if (any(gap_to_plot$estimated == "yes")) { # any() will return a single TRUE or FALSE
+    
+    print(paste(cntry, "data are estimated"))
+    
+    my_plot <- my_plot +
+      labs(subtitle = "Estimated data")
+  } else {
+    
+    my_plot <- my_plot +
+      labs(subtitle = "Reported data")
+    
+    print(paste(cntry, "data are reported"))
+    
+  }
+  ggsave(filename = paste("figures/Europe/", cntry, "_gdpPercap_cummean.png", sep = ""), 
+         plot = my_plot)
+  
+} 
+```
+
+Note that this works because we know there are only two conditions, `Estimated == yes` and `Estimated == no`. In the first `if` statement we asked for estimated data, and the `else` condition gives us everything else (which we know is reported). We can be explicit about setting these conditions in the `else` clause by instead using an `else if` statement. Below is how you would construct this in your for loop, similar to above:
+
+```{r, eval == F}
+  if (any(gap_to_plot$estimated == "yes")) { # any() will return a single TRUE or FALSE
+    
+    print(paste(cntry, "data are estimated"))
+    
+    my_plot <- my_plot +
+      labs(subtitle = "Estimated data")
+  } else if (any(gap_to_plot$estimated == "no")){
+    
+    my_plot <- my_plot +
+      labs(subtitle = "Reported data")
+    
+    print(paste(cntry, "data are reported"))
+    
+  }
+```
+
+This construction is necessary if you have more than two conditions to test for.
+
+
+## More R!
+
+With just a little bit of time left, here are some things that you can look into more on your own.
+
+### Importing and Installing
+
+Here are  some really helpful packages for you to work with: 
+
+Remember you'll use `install.packages("package-name-in-quotes")` to install from CRAN. 
+
+- `readr` to read in .csv files
+- `readxl` to read in Excel files
+- `stringr` to work with strings
+- `lubridate` to work with dates
+
+You are also able to install packages directly with Github, using the `devtools` package. Then, instead of `install.packages()`, you'll use `devtools::install_github()`. And you can create *your own* packages when you're ready. Read http://r-pkgs.had.co.nz/ to learn how!
+
+### Organization and workflows
+
+
+- set up a folder for figs, intermediate analyses, final outputs, figures
+
+### Getting help
+
+You'll soon have questions that are outside the scope of this workshop, how do you find answers?
+
+- end with a ton of resources:
+https://peerj.com/collections/50-practicaldatascistats/
+
+## Ideas for Extended Analysis 2
+
+- stringr() http://r4ds.had.co.nz/strings.html
+
+<!--chapter:end:programming.Rmd-->
+
+# Collaborating with GitHub {#collaborating}
+
+## Objectives & Resources
+
+The collaborative power of GitHub and RStudio is really game changing. So far we've been collaborating with our most important collaborator: ourselves. But, we are lucky that in science we have so many other collaborators, so let's learn how to accelerate our collaborations with them through GitHub! 
+
+We are going to teach you the simplest way to collaborate with someone, which is for both of you to have privileges to edit and add files to a repository. GitHub is built for software developer teams, and there is a lot of features that limit who can directly edit files, but we don't need to start there. 
+
+We will do this all with a partner, and we'll walk through some things all together, and then give you a chance to work with your collaborator on your own. 
+
+### Objectives
+
+We are going to create a website with a collaborator!
+
+- create a new repo and give permission to a collaborator
+- open as a new RStudio project!
+- collaborate with a partner 
+- explore github.com blame, history, issues
+
+<!---**Resources**--->
+
+
+
+## Create repo (Partner 1)
+
+Team up with a partner sitting next to you. Partner 1 will create a new repository. We will do this in the same way that we did in Chapter \@ref(github): [Create a repository on Github.com]. 
+
+## Create a gh-pages branch (Partner 1)
+
+We aren't going to talk about branches very much, but they are a powerful feature of git/GitHub. I think of it as creating a copy of your work that becomes a parallel universe that you can modify safely because it's not affecting your original work. And then you can choose to merge the universes back together if and when you want. By default, when you create a new repo you begin with one branch, and it is named `master`. When you create new branches, you can name them whatever you want. However, if you name one `gh-pages` (all lowercase, with a `-` and no spaces), this will let you create a website. And that's our plan. So, Partner 1, do this to create a `gh-pages` branch: 
+
+On the homepage for your repo on GitHub.com, click the button that says "Branch:master". Here, you can switch to another branch (right now there aren't any others besides `master`), or create one by typing a new name. 
+
+<img src="img/github-branch.png" width="350px">
+
+<br>
+
+Let's type `gh-pages`. 
+
+<br>
+
+<img src="img/github_create-branch_gh-pages.png" width="350px"> 
+
+Let's also change `gh-pages` to the default branch and delete the master branch: this will be a one-time-only thing that we do here: 
+
+First click to control branches:
+
+<img src="img/github-branch2.png" width="350px"> 
+
+And then click to change the default branch to `gh-pages`. I like to then delete the `master` branch when it has the little red trash can next to it. It will make you confirm that you really want to delete it, which I do!
+
+<img src="img/github-change-branch.png" width="450px"> 
+
+
+## Give your collaborator administration privileges (Partner 1 and 2)
+
+Now, Partner 1, go into Settings > Collaborators > enter Partner 2's (your collaborator's) username. 
+
+Partner 2 then needs to check their email and accept as a collaborator. Notice that your collaborator has "Push access to the repository" (highlighted below):
+
+![](img/github_collab.png) 
+
+## Clone to a new Rproject  (Partner 1)
+
+Now let's have Partner 1 clone the repository to their local computer. We'll do this through RStudio like we did before (see Chapter \@ref(github): [Clone your repository using RStudio]), but with a final additional step before hitting "Create Project": select "Open in a new Session".
+
+<br>
+
+<img src="img/github_clone_newproject.png" width="450px"> 
+
+<br>
+<br>
+Opening this Project in a new Session opens up a new world of awesomeness from RStudio. Having different RStudio project sessions allows you to keep your work separate and organized. So you can collaborate with this collaborator on this repository while also working on your other repository from this morning. I tend to have a lot of projects going at one time:
+
+<br>
+
+![](img/Rproj_screenshot.jpg)
+
+<br>
+
+Have a look in your git tab. 
+
+Like we saw this morning, when you first clone a repo through RStudio, RStudio will add an `.Rproj` file to your repo. And if you didn't add a `.gitignore` file when you originally created the repo on GitHub.com, RStudio will also add this for you. So, Partner 1, let's go ahead and sync this back to GitHub.com. 
+
+Remember: 
+
+![](img/commit_overview.png)
+
+<br> 
+
+Let's confirm that this was synced by looking at GitHub.com again. You may have to refresh the page, but you should see this commit where you added the `.Rproj` file.
+
+## Clone to a new Rproject  (Partner 2)
+
+Now it's Partner 2's turn! Partner 2, clone this repository following the same steps that Partner 1 just did. When you clone it, RStudio should not create any new files — why? Partner 1 already created and pushed eht the `.Rproj` and `.gitignore` files so they already exist in the repo.  
+
+## Edit a file and sync (Partner 2)
+
+Let's have Partner 2 add some information to the README.md. Let's have them write: 
+```
+Collaborators: 
+
+- Partner 2's name
+
+```
+
+When we save the README.md, And now let's sync back to GitHub. 
+
+![](img/commit_overview.png)
+
+
+<br>
+
+When we inspect on GitHub.com, click to view all the commits, you'll see commits logged from both Partner 1 and 2!
+
+> Question: Would you still be able clone a repository that you are not a collaborator on? What do you think would happen? Try it! Can you sync back? 
+
+## State of the Repository
+
+OK, so where do things stand right now? GitHub.com has the most recent versions of all the repository's files. Partner 2 also has these most recent versions locally. How about Partner 1? 
+
+Partner 1 does not have the most recent versions of everything on their computer. 
+
+Question: How can we change that? Or how could we even check? 
+
+Answer: PULL. 
+
+Let's have Partner 1 go back to RStudio and Pull. If their files aren't up-to-date, this will pull the most recent versions to their local computer. And if they already did have the most recent versions? Well, pulling doesn't cost anything (other than an internet connection), so if everything is up-to-date, pulling is fine too. 
+
+I recommend pulling every time you come back to a collaborative repository. Whether you haven't opened RStudio in a month or you've just been away for a lunch break, pull. It might not be necessary, but it can save a lot of heartache later.
+
+## Merge conflicts
+
+What kind of heartache are we talking about? Let's explore. **Stop and watch me create and solve a merge conflict with my Partner 2, and then you will have time to recreate this with your partner.** Here's what I am going to do:
+
+Within a file, GitHub tracks changes line-by-line. So you can also have collaborators working on different lines within the same file and GitHub will be able to weave those changes into each other -- that's it's job! It's when you have collaborators working on *the same lines within the same file* that you can have **merge conflicts**. Merge conflicts can be frustrating, but they are actually trying to help you (kind of like R's error messages). They occur when GitHub can't make a decision about what should be on a particular line and needs a human (you) to decide. And this is good -- you don't want GitHub to decide for you, it's important that you make that decision. 
+
+So let's test this. Let's have both Partners 1 and 2 go to RStudio and pull so you have the most recent versions of all your files. Now, Partners 1 and 2, both go to the README, and on Line 7, write something, anything. I'm not going to give any examples because I want both Partners to write something different. And be sure to save the README. 
+
+OK. Now, let's have Partner 2 sync: pull, stage, commit, push. Great. 
+
+Now, when Partner 2 is done, let's have Partner 1 (me) try. 
+
+Partner 1: pull ---- Error! Merge conflict!
+
+![](img/github_mergeconflict.png)
+
+So Partner 1 is not allowed to pull, it failed. GitHub is protecting Partner 1 because if they did successfully pull, their work would be overwritten by whatever Partner 2 had written. So GitHub is going to make a human (Partner 1 in this case) decide. GitHub says, either commit this work first, or "stash it" (I interpret that as saving a copy of the README in another folder somewhere outside of this GitHub repository). 
+
+Let's follow their advice and have Partner 1 commit. Great. Now let's pull again. 
+
+Still not happy!
+
+![](img/github_mergeconflict2.png)
+
+<br>
+
+OK, actually, we're just moving along this same problem that we know that we've created: Both Partner 1 and 2 have both added new information to the same line. You can see that the pop-up box is saying that there is a CONFLICT and the merge has not happened. OK. We can close that window and inspect. 
+
+Notice that in the git tab, there are orange `U`s; this means that there is an unresolved conflict, and it is not staged with a check anymore because modifications have occurred to the file since it has been staged. 
+
+Let's look at the README file itself. We got a preview in the diff pane that there is some new text going on in our README file: 
+
+```r
+<<<<<<< HEAD
+Julie is collaborating on this README.
+=======
+**Jamie is adding lines here.**
+>>>>>>> 05a189b23372f0bdb5b42630f8cb318003cee19b
+```
+
+In this example, Partner 1 is Jamie and Partner 2 is Julie. GitHub is displaying the line that Julie wrote and the line Jamie wrote separated by `=======`. So these are the two choices that Partner 2 has to decide between, which one do you want to keep? Where where does this decision start and end? The lines are bounded by `<<<<<<<HEAD` and `>>>>>>>long commit identifier`. 
+
+So, to resolve this merge conflict, Partner 2 has to chose, and delete everything except the line they want. So, they will delete the `<<<<<<HEAD`, `=====`, `>>>>long commit identifier` and one of the lines that they don't want to keep. 
+
+Do that, and let's try again. In this example, we've kept Jamie's line: 
+
+![](img/github_mergeconflict3.png)
+
+<br>
+
+Then be sure to stage, and write a commit message. I often write "resolving merge conflict" or something so I know what I was up to. When I stage the file, notice how now my edits look like a simple line replacement (compare with the image above before it was re-staged): 
+
+![](img/github_mergeconflict4.png)
+
+### Your turn
+
+Create a merge conflict with your partner, like we did in the example above. And try other ways to get and solve merge conflicts. For example, when you get the following error message, try both ways (commit or stash. Stash means copy/move it somewhere else, for example, on your Desktop temporarily).
+
+![](img/github_mergeconflict.png)
+
+## How do you avoid merge conflicts?
+
+I'd say pull often, commit and sync often. 
+
+Also, talk with your collaborators. Although our Ocean Health Index project is highly collaborative, we are actually rarely working on the exact same file at any given time. And if we are, we are also on Slack, Gchat, or sitting next to the person. 
+
+But merge conflicts will occur and some of them will be heartbreaking and demoralizing. They happen to me when I collaborate with myself between my work computer and laptop. So protect yourself by pulling and syncing often! 
+
+## Create your collaborative website
+
+OK. Let's have Partner 2 create a new RMarkdown file. Here's what they will do: 
+
+1. Pull!
+1. Create a new RMarkdown file **and name it `index.Rmd`**. Make sure it's all lowercase, and named `index.Rmd`. This will be the homepage for our website! 
+1. Maybe change the title inside the Rmd, call it "Our website"
+1. Knit!
+1. Save and sync your .Rmd and your .html files 
+    - (pull, stage, commit, pull, push)
+1. Go to GitHub.com and go to your rendered website! Where is it? Figure out your website's url from your github repo's url. For example: 
+    - my github repo: <https://github.com/jules32/collab-research>
+    - my website url: <https://jules32.github.io/collab-research/>
+    - note that the url starts with my **username.github.io**
+    
+So cool! On websites, if something is called `index.html`, that defaults to the home page. So <https://jules32.github.io/collab-research/> is the same as <https://jules32.github.io/collab-research/index.html>. If you name your RMarkdown file `my_research.Rmd`, the url will become <https://jules32.github.io/collab-research/my_research.html>.
+
+## Your turn
+
+Here is some collaborative analysis you can do on your own. We'll be playing around with airline flights data, so let's get setup a bit. 
+
+1. Person 1: clean up the README to say something about you two, the authors.
+1. Person 2: edit the `index.Rmd` or create a new RMarkdown file: maybe add something about the authors, and knit it. 
+1. Both of you: sync to GitHub.com (pull, stage, commit, push). 
+1. Both of you: once you've both synced (talk to each other about it!), pull again. You should see each others' work on your computer.
+1. Person 1: in the RMarkdown file, add a bit of the plan. We'll be exploring the `nycflights13` dataset. This is data on flights departing New York City in 2013.
+1. Person 2: in the README, add a bit of the plan. 
+1. Both of you: sync
+
+## Explore on GitHub.com
+
+Now, let's look at the repo again on GitHub.com. You'll see those new files appear, and the commit history has increased.
+
+### Commit History
+
+You'll see that the number of commits for the repo has increased, let's have a look. You can see the history of both of you. 
+
+### Blame
+
+Now let's look at a single file, starting with the README file. We've explored the "Raw" and "History" options in the top-right of the file, but we haven't really explored the "Blame" option. Let's look now. Blame shows you line-by-line who authored the most recent version of the file you see. This is super useful if you're trying to understand logic; you know who to ask for questions or attribute credit.
+
+### Issues
+
+Now let's have a look at issues. This is a way you can communicate to others about plans for the repo, questions, etc. Note that issues are public if the repository is public.
+
+![](img/github-issues.png)
+
+Let's create a new issue with the title "NYC flights". 
+
+In the text box, let's write a note to our collaborator. You can use Markdown in this text box, which means all of your header and bullet formatting will come through. You can also select these options by clicking them just above the text box. 
+
+Let's have one of you write something here. I'm going to write: 
+
+```
+Hi @jafflerbach! 
+
+# first priority
+
+- explore NYC flights
+- plot interesting things
+```
+
+Note that I have my collaborator's GitHub name with a `@` symbol. This is going to email her directly so that she sees this issue. I can click the "Preview" button at the top left of the text box to see how this will look rendered in Markdown. It looks good! 
+
+Now let's click submit new issue. 
+
+On the right side, there are a bunch of options for categorizing and organizing your issues. You and your collaborator may want to make some labels and timelines, depending on the project. 
+
+Another feature about issues is whether you want any notifications to this repository. Click where it says "Unwatch" up at the top. You'll see three options: "Not watching", "Watching", and "Ignoring". By default, you are watching these issues because you are a collaborator to the repository. But if you stop being a big contributor to this project, you may want to switch to "Not watching". Or, you may want to ask an outside person to watch the issues. Or you may want to watch another repo yourself!
+
+![](img/github-collab.png)
+
+Let's have Person 2 respond to the issue affirming the plan.
+
+## NYC flights exploration
+
+Let's continue this workflow with your collaborator, syncing to GitHub often and practicing what we've learned so far. We will get started together and then you and your collaborator will work on your own.
+
+Here's what we'll be doing (from [R for Data Science's Transform Chapter](http://r4ds.had.co.nz/transform.html)):
+
+**Data**: You will be exploring a dataset on flights departing New York City in 2013. These data are actually in a package called `nycflights13`, so we can load them the way we would any other package. 
+
+Let's have Person 1 write this in the RMarkdown document (Person 2 just listen for a moment; we will sync this to you in a moment). 
+
+```{r, message = FALSE}
+library(nycflights13) # install.packages('nycflights13')
+library(tidyverse)
+```
+
+This data frame contains all `r format(nrow(nycflights13::flights), big.mark = ",")` flights that departed from New York City in 2013. The data comes from the US [Bureau of Transportation Statistics](http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&Link=0), and is documented in `?flights`.
+
+```{r}
+flights
+```
+
+Let's select all flights on January 1st with:
+
+```{r}
+filter(flights, month == 1, day == 1)
+```
+
+To use filtering effectively, you have to know how to select the observations that you want using the comparison operators. R provides the standard suite: `>`, `>=`, `<`, `<=`, `!=` (not equal), and `==` (equal). We learned these operations yesterday. But there are a few others to learn as well. 
+
+#### Sync
+
+Sync this RMarkdown back to GitHub so that your collaborator has access to all these notes. Person 2 should then pull and will continue with the following notes: 
+
+### Logical operators
+
+Multiple arguments to `filter()` are combined with "and": every expression must be true in order for a row to be included in the output. For other types of combinations, you'll need to use Boolean operators yourself: 
+
+- `&` is "and" 
+- `|` is "or" 
+- `!` is "not"
+
+Let's have a look:
+
+The following code finds all flights that departed in November or December:
+
+```{r, eval = FALSE}
+filter(flights, month == 11 | month == 12)
+```
+
+The order of operations doesn't work like English. You can't write `filter(flights, month == 11 | 12)`, which you might literally translate into  "finds all flights that departed in November or December". Instead it finds all months that equal `11 | 12`, an expression that evaluates to `TRUE`. In a numeric context (like here), `TRUE` becomes one, so this finds all flights in January, not November or December. This is quite confusing!
+
+A useful short-hand for this problem is `x %in% y`. This will select every row where `x` is one of the values in `y`. We could use it to rewrite the code above:
+
+```{r, eval = FALSE}
+nov_dec <- filter(flights, month %in% c(11, 12))
+```
+
+Sometimes you can simplify complicated subsetting by remembering De Morgan's law: `!(x & y)` is the same as `!x | !y`, and `!(x | y)` is the same as `!x & !y`. For example, if you wanted to find flights that weren't delayed (on arrival or departure) by more than two hours, you could use either of the following two filters:
+
+```{r, eval = FALSE}
+filter(flights, !(arr_delay > 120 | dep_delay > 120))
+filter(flights, arr_delay <= 120, dep_delay <= 120)
+```
+
+Whenever you start using complicated, multipart expressions in `filter()`, consider making them explicit variables instead. That makes it much easier to check your work. 
+
+## Your turn
+
+OK: Person 2, sync this to GitHub, and Person 1 will pull so that we all have the most current information. 
+
+With your partner, do the following tasks. Each of you should work on one task at a time. Since we're working closely on the same document, talk to each other and have one person create a heading and a R chunk, and then sync; the other person can then create a heading and R chunk and sync, and then you can both work safely. 
+
+Remember to make your commit messages useful!
+
+As you work, you may get merge conflicts. This is part of collaborating in GitHub; we will walk through and help you with these and also teach the whole group. 
+
+### Use logicals
+
+1.  Find all flights that:
+
+    1. Had an arrival delay of two or more hours
+    1. Flew to Houston (`IAH` or `HOU`)
+    1. Were operated by United, American, or Delta
+    1. Departed in summer (July, August, and September)
+    1. Arrived more than two hours late, but didn't leave late
+    1. Were delayed by at least an hour, but made up over 30 minutes in flight
+    1. Departed between midnight and 6am (inclusive)
+
+1.  Another useful dplyr filtering helper is `between()`. What does it do?
+    Can you use it to simplify the code needed to answer the previous 
+    challenges?
+
+### Missing values
+
+To answer these questions: read some background below.
+
+1.  How many flights have a missing `dep_time`? What other variables are 
+    missing? What might these rows represent?
+
+1.  Why is `NA ^ 0` not missing? Why is `NA | TRUE` not missing?
+    Why is `FALSE & NA` not missing? Can you figure out the general
+    rule?  (`NA * 0` is a tricky counterexample!)
+
+
+One important feature of R that can make comparison tricky are missing values, or `NA`s ("not availables"). `NA` represents an unknown value so missing values are "contagious": almost any operation involving an unknown value will also be unknown.
+
+```{r}
+NA > 5
+10 == NA
+NA + 10
+NA / 2
+```
+
+The most confusing result is this one:
+
+```{r}
+NA == NA
+```
+
+It's easiest to understand why this is true with a bit more context:
+
+```{r}
+# Let x be Mary's age. We don't know how old she is.
+x <- NA
+
+# Let y be John's age. We don't know how old he is.
+y <- NA
+
+# Are John and Mary the same age?
+x == y
+# We don't know!
+```
+
+If you want to determine if a value is missing, use `is.na()`:
+
+```{r}
+is.na(x)
+```
+
+
+
+
+<!--chapter:end:collaborating.Rmd-->
+
+# Be a champion for open science {#champion} 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+
+*in development...*
+
+## Objectives and Resources
+
+To provide resources for you to promote good practices for open and reproducible science in your communities and institutions.
+
+## Three messages
+
+If there are 3 things to communicate to others after this workshop, I think they would be: 
+
+**1. Data science is a discipline that can improve your analyses**
+
+- There are concepts, theory, and tools for thinking about and working with data. 
+- Your study system is not unique when it comes to data, and accepting this will speed up your analyses.
+
+*This helps your science:*
+
+- Think deliberately about data: when you distinguish data questions from research questions, you'll learn how and who to ask for help
+- Save heartache: you don’t have to reinvent the wheel
+- Save time: when you expect there’s a better way to do what you are doing, you'll find the solution faster. Focus on the science.
+
+
+**2. Open data science tools exist**
+
+- Data science tools that enable open science are game-changing for analysis, collaboration and communication.
+- Open science is "the concept of transparency at all stages of the research process, coupled with free and open access to data, code, and papers" ([Hampton et al. 2015](http://onlinelibrary.wiley.com/doi/10.1890/ES14-00402.1/abstract)))  
+
+*This helps your science:*
+
+- Have confidence in your analyses from this traceable, reusable record
+- Save time through automation, thinking ahead of your immediate task, reduced bookkeeping, and collaboration
+- Take advantage of convenient access: working openly online is like having an extended memory
+
+**3. Learn these tools with collaborators and community (redefined):** 
+
+- Your most important collaborator is Future You. 
+- Community should also be beyond the colleagues in your field.
+- Learn from, with, and for others. 
+
+*This helps your science:* 
+
+- If you learn to talk about your data, you'll find solutions faster. 
+- Build confidence: these skills are transferable beyond your science.
+- Be empathetic and inclusive and build a network of allies 
+
+## Build community
+
+Join existing communities locally and online, and start local chapters with friends!
+
+Some ideas: 
+
+- [Mozilla Study Groups](https://science.mozilla.org/programs/studygroups) Example: [Eco-data-science](http://eco-data-science.github.io/). Also see ([Steven et al. 2018](https://www.biorxiv.org/content/early/2018/02/15/265421)) 
+- [RLadies](https://rladies.org/). Example: [RLadies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/)
+
+These meetups can be for skill-sharing, showcasing how people work, or building community so you can troubleshoot together. They can be an informal "hacky hour" at a cafe or pub!
+
+<!---
+## Other lessons
+
+### Naming files
+
+Now is a good interlude to talk about naming things. 
+
+We are going to take five minutes to talk through [Jenny Bryan's three principles for naming files](https://speakerdeck.com/jennybc/how-to-name-files):
+
+1. machine readable
+1. human readable
+1. play well with default ordering
+--->
+
+<!--chapter:end:champion.Rmd-->
+
