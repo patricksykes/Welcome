@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
@@ -54,6 +54,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -65,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -501,10 +502,10 @@ When you open your repository, you only see the most recent version. But, it eas
 <li><p>Create a <strong>Github</strong> account at <a href="http://github.com" class="uri">http://github.com</a>, if you don’t already have one. For a username, I recommend all lower-case letters, short as you can. I recommend using your <em>.edu email</em>, since you can request free private repositories via <a href="https://education.github.com/">GitHub Education</a> discount.</p></li>
 <li><p>You will use the <code>usethis</code> package to configure <strong>git</strong> with global commands, which means it will apply ‘globally’ to all files on your computer, rather than to a specific folder.</p></li>
 </ol>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)</a>
-<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">library</span>(usethis)</a>
-<a class="sourceLine" id="cb77-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb77-4" data-line-number="4"><span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;Melsteroni&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;Melsteroni@example.org&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)
+<span class="kw">library</span>(usethis)
+
+<span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;Melsteroni&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;Melsteroni@example.org&quot;</span>)</code></pre>
 <p><br></p>
 <p><em>BACKUP PLAN</em> If <code>usethis</code> fails, the following is the classic approach to configuring <strong>git</strong>. Open the Git Bash program (Windows) or the Terminal (Mac) and type the following:</p>
 <pre><code>    # display your version of git

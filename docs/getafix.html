@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Using getafix | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Using getafix | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
@@ -54,6 +54,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -65,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -472,11 +473,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="logging-into-getafix" class="section level3">
 <h3><span class="header-section-number">7.2.5</span> Logging into Getafix</h3>
 <p>Once you have your terminal open, type:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span>  <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au</code></pre>
+=======
 <div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="fu">ssh</span>  <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>Where <code>&lt;username&gt;</code> is your staff or student login.</p>
-<p>If a popup appears saying <code>&quot;Authenticity can't be established&quot;</code>. Say yes.</p>
+<p>If a popup appears saying <code>"Authenticity can't be established"</code>. Say yes.</p>
 <p>Enter your password.</p>
 <p>If you see:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="op">&gt;</span> <span class="ex">ssh</span>: Could not resolve hostname getafix.smp.uq.edu.au: This is usually 
+<span class="op">&gt;</span> <span class="ex">a</span> temporary error during hostname resolution and means that the local
+<span class="op">&gt;</span> <span class="ex">server</span> did not receive a response from an authoritative server.</code></pre>
+<p>Then you either typed it incorrectly or are not on the UQ internal network, see <em>Network Access</em>.</p>
+<p>If you really want R X11 plots to appear on your desktop, add <code>-X</code> to the login. This works on Mac and Linux. Windows may need an X11 server, which you can most easily get from the Ubuntu app. I strongly recommend
+saving plots into files and copying them to your computer, X11 can be very slow to render.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> -X <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au</code></pre>
+=======
 <div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="op">&gt;</span> <span class="ex">ssh</span>: Could not resolve hostname getafix.smp.uq.edu.au: This is usually </a>
 <a class="sourceLine" id="cb109-2" data-line-number="2"><span class="op">&gt;</span> <span class="ex">a</span> temporary error during hostname resolution and means that the local</a>
 <a class="sourceLine" id="cb109-3" data-line-number="3"><span class="op">&gt;</span> <span class="ex">server</span> did not receive a response from an authoritative server.</a></code></pre></div>
@@ -484,11 +498,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you really want R X11 plots to appear on your desktop, add <code>-X</code> to the login. This works on Mac and Linux. Windows may need an X11 server, which you can most easily get from the Ubuntu app. I strongly recommend
 saving plots into files and copying them to your computer, X11 can be very slow to render.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="fu">ssh</span> -X <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <div id="advanced" class="section level4">
 <h4><span class="header-section-number">7.2.5.1</span> Advanced</h4>
 <ol style="list-style-type: decimal">
 <li><p>SSH config file</p>
 <p><code>\~/.ssh/config</code>:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">Host</span> my-getafix
+  <span class="ex">ForwardX11Trusted</span> yes <span class="co">#equivalent to adding -X</span>
+  <span class="ex">User</span> uqpdyer
+  <span class="ex">HostName</span> 130.102.3.59
+
+<span class="ex">Host</span> dogmatix
+  <span class="ex">ForwardX11Trusted</span> yes
+  <span class="ex">User</span> uqpdyer
+  <span class="ex">HostName</span> dogmatix.smp.uq.edu.au</code></pre>
+<p>Now, you only have to type</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> my-getafix</code></pre></li>
+=======
 <div class="sourceCode" id="cb111"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="ex">Host</span> my-getafix</a>
 <a class="sourceLine" id="cb111-2" data-line-number="2">  <span class="ex">ForwardX11Trusted</span> yes <span class="co">#equivalent to adding -X</span></a>
 <a class="sourceLine" id="cb111-3" data-line-number="3">  <span class="ex">User</span> uqpdyer</a>
@@ -500,26 +528,41 @@ saving plots into files and copying them to your computer, X11 can be very slow 
 <a class="sourceLine" id="cb111-9" data-line-number="9">  <span class="ex">HostName</span> dogmatix.smp.uq.edu.au</a></code></pre></div>
 <p>Now, you only have to type</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="fu">ssh</span> my-getafix</a></code></pre></div></li>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </ol>
 </div>
 </div>
 <div id="putting-your-data-on-getafix" class="section level3">
 <h3><span class="header-section-number">7.2.6</span> Putting your data on Getafix</h3>
 <p>You need to have your data on Getafix. Where to put it?</p>
+<<<<<<< HEAD
+<pre class="sourceCode r"><code class="sourceCode r">ls <span class="op">/</span></code></pre>
+<div id="home" class="section level4">
+<h4><span class="header-section-number">6.2.6.1</span> Home</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">/</span>home<span class="op">/</span>username<span class="op">/</span></code></pre>
+<p>Which is often shortened to</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">~</span><span class="er">/</span></code></pre>
+=======
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">ls <span class="op">/</span></a></code></pre></div>
 <div id="home" class="section level4">
 <h4><span class="header-section-number">7.2.6.1</span> Home</h4>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="op">/</span>home<span class="op">/</span>username<span class="op">/</span></a></code></pre></div>
 <p>Which is often shortened to</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="op">~</span><span class="er">/</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>You have 40GB of data allowed in here.</p>
 <p>The home directory is often used for programs and configuration files. R
 libraries will install here by default, which is fine.</p>
 <p>Don’t use the home directory for data sets, results and plots.</p>
 </div>
 <div id="data" class="section level4">
+<<<<<<< HEAD
+<h4><span class="header-section-number">6.2.6.2</span> Data</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">/</span>data<span class="op">/</span>username<span class="op">/</span></code></pre>
+=======
 <h4><span class="header-section-number">7.2.6.2</span> Data</h4>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="op">/</span>data<span class="op">/</span>username<span class="op">/</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>You have 400GB of data allowed in here.</p>
 <p>Put your data sets and scripts in the <code>/data/username/</code> directory.</p>
 <p>At some point we may have a shared folder in here, probably
@@ -529,8 +572,13 @@ libraries will install here by default, which is fine.</p>
 <h4><span class="header-section-number">7.2.6.3</span> Data1, Data2 … Data6</h4>
 <p>Most of the time you use <code>/data/</code> but there are other data folders that
 you can access on request.</p>
+<<<<<<< HEAD
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">/</span>data1<span class="op">/</span>username<span class="op">/</span>
+<span class="er">/</span>data2<span class="op">/</span>username<span class="op">/</span></code></pre>
+=======
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="op">/</span>data1<span class="op">/</span>username<span class="op">/</span></a>
 <a class="sourceLine" id="cb117-2" data-line-number="2"><span class="er">/</span>data2<span class="op">/</span>username<span class="op">/</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p><code>data1</code> and <code>data2</code> are older system drives that we are not using.</p>
 <p><code>data3</code> to <code>data6</code> are high speed access drives for very large file
 reading and writing. These could be useful for work on GCM’s.</p>
@@ -541,7 +589,11 @@ reading and writing. These could be useful for work on GCM’s.</p>
 <div id="scp" class="section level4">
 <h4><span class="header-section-number">7.2.7.1</span> scp</h4>
 <p>scp is copy over ssh, it should work anywhere ssh works.</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">scp</span> -r  local_folder <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au:/data/<span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>folder<span class="op">&gt;</span></code></pre>
+=======
 <div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="fu">scp</span> -r  local_folder <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au:/data/<span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>folder<span class="op">&gt;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="winscp" class="section level4">
 <h4><span class="header-section-number">7.2.7.2</span> WinSCP</h4>
@@ -552,7 +604,11 @@ reading and writing. These could be useful for work on GCM’s.</p>
 <p>Rsync is smarter than scp, it only copies changes, so it can be faster
 than scp.</p>
 <p>usually installed on Linux, may not be available on Mac or Windows.</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rsync</span>  local_folder <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au:/data/<span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>folder<span class="op">&gt;</span></code></pre>
+=======
 <div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="fu">rsync</span>  local_folder <span class="op">&lt;</span>username<span class="op">&gt;</span>@getafix.smp.uq.edu.au:/data/<span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>folder<span class="op">&gt;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 </div>
 </div>
@@ -563,6 +619,17 @@ than scp.</p>
 <p>To allow different versions of software to be used by different users (like python 3.4 versus python 3.6), Getafix uses Linux modules. On Getafix, R is in a module, and won’t work until you load the module. You
 can use the default version of a module, or specify a particular version of a module if your job depends on it.</p>
 <p>To see what modules are available, type:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> avail</code></pre>
+<p>When you see a module you want to use, load it with:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load <span class="op">&lt;</span>module name<span class="op">&gt;</span></code></pre>
+<p>I use the following modules:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load R
+<span class="ex">module</span> load pandoc <span class="co">#rendering rmarkdown into html and pdf</span>
+<span class="ex">module</span> load gdal <span class="co">#spatial packages like sf</span>
+<span class="ex">module</span> load geos <span class="co">#spatial packages like sf</span>
+<span class="ex">module</span> load proj <span class="co">#spatial packages like sf</span></code></pre>
+=======
 <div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="ex">module</span> avail</a></code></pre></div>
 <p>When you see a module you want to use, load it with:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="ex">module</span> load <span class="op">&lt;</span>module name<span class="op">&gt;</span></a></code></pre></div>
@@ -572,6 +639,7 @@ can use the default version of a module, or specify a particular version of a mo
 <a class="sourceLine" id="cb122-3" data-line-number="3"><span class="ex">module</span> load gdal <span class="co">#spatial packages like sf</span></a>
 <a class="sourceLine" id="cb122-4" data-line-number="4"><span class="ex">module</span> load geos <span class="co">#spatial packages like sf</span></a>
 <a class="sourceLine" id="cb122-5" data-line-number="5"><span class="ex">module</span> load proj <span class="co">#spatial packages like sf</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="r-on-getafix" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> R on Getafix</h3>
@@ -579,6 +647,23 @@ can use the default version of a module, or specify a particular version of a mo
 #
 ### installing packages</p>
 <p>Install packages to a local library in your home directory.</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load R
+<span class="ex">R</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;foreach&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;doParallel&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</code></pre>
+<p>Accept the default library location unless you have a reason not to.</p>
+<p>If your package fails to install, check if there is a system package missing.</p>
+<p>For example, to install <code>sf</code>, you need to load more modules:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">module</span> load R
+<span class="ex">module</span> load gdal
+<span class="ex">module</span> load geos
+<span class="ex">module</span> load proj
+<span class="ex">R</span></code></pre>
+<p>Now <code>sf</code> should install.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</code></pre>
+=======
 <div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="ex">module</span> load R</a>
 <a class="sourceLine" id="cb123-2" data-line-number="2"><span class="ex">R</span></a></code></pre></div>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;foreach&quot;</span>)</a>
@@ -594,6 +679,7 @@ can use the default version of a module, or specify a particular version of a mo
 <a class="sourceLine" id="cb125-5" data-line-number="5"><span class="ex">R</span></a></code></pre></div>
 <p>Now <code>sf</code> should install.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>If it still does not work, send an email to <a href="mailto:help@its.uq.edu.au" class="email">help@its.uq.edu.au</a>, they have been helpful setting me up when something was missing or broken.</p>
 </div>
 <div id="parameters-for-rmd-files" class="section level3">
@@ -601,15 +687,24 @@ can use the default version of a module, or specify a particular version of a mo
 <p>You can pass parameters into Rmd files from the command line. You need to set up the `params` in the YAML header, see
 <a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html" class="uri">https://bookdown.org/yihui/rmarkdown/parameterized-reports.html</a></p>
 <p>Using Rscript, you can render a report using a specified set of parameters like this:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="va">paramlist=</span><span class="st">&#39;list(nCores =24, gRange = 1:300 )&#39;</span>
+<span class="ex">Rscript</span> -e <span class="st">&#39;knitr::opts_knit$set(progress = TRUE, verbose = TRUE); rmarkdown::render(&quot;/data/uqpdyer/demo.Rmd&quot;, params = &#39;&quot;</span><span class="va">${paramlist}</span><span class="st">&quot;&#39;, output_format = &quot;html_notebook&quot;, output_file = &quot;outfile.html&quot;, output_dir = &quot;/data/uqpdyer&quot;, envir = new.env())&#39;</span></code></pre>
+=======
 <div class="sourceCode" id="cb127"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="va">paramlist=</span><span class="st">&#39;list(nCores =24, gRange = 1:300 )&#39;</span></a>
 <a class="sourceLine" id="cb127-2" data-line-number="2"><span class="ex">Rscript</span> -e <span class="st">&#39;knitr::opts_knit$set(progress = TRUE, verbose = TRUE); rmarkdown::render(&quot;/data/uqpdyer/demo.Rmd&quot;, params = &#39;&quot;</span><span class="va">${paramlist}</span><span class="st">&quot;&#39;, output_format = &quot;html_notebook&quot;, output_file = &quot;outfile.html&quot;, output_dir = &quot;/data/uqpdyer&quot;, envir = new.env())&#39;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>This is not as convenient as setting parameters in RStudio or within an R session. You have to be very careful about quotes, and the command line is hard to edit.</p>
 <p>Sending parameters to an R script in bulk is much easier, but lacks the reproducability of Rmd.</p>
 <div id="parameters-for-script-files" class="section level4">
 <h4><span class="header-section-number">7.3.3.1</span> Parameters for script files</h4>
 <p>Use the base <code>commandArgs</code> or the <code>optparse</code> package to use command line parameters in your script files</p>
 <p>Then you can run the script from the command line like this:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">Rscript</span> script.R input1 input2</code></pre>
+=======
 <div class="sourceCode" id="cb128"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="ex">Rscript</span> script.R input1 input2</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 </div>
 <div id="slurm-1" class="section level3">
@@ -621,6 +716,23 @@ interactive session, but it is more efficient to set up jobs and come back to ge
 <h4><span class="header-section-number">7.3.4.1</span> <code>sbatch</code></h4>
 <p>The command <code>sbatch</code> is used to submit jobs, which are run when the resources become available.</p>
 <p>You use SLURM by calling <code>sbatch</code>:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sbatch</span> script.sh</code></pre>
+<p>where <code>script.sh</code> looks like</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH --ntasks=1</span>
+<span class="co">#SBATCH --cpus-per-task=1</span>
+<span class="co">#SBATCH --mem-per-cpu=1G</span>
+<span class="co">#SBATCH --time=0-00:10</span>
+
+<span class="bu">echo</span> <span class="st">&quot;hello world&quot;</span></code></pre>
+<p>The <code>#SBATCH</code> lines at the top are parameters for the sbatch command, you can also include them in the command call:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sbatch</span> script.sh --ntasks=1 --cpus-per-task=1 --mem-per-cpu=1G --time=0-00:10 script.sh</code></pre>
+<p>Then <code>script.sh</code> can simplify down to:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="bu">echo</span> <span class="st">&quot;hello world&quot;</span></code></pre>
+=======
 <div class="sourceCode" id="cb129"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="ex">sbatch</span> script.sh</a></code></pre></div>
 <p>where <code>script.sh</code> looks like</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="co">#!/bin/bash</span></a>
@@ -636,6 +748,7 @@ interactive session, but it is more efficient to set up jobs and come back to ge
 <div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co">#!/bin/bash</span></a>
 <a class="sourceLine" id="cb132-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb132-3" data-line-number="3"><span class="bu">echo</span> <span class="st">&quot;hello world&quot;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>When working with R, we run scripts or arbitrary code snippets with Rscript, but the <code>sbatch</code> command still expects Rscript to be wrapped in <code>script_for_r.sh</code></p>
 <pre class="shell"><code>#!/bin/bash
 #SBATCH --ntasks=1
@@ -646,6 +759,49 @@ interactive session, but it is more efficient to set up jobs and come back to ge
 module load R
 Rscript myRscript.R</code></pre>
 <p>So running <code>sbatch</code> looks the same:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">sbatch</span> script_for_r.sh</code></pre>
+<p>Here is a meaningful r script we can test out. Note that I have specified 20 cpu’s in both <code>script_for_r.sh</code> and <code>myRscript.R</code></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreach)
+<span class="kw">library</span>(doParallel)
+
+cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(<span class="dv">2</span>)
+<span class="kw">registerDoParallel</span>(cl)
+x &lt;-<span class="st"> </span>iris[<span class="kw">which</span>(iris[,<span class="dv">5</span>] <span class="op">!=</span><span class="st"> &quot;setosa&quot;</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]
+trials &lt;-<span class="st"> </span><span class="dv">10000</span>
+
+ptime &lt;-<span class="st"> </span><span class="kw">system.time</span>({
+  r &lt;-<span class="st"> </span><span class="er">~</span>foreach<span class="op">~</span>(<span class="kw">icount</span>(trials), <span class="dt">.combine=</span>cbind) <span class="op">%dopar%</span><span class="st"> </span>{
+    ind &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)
+    result1 &lt;-<span class="st"> </span><span class="kw">glm</span>(x[ind,<span class="dv">2</span>]<span class="op">~</span>x[ind,<span class="dv">1</span>], <span class="dt">family=</span><span class="kw">binomial</span>(logit))
+    <span class="kw">coefficients</span>(result1)
+  }
+})[<span class="dv">3</span>]
+ptime
+
+
+stime &lt;-<span class="st"> </span><span class="kw">system.time</span>({
+  r &lt;-<span class="st"> </span><span class="er">~</span>foreach<span class="op">~</span>(<span class="kw">icount</span>(trials), <span class="dt">.combine=</span>cbind) <span class="op">%do%</span><span class="st"> </span>{
+    ind &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)
+    result1 &lt;-<span class="st"> </span><span class="kw">glm</span>(x[ind,<span class="dv">2</span>]<span class="op">~</span>x[ind,<span class="dv">1</span>], <span class="dt">family=</span><span class="kw">binomial</span>(logit))
+    <span class="kw">coefficients</span>(result1)
+  }
+})[<span class="dv">3</span>]
+stime
+
+<span class="kw">stopCluster</span>(cl)
+
+cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(<span class="dv">20</span>)
+<span class="kw">registerDoParallel</span>(cl)
+ptime &lt;-<span class="st"> </span><span class="kw">system.time</span>({
+  r &lt;-<span class="st"> </span><span class="er">~</span>foreach<span class="op">~</span>(<span class="kw">icount</span>(trials), <span class="dt">.combine=</span>cbind) <span class="op">%dopar%</span><span class="st"> </span>{
+    ind &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)
+    result1 &lt;-<span class="st"> </span><span class="kw">glm</span>(x[ind,<span class="dv">2</span>]<span class="op">~</span>x[ind,<span class="dv">1</span>], <span class="dt">family=</span><span class="kw">binomial</span>(logit))
+    <span class="kw">coefficients</span>(result1)
+  }
+})[<span class="dv">3</span>]
+ptime</code></pre>
+=======
 <div class="sourceCode" id="cb134"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="ex">sbatch</span> script_for_r.sh</a></code></pre></div>
 <p>Here is a meaningful r script we can test out. Note that I have specified 20 cpu’s in both <code>script_for_r.sh</code> and <code>myRscript.R</code></p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">library</span>(foreach)</a>
@@ -687,12 +843,18 @@ Rscript myRscript.R</code></pre>
 <a class="sourceLine" id="cb135-37" data-line-number="37">  }</a>
 <a class="sourceLine" id="cb135-38" data-line-number="38">})[<span class="dv">3</span>]</a>
 <a class="sourceLine" id="cb135-39" data-line-number="39">ptime</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="salloc-and-srun" class="section level4">
 <h4><span class="header-section-number">7.3.4.2</span> <code>salloc</code> and <code>srun</code></h4>
 <p>If you really need to run something interactively, such as a Matlab GUI, make sure you log in with <code>-X</code> or <code>-Y</code> and then call:</p>
+<<<<<<< HEAD
+<pre class="sourceCode 1"><code class="sourceCode mandoc">salloc --ntasks=1 --cpus-per-task=1 --mem-per-cpu=1G --time=0-00:10
+srun --pty -x11 matlab</code></pre>
+=======
 <div class="sourceCode" id="cb136"><pre class="sourceCode 1"><code class="sourceCode mandoc"><a class="sourceLine" id="cb136-1" data-line-number="1">salloc --ntasks=1 --cpus-per-task=1 --mem-per-cpu=1G --time=0-00:10</a>
 <a class="sourceLine" id="cb136-2" data-line-number="2">srun --pty -x11 matlab</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="many-nodes" class="section level4">
 <h4><span class="header-section-number">7.3.4.3</span> Many nodes</h4>
@@ -719,6 +881,16 @@ Rscript myRscript.R</code></pre>
 <li>Message Passing Interface (MPI) is a library that shares information across nodes.</li>
 <li>MPI requires extra setup in your code, and you need to use <code>mpirun</code> or <code>srun</code> inside the sbatch script</li>
 </ul>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash">    <span class="co">#!/bin/bash</span>
+    <span class="co">#SBATCH --ntasks=1</span>
+    <span class="co">#SBATCH --cpus-per-task=1</span>
+    <span class="co">#SBATCH --mem-per-cpu=1G</span>
+    <span class="co">#SBATCH --time=0-00:10</span>
+
+    <span class="ex">mpirun</span> echo <span class="st">&quot;running with MPI&quot;</span>
+    <span class="ex">srun</span> echo <span class="st">&quot;run with SRUN&quot;</span></code></pre>
+=======
 <div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb137-1" data-line-number="1">    <span class="co">#!/bin/bash</span></a>
 <a class="sourceLine" id="cb137-2" data-line-number="2">    <span class="co">#SBATCH --ntasks=1</span></a>
 <a class="sourceLine" id="cb137-3" data-line-number="3">    <span class="co">#SBATCH --cpus-per-task=1</span></a>
@@ -727,6 +899,7 @@ Rscript myRscript.R</code></pre>
 <a class="sourceLine" id="cb137-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb137-7" data-line-number="7">    <span class="ex">mpirun</span> echo <span class="st">&quot;running with MPI&quot;</span></a>
 <a class="sourceLine" id="cb137-8" data-line-number="8">    <span class="ex">srun</span> echo <span class="st">&quot;run with SRUN&quot;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>doMPI and Rmpi are packages for working with MPI in R.</p>
 <p>TODO: I have not figured out MPI on the cluster yet, it didn’t “just work”</p>
 <ol start="4" style="list-style-type: decimal">
@@ -742,6 +915,17 @@ Rscript myRscript.R</code></pre>
 <h4><span class="header-section-number">7.3.4.4</span> R with parameters</h4>
 <p>Being able to pass in parameters is useful for dividing your job up.</p>
 <p>Some examples of sbatch scripts that use R parameters</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH --ntasks=1</span>
+<span class="co">#SBATCH --cpus-per-task=24</span>
+<span class="co">#SBATCH --mem-per-cpu=7G</span>
+<span class="co">#SBATCH --time=1-22:00</span>
+<span class="ex">module</span> load R
+<span class="ex">Rscript</span> script.R <span class="va">$1</span> <span class="va">$2</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">    <span class="ex">sbatch</span> run_script.sh input1 input2
+    <span class="ex">sbatch</span> run_script.sh input1 input3</code></pre>
+=======
 <div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co">#!/bin/bash</span></a>
 <a class="sourceLine" id="cb138-2" data-line-number="2"><span class="co">#SBATCH --ntasks=1</span></a>
 <a class="sourceLine" id="cb138-3" data-line-number="3"><span class="co">#SBATCH --cpus-per-task=24</span></a>
@@ -751,10 +935,23 @@ Rscript myRscript.R</code></pre>
 <a class="sourceLine" id="cb138-7" data-line-number="7"><span class="ex">Rscript</span> script.R <span class="va">$1</span> <span class="va">$2</span></a></code></pre></div>
 <div class="sourceCode" id="cb139"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb139-1" data-line-number="1">    <span class="ex">sbatch</span> run_script.sh input1 input2</a>
 <a class="sourceLine" id="cb139-2" data-line-number="2">    <span class="ex">sbatch</span> run_script.sh input1 input3</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p><code>$1</code> becomes the first argument, <code>input1</code> both times, and <code>$2</code> becomes
 the second argument, <code>input2</code> in the first run and <code>input3</code> in the
 second line.</p>
 <p>Rendering an Rmd file with parameters:</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH --ntasks=1</span>
+<span class="co">#SBATCH --cpus-per-task=24</span>
+<span class="co">#SBATCH --mem-per-cpu=7G</span>
+<span class="co">#SBATCH --time=1-22:00</span>
+<span class="ex">module</span> load R
+<span class="ex">module</span> load pandoc <span class="co">#essential for knitr and rmarkdown</span>
+
+<span class="va">paramlist=</span><span class="st">&#39;list(nCores =24, gRange = 1:300 )&#39;</span>
+<span class="ex">Rscript</span> -e <span class="st">&#39;knitr::opts_knit$set(progress = TRUE, verbose = TRUE); rmarkdown::render(&quot;/data/uqpdyer/demo.Rmd&quot;, params = &#39;&quot;</span><span class="va">${paramlist}</span><span class="st">&quot;&#39;, output_format = &quot;html_notebook&quot;, output_file = &quot;outfile.html&quot;, output_dir = &quot;/data/uqpdyer&quot;, envir = new.env())&#39;</span></code></pre>
+=======
 <div class="sourceCode" id="cb140"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co">#!/bin/bash</span></a>
 <a class="sourceLine" id="cb140-2" data-line-number="2"><span class="co">#SBATCH --ntasks=1</span></a>
 <a class="sourceLine" id="cb140-3" data-line-number="3"><span class="co">#SBATCH --cpus-per-task=24</span></a>
@@ -765,6 +962,7 @@ second line.</p>
 <a class="sourceLine" id="cb140-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb140-9" data-line-number="9"><span class="va">paramlist=</span><span class="st">&#39;list(nCores =24, gRange = 1:300 )&#39;</span></a>
 <a class="sourceLine" id="cb140-10" data-line-number="10"><span class="ex">Rscript</span> -e <span class="st">&#39;knitr::opts_knit$set(progress = TRUE, verbose = TRUE); rmarkdown::render(&quot;/data/uqpdyer/demo.Rmd&quot;, params = &#39;&quot;</span><span class="va">${paramlist}</span><span class="st">&quot;&#39;, output_format = &quot;html_notebook&quot;, output_file = &quot;outfile.html&quot;, output_dir = &quot;/data/uqpdyer&quot;, envir = new.env())&#39;</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 <p>If you want to generate a collection of rendered Rmd files, you have to
 write up a script for each set of parameters.</p>
 <p>The other way to generate a set of Rmd files with different parameters,
@@ -774,6 +972,15 @@ Then you can use job arrays by naming the files from 1 to n.</p>
 to have a shell script, that calls an R script, that renders an Rmd.
 Parameters passed to the shell script go all the way down to the Rmd
 file.</p>
+<<<<<<< HEAD
+<pre class="sourceCode r"><code class="sourceCode r">args =<span class="st"> </span><span class="kw">commandArgs</span>(<span class="dt">trailingOnly =</span> <span class="ot">TRUE</span>)
+
+knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">progress =</span> <span class="ot">TRUE</span>, <span class="dt">verbose =</span> <span class="ot">TRUE</span>)
+
+paramlist=<span class="kw">list</span>(<span class="dt">nCores =</span><span class="kw">as.numeric</span>(args[<span class="dv">1</span>]), <span class="dt">gRange =</span> <span class="kw">as.numeric</span>(args[<span class="dv">2</span>])<span class="op">:</span><span class="kw">as.numeric</span>(args[<span class="dv">3</span>]))
+rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;/data/uqpdyer/demo.Rmd&quot;</span>, <span class="dt">params =</span> paramlist, <span class="dt">output_format =</span> <span class="st">&quot;html_notebook&quot;</span>,
+                  <span class="dt">output_file =</span> <span class="st">&quot;outfile.html&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;/data/uqpdyer&quot;</span>, <span class="dt">envir =</span> <span class="kw">new.env</span>())</code></pre>
+=======
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">args =<span class="st"> </span><span class="kw">commandArgs</span>(<span class="dt">trailingOnly =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb141-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb141-3" data-line-number="3">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">progress =</span> <span class="ot">TRUE</span>, <span class="dt">verbose =</span> <span class="ot">TRUE</span>)</a>
@@ -781,6 +988,7 @@ file.</p>
 <a class="sourceLine" id="cb141-5" data-line-number="5">paramlist=<span class="kw">list</span>(<span class="dt">nCores =</span><span class="kw">as.numeric</span>(args[<span class="dv">1</span>]), <span class="dt">gRange =</span> <span class="kw">as.numeric</span>(args[<span class="dv">2</span>])<span class="op">:</span><span class="kw">as.numeric</span>(args[<span class="dv">3</span>]))</a>
 <a class="sourceLine" id="cb141-6" data-line-number="6">rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;/data/uqpdyer/demo.Rmd&quot;</span>, <span class="dt">params =</span> paramlist, <span class="dt">output_format =</span> <span class="st">&quot;html_notebook&quot;</span>,</a>
 <a class="sourceLine" id="cb141-7" data-line-number="7">                  <span class="dt">output_file =</span> <span class="st">&quot;outfile.html&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;/data/uqpdyer&quot;</span>, <span class="dt">envir =</span> <span class="kw">new.env</span>())</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 </div>
 </div>
@@ -791,7 +999,11 @@ file.</p>
 <div id="cache-on" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Cache on</h3>
 <p>Turn on caching for your Rmd file.</p>
+<<<<<<< HEAD
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache=</span><span class="ot">TRUE</span>)</code></pre>
+=======
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="load-in-cache-dir" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Load in cache dir</h3>
@@ -807,9 +1019,15 @@ file.</p>
 <h3><span class="header-section-number">7.5.1</span> Printed text</h3>
 <p>All printed output goes to a file <code>slurm-&lt;job number&gt;.out</code>.</p>
 <p>You can change the name with</p>
+<<<<<<< HEAD
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#SBATCH -o output_file_%A_%a.out #%A is the job number, %a is the array number</span>
+<span class="co">#SBATCH -e error_file.err</span></code></pre>
+=======
 <div class="sourceCode" id="cb143"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="co">#!/bin/bash</span></a>
 <a class="sourceLine" id="cb143-2" data-line-number="2"><span class="co">#SBATCH -o output_file_%A_%a.out #%A is the job number, %a is the array number</span></a>
 <a class="sourceLine" id="cb143-3" data-line-number="3"><span class="co">#SBATCH -e error_file.err</span></a></code></pre></div>
+>>>>>>> 7873edc2796369633ea2e400289c0da5bc119a54
 </div>
 <div id="data.frames" class="section level3">
 <h3><span class="header-section-number">7.5.2</span> Data.frames</h3>
