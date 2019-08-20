@@ -43,6 +43,9 @@ https://my.uq.edu.au/information-and-services/information-technology
 
 ### High Performance Computing
 
+Research Computing Centre
+https://rcc.uq.edu.au
+
 Core Computational Facility @ UQ School of Mathematics and Physics
 http://research.smp.uq.edu.au/computing/
 
@@ -75,8 +78,51 @@ For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical f
 
 ### Software
 
+
+
+### R Resources
+
+**R for Data Science** (Otherwise known as R4DS) by Hadley Wickham and Garrett Grolemund. This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.   
+https://r4ds.had.co.nz
+
+
+**Advanced R** by Hadley Wickham. This book is designed primarily for R users who want to improve their programming skills and understanding of the language   
+http://adv-r.had.co.nz
+
+
+**R Graphics Cookbook** by Winston Chang. This book is a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly, without having to comb through all the details of R’s graphing systems.   
+https://r-graphics.org
+
+
+**R Packages** by Hadley Wickham. The goal of this book is to teach you how to develop packages so that you can write your own, not just use other people’s.    
+http://r-pkgs.had.co.nz
+
+
+**Text Mining with R** by Julia Silge and David Robinson. This book serves as an introduction of text mining using the tidytext package and other tidy tools in R.    
+https://www.tidytextmining.com
+
+
+**Bookdown** by Yihui Xie. This book introduces an R package, bookdown, to change your workflow of writing books, websites or even theses. It was how we put together this website.  
+https://bookdown.org/yihui/bookdown/
+
+
 ### R Packages
 
+**The Tidyverse**  
+https://www.tidyverse.org  
+The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. 
+
+**Stars Package**  
+https://r-spatial.github.io/stars/  
+STARS is good for non-regular grid, which is what the hi-res oceanographic models generally are these days.
+
+**ClimateOperators package**  
+https://github.com/markpayneatwork/ClimateOperators  
+Useful for being able to run CDO in R.
+
+**TidyText Package**  
+https://github.com/juliasilge/tidytext  
+Text mining using dplyr, ggplot2, and other tidy tools 
 
 ## Open Data Science
 
