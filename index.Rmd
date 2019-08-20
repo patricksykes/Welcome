@@ -71,7 +71,11 @@ For specific questions and issue tracking that relates to a project. Each issue 
 
 For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. 
 
+## Useful Tools
 
+### Software
+
+### R Packages
 
 
 ## Open Data Science
