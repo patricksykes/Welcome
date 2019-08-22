@@ -35,49 +35,82 @@ The MME lab meets up every week on Level 5 of the Queenland Bioscience Precinct.
 For any lab-specific issues, you should contact Anthony in the first instance:
 Professory Anthony Richardson: ajr at maths.uq.edu.au
 
+### Lab Communication {#comm}
+
+In progress......
+
+#### Email
+
+For formal communication that must be received, read and stored. 
+
+#### GitHub Issues Tracking
+
+For specific questions and issue tracking that relates to a project. Each issue can have its own converstaion chain. Tag people to notify them of something they need to deal with.
+
+#### Gitter
+
+For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. Just another messanger service, but one which is tied to GitHub.
+
+
 ### SMP Contacts
+
+HOS:  
+Finance:  
+HR:   
 
 ### General IT Support
 All general UQ IT-related information can be found at:
 https://my.uq.edu.au/information-and-services/information-technology
 
+
+### Student Support
+
+The University of Queensland Student Support Services can be found at: https://www.uq.edu.au/student-services/
+
+This includes information and support services for student welfare, learning support, faith, health etc. All students are encouraged to familiarise themseleves with this page.
+
+## Computing
+
+Our lab are using the UQ Research Data Management (https://rdm.uq.edu.au/) to store data and write model output, and the UQ High Performace Computer *"Flashlite"* for computing tasks. More information on each is found below. If you have specific questions that can't be answered by your lab colleagues, you can search the Research Computing Centre website (https://rcc.uq.edu.au).
+
+### Research Data Manager
+
+Research Data Manager (RDM) is an integrated data management system covering the entire research data lifecycle. 
+
+The RDM will ensure that research data:
+
+- remains accurate, authentic, reliable, and complete,
+- retains integrity and improves the reproducibility of research,
+- is secure, minimising the risk of data loss,
+- can be reused, enabled by collecting critical metadata early,
+- is available in accordance with the Australian Code for the Responsible Conduct of Research and the FAIR guiding principles, and
+meets funding, journal and regulatory body requirements.
+
+We have two collections on the RDM.
+
+1. **MathMarEcol Data Storage** (MME1DATA) which is where we store all our Read-Only datasets such as CMIP model outputs, satellite data, fisheries data etc. This is where you should store all the data sets you will be reading into your analysis. Please consult with Ant about your requirements and for access.
+
+2. **MathMarEcol Working Projects** (MME2WORK) is where we store all our dynamic output data (model outputs, figures etc). When you get access to this collection you should create a folder for your project (We suggest aligning this to the GitHub Repo name to avoid any confusion).
+
 ### High Performance Computing
 
-Research Computing Centre
-https://rcc.uq.edu.au
+We complete our high perfomance computing on the "Flashlite" computer......
 
-Core Computational Facility @ UQ School of Mathematics and Physics
-http://research.smp.uq.edu.au/computing/
 
-Howto - SMP getafix cluster
-http://research.smp.uq.edu.au/computing/getafix.html
-
-Howto - SLURM Queuing Systems
-http://research.smp.uq.edu.au/computing/slurm.html
-
-Howto - Run GPU Calculations
-http://research.smp.uq.edu.au/computing/gpu.html
-
-## Lab Communication {#comm}
-
-In progress......
-
-### Email
-
-For formal communication that must be received and read. 
-
-### GitHub Issues Tracking
-
-For specific questions and issue tracking that relates to a project. Each issue can have its own converstaion chain. Tag people to notify them of something they need to deal with.
-
-### Gitter
-
-For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. 
 
 ## Useful Tools
 
 ### Software
 
+Some software you may find useful:
+
+- **R**: 
+- **RStudio**: The best IDE for R.
+- **Endnote**: The UQs main reference manager software
+- **Notepad++**: A good text editor for Windows which deals with invisible characters, line endings etc much better than the default Notepad.
+- **Sublime**: A powerful text editor for MacOS.
+- **GitHub Desktop**: A simple Github manager for those repos you need to manage outside of RStudio.
+- **FileZilla**: A great SFTP client for MacOS/Windows/Linux for moving files around the university.
 
 
 ### R Resources
@@ -145,63 +178,3 @@ As part of this we must always:
 For a full description of the Community Participation Guidelines see:  https://www.mozilla.org/en-US/about/governance/policies/participation/
 
 
-
-### Student Support
-
-The University of Queensland Student Support Services can be found at: https://www.uq.edu.au/student-services/
-
-This includes information and support services for student welfare, learning support, faith, health etc. All students are encouraged to familiarise themseleves with this page.
-
-<!-- NOTES FORM OUR CHAT -->
-<!-- 13:07 -->
-<!-- Guest -->
-
-<!-- bookdown -->
-<!-- 13:19 -->
-<!-- Guest -->
-
-<!-- https://github.com/MathMarEcol/MathMarEcol_Welcome/issues/2 -->
-<!-- 13:29 -->
-<!-- Guest -->
-
-<!-- Ask SMP for a mathmarecol folder on getafix -->
-<!-- /data/mathmarecol -->
-<!-- 13:31 -->
-<!-- Guest -->
-
-<!-- Raw -> someone else hosts -->
-<!-- regridded -> unique to us, but still static -->
-<!-- work in progress data -> each person generates versions -->
-<!-- 13:43 -->
-<!-- Guest -->
-
-<!-- Static data should be in a central place -->
-<!-- subsets can be local/dropbox -->
-<!-- 13:44 -->
-<!-- Guest -->
-
-<!-- Was, ALL DROPBOX -->
-<!-- now, some in dropbox, some in getafix, some in github -->
-<!-- 13:46 -->
-<!-- Guest -->
-
-<!-- Data - Getafix -->
-<!-- Code -Github -->
-<!-- Collaboration - ? -->
-<!-- Pubication - ? -->
-<!-- In Progress - ? -->
-<!-- 13:49 -->
-<!-- Guest -->
-
-<!-- https://github.com/OSGeo/proj-datumgrid -->
-
-<!-- OSGeo/proj-datumgrid -->
-
-<!-- GitHub -->
-<!-- https://git-lfs.github.com/ -->
-
-<!-- Git Large File Storage -->
-
-<!-- Git Large File Storage -->
-<!-- Say something nice -->
-<!-- Send -->
