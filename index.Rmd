@@ -112,6 +112,7 @@ Some software you may find useful:
 - **GitHub Desktop**: A simple Github manager for those repos you need to manage outside of RStudio.
 - **FileZilla**: A great SFTP client for MacOS/Windows/Linux for moving files around the university.
 
+Others?
 
 ### R Resources
 
@@ -156,6 +157,11 @@ Useful for being able to run CDO in R.
 **TidyText Package**  
 https://github.com/juliasilge/tidytext  
 Text mining using dplyr, ggplot2, and other tidy tools 
+
+**rOpenSci Packages**  
+https://ropensci.org/packages/  
+rOpenSci, which fosters a culture of open and reproducible research using shared data and reusable software, has collated a range of useful packages, including rNOAA, taxize, BOMrang and scrubr.
+
 
 ## Open Data Science
 
