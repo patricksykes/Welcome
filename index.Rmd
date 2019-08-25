@@ -116,6 +116,7 @@ Others?
 
 ### R Resources
 
+#### Books
 **R for Data Science** (Otherwise known as R4DS) by Hadley Wickham and Garrett Grolemund. This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.   
 https://r4ds.had.co.nz
 
@@ -138,6 +139,11 @@ https://www.tidytextmining.com
 
 **Bookdown** by Yihui Xie. This book introduces an R package, bookdown, to change your workflow of writing books, websites or even theses. It was how we put together this website.  
 https://bookdown.org/yihui/bookdown/
+
+#### Online Resources
+
+**rOpenSci Community Calls** - Live presentations and recordings which allow you to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments.  
+https://ropensci.org/commcalls/
 
 
 ### R Packages
