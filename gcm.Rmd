@@ -8,73 +8,76 @@ In progress.....
 - Summary table with more info: https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_experiment_id.html
 
 ## Variable Choice
-This has taken me a while, but I think it’s important. I have read through the attached table – each tab has different model variables on different time scales. The tabs are in alphabetical order. The key ones are:
 
-The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr). I think we should go with monthly (this is what Isaac has used) and also get what we can from the daily data (for marine heatwaves for example). The Omon runs have 292 variables and the Oday runs have only 8 variables
+There are a range of variables available from the GCM outputs. In the file linked here (https://github.com/MathMarEcol/Welcome/files/CMIP6_MIP_tables.xlsx) upi can explore the available variables. Each tab has different model variables on different time scales. The tabs are in alphabetical order. 
+
+The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr). Initially we should go with monthly time-steps and also get what we can from the daily data (for marine heatwaves for example). The Omon runs have 292 variables and the Oday runs have only 8 variables
  
 You’ll notice below there are units in brackets and also in brackets is the type of model it’s from (GCM or ocnBigchem i.e. ocean biogeochemical model – probably far fewer of these). I have also included “(@ different ocean levels)”, which means that it is on each z layer in the model.
 
+The key ones are:
  
-**Priority 1** (Temperature, pH and O2 at surface and throughout the water column) – particularly for Isaac for Aquamaps models
-Omon
-tos = sea surface temperature (oC) (ocean)
-tob = potential temperature on ocean bottom (oC) (ocean)
-thetao = sea water potential temperature (oC) (ocean) (@ different ocean levels)
-phos = Surface pH (ocnBgchem)
-pH = negative log of hydrogen ion concentration with the concentration expressed as mol H kg-1 (ocnBgchem) (@ different ocean levels)
-o2os = Surface Dissolved Oxygen Concentration (mol m-3) (ocnBgchem). BETTER THAN Surface Dissolved Oxygen Concentration at Saturation (o2satos) ???
-o2 = Dissolved Oxygen Concentration (mol m-3) (@ different ocean levels)
+**Priority 1** (Temperature, pH and O2 at surface and throughout the water column)  
+Omon  
+- tos = sea surface temperature (oC) (ocean)  
+- tob = potential temperature on ocean bottom (oC) (ocean)  
+- thetao = sea water potential temperature (oC) (ocean) (@ different ocean levels)  
+- phos = Surface pH (ocnBgchem)  
+- pH = negative log of hydrogen ion concentration with the concentration expressed as mol H kg-1 (ocnBgchem) (@ different ocean levels)  
+- o2os = Surface Dissolved Oxygen Concentration (mol m-3) (ocnBgchem). BETTER THAN Surface Dissolved Oxygen Concentration at Saturation (o2satos) ???  
+- o2 = Dissolved Oxygen Concentration (mol m-3) (@ different ocean levels)  
  
-Priority 2 (Other valuable ocean variables at surface/seafloor/single level)
-Omon
-mlotst = ocean mixed layer thickness defined by sigma T (m)
-aragos = surface aragonite concentration (molC.m-3) (ocnBgchem)
-zsatcalc = Depth of calcite saturation horizon (m) (ocnBgchem)
-zsatarag = Depth of aragonite saturation horizon (m) (ocnBgchem)
-no3os = Surface Dissolved Nitrate Concentration (mol m-3) (ocnBgchem)
-chlos = chl @ ocean surface (kg.m-3) (ocnBgchem)
-zoocos = sea surface zooplankton concentration (molC.m-3) (ocnBgchem)
-intpp = Organic Carbon Primary Production by All Types of Phytoplankton (mol m-2 s-1) (ocnBgchem)
-epc100 = Downward Flux of Particulate Organic Carbon @ 100 m (mol m-2 s-1) (ocnBgchem)
+**Priority 2** (Other valuable ocean variables at surface/seafloor/single level)  
+Omon  
+- mlotst = ocean mixed layer thickness defined by sigma T (m)  
+- aragos = surface aragonite concentration (molC.m-3) (ocnBgchem)  
+- zsatcalc = Depth of calcite saturation horizon (m) (ocnBgchem)  
+- zsatarag = Depth of aragonite saturation horizon (m) (ocnBgchem)  
+- no3os = Surface Dissolved Nitrate Concentration (mol m-3) (ocnBgchem)  
+- chlos = chl @ ocean surface (kg.m-3) (ocnBgchem)  
+- zoocos = sea surface zooplankton concentration (molC.m-3) (ocnBgchem)  
+- intpp = Organic Carbon Primary Production by All Types of Phytoplankton (mol m-2 s-1) (ocnBgchem)  
+- epc100 = Downward Flux of Particulate Organic Carbon @ 100 m (mol m-2 s-1) (ocnBgchem)  
  
-Priority 3 (Daily variables)
-Oday
-tos = sea surface temperature (oC)
-omldamax = mean daily maximum ocean mixed layer thickness (m)
-phycos = sea surface phytoplankton concentration (mol m-3)
-sos = salinity @ ocean surface (ocean)???
+**Priority 3** (Daily variables)  
+Oday  
+- tos = sea surface temperature (oC)  
+- omldamax = mean daily maximum ocean mixed layer thickness (m)  
+- phycos = sea surface phytoplankton concentration (mol m-3)  
+- sos = salinity @ ocean surface (ocean)???  
  
-Priority 4 (Other ocean variables at surface and through the water column)
-Omon
-uo = Sea Water X Velocity (m.s-1) (ocean) (@ different ocean levels). NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo
-vo = Sea Water Y Velocity (m.s-1) (ocean) (@ different ocean levels) . NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo
-wo = Sea Water Vertical Velocity (m.s-1) (ocean) (@ different ocean levels) . NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo
-Phydiazos = Surface Mole Concentration of Diazotrophs (N2 fixers) (@ different ocean levels) (mol m-3)
-phydiatos = diatom carbon @ ocean surface (molC.m-3) (ocnBgchem)
-phyc = Phytoplankton Carbon Concentration (mol m-3) (@ different ocean levels)
-zooc = Zooplankton Carbon Concentration (mol m-3) (@ different ocean levels)
-bacc = Bacterial Carbon Concentration (mol m-3) (@ different ocean levels)
+**Priority 4** (Other ocean variables at surface and through the water column)  
+Omon  
+- uo = Sea Water X Velocity (m.s-1) (ocean) (@ different ocean levels). NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo  
+- vo = Sea Water Y Velocity (m.s-1) (ocean) (@ different ocean levels) . NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo  
+- wo = Sea Water Vertical Velocity (m.s-1) (ocean) (@ different ocean levels) . NOTE: HAVE TO GET SURFACE VELOCITIES FROM uo, vo, wo  
+- Phydiazos = Surface Mole Concentration of Diazotrophs (N2 fixers) (@ different ocean levels) (mol m-3)  
+- phydiatos = diatom carbon @ ocean surface (molC.m-3) (ocnBgchem)  
+- phyc = Phytoplankton Carbon Concentration (mol m-3) (@ different ocean levels)  
+- zooc = Zooplankton Carbon Concentration (mol m-3) (@ different ocean levels)  
+- bacc = Bacterial Carbon Concentration (mol m-3) (@ different ocean levels)  
  
-Priority 5 (Other variables)
-Amon
-uas = near-surface eastward wind (m.s-1) (@ 10 m). NOTE: CAN ALSO GET THIS DAILY OR EVERY 3 HRS
-vas = near-surface northward wind (m.s-1) (@ 10 m) . NOTE: CAN ALSO GET THIS DAILY OR EVERY 3 HRS
-sos = salinity @ ocean surface (ocean)
-sob = Sea Water Salinity at Sea Floor (ocean)
+**Priority 5** (Other variables)  
+Amon  
+- uas = near-surface eastward wind (m.s-1) (@ 10 m). NOTE: CAN ALSO GET THIS DAILY OR EVERY 3 HRS  
+- vas = near-surface northward wind (m.s-1) (@ 10 m) . NOTE: CAN ALSO GET THIS DAILY OR EVERY 3 HRS  
+- sos = salinity @ ocean surface (ocean)  
+- sob = Sea Water Salinity at Sea Floor (ocean)  
  
-NOT NEEDED???
-Omon
-pp = total primary (organic carbon) production by phytoplankton by ocean level (mol m-3 s-1) (ocnBgchem)
-ppos = total primary (organic carbon) production by phytoplankton @ ocean surface (mol m-3 s-1) (ocnBgchem)
-phycos = sea surface phytoplankton concentration (molC.m-3) (ocnBgchem)
-baccos = sea surface bacterial concentration (molC.m-3) (ocnBgchem)
-phycalcos = surface Mole Concentration of Calcareous Phytoplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)
-phypicoos = Surface Mole Concentration of Picophytoplankton Expressed as Carbon in Sea Water  (molC.m-3) (ocnBgchem)
-zmicroos = carbon  concentration from the microzooplankton (<20 um) component alone (molC.m-3) (ocnBgchem)
-zmesoos = carbon  concentration from mesozooplankton (20-200 um) component alone (molC.m-3) (ocnBgchem)
-nh4os = Surface Dissolved Ammonium Concentration (mol m-3)
-talkos = Surface Total Alkalinity (mol m-3) (ocnBgchem) WHAT ABOUT SURFACE NATURAL TOTAL ALKALINITY (talknatos)?
-calcos = surface calcite concentration (molC.m-3) (ocnBgchem)
-co3os = Surface Carbonate Ion Concentration(mol m-3) (ocnBgchem)
-phymiscos = Surface Mole Concentration of Miscellaneous Phytoplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)
-zmiscos = Surface Mole Concentration of Other Zooplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)
+**NOT NEEDED???**  
+Omon  
+- pp = total primary (organic carbon) production by phytoplankton by ocean level (mol m-3 s-1) (ocnBgchem)  
+- ppos = total primary (organic carbon) production by phytoplankton @ ocean surface (mol m-3 s-1) (ocnBgchem)  
+- phycos = sea surface phytoplankton concentration (molC.m-3) (ocnBgchem)  
+- baccos = sea surface bacterial concentration (molC.m-3) (ocnBgchem)  
+- phycalcos = surface Mole Concentration of Calcareous Phytoplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)  
+- phypicoos = Surface Mole Concentration of Picophytoplankton Expressed as Carbon in Sea Water  (molC.m-3) (ocnBgchem)  
+- zmicroos = carbon  concentration from the microzooplankton (<20 um) component alone (molC.m-3) (ocnBgchem)  
+- zmesoos = carbon  concentration from mesozooplankton (20-200 um) component alone (molC.m-3) (ocnBgchem)  
+- nh4os = Surface Dissolved Ammonium Concentration (mol m-3)  
+- talkos = Surface Total Alkalinity (mol m-3) (ocnBgchem) WHAT ABOUT SURFACE NATURAL TOTAL ALKALINITY (talknatos)?  
+- calcos = surface calcite concentration (molC.m-3) (ocnBgchem)  
+- co3os = Surface Carbonate Ion Concentration(mol m-3) (ocnBgchem)  
+- phymiscos = Surface Mole Concentration of Miscellaneous Phytoplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)  
+- zmiscos = Surface Mole Concentration of Other Zooplankton Expressed as Carbon in Sea Water (molC.m-3) (ocnBgchem)  
+
