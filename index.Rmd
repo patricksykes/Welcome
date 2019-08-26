@@ -168,6 +168,23 @@ Text mining using dplyr, ggplot2, and other tidy tools
 https://ropensci.org/packages/  
 rOpenSci, which fosters a culture of open and reproducible research using shared data and reusable software, has collated a range of useful packages, including rNOAA, taxize, BOMrang and scrubr.
 
+## UN Sustainable Development Goals
+
+The UN Sustainable Development Goals are a valuable resource for everyone to provide the global context for their research.
+
+![](img/SDG_17goals.png)
+
+The Sustainable Development Goals (SDGs) are a set of seventeen interconnected "Global Goals" that United Nations members have committed to achieving by 2030 to help deliver sustainable prosperity. These have replaced the Millennium Development Goals (MDG) and are shaping the future of development globally. There is broad agreement that the MDGs provided a focal point for government policy development and aid programmes, but they failed to consider the root causes of issues around poverty, gender inequality, the interconnected nature of drivers and impacts of development. The intent is to transform human activity so that it directly addresses and reduces armed conflict, poverty, disease, congestion, environmental degradation and climate change while also improving equality, education and quality of life. 
+
+This is intentionally aspirational, with the vision and goals derived from the largest consultation programme in UN history (involving representatives from 70 countries, 11 thematic and 83 national consultations and door-to-door and an online My World surveys). Governments around the world have accepted the goals with countries like Denmark and Colombia building the SDGs into the foundation of their national strategic prosperity plans and policies across all departmental areas. This means the SDGs are fundamental to all aspects of regulatory, government and daily activities and decision making.  
+
+Globally, the private sector is seen to have a major role in the implementation of the SDGs. The International Chamber of Commerce (ICC) has explicitly stated that sustainability is no longer a luxury business investment, but a core driver of business productivity and growth. Consequently, the ICC developed the Business Charter for Sustainable Development to help companies contribute to the SDG implementation, as responsible business is the new normal “At the heart of economic growth are innovative, successful, and responsible businesses operating within strong, forward-looking governance and policy frameworks”
+
+![](img/infographic_sdgs.png)
+
+(https://iccwbo.org/publication/icc-business-charter-for-sustainable-development-business-contributions-to-the-un-sustainable-development-goals/).
+
+Thanks to Dr Beth Fulton from CSIRO for the text.
 
 ## Open Data Science
 
