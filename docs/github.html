@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
@@ -54,6 +54,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -65,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -217,6 +218,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="github.html"><a href="github.html#explore-remote-github"><i class="fa fa-check"></i><b>4.6</b> Explore remote Github</a></li>
 <li class="chapter" data-level="4.7" data-path="github.html"><a href="github.html#going-back-in-time"><i class="fa fa-check"></i><b>4.7</b> Going back in time</a></li>
 <li class="chapter" data-level="4.8" data-path="github.html"><a href="github.html#happy-git-with-r"><i class="fa fa-check"></i><b>4.8</b> Happy Git with R</a></li>
+<li class="chapter" data-level="4.9" data-path="github.html"><a href="github.html#growing-the-tree---branching-and-merging"><i class="fa fa-check"></i><b>4.9</b> Growing the Tree - Branching and merging</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="github.html"><a href="github.html#make-a-branch"><i class="fa fa-check"></i><b>4.9.1</b> Make a Branch</a></li>
+<li class="chapter" data-level="4.9.2" data-path="github.html"><a href="github.html#use-a-branch"><i class="fa fa-check"></i><b>4.9.2</b> Use a branch</a></li>
+<li class="chapter" data-level="4.9.3" data-path="github.html"><a href="github.html#put-changes-into-master"><i class="fa fa-check"></i><b>4.9.3</b> Put changes into master</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="collaborating.html"><a href="collaborating.html"><i class="fa fa-check"></i><b>5</b> Collaborating with GitHub</a><ul>
 <li class="chapter" data-level="5.1" data-path="collaborating.html"><a href="collaborating.html#objectives-resources-2"><i class="fa fa-check"></i><b>5.1</b> Objectives &amp; Resources</a><ul>
@@ -393,9 +399,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="getafix.html"><a href="getafix.html#tricks"><i class="fa fa-check"></i><b>7.7</b> Tricks</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="gcm.html"><a href="gcm.html"><i class="fa fa-check"></i><b>8</b> Using Global Climate Models</a><ul>
-<li class="chapter" data-level="8.1" data-path="gcm.html"><a href="gcm.html#overview"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="gcm.html"><a href="gcm.html#variable-choice"><i class="fa fa-check"></i><b>8.2</b> Variable Choice</a></li>
+<li class="chapter" data-level="8" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html"><i class="fa fa-check"></i><b>8</b> Supercomputing at UQ</a><ul>
+<li class="chapter" data-level="8.1" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#high-performance-computing-1"><i class="fa fa-check"></i><b>8.1</b> High Performance Computing</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#access"><i class="fa fa-check"></i><b>8.1.1</b> Access</a></li>
+<li class="chapter" data-level="8.1.2" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#logging-in"><i class="fa fa-check"></i><b>8.1.2</b> Logging in</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="gcm.html"><a href="gcm.html"><i class="fa fa-check"></i><b>9</b> Using Global Climate Models</a><ul>
+<li class="chapter" data-level="9.1" data-path="gcm.html"><a href="gcm.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.2" data-path="gcm.html"><a href="gcm.html#variable-choice"><i class="fa fa-check"></i><b>9.2</b> Variable Choice</a></li>
 </ul></li>
 </ul>
 
@@ -506,10 +518,10 @@ When you open your repository, you only see the most recent version. But, it eas
 <li><p>Create a <strong>Github</strong> account at <a href="http://github.com" class="uri">http://github.com</a>, if you don’t already have one. For a username, I recommend all lower-case letters, short as you can. I recommend using your <em>.edu email</em>, since you can request free private repositories via <a href="https://education.github.com/">GitHub Education</a> discount.</p></li>
 <li><p>You will use the <code>usethis</code> package to configure <strong>git</strong> with global commands, which means it will apply ‘globally’ to all files on your computer, rather than to a specific folder.</p></li>
 </ol>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)</a>
-<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">library</span>(usethis)</a>
-<a class="sourceLine" id="cb77-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb77-4" data-line-number="4"><span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;Melsteroni&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;Melsteroni@example.org&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)
+<span class="kw">library</span>(usethis)
+
+<span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;Melsteroni&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;Melsteroni@example.org&quot;</span>)</code></pre>
 <p><br></p>
 <p><em>BACKUP PLAN</em> If <code>usethis</code> fails, the following is the classic approach to configuring <strong>git</strong>. Open the Git Bash program (Windows) or the Terminal (Mac) and type the following:</p>
 <pre><code>    # display your version of git
@@ -747,7 +759,37 @@ when we cloned this from RStudio, it created an RStudio project, which you can t
 <div id="happy-git-with-r" class="section level2">
 <h2><span class="header-section-number">4.8</span> Happy Git with R</h2>
 <p>If you have problems, we’ll help you out using Jenny Bryan’s <a href="http://happygitwithr.com">HappyGitWithR</a>, particularly the sections on <a href="http://happygitwithr.com/rstudio-see-git.html">Detect Git from RStudio</a> and <a href="http://happygitwithr.com/troubleshooting.html">RStudio, Git, GitHub Hell (troubleshooting)</a>. So as we are coming around, have a look at it and see if you can help troubleshoot too!</p>
+</div>
+<div id="growing-the-tree---branching-and-merging" class="section level2">
+<h2><span class="header-section-number">4.9</span> Growing the Tree - Branching and merging</h2>
+<p>Sometimes you want to maintain a stable, well-tested version of the repository, that can be made public without embarresment or lots of emails complaining that your latest addition broke everything. At the same time, you still want to add new features and test bug fixes with collaborators.</p>
+<p>The way to do this is with branches. In MathMarEcol, we use branches to reduce the risk of doing something very bad to the common repositories.</p>
+<p>Each branch is a parallel version of the codebase.</p>
+<div id="make-a-branch" class="section level3">
+<h3><span class="header-section-number">4.9.1</span> Make a Branch</h3>
+<div id="github-1" class="section level4">
+<h4><span class="header-section-number">4.9.1.1</span> Github</h4>
+<p><img src="img/github-branch.png" /></p>
+</div>
+<div id="rstudio-1" class="section level4">
+<h4><span class="header-section-number">4.9.1.2</span> Rstudio</h4>
+<p><img src="img/rstudio_branch.jpg" /></p>
+</div>
+</div>
+<div id="use-a-branch" class="section level3">
+<h3><span class="header-section-number">4.9.2</span> Use a branch</h3>
+<p>Once you have created a branch or checked out a branch made by someone else, edit and commit just as before.</p>
+<p>The difference is that changes you make in the branch don’t change <code>master</code>, and any changes to master will not affect your files while you are in the branch.</p>
+</div>
+<div id="put-changes-into-master" class="section level3">
+<h3><span class="header-section-number">4.9.3</span> Put changes into master</h3>
+<p>When you are ready to put the changes into master, you push your branch to GitHub and submit a pull requst.</p>
+<p>Make sure you have the most up to date version of your branch by pulling, and make sure there are no merge conflicts. Then push your branch to Github as usual.</p>
+<p>Next, you make a pull request by going into GitHub, selecting your branch, and clicking “New pull request”, next to the branch button.</p>
+<p><img src="img/github-branch.png" /></p>
+<p>The pull request is very similar to a Github issue, but the outcome is modifications to the master branch.</p>
 
+</div>
 </div>
 </div>
             </section>

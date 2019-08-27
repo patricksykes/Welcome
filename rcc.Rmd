@@ -1,6 +1,6 @@
 # Supercomputing at UQ
 
-```{r gh ops, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(htmltools)
 ```
@@ -24,9 +24,9 @@ You apply at ()[https://www.qriscloud.org.au/].
 Tinaroo does not appear on the QRIScompute request page, go (here)[https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2].
 
 
-##### Flashlight #####
+##### FlashLite #####
 
-The technical justification for Flashlight is:
+The technical justification for FlashLite is:
 
 1. You need to read and write vast amounts of data, such as CMIP6 data.
 2. You keep running out of memory on Tinaroo or Awoonga
@@ -34,9 +34,9 @@ The technical justification for Flashlight is:
 
 An example submission made by Phil Dyer. Approval took
 
-> MathMarEcol Bioregionalisation on Flashlight
+> MathMarEcol Bioregionalisation on FlashLite
 >
-> My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use Flashlight to demostrate the BeeGFS filesystem caching enhancements, which is only available on Flashlight.
+> My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use FlashLite to demostrate the BeeGFS filesystem caching enhancements, which is only available on FlashLite.
 
 ##### Tinaroo #####
 
