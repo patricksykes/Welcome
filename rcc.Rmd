@@ -1,0 +1,83 @@
+# Supercomputing at UQ
+
+```{r gh ops, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+
+## High Performance Computing
+
+### Access ###
+
+#### QRIScloud ####
+
+Go to ()[https://www.qriscloud.org.au/] and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites.
+
+This step is automated, and you will be granted access immediately.
+
+#### HPC access ####
+
+You must apply separately for each HPC server you want to access, providing a "technical justification".
+
+You apply at ()[https://www.qriscloud.org.au/].
+
+Tinaroo does not appear on the QRIScompute request page, go (here)[https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2].
+
+
+#### Flashlight ####
+
+The technical justification for Flashlight is:
+
+1. You need to read and write vast amounts of data, such as CMIP6 data.
+2. You keep running out of memory on Tinaroo or Awoonga
+3. David Abramson has asked us to demonstrate the BeeGFS filesystem caching enhancements
+
+An example submission made by Phil Dyer. Approval took
+
+> MathMarEcol Bioregionalisation on Flashlight
+>
+> My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use Flashlight to demostrate the BeeGFS filesystem caching enhancements, which is only available on Flashlight.
+
+#### Tinaroo ####
+
+The technical justification for Tinaroo is:
+
+1. Your code runs faster when you can use more nodes (MPI)
+2. Need a GUI, such as with MATLAB
+
+Using more nodes means your code runs across more than one computer. If you are just using multiple cores within your computer, then Awoonga is a better choice.
+
+#### Awoonga ####
+
+The technical justification for Awoonga is:
+
+1. Your code is written to use multiple cores within your computer
+2. You are doing embarrassingly parallel work or parameter sweeps, where each run is independent
+
+The Zooplankton size spectrum modelling is embarrassingly parallel, because each grid cell can ignore surrounding grid cells. Computing GCMs would not be embarrassingly parallel, because you need to know the neighbouring grid cells to decide your next state, at every time step..
+
+An example submission made by Phil Dyer, approved within 5 minutes.
+
+> MathMarEcol bioregionalisation
+> 
+> My code currently works in a shared memory mode within a single node. Most of the computations are embarrassingly parallel. I run parameter sweeps across different datasets as well, which can be run independently on separate nodes. I can make use of 20-40+ cores, and typically need about 5 to 10 GB per core within a run.
+
+
+### Logging in ###
+
+As for getafix:
+
+```{sh}
+ssh <hpc cluster login alias>
+```
+
+Your username and password are the same as your UQ login.
+
+| Cluster   | Login Nodes              | Cluster Login Alias     |
+| ---       | ---                      | ---                     |
+| Awoonga   | awoonga1.rcc.uq.edu.au   | awoonga.rcc.uq.edu.au   |
+| FlashLite | flashlite1.rcc.uq.edu.au | flashlite.rcc.uq.edu.au |
+|           | flashlite2.rcc.uq.edu.au |                         |
+| Tinaroo   | tinaroo1.rcc.uq.edu.au   | tinaroo.rcc.uq.edu.au   |
+|           | tinaroo2.rcc.uq.edu.au   |                         |
+| Wiener    | wiener.hpc.dc.uq.edu.au  | wiener.hpc.dc.uq.edu.au |
