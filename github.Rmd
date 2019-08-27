@@ -447,3 +447,42 @@ You can click on the commits to see how the files changed from the previous comm
 If you have problems, we'll help you out using Jenny Bryan's [HappyGitWithR](http://happygitwithr.com), particularly the sections on [Detect Git from RStudio](http://happygitwithr.com/rstudio-see-git.html) and [RStudio, Git, GitHub Hell (troubleshooting)](http://happygitwithr.com/troubleshooting.html). So as we are coming around, have a look at it and see if you can help troubleshoot too!
 
 
+## Growing the Tree - Branching and merging
+
+Sometimes you want to maintain a stable, well-tested version of the repository, that can be made public without embarresment or lots of emails complaining that your latest addition broke everything. At the same time, you still want to add new features and test bug fixes with collaborators. 
+
+The way to do this is with branches. In MathMarEcol, we use branches to reduce the risk of doing something very bad to the common repositories.
+
+Each branch is a parallel version of the codebase.
+
+### Make a Branch
+
+#### Github 
+
+![](img/github-branch.png)
+
+#### Rstudio
+
+![](img/rstudio_branch.jpg)
+
+### Use a branch
+Once you have created a branch or checked out a branch made by someone else, edit and commit just as before.
+
+The difference is that changes you make in the branch don't change `master`, and any changes to master will not affect your files while you are in the branch.
+
+### Put changes into master
+
+When you are ready to put the changes into master, you push your branch to GitHub and submit a pull requst. 
+
+Make sure you have the most up to date version of your branch by pulling, and make sure there are no merge conflicts. Then push your branch to Github as usual.
+
+Next, you make a pull request by going into GitHub, selecting your branch, and clicking "New pull request", next to the branch button.
+
+![](img/github-branch.png)
+
+
+The pull request is very similar to a Github issue, but the outcome is modifications to the master branch.
+
+
+
+
