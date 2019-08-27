@@ -11,7 +11,7 @@ library(htmltools)
 
 #### QRIScloud ####
 
-Go to ()[https://www.qriscloud.org.au/] and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites.
+Go to https://www.qriscloud.org.au/ and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites.
 
 This step is automated, and you will be granted access immediately.
 
@@ -19,9 +19,9 @@ This step is automated, and you will be granted access immediately.
 
 You must apply separately for each HPC server you want to access, providing a "technical justification".
 
-You apply at ()[https://www.qriscloud.org.au/].
+You apply at https://www.qriscloud.org.au/.
 
-Tinaroo does not appear on the QRIScompute request page, go (here)[https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2].
+Tinaroo does not appear on the QRIScompute request page, go [here](https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2).
 
 
 ##### FlashLite #####
