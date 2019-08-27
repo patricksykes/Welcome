@@ -24,7 +24,7 @@ You apply at ()[https://www.qriscloud.org.au/].
 Tinaroo does not appear on the QRIScompute request page, go (here)[https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2].
 
 
-#### Flashlight ####
+##### Flashlight #####
 
 The technical justification for Flashlight is:
 
@@ -38,7 +38,7 @@ An example submission made by Phil Dyer. Approval took
 >
 > My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use Flashlight to demostrate the BeeGFS filesystem caching enhancements, which is only available on Flashlight.
 
-#### Tinaroo ####
+##### Tinaroo #####
 
 The technical justification for Tinaroo is:
 
@@ -47,7 +47,7 @@ The technical justification for Tinaroo is:
 
 Using more nodes means your code runs across more than one computer. If you are just using multiple cores within your computer, then Awoonga is a better choice.
 
-#### Awoonga ####
+##### Awoonga #####
 
 The technical justification for Awoonga is:
 
