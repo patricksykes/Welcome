@@ -92,7 +92,7 @@ Let's confirm that this was synced by looking at GitHub.com again. You may have 
 
 ## Clone to a new Rproject  (Partner 2)
 
-Now it's Partner 2's turn! Partner 2, clone this repository following the same steps that Partner 1 just did. When you clone it, RStudio should not create any new files — why? Partner 1 already created and pushed eht the `.Rproj` and `.gitignore` files so they already exist in the repo.  
+Now it's Partner 2's turn! Partner 2, clone this repository following the same steps that Partner 1 just did. When you clone it, RStudio should not create any new files — why? Partner 1 already created and pushed the `.Rproj` and `.gitignore` files so they already exist in the repo.  
 
 ## Edit a file and sync (Partner 2)
 
@@ -157,7 +157,7 @@ Still not happy!
 
 OK, actually, we're just moving along this same problem that we know that we've created: Both Partner 1 and 2 have both added new information to the same line. You can see that the pop-up box is saying that there is a CONFLICT and the merge has not happened. OK. We can close that window and inspect. 
 
-Notice that in the git tab, there are orange `U`s; this means that there is an unresolved conflict, and it is not staged with a check anymore because modifications have occurred to the file since it has been staged. 
+Notice that in the git tab, there are orange `U`s; this means that there is an unresolved conflict, and it is not staged with a check any more because modifications have occurred to the file since it has been staged. 
 
 Let's look at the README file itself. We got a preview in the diff pane that there is some new text going on in our README file: 
 
@@ -216,7 +216,7 @@ So cool! On websites, if something is called `index.html`, that defaults to the 
 
 ## Your turn
 
-Here is some collaborative analysis you can do on your own. We'll be playing around with airline flights data, so let's get setup a bit. 
+Here is some collaborative analysis you can do on your own. We'll be playing around with airline flights data, so let's set up a bit. 
 
 1. Person 1: clean up the README to say something about you two, the authors.
 1. Person 2: edit the `index.Rmd` or create a new RMarkdown file: maybe add something about the authors, and knit it. 
@@ -265,7 +265,7 @@ Now let's click submit new issue.
 
 On the right side, there are a bunch of options for categorizing and organizing your issues. You and your collaborator may want to make some labels and timelines, depending on the project. 
 
-Another feature about issues is whether you want any notifications to this repository. Click where it says "Unwatch" up at the top. You'll see three options: "Not watching", "Watching", and "Ignoring". By default, you are watching these issues because you are a collaborator to the repository. But if you stop being a big contributor to this project, you may want to switch to "Not watching". Or, you may want to ask an outside person to watch the issues. Or you may want to watch another repo yourself!
+Another feature about issues is whether you want any notifications to this repository. Click where it says "Unlatch" up at the top. You'll see three options: "Not watching", "Watching", and "Ignoring". By default, you are watching these issues because you are a collaborator to the repository. But if you stop being a big contributor to this project, you may want to switch to "Not watching". Or, you may want to ask an outside person to watch the issues. Or you may want to watch another repo yourself!
 
 ![](img/github-collab.png)
 
@@ -273,7 +273,7 @@ Let's have Person 2 respond to the issue affirming the plan.
 
 ## NYC flights exploration
 
-Let's continue this workflow with your collaborator, syncing to GitHub often and practicing what we've learned so far. We will get started together and then you and your collaborator will work on your own.
+Let's continue this workflow with your collaborator, syncing to GitHub often and practising what we've learned so far. We will get started together and then you and your collaborator will work on your own.
 
 Here's what we'll be doing (from [R for Data Science's Transform Chapter](http://r4ds.had.co.nz/transform.html)):
 

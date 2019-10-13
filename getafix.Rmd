@@ -1,4 +1,4 @@
-# Using getafix {#getafix}
+# Using Getafix {#getafix}
 
 <http://research.smp.uq.edu.au/computing/getafix.html>
 
@@ -14,7 +14,7 @@ The cluster will assign your job to nodes using the SLURM program.
 
 ### Node
 
-Each computer in the cluster is called a node. Each node has it's own cpu's, memory and graphics card. Nodes all share a common network drive, so all your data is available on all the nodes.
+Each computer in the cluster is called a node. Each node has it's own CPUs, memory and graphics card. Nodes all share a common network drive, so all your data is available on all the nodes.
 
 ### Cores and memory
 
@@ -76,7 +76,7 @@ ssh  <username>@getafix.smp.uq.edu.au
 
 Where `<username>` is your staff or student login.
 
-If a popup appears saying `"Authenticity can't be established"`. Say yes.
+If a popup appears saying `"Authenticity can't be established"`, say yes.
 
 Enter your password.
 
@@ -90,7 +90,7 @@ If you see:
 Then you either typed it incorrectly or are not on the UQ internal network, see *Network Access*.
 
 If you really want R X11 plots to appear on your desktop, add `-X` to the login. This works on Mac and Linux. Windows may need an X11 server, which you can most easily get from the Ubuntu app. I strongly recommend
-saving plots into files and copying them to your computer, X11 can be very slow to render.
+saving plots into files and copying them to your computer, as X11 can be very slow to render.
 
 ```{r, eval=FALSE, engine='bash'}
 ssh -X <username>@getafix.smp.uq.edu.au
@@ -176,7 +176,7 @@ you can access on request.
 `data3` to `data6` are high speed access drives for very large file
 reading and writing. These could be useful for work on GCM's.
 
-### Sending your data to getafix
+### Sending your data to Getafix
 
 #### scp
 
