@@ -9,8 +9,8 @@ rmd_files: [
   "github.Rmd",
   "collaborating.Rmd",
   "writing.Rmd", 
-  "getafix.Rmd", 
   "rcc.Rmd",
+  "getafix.Rmd",
   "gcm.Rmd"]
 delete_merged_file: true
 output_dir: "docs"
