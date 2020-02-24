@@ -1,4 +1,4 @@
-# Using getafix {#getafix}
+# Getafix: SMPs High Performace Computer {#getafix}
 
 <http://research.smp.uq.edu.au/computing/getafix.html>
 
