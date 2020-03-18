@@ -168,6 +168,15 @@ Text mining using dplyr, ggplot2, and other tidy tools
 https://ropensci.org/packages/  
 rOpenSci, which fosters a culture of open and reproducible research using shared data and reusable software, has collated a range of useful packages, including rNOAA, taxize, BOMrang and scrubr.
 
+**Paleteer**   
+https://emilhvitfeldt.github.io/paletteer/   
+The goal of paletteer is to be a comprehensive collection of color palettes in R using a common interface. This package includes 1771 from 50 different packages
+
+**Simple Features Package (sf)**   
+https://r-spatial.github.io/sf/articles/sf1.html   
+Simple features refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects. These are very easy to use with ggplot and are great for plotting maps and analysing spatial data in R.
+
+
 ## UN Sustainable Development Goals
 
 The UN Sustainable Development Goals are a valuable resource for everyone to provide the global context for their research.

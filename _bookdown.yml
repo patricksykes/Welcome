@@ -11,6 +11,7 @@ rmd_files: [
   "writing.Rmd", 
   "getafix.Rmd", 
   "rcc.Rmd",
-  "gcm.Rmd"]
+  "gcm.Rmd",
+  "cmip6_cdo.Rmd"]
 delete_merged_file: true
 output_dir: "docs"
