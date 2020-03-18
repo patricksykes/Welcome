@@ -9,9 +9,9 @@ rmd_files: [
   "github.Rmd",
   "collaborating.Rmd",
   "writing.Rmd", 
-  "getafix.Rmd", 
   "rcc.Rmd",
   "gcm.Rmd",
-  "cmip6_cdo.Rmd"]
+  "cmip6_cdo.Rmd",
+  "getafix.Rmd"]
 delete_merged_file: true
 output_dir: "docs"

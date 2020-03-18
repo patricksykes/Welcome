@@ -4,10 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to the Mathematical Marine Ecology (MME) Lab</title>
+  <title>Chapter 8 High Performance Computing at UQ | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
-  <meta property="og:title" content="Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 High Performance Computing at UQ | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
   
   
@@ -15,7 +16,7 @@
   <meta name="github-repo" content="MathMarEcol/Welcome" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to the Mathematical Marine Ecology (MME) Lab" />
+  <meta name="twitter:title" content="Chapter 8 High Performance Computing at UQ | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   
   <meta name="twitter:description" content="This is the primary information document for members of the MME Lab." />
   
@@ -29,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="rstudio.html"/>
+<link rel="prev" href="getafix.html"/>
+<link rel="next" href="gcm.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +51,68 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -63,7 +126,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> link-citations: yes</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#lab-meetings"><i class="fa fa-check"></i><b>1.1</b> Lab Meetings</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#general-administration"><i class="fa fa-check"></i><b>1.2</b> General Administration</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#lab-contact"><i class="fa fa-check"></i><b>1.2.1</b> Lab Contact:</a></li>
@@ -299,72 +362,54 @@
 <li class="chapter" data-level="6.13.1" data-path="how-to-write-well.html"><a href="how-to-write-well.html#removing-removing-redundant-words"><i class="fa fa-check"></i><b>6.13.1</b> Removing Removing redundant words</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html"><i class="fa fa-check"></i><b>7</b> High Performance Computing at UQ</a><ul>
-<li class="chapter" data-level="7.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#access"><i class="fa fa-check"></i><b>7.1</b> Access</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#qriscloud"><i class="fa fa-check"></i><b>7.1.1</b> QRIScloud</a></li>
-<li class="chapter" data-level="7.1.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#hpc-access"><i class="fa fa-check"></i><b>7.1.2</b> HPC access</a></li>
+<li class="chapter" data-level="7" data-path="getafix.html"><a href="getafix.html"><i class="fa fa-check"></i><b>7</b> Getafix: SMPs High Performace Computer</a><ul>
+<li class="chapter" data-level="7.1" data-path="getafix.html"><a href="getafix.html#getafix-structure"><i class="fa fa-check"></i><b>7.1</b> Getafix structure</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="getafix.html"><a href="getafix.html#cluster"><i class="fa fa-check"></i><b>7.1.1</b> Cluster</a></li>
+<li class="chapter" data-level="7.1.2" data-path="getafix.html"><a href="getafix.html#node"><i class="fa fa-check"></i><b>7.1.2</b> Node</a></li>
+<li class="chapter" data-level="7.1.3" data-path="getafix.html"><a href="getafix.html#cores-and-memory"><i class="fa fa-check"></i><b>7.1.3</b> Cores and memory</a></li>
+<li class="chapter" data-level="7.1.4" data-path="getafix.html"><a href="getafix.html#login-node"><i class="fa fa-check"></i><b>7.1.4</b> Login Node</a></li>
+<li class="chapter" data-level="7.1.5" data-path="getafix.html"><a href="getafix.html#slurm"><i class="fa fa-check"></i><b>7.1.5</b> SLURM</a></li>
+<li class="chapter" data-level="7.1.6" data-path="getafix.html"><a href="getafix.html#other-resources"><i class="fa fa-check"></i><b>7.1.6</b> Other Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#logging-in"><i class="fa fa-check"></i><b>7.2</b> Logging in</a></li>
+<li class="chapter" data-level="7.2" data-path="getafix.html"><a href="getafix.html#getting-into-getafix"><i class="fa fa-check"></i><b>7.2</b> Getting into Getafix</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="getafix.html"><a href="getafix.html#request-access"><i class="fa fa-check"></i><b>7.2.1</b> Request Access</a></li>
+<li class="chapter" data-level="7.2.2" data-path="getafix.html"><a href="getafix.html#network-access"><i class="fa fa-check"></i><b>7.2.2</b> Network Access</a></li>
+<li class="chapter" data-level="7.2.3" data-path="getafix.html"><a href="getafix.html#eduroamuq-cableuq-wifi"><i class="fa fa-check"></i><b>7.2.3</b> eduroam/uq cable/uq wifi</a></li>
+<li class="chapter" data-level="7.2.4" data-path="getafix.html"><a href="getafix.html#the-terminal"><i class="fa fa-check"></i><b>7.2.4</b> The terminal</a></li>
+<li class="chapter" data-level="7.2.5" data-path="getafix.html"><a href="getafix.html#logging-into-getafix"><i class="fa fa-check"></i><b>7.2.5</b> Logging into Getafix</a></li>
+<li class="chapter" data-level="7.2.6" data-path="getafix.html"><a href="getafix.html#putting-your-data-on-getafix"><i class="fa fa-check"></i><b>7.2.6</b> Putting your data on Getafix</a></li>
+<li class="chapter" data-level="7.2.7" data-path="getafix.html"><a href="getafix.html#sending-your-data-to-getafix"><i class="fa fa-check"></i><b>7.2.7</b> Sending your data to getafix</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="getafix.html"><a href="getafix.html"><i class="fa fa-check"></i><b>8</b> Getafix: SMPs High Performace Computer</a><ul>
-<li class="chapter" data-level="8.1" data-path="getafix.html"><a href="getafix.html#getafix-structure"><i class="fa fa-check"></i><b>8.1</b> Getafix structure</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="getafix.html"><a href="getafix.html#cluster"><i class="fa fa-check"></i><b>8.1.1</b> Cluster</a></li>
-<li class="chapter" data-level="8.1.2" data-path="getafix.html"><a href="getafix.html#node"><i class="fa fa-check"></i><b>8.1.2</b> Node</a></li>
-<li class="chapter" data-level="8.1.3" data-path="getafix.html"><a href="getafix.html#cores-and-memory"><i class="fa fa-check"></i><b>8.1.3</b> Cores and memory</a></li>
-<li class="chapter" data-level="8.1.4" data-path="getafix.html"><a href="getafix.html#login-node"><i class="fa fa-check"></i><b>8.1.4</b> Login Node</a></li>
-<li class="chapter" data-level="8.1.5" data-path="getafix.html"><a href="getafix.html#slurm"><i class="fa fa-check"></i><b>8.1.5</b> SLURM</a></li>
-<li class="chapter" data-level="8.1.6" data-path="getafix.html"><a href="getafix.html#other-resources"><i class="fa fa-check"></i><b>8.1.6</b> Other Resources</a></li>
+<li class="chapter" data-level="7.3" data-path="getafix.html"><a href="getafix.html#running-jobs-on-getafix"><i class="fa fa-check"></i><b>7.3</b> Running jobs on Getafix</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="getafix.html"><a href="getafix.html#modules"><i class="fa fa-check"></i><b>7.3.1</b> Modules</a></li>
+<li class="chapter" data-level="7.3.2" data-path="getafix.html"><a href="getafix.html#r-on-getafix"><i class="fa fa-check"></i><b>7.3.2</b> R on Getafix</a></li>
+<li class="chapter" data-level="7.3.3" data-path="getafix.html"><a href="getafix.html#installing-packages"><i class="fa fa-check"></i><b>7.3.3</b> installing packages</a></li>
+<li class="chapter" data-level="7.3.4" data-path="getafix.html"><a href="getafix.html#parameters-for-rmd-files"><i class="fa fa-check"></i><b>7.3.4</b> Parameters for Rmd files</a></li>
+<li class="chapter" data-level="7.3.5" data-path="getafix.html"><a href="getafix.html#slurm-1"><i class="fa fa-check"></i><b>7.3.5</b> SLURM</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="getafix.html"><a href="getafix.html#getting-into-getafix"><i class="fa fa-check"></i><b>8.2</b> Getting into Getafix</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="getafix.html"><a href="getafix.html#request-access"><i class="fa fa-check"></i><b>8.2.1</b> Request Access</a></li>
-<li class="chapter" data-level="8.2.2" data-path="getafix.html"><a href="getafix.html#network-access"><i class="fa fa-check"></i><b>8.2.2</b> Network Access</a></li>
-<li class="chapter" data-level="8.2.3" data-path="getafix.html"><a href="getafix.html#eduroamuq-cableuq-wifi"><i class="fa fa-check"></i><b>8.2.3</b> eduroam/uq cable/uq wifi</a></li>
-<li class="chapter" data-level="8.2.4" data-path="getafix.html"><a href="getafix.html#the-terminal"><i class="fa fa-check"></i><b>8.2.4</b> The terminal</a></li>
-<li class="chapter" data-level="8.2.5" data-path="getafix.html"><a href="getafix.html#logging-into-getafix"><i class="fa fa-check"></i><b>8.2.5</b> Logging into Getafix</a></li>
-<li class="chapter" data-level="8.2.6" data-path="getafix.html"><a href="getafix.html#putting-your-data-on-getafix"><i class="fa fa-check"></i><b>8.2.6</b> Putting your data on Getafix</a></li>
-<li class="chapter" data-level="8.2.7" data-path="getafix.html"><a href="getafix.html#sending-your-data-to-getafix"><i class="fa fa-check"></i><b>8.2.7</b> Sending your data to getafix</a></li>
+<li class="chapter" data-level="7.4" data-path="getafix.html"><a href="getafix.html#debugging-rmd-files"><i class="fa fa-check"></i><b>7.4</b> Debugging Rmd files</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="getafix.html"><a href="getafix.html#cache-on"><i class="fa fa-check"></i><b>7.4.1</b> Cache on</a></li>
+<li class="chapter" data-level="7.4.2" data-path="getafix.html"><a href="getafix.html#load-in-cache-dir"><i class="fa fa-check"></i><b>7.4.2</b> Load in cache dir</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="getafix.html"><a href="getafix.html#running-jobs-on-getafix"><i class="fa fa-check"></i><b>8.3</b> Running jobs on Getafix</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="getafix.html"><a href="getafix.html#modules"><i class="fa fa-check"></i><b>8.3.1</b> Modules</a></li>
-<li class="chapter" data-level="8.3.2" data-path="getafix.html"><a href="getafix.html#r-on-getafix"><i class="fa fa-check"></i><b>8.3.2</b> R on Getafix</a></li>
-<li class="chapter" data-level="8.3.3" data-path="getafix.html"><a href="getafix.html#installing-packages"><i class="fa fa-check"></i><b>8.3.3</b> installing packages</a></li>
-<li class="chapter" data-level="8.3.4" data-path="getafix.html"><a href="getafix.html#parameters-for-rmd-files"><i class="fa fa-check"></i><b>8.3.4</b> Parameters for Rmd files</a></li>
-<li class="chapter" data-level="8.3.5" data-path="getafix.html"><a href="getafix.html#slurm-1"><i class="fa fa-check"></i><b>8.3.5</b> SLURM</a></li>
+<li class="chapter" data-level="7.5" data-path="getafix.html"><a href="getafix.html#getting-results-back"><i class="fa fa-check"></i><b>7.5</b> Getting Results back</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="getafix.html"><a href="getafix.html#printed-text"><i class="fa fa-check"></i><b>7.5.1</b> Printed text</a></li>
+<li class="chapter" data-level="7.5.2" data-path="getafix.html"><a href="getafix.html#data.frames"><i class="fa fa-check"></i><b>7.5.2</b> Data.frames</a></li>
+<li class="chapter" data-level="7.5.3" data-path="getafix.html"><a href="getafix.html#plots"><i class="fa fa-check"></i><b>7.5.3</b> Plots</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="getafix.html"><a href="getafix.html#debugging-rmd-files"><i class="fa fa-check"></i><b>8.4</b> Debugging Rmd files</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="getafix.html"><a href="getafix.html#cache-on"><i class="fa fa-check"></i><b>8.4.1</b> Cache on</a></li>
-<li class="chapter" data-level="8.4.2" data-path="getafix.html"><a href="getafix.html#load-in-cache-dir"><i class="fa fa-check"></i><b>8.4.2</b> Load in cache dir</a></li>
-<li class="chapter" data-level="8.5" data-path="getafix.html"><a href="getafix.html#getting-results-back"><i class="fa fa-check"></i><b>8.5</b> Getting Results back</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="getafix.html"><a href="getafix.html#printed-text"><i class="fa fa-check"></i><b>8.5.1</b> Printed text</a></li>
-<li class="chapter" data-level="8.5.2" data-path="getafix.html"><a href="getafix.html#data.frames"><i class="fa fa-check"></i><b>8.5.2</b> Data.frames</a></li>
-<li class="chapter" data-level="8.5.3" data-path="getafix.html"><a href="getafix.html#plots"><i class="fa fa-check"></i><b>8.5.3</b> Plots</a></li>
+<li class="chapter" data-level="7.6" data-path="getafix.html"><a href="getafix.html#playing-nice"><i class="fa fa-check"></i><b>7.6</b> Playing nice</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="getafix.html"><a href="getafix.html#parallel-coding-in-r"><i class="fa fa-check"></i><b>7.6.1</b> Parallel coding in R</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="getafix.html"><a href="getafix.html#playing-nice"><i class="fa fa-check"></i><b>8.6</b> Playing nice</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="getafix.html"><a href="getafix.html#parallel-coding-in-r"><i class="fa fa-check"></i><b>8.6.1</b> Parallel coding in R</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html"><i class="fa fa-check"></i><b>8</b> High Performance Computing at UQ</a><ul>
+<li class="chapter" data-level="8.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#access"><i class="fa fa-check"></i><b>8.1</b> Access</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#qriscloud"><i class="fa fa-check"></i><b>8.1.1</b> QRIScloud</a></li>
+<li class="chapter" data-level="8.1.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#hpc-access"><i class="fa fa-check"></i><b>8.1.2</b> HPC access</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#logging-in"><i class="fa fa-check"></i><b>8.2</b> Logging in</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="gcm.html"><a href="gcm.html"><i class="fa fa-check"></i><b>9</b> Using Global Climate Models</a><ul>
 <li class="chapter" data-level="9.1" data-path="gcm.html"><a href="gcm.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="gcm.html"><a href="gcm.html#variable-choice"><i class="fa fa-check"></i><b>9.2</b> Variable Choice</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="cdo.html"><a href="cdo.html"><i class="fa fa-check"></i><b>10</b> CMIP6 Models and CDO</a><ul>
-<li class="chapter" data-level="10.1" data-path="cdo.html"><a href="cdo.html#cmip6-models-what-the-f-is-that"><i class="fa fa-check"></i><b>10.1</b> CMIP6 models? What the F*** is that?</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="cdo.html"><a href="cdo.html#most-common-climate-scenarios"><i class="fa fa-check"></i><b>10.1.1</b> Most common climate scenarios</a></li>
-<li class="chapter" data-level="10.1.2" data-path="cdo.html"><a href="cdo.html#can-i-use-those-models"><i class="fa fa-check"></i><b>10.1.2</b> Can I use those models?</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="cdo.html"><a href="cdo.html#variable-choice-1"><i class="fa fa-check"></i><b>10.2</b> Variable Choice</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="cdo.html"><a href="cdo.html#lets-play-with-filters"><i class="fa fa-check"></i><b>10.2.1</b> Let’s play with filters</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="cdo.html"><a href="cdo.html#working-with-cmip6-netcdf-files-using-cdo-climate-data-operators"><i class="fa fa-check"></i><b>10.3</b> Working with CMIP6 netCDF files using CDO (Climate data operators)</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="cdo.html"><a href="cdo.html#installation-process"><i class="fa fa-check"></i><b>10.3.1</b> Installation Process</a></li>
-<li class="chapter" data-level="10.3.2" data-path="cdo.html"><a href="cdo.html#ncview-a-netcdf-visual-browser"><i class="fa fa-check"></i><b>10.3.2</b> Ncview: a netCDF visual browser</a></li>
-<li class="chapter" data-level="10.3.3" data-path="cdo.html"><a href="cdo.html#working-with-cdo-and-ncview"><i class="fa fa-check"></i><b>10.3.3</b> Working with CDO and ncview</a></li>
-<li class="chapter" data-level="10.3.4" data-path="cdo.html"><a href="cdo.html#files-in-directory"><i class="fa fa-check"></i><b>10.3.4</b> Files in directory</a></li>
-<li class="chapter" data-level="10.3.5" data-path="cdo.html"><a href="cdo.html#regridding-with-cdo"><i class="fa fa-check"></i><b>10.3.5</b> Regridding with CDO</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="cdo.html"><a href="cdo.html#cdo-with-multiple-input-modelsfiles"><i class="fa fa-check"></i><b>10.4</b> CDO with multiple input models/files</a></li>
-<li class="chapter" data-level="10.5" data-path="cdo.html"><a href="cdo.html#cdo-extra-functions"><i class="fa fa-check"></i><b>10.5</b> CDO extra functions</a></li>
-<li class="chapter" data-level="10.6" data-path="cdo.html"><a href="cdo.html#running-cdo-in-the-cluster-awoongaflashlite"><i class="fa fa-check"></i><b>10.6</b> Running CDO in the cluster (awoonga/flashlite)</a></li>
 </ul></li>
 </ul>
 
@@ -383,180 +428,105 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to the Mathematical Marine Ecology (MME) Lab</h1>
-<p class="author"><em>The Mathematical Marine Ecology Lab Team</em></p>
-<p class="date"><em>Wed 18 March 2020</em></p>
+<div id="high-performance-computing-at-uq" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> High Performance Computing at UQ</h1>
+<div id="access" class="section level2">
+<h2><span class="header-section-number">8.1</span> Access</h2>
+<div id="qriscloud" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> QRIScloud</h3>
+<p>Go to <a href="https://www.qriscloud.org.au/" class="uri">https://www.qriscloud.org.au/</a> and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites.</p>
+<p>This step is automated, and you will be granted access immediately.</p>
 </div>
-<div id="welcome" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome</h1>
-<p><img src="img/richardsonlab_banner_small.png" width="800px" style="left" /></p>
-<p>Welcome to the Mathematical Marine Ecology Lab.</p>
-<p>This book has been put together as the main source of information for all members of the MME Lab. It includes info on lab meetings, administration, data-storage, open data-science, R programming, writing skills and GitHub.</p>
-<div id="lab-meetings" class="section level2">
-<h2><span class="header-section-number">1.1</span> Lab Meetings</h2>
-<p>The MME lab meets up every week on Level 5 of the Queenland Bioscience Precinct. We generally use this as an opportunity to catch up on what everyone is doing, and share tips and tricks around data, programming and open data-science. Each meeting, one person is nominated to lead a discussion on a specific topic. Contact Anthony to be added to the email list. You can also attend virtually.</p>
-</div>
-<div id="general-administration" class="section level2">
-<h2><span class="header-section-number">1.2</span> General Administration</h2>
-<div id="lab-contact" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Lab Contact:</h3>
-<p>For any lab-specific issues, you should contact Anthony in the first instance:
-Professory Anthony Richardson: ajr at maths.uq.edu.au</p>
-</div>
-<div id="comm" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Lab Communication</h3>
-<div id="email" class="section level4">
-<h4><span class="header-section-number">1.2.2.1</span> Email</h4>
-<p>For formal communication that must be received, read and stored.</p>
-</div>
-<div id="github-issues-tracking" class="section level4">
-<h4><span class="header-section-number">1.2.2.2</span> GitHub Issues Tracking</h4>
-<p>As you will see below, the MME Lab is using GitHub for project tracking. So sign up and join MME (Send Jason an email to request access to MME)</p>
-<p>For specific questions and issue tracking that relates to a project. Each issue can have its own converstaion chain and we can track the progress of each question. Tag people to notify them of something they need to deal with.</p>
-</div>
-<div id="gitter" class="section level4">
-<h4><span class="header-section-number">1.2.2.3</span> Gitter</h4>
-<p>For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. Just another messanger service, but one which is tied to GitHub. Sign up using your Github account.
-<a href="https://gitter.im" class="uri">https://gitter.im</a></p>
-</div>
-</div>
-<div id="school-of-maths-and-physics" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> School of Maths and Physics</h3>
-<p>You can find all the information you need about SMP and relevent contacts, forms etc at the SMP website.
-<a href="https://smp.uq.edu.au" class="uri">https://smp.uq.edu.au</a></p>
-</div>
-<div id="general-it-support" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> General IT Support</h3>
-<p>All general UQ IT-related information can be found at:
-<a href="https://my.uq.edu.au/information-and-services/information-technology" class="uri">https://my.uq.edu.au/information-and-services/information-technology</a></p>
-</div>
-<div id="student-support" class="section level3">
-<h3><span class="header-section-number">1.2.5</span> Student Support</h3>
-<p>The University of Queensland Student Support Services can be found at: <a href="https://www.uq.edu.au/student-services/" class="uri">https://www.uq.edu.au/student-services/</a></p>
-<p>This includes information and support services for student welfare, learning support, faith, health etc. All students are encouraged to familiarise themseleves with this page.</p>
-</div>
-</div>
-<div id="computing" class="section level2">
-<h2><span class="header-section-number">1.3</span> Computing</h2>
-<p>Our lab are using the UQ Research Data Management (<a href="https://rdm.uq.edu.au/" class="uri">https://rdm.uq.edu.au/</a>) to store data and write model output, and the UQ High Performace Computer <em>“Awoonga”</em>, <em>“Flashlite”</em> and <em>“Tinaroo”</em> for computing tasks. More information on each is at <a href="https://rcc.uq.edu.au/node/48" class="uri">https://rcc.uq.edu.au/node/48</a>.</p>
-<p>If you have specific questions that can’t be answered by your lab colleagues, you can search the Research Computing Centre website (<a href="https://rcc.uq.edu.au" class="uri">https://rcc.uq.edu.au</a>).</p>
-<div id="research-data-manager" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Research Data Manager</h3>
-<p>Research Data Manager (RDM) is an integrated data management system covering the entire research data lifecycle.</p>
-<p>The RDM will ensure that research data:</p>
-<ul>
-<li>remains accurate, authentic, reliable, and complete,</li>
-<li>retains integrity and improves the reproducibility of research,</li>
-<li>is secure, minimising the risk of data loss,</li>
-<li>can be reused, enabled by collecting critical metadata early,</li>
-<li>is available in accordance with the Australian Code for the Responsible Conduct of Research and the FAIR guiding principles, and
-meets funding, journal and regulatory body requirements.</li>
-</ul>
-<p>We have two collections on the RDM.</p>
+<div id="hpc-access" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> HPC access</h3>
+<p>You must apply separately for each HPC server you want to access, providing a “technical justification”.</p>
+<p>You apply at <a href="https://www.qriscloud.org.au/" class="uri">https://www.qriscloud.org.au/</a>.</p>
+<p>Tinaroo does not appear on the QRIScompute request page, go <a href="https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2">here</a>.</p>
+<div id="flashlite" class="section level4">
+<h4><span class="header-section-number">8.1.2.1</span> FlashLite</h4>
+<p>The technical justification for FlashLite is:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>MathMarEcol Data Storage</strong> (MME1DATA) which is where we store all our Read-Only datasets such as CMIP model outputs, satellite data, fisheries data etc. This is where you should store all the data sets you will be reading into your analysis. Please consult with Ant about your requirements and for access.</p></li>
-<li><p><strong>MathMarEcol Working Projects</strong> (MME2WORK) is where we store all our dynamic output data (model outputs, figures etc). When you get access to this collection you should create a folder for your project (We suggest aligning this to the GitHub Repo name to avoid any confusion).</p></li>
+<li>You need to read and write vast amounts of data, such as CMIP6 data.</li>
+<li>You keep running out of memory on Tinaroo or Awoonga</li>
+<li>David Abramson has asked us to demonstrate the BeeGFS filesystem caching enhancements</li>
 </ol>
+<p>An example submission made by Phil Dyer. Access was approved very quickly.</p>
+<blockquote>
+<p>MathMarEcol Bioregionalisation on FlashLite</p>
+<p>My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use FlashLite to demostrate the BeeGFS filesystem caching enhancements, which is only available on FlashLite.</p>
+</blockquote>
+</div>
+<div id="tinaroo" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> Tinaroo</h4>
+<p>The technical justification for Tinaroo is:</p>
+<ol style="list-style-type: decimal">
+<li>Your code runs faster when you can use more nodes (MPI)</li>
+<li>Need a GUI, such as with MATLAB</li>
+</ol>
+<p>Using more nodes means your code runs across more than one computer. If you are just using multiple cores within your computer, then Awoonga is a better choice.</p>
+</div>
+<div id="awoonga" class="section level4">
+<h4><span class="header-section-number">8.1.2.3</span> Awoonga</h4>
+<p>The technical justification for Awoonga is:</p>
+<ol style="list-style-type: decimal">
+<li>Your code is written to use multiple cores within your computer</li>
+<li>You are doing embarrassingly parallel work or parameter sweeps, where each run is independent</li>
+</ol>
+<p>The Zooplankton size spectrum modelling is embarrassingly parallel, because each grid cell can ignore surrounding grid cells. Computing GCMs would not be embarrassingly parallel, because you need to know the neighbouring grid cells to decide your next state, at every time step..</p>
+<p>An example submission made by Phil Dyer, approved within 5 minutes.</p>
+<blockquote>
+<p>MathMarEcol bioregionalisation</p>
+<p>My code currently works in a shared memory mode within a single node. Most of the computations are embarrassingly parallel. I run parameter sweeps across different datasets as well, which can be run independently on separate nodes. I can make use of 20-40+ cores, and typically need about 5 to 10 GB per core within a run.</p>
+</blockquote>
 </div>
 </div>
-<div id="useful-tools" class="section level2">
-<h2><span class="header-section-number">1.4</span> Useful Tools</h2>
-<div id="software" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Software</h3>
-<p>Some software you may find useful:</p>
-<ul>
-<li><strong>R</strong>:</li>
-<li><strong>RStudio</strong>: The best IDE for R.</li>
-<li><strong>Endnote</strong>: The UQs main reference manager software</li>
-<li><strong>Notepad++</strong>: A good text editor for Windows which deals with invisible characters, line endings etc much better than the default Notepad.</li>
-<li><strong>Sublime</strong>: A powerful text editor for MacOS.</li>
-<li><strong>GitHub Desktop</strong>: A simple Github manager for those repos you need to manage outside of RStudio.</li>
-<li><strong>FileZilla</strong>: A great SFTP client for MacOS/Windows/Linux for moving files around the university.</li>
-</ul>
-<p>Others?</p>
 </div>
-<div id="r-resources" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> R Resources</h3>
-<div id="books" class="section level4">
-<h4><span class="header-section-number">1.4.2.1</span> Books</h4>
-<p><strong>R for Data Science</strong> (Otherwise known as R4DS) by Hadley Wickham and Garrett Grolemund. This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.<br />
-<a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a></p>
-<p><strong>Advanced R</strong> by Hadley Wickham. This book is designed primarily for R users who want to improve their programming skills and understanding of the language<br />
-<a href="http://adv-r.had.co.nz" class="uri">http://adv-r.had.co.nz</a></p>
-<p><strong>R Graphics Cookbook</strong> by Winston Chang. This book is a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly, without having to comb through all the details of R’s graphing systems.<br />
-<a href="https://r-graphics.org" class="uri">https://r-graphics.org</a></p>
-<p><strong>Efficient R Programming</strong> by Colin Gillespie and Robin Lovelace. This hands-on book teaches novices and experienced R users how to write efficient R code.
-<a href="https://csgillespie.github.io/efficientR/" class="uri">https://csgillespie.github.io/efficientR/</a></p>
-<p><strong>R Packages</strong> by Hadley Wickham. The goal of this book is to teach you how to develop packages so that you can write your own, not just use other people’s.<br />
-<a href="http://r-pkgs.had.co.nz" class="uri">http://r-pkgs.had.co.nz</a></p>
-<p><strong>Text Mining with R</strong> by Julia Silge and David Robinson. This book serves as an introduction of text mining using the tidytext package and other tidy tools in R.<br />
-<a href="https://www.tidytextmining.com" class="uri">https://www.tidytextmining.com</a></p>
-<p><strong>Bookdown</strong> by Yihui Xie. This book introduces an R package, bookdown, to change your workflow of writing books, websites or even theses. It was how we put together this website.<br />
-<a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a></p>
-</div>
-<div id="online-resources" class="section level4">
-<h4><span class="header-section-number">1.4.2.2</span> Online Resources</h4>
-<p><strong>rOpenSci Community Calls</strong> - Live presentations and recordings which allow you to hear about best practices, new projects, Q&amp;As with well known developers, and to learn more about rOpenSci developments.<br />
-<a href="https://ropensci.org/commcalls/" class="uri">https://ropensci.org/commcalls/</a></p>
-</div>
-</div>
-<div id="r-packages" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> R Packages</h3>
-<p><strong>The Tidyverse</strong><br />
-<a href="https://www.tidyverse.org" class="uri">https://www.tidyverse.org</a><br />
-The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.</p>
-<p><strong>Patchwork</strong>
-<a href="https://patchwork.data-imaginist.com" class="uri">https://patchwork.data-imaginist.com</a>
-The goal of patchwork is to make it ridiculously simple to combine separate ggplots into the same graphic. As such it tries to solve the same problem as gridExtra::grid.arrange() and cowplot::plot_grid but using an API that incites exploration and iteration, and scales to arbitrily complex layouts.</p>
-<p><strong>Stars Package</strong><br />
-<a href="https://r-spatial.github.io/stars/" class="uri">https://r-spatial.github.io/stars/</a><br />
-STARS is good for non-regular grid, which is what the hi-res oceanographic models generally are these days.</p>
-<p><strong>ClimateOperators package</strong><br />
-<a href="https://github.com/markpayneatwork/ClimateOperators" class="uri">https://github.com/markpayneatwork/ClimateOperators</a><br />
-Useful for being able to run CDO in R.</p>
-<p><strong>TidyText Package</strong><br />
-<a href="https://github.com/juliasilge/tidytext" class="uri">https://github.com/juliasilge/tidytext</a><br />
-Text mining using dplyr, ggplot2, and other tidy tools</p>
-<p><strong>rOpenSci Packages</strong><br />
-<a href="https://ropensci.org/packages/" class="uri">https://ropensci.org/packages/</a><br />
-rOpenSci, which fosters a culture of open and reproducible research using shared data and reusable software, has collated a range of useful packages, including rNOAA, taxize, BOMrang and scrubr.</p>
-<p><strong>Paleteer</strong><br />
-<a href="https://emilhvitfeldt.github.io/paletteer/" class="uri">https://emilhvitfeldt.github.io/paletteer/</a><br />
-The goal of paletteer is to be a comprehensive collection of color palettes in R using a common interface. This package includes 1771 from 50 different packages</p>
-<p><strong>Simple Features Package (sf)</strong><br />
-<a href="https://r-spatial.github.io/sf/articles/sf1.html" class="uri">https://r-spatial.github.io/sf/articles/sf1.html</a><br />
-Simple features refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects. These are very easy to use with ggplot and are great for plotting maps and analysing spatial data in R.</p>
-</div>
-</div>
-<div id="un-sustainable-development-goals" class="section level2">
-<h2><span class="header-section-number">1.5</span> UN Sustainable Development Goals</h2>
-<p>The UN Sustainable Development Goals are a valuable resource for everyone to provide the global context for their research.</p>
-<p><img src="img/SDG_17goals.png" /></p>
-<p>The Sustainable Development Goals (SDGs) are a set of seventeen interconnected “Global Goals” that United Nations members have committed to achieving by 2030 to help deliver sustainable prosperity. These have replaced the Millennium Development Goals (MDG) and are shaping the future of development globally. There is broad agreement that the MDGs provided a focal point for government policy development and aid programmes, but they failed to consider the root causes of issues around poverty, gender inequality, the interconnected nature of drivers and impacts of development. The intent is to transform human activity so that it directly addresses and reduces armed conflict, poverty, disease, congestion, environmental degradation and climate change while also improving equality, education and quality of life.</p>
-<p>This is intentionally aspirational, with the vision and goals derived from the largest consultation programme in UN history (involving representatives from 70 countries, 11 thematic and 83 national consultations and door-to-door and an online My World surveys). Governments around the world have accepted the goals with countries like Denmark and Colombia building the SDGs into the foundation of their national strategic prosperity plans and policies across all departmental areas. This means the SDGs are fundamental to all aspects of regulatory, government and daily activities and decision making.</p>
-<p>Globally, the private sector is seen to have a major role in the implementation of the SDGs. The International Chamber of Commerce (ICC) has explicitly stated that sustainability is no longer a luxury business investment, but a core driver of business productivity and growth. Consequently, the ICC developed the Business Charter for Sustainable Development to help companies contribute to the SDG implementation, as responsible business is the new normal “At the heart of economic growth are innovative, successful, and responsible businesses operating within strong, forward-looking governance and policy frameworks”</p>
-<p><img src="img/infographic_sdgs.png" /></p>
-<p>(<a href="https://iccwbo.org/publication/icc-business-charter-for-sustainable-development-business-contributions-to-the-un-sustainable-development-goals/" class="uri">https://iccwbo.org/publication/icc-business-charter-for-sustainable-development-business-contributions-to-the-un-sustainable-development-goals/</a>).</p>
-<p>Thanks to Dr Beth Fulton from CSIRO for the text.</p>
-</div>
-<div id="open-data-science" class="section level2">
-<h2><span class="header-section-number">1.6</span> Open Data Science</h2>
-<p>While we have always made our data and code available to those who have asked, in 2019 the MME Lab has decided to adopt a full open data-science model. We attended the wonderful Data Science Training (<a href="http://ohi-science.org/data-science-training/" class="uri">http://ohi-science.org/data-science-training/</a>) run by the <em>The Ocean Health Index Team</em>. We acknowledge all the help and resources they have made available which has allowed us to get up and running so quickly.</p>
-<p>Many sections of this book introduce open data science so we can work with data in an open, reproducible, and collaborative way. Open data science means that methods, data, and code are available so that others can access, reuse, and build from it without much fuss. Here we demonstrate a workflow with R, RStudio, Git, and GitHub, as described in <a href="https://www.nature.com/articles/s41559-017-0160">Lowndes <em>et al. 2017, Nature Ecology &amp; Evolution</em>: Our path to better science in less time using open data science tools</a>.</p>
-</div>
-<div id="online-code-of-conduct" class="section level2">
-<h2><span class="header-section-number">1.7</span> Online Code of Conduct</h2>
-<p>We have adopted the code of conduct from Mozilla to govern participation in all online communities associated with the MME Lab, including GitHub, Gitter, GoogleDocs, email and lab meetings.
-As part of this we must always:</p>
-<ul>
-<li>Be respectful and value each other’s ideas, styles and viewpoints.</li>
-<li>Be direct but professional; we cannot withhold hard truths.</li>
-<li>Be inclusive and help new perspectives be heard.</li>
-<li>Be open to learning from others.</li>
-<li>Lead by example and match your actions with your words.</li>
-</ul>
-<p>For a full description of the Community Participation Guidelines see: <a href="https://www.mozilla.org/en-US/about/governance/policies/participation/" class="uri">https://www.mozilla.org/en-US/about/governance/policies/participation/</a></p>
+<div id="logging-in" class="section level2">
+<h2><span class="header-section-number">8.2</span> Logging in</h2>
+<p>As for getafix:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">ssh</span> <span class="op">&lt;</span>hpc cluster login alias<span class="op">&gt;</span></a></code></pre></div>
+<p>Your username and password are the same as your UQ login.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Cluster</th>
+<th>Login Nodes</th>
+<th>Cluster Login Alias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Awoonga</td>
+<td>awoonga1.rcc.uq.edu.au</td>
+<td>awoonga.rcc.uq.edu.au</td>
+</tr>
+<tr class="even">
+<td>FlashLite</td>
+<td>flashlite1.rcc.uq.edu.au</td>
+<td>flashlite.rcc.uq.edu.au</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>flashlite2.rcc.uq.edu.au</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Tinaroo</td>
+<td>tinaroo1.rcc.uq.edu.au</td>
+<td>tinaroo.rcc.uq.edu.au</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tinaroo2.rcc.uq.edu.au</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wiener</td>
+<td>wiener.hpc.dc.uq.edu.au</td>
+<td>wiener.hpc.dc.uq.edu.au</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -565,8 +535,8 @@ As part of this we must always:</p>
           </div>
         </div>
       </div>
-
-<a href="rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="getafix.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gcm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
