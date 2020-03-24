@@ -5,6 +5,26 @@ knitr::opts_chunk$set(echo = TRUE)
 library(htmltools)
 ```
 
+Isaac is using Flashlite. He is submitted a single job which needs 24 cores. Has trouble finding 24 cores which are on the one node.
+  * Do conservation jobs on Flashlite
+
+Phil is using Awoonga. There are delays in getting a job submitted.
+  * Patrick is using Nimrod through Tinaroo
+  * 
+
+Getafix --> Queue's are shorter. More flexible about installing new modules
+
+
+Look at including a prologue and epilogue into the #PBS script
+
+Depends on how you need to parrallelise
+Sending 
+
+
+Size of the jobs
+
+
+
 ## Access ##
 
 ### QRIScloud ###
@@ -51,7 +71,7 @@ The technical justification for Awoonga is:
 
 1. Your code is written to use multiple cores within your computer
 2. You are doing embarrassingly parallel work or parameter sweeps, where each run is independent
-
+                          
 The Zooplankton size spectrum modelling is embarrassingly parallel, because each grid cell can ignore surrounding grid cells. Computing GCMs would not be embarrassingly parallel, because you need to know the neighbouring grid cells to decide your next state, at every time step..
 
 An example submission made by Phil Dyer, approved within 5 minutes.
