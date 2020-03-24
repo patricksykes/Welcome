@@ -5,44 +5,23 @@ knitr::opts_chunk$set(echo = TRUE)
 library(htmltools)
 ```
 
-Isaac is using Flashlite. He is submitted a single job which needs 24 cores. Has trouble finding 24 cores which are on the one node.
-  * Do conservation jobs on Flashlite
+## UQ's Research Computing Centre ##
 
-Phil is using Awoonga. There are delays in getting a job submitted.
-  * Patrick is using Nimrod through Tinaroo
-  * 
+The Research Computing Centre (RCC) provides coordinated management and support of The University of Queensland’s sustained and substantial investment in eResearch. The RCC helps UQ researchers across disciplines make the most of the University’s eResearch technologies, such as High Performance Computing (HPC), data storage, data management, visualisation, workflow and videoconferencing. 
 
-Getafix --> Queue's are shorter. More flexible about installing new modules
-
-
-Look at including a prologue and epilogue into the #PBS script
-
-Depends on how you need to parrallelise
-Sending 
-
-
-Size of the jobs
-
-
-
-## Access ##
-
-### QRIScloud ###
-
-Go to https://www.qriscloud.org.au/ and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites.
-
-This step is automated, and you will be granted access immediately.
+Specifically for the MME, the RCC coordinates access and support for 3 HPCs and the Research Data Manager (RDM).
 
 ### HPC access ###
 
-You must apply separately for each HPC server you want to access, providing a "technical justification".
+Go to https://www.qriscloud.org.au/ and register for an account. Try to log in with your staff account, which may require logging out of any UQ websites. This step is automated, and you will be granted access immediately.
 
-You apply at https://www.qriscloud.org.au/.
+You must apply separately for each HPC server you want to access, providing a "technical justification". You apply at https://www.qriscloud.org.au/.
 
 Tinaroo does not appear on the QRIScompute request page, go [here](https://services.qriscloud.org.au/services/request/new/151270360cb54d0783bffd482b4651d2).
 
+The 3 HPCs under the RCC banner are:
 
-#### FlashLite ####
+**FlashLite**
 
 The technical justification for FlashLite is:
 
@@ -56,7 +35,7 @@ An example submission made by Phil Dyer. Access was approved very quickly.
 >
 > My lab is working on large scale marine ecology and climate models. The input data is around 30-50TB. David Abramson has asked us to use FlashLite to demostrate the BeeGFS filesystem caching enhancements, which is only available on FlashLite.
 
-#### Tinaroo ####
+**Tinaroo**
 
 The technical justification for Tinaroo is:
 
@@ -65,7 +44,7 @@ The technical justification for Tinaroo is:
 
 Using more nodes means your code runs across more than one computer. If you are just using multiple cores within your computer, then Awoonga is a better choice.
 
-#### Awoonga ####
+**Awoonga**
 
 The technical justification for Awoonga is:
 
@@ -81,9 +60,27 @@ An example submission made by Phil Dyer, approved within 5 minutes.
 > My code currently works in a shared memory mode within a single node. Most of the computations are embarrassingly parallel. I run parameter sweeps across different datasets as well, which can be run independently on separate nodes. I can make use of 20-40+ cores, and typically need about 5 to 10 GB per core within a run.
 
 
-## Logging in ##
+#### Network Access
 
-As for getafix:
+You must be on the UQ intranet to access the servers. If you are connected to eduroam/uq cable/uq wifi, then you are already in the intranet.
+
+Everywhere else you will need to install the UQ VPN software and log in. Follow the instructions at:
+
+<https://my.uq.edu.au/information-and-services/information-technology/working-remotely/vpn-virtual-private-network>
+
+#### The terminal
+
+To access any of the HPC's, you will need a terminal program on your computer.
+
+On mac, this is Terminal.
+
+On windows, this is Command Prompt or Windows Powershell (not Windows Powershell ISE). If you don't have an up to date Windows 10 machine, install [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/).
+
+Some people like the Ubuntu app in windows 10, just remember the *mnt/c* syntax to get to the files on your computer.
+
+### Logging in ###
+
+Once you have your terminal open
 
 ```{sh, eval=FALSE}
 ssh <hpc cluster login alias>
@@ -101,40 +98,28 @@ Your username and password are the same as your UQ login.
 | Wiener    | wiener.hpc.dc.uq.edu.au  | wiener.hpc.dc.uq.edu.au |
 
 
+### Submitting a Job ###
 
-## SMP High Performance Computing: Getafix ##
+Add section on submitted a job via PBS to Awoonga/Flashlite
+
+For the moment, you can get more information [here](http://www2.rcc.uq.edu.au/hpc/guides/index.html?default.html). NOTE: You need to VPN in if not on campus.
+
+## SMP High Performance Computing ##
 
 <http://research.smp.uq.edu.au/computing/getafix.html>
 
-### Getafix structure
+The School of Mathematics and Physics have their own HPC called Getafix. Getafix is a cluster and will assign your job to nodes using the SLURM program.
 
-![](img/getafix_rendered.png)
+### Getafix Structure ###
+Each computer in the cluster is called a node. Each node has it's own cpu's, memory and graphics card. Nodes all share a common network drive, so all your data is available on all the nodes. Most nodes in Getafix have about 24 cores, a few have more and a few have less. Each node also typically has about 250GB of memory. 
 
-#### Cluster
+One node is special, the login node. The login node works like any remote computer, you can run jobs on the login node, but out of respect for other users, you should only do setup operations and short tests on the login node.
 
-Getafix is a cluster. That means there are many computers all talking to each-other and sharing resources.
-
-The cluster will assign your job to nodes using the SLURM program.
-
-#### Node
-
-Each computer in the cluster is called a node. Each node has it's own cpu's, memory and graphics card. Nodes all share a common network drive, so all your data is available on all the nodes.
-
-#### Cores and memory
-
-Most nodes in Getafix have about 24 cores, a few have more and a few have less. Each node also typically has about 250GB of memory.
-
-If I can find a list of the nodes, I'll add it for reference.
-
-#### Login Node
-
-One node is special, the login node. Strictly speaking, Getafix is the login node, which is why Dogmatix, the older SMP cluster, has access to most of the same resources and nodes. The login node works like any remote computer, you can run jobs on the login node, but out of respect for other users, you should only do setup operations and short tests on the login node.
-
-#### SLURM
+### SLURM ###
 
 SLURM is the program that balances all the jobs between users across the cluster. You specify what you want the cluster to do, and how much time, nodes, cpu's and memory you think you will need. SLURM then waits until the cluster has enough resources available to run your job and starts the job. If you try to use more resources than you asked for, your job will be killed. If you ask for lots of resources, it might take a while for enough nodes to be available, since smaller jobs will usually fill up the available resources as other jobs end.
 
-#### Other Resources
+### Other Resources ###
 
 The cluster has access to shared resources, particularly shared storage and networking, so your data is available on all the nodes at the same location.
 
@@ -146,33 +131,9 @@ Email ITS at help@its.uq.edu.au and request access to the SMP cluster which is c
 
 This can take a few days. Make sure you explain your connection to the School of Maths and Physics. For HDR students, you will often have both a staff and student account. Let ITS know which one you want to use to log in with.
 
-#### Network Access
-
-You must be on the UQ intranet to access the servers.
-
-#### eduroam/uq cable/uq wifi
-
-You are already in the intranet.
-
-##### Everywhere else
-
-You will need to install the UQ VPN software and log in. Follow the instructions at:
-
-<https://my.uq.edu.au/information-and-services/information-technology/working-remotely/vpn-virtual-private-network>
-
-#### The terminal
-
-To access Getafix, you will need a terminal program on your computer.
-
-On mac, this is Terminal.
-
-On windows, this is Command Prompt or Windows Powershell (not Windows Powershell ISE). If you don't have an up to date Windows 10 machine, install [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/).
-
-Some people like the Ubuntu app in windows 10, just remember the *mnt/c* syntax to get to the files on your computer.
-
 #### Logging into Getafix
 
-Once you have your terminal open, type:
+Once you have your terminal open and logged into the UQ VPN (if off campus), type:
 
 ```{r eval=FALSE, engine='bash'}
 ssh  <username>@getafix.smp.uq.edu.au
@@ -200,7 +161,7 @@ saving plots into files and copying them to your computer, X11 can be very slow 
 ssh -X <username>@getafix.smp.uq.edu.au
 ```
 
-##### Advanced
+#### Advanced
 
 1.  SSH config file
 
@@ -212,11 +173,6 @@ ssh -X <username>@getafix.smp.uq.edu.au
       User uqpdyer
       HostName 130.102.3.59
 
-    Host dogmatix
-      ForwardX11Trusted yes
-      User uqpdyer
-      HostName dogmatix.smp.uq.edu.au
-
     ```
 
     Now, you only have to type
@@ -225,7 +181,7 @@ ssh -X <username>@getafix.smp.uq.edu.au
     ssh my-getafix
     ```
 
-#### Putting your data on Getafix
+### Putting your data on Getafix
 
 You need to have your data on Getafix. Where to put it?
 
@@ -233,7 +189,7 @@ You need to have your data on Getafix. Where to put it?
 ls /
 ```
 
-##### Home
+#### Home
 
 ```{r eval=FALSE}
 /home/username/
@@ -245,27 +201,18 @@ Which is often shortened to
 ~/
 ```
 
-You have 40GB of data allowed in here.
+You have 40GB of data allowed in here. The home directory is often used for programs and configuration files. R libraries will install here by default, which is fine. Don't use the home directory for data sets, results and plots.
 
-The home directory is often used for programs and configuration files. R
-libraries will install here by default, which is fine.
-
-Don't use the home directory for data sets, results and plots.
-
-##### Data
+#### Data
 
 ```{r eval=FALSE}
 /data/username/
 ```
 
-You have 400GB of data allowed in here.
+You have 400GB of data allowed in here. Put your data sets and scripts in the `/data/username/` directory.
 
-Put your data sets and scripts in the `/data/username/` directory.
 
-At some point we may have a shared folder in here, probably
-`/data/mathmarecol/`.
-
-##### Data1, Data2 … Data6
+#### Data1, Data2 … Data6
 
 Most of the time you use `/data/` but there are other data folders that
 you can access on request.
@@ -280,9 +227,9 @@ you can access on request.
 `data3` to `data6` are high speed access drives for very large file
 reading and writing. These could be useful for work on GCM's.
 
-#### Sending your data to getafix
+### Sending your data to getafix
 
-##### scp
+#### scp
 
 scp is copy over ssh, it should work anywhere ssh works.
 
@@ -290,11 +237,11 @@ scp is copy over ssh, it should work anywhere ssh works.
 scp -r  local_folder <username>@getafix.smp.uq.edu.au:/data/<username>/<folder>
 ```
 
-##### WinSCP
+#### WinSCP
 
 A graphical interface for scp.
 
-##### rsync
+#### rsync
 
 Rsync is smarter than scp, it only copies changes, so it can be faster
 than scp.
@@ -337,8 +284,8 @@ module load proj #spatial packages like sf
 #### R on Getafix
 
 R on Getafix is pretty similar to R on your local computer, without RStudio.
-#
-#### installing packages
+
+#### Installing packages
 
 Install packages to a local library in your home directory.
 
@@ -641,23 +588,26 @@ The qwraps2 package on github has a function, `lazyload_cache`, which will pull 
 
 Once you call `lazyload_cache()` on the cache generated by knitr, your environment has all the variables seen up until a failure point.
 
+
+
+## General HPC Guidance ##
+
+
 ### Getting Results back
 
 The batch jobs are not interactive. You set them up to run and come back for the results. Usually you save a file to disk.
 
-#### Printed text
-
 All printed output goes to a file `slurm-<job number>.out`.
 
-You can change the name with
+For example, in SLURM you can change the name with
 
 ```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
 #SBATCH -o output_file_%A_%a.out #%A is the job number, %a is the array number
 #SBATCH -e error_file.err
 ```
-
-#### Data.frames
+  
+### Data.frames
 
 If you have R objects you want to see, save them to disk.
 
@@ -676,7 +626,7 @@ If you have R objects you want to see, save them to disk.
     object. Good for reproducibility, you can't mix up objects from
     different runs later on because the hash always changes
 
-#### Plots
+### Plots
 
 Always save plots to disk, unless you are using Rmd files, which will
 put the plot into the output html anyway.
@@ -693,15 +643,32 @@ Try to be as precise as possible when allocating resources, so others can use wh
 
 Be careful with any package that submits jobs for you (`Rslurm`,`future.batchtools`). Check the jobs are requesting a reasonable set of resources.
 
-#### Parallel coding in R
 
-##### parlapply, par*apply etc.
+### Job Submission Tips ###
+
+If you have trouble getting access to the resources you want, consider if you can split up your jobs into smaller parts. The queue system (PBSpro and SLURM) will normally favour smaller, shorter jobs. If you request a single job which needs, for example, 24 cores, then you will have a long (days) delay to start, because the HPC needs to find 24 cores on the same node, which may require existing jobs to finish. While your job is queued, other smaller jobs will jump in front of you and get time. If the cores don't need to talk to each other, consider submitting the job as an array job, with 24 individual runs of 1 core each. 
+
+### What HPC should I use? ###
+
+The MME lab has users across all HPCs (Awoonga-Phil, Flashlite-Isaac, Tinarro-Patrick, Getafix-Patrick). Our staff/students will continue to use the system which works best for our individual needs. 
+
+Our experience is that getting time on Getafix is the easiest - apart from the end of session when a lot of undergraduates are completing assignments. However, Getafix is a bit more of a stand-alone cluster, which is run by SMP and does not have fast write access to the UQ Research Data Manager (RDM). The RCC HPC's all have fast write access to the RDM.
+
+As it is a smaller community of users, the staff in charge of Getafix seem to be more flexible in terms of installing new modules if you request. Because the RCC is responsible for the HPC support for the rest of UQ, they need more rigorous protocols to install new modules but they will do so if asked.
+
+### Parallel coding in R
+
+#### Add a section on parallelising in SLURM/PBSpro
+Include something on Epilogue and Prologue
+And pro/cons of parallelising in/outside of R
+
+#### parlapply, par*apply etc.
 
 The parallel package gives you par\* versions of the apply family of functions.
 
 Easy to drop in if you usually use the apply family from base R, you replace any `apply`, `lapply`, `sapply` with `parapply`, `parlapply`, `parsapply`.
 
-##### foreach and %dopar%
+#### foreach and %dopar%
 
 The `foreach` package has a few uses.
 
@@ -711,7 +678,7 @@ Second, because `foreach` can work without side effects, it can run the loop in 
 
 If you already like using `foreach` over the apply family, moving to parallel is easy. The main downside is that `foreach` is not particularly efficient with resources. If you are mostly using the apply family, switching to `foreach` is much harder.
 
-##### `future`
+#### `future`
 
 The `future` package is built around the idea of a promise. The promise is "Eventually the variable will have a result assigned to it, but not straight away". You replace `<-` with `%<-%` and the line of code becomes a promise, rather than something to do right away.
 
@@ -721,7 +688,7 @@ Generally, you don't need to change your code much, just add `%` around your `<-
 
 `future.batchtools` spawns jobs on the cluster that return the results into your session. `future.callr` does local parallel calculations in separate R processes. `future` alone will do local multiprocessor calculations and use multiple nodes.
 
-##### General Coding habits for going parallel
+#### General Coding habits for going parallel
 
 1. Put things into lists
 - It is easy to loop over lists, and you can quickly parallelise the processing of a list.
@@ -737,7 +704,4 @@ Generally, you don't need to change your code much, just add `%` around your `<-
 4. Look for loops, but don't use R base `for` loops
 - Base R `for` loops cannot be used in parallel, because they rely on side effects.
 
-### Tricks
-
-1. Don't forget which computer you are looking at
 
