@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab</title>
   <meta name="description" content="This is the primary information document for members of the MME Lab." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Collaborating with GitHub | Introduction to the Mathematical Marine Ecology (MME) Lab" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="github.html">
-<link rel="next" href="how-to-write-well.html">
+<link rel="prev" href="github.html"/>
+<link rel="next" href="how-to-write-well.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -54,7 +57,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -66,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -129,13 +131,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#general-administration"><i class="fa fa-check"></i><b>1.2</b> General Administration</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#lab-contact"><i class="fa fa-check"></i><b>1.2.1</b> Lab Contact:</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#comm"><i class="fa fa-check"></i><b>1.2.2</b> Lab Communication</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#smp-contacts"><i class="fa fa-check"></i><b>1.2.3</b> SMP Contacts</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#school-of-maths-and-physics"><i class="fa fa-check"></i><b>1.2.3</b> School of Maths and Physics</a></li>
 <li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#general-it-support"><i class="fa fa-check"></i><b>1.2.4</b> General IT Support</a></li>
 <li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#student-support"><i class="fa fa-check"></i><b>1.2.5</b> Student Support</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>1.3</b> Computing</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#research-data-manager"><i class="fa fa-check"></i><b>1.3.1</b> Research Data Manager</a></li>
-<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#high-performance-computing"><i class="fa fa-check"></i><b>1.3.2</b> High Performance Computing</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#useful-tools"><i class="fa fa-check"></i><b>1.4</b> Useful Tools</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
@@ -361,53 +362,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.13.1" data-path="how-to-write-well.html"><a href="how-to-write-well.html#removing-removing-redundant-words"><i class="fa fa-check"></i><b>6.13.1</b> Removing Removing redundant words</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="getafix.html"><a href="getafix.html"><i class="fa fa-check"></i><b>7</b> Using getafix</a><ul>
-<li class="chapter" data-level="7.1" data-path="getafix.html"><a href="getafix.html#getafix-structure"><i class="fa fa-check"></i><b>7.1</b> Getafix structure</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="getafix.html"><a href="getafix.html#cluster"><i class="fa fa-check"></i><b>7.1.1</b> Cluster</a></li>
-<li class="chapter" data-level="7.1.2" data-path="getafix.html"><a href="getafix.html#node"><i class="fa fa-check"></i><b>7.1.2</b> Node</a></li>
-<li class="chapter" data-level="7.1.3" data-path="getafix.html"><a href="getafix.html#cores-and-memory"><i class="fa fa-check"></i><b>7.1.3</b> Cores and memory</a></li>
-<li class="chapter" data-level="7.1.4" data-path="getafix.html"><a href="getafix.html#login-node"><i class="fa fa-check"></i><b>7.1.4</b> Login Node</a></li>
-<li class="chapter" data-level="7.1.5" data-path="getafix.html"><a href="getafix.html#slurm"><i class="fa fa-check"></i><b>7.1.5</b> SLURM</a></li>
-<li class="chapter" data-level="7.1.6" data-path="getafix.html"><a href="getafix.html#other-resources"><i class="fa fa-check"></i><b>7.1.6</b> Other Resources</a></li>
+<li class="chapter" data-level="7" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html"><i class="fa fa-check"></i><b>7</b> High Performance Computing at UQ</a><ul>
+<li class="chapter" data-level="7.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#uqs-research-computing-centre"><i class="fa fa-check"></i><b>7.1</b> UQ’s Research Computing Centre</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#hpc-access"><i class="fa fa-check"></i><b>7.1.1</b> HPC access</a></li>
+<li class="chapter" data-level="7.1.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#logging-in"><i class="fa fa-check"></i><b>7.1.2</b> Logging in</a></li>
+<li class="chapter" data-level="7.1.3" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#submitting-a-job"><i class="fa fa-check"></i><b>7.1.3</b> Submitting a Job</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="getafix.html"><a href="getafix.html#getting-into-getafix"><i class="fa fa-check"></i><b>7.2</b> Getting into Getafix</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="getafix.html"><a href="getafix.html#request-access"><i class="fa fa-check"></i><b>7.2.1</b> Request Access</a></li>
-<li class="chapter" data-level="7.2.2" data-path="getafix.html"><a href="getafix.html#network-access"><i class="fa fa-check"></i><b>7.2.2</b> Network Access</a></li>
-<li class="chapter" data-level="7.2.3" data-path="getafix.html"><a href="getafix.html#eduroamuq-cableuq-wifi"><i class="fa fa-check"></i><b>7.2.3</b> eduroam/uq cable/uq wifi</a></li>
-<li class="chapter" data-level="7.2.4" data-path="getafix.html"><a href="getafix.html#the-terminal"><i class="fa fa-check"></i><b>7.2.4</b> The terminal</a></li>
-<li class="chapter" data-level="7.2.5" data-path="getafix.html"><a href="getafix.html#logging-into-getafix"><i class="fa fa-check"></i><b>7.2.5</b> Logging into Getafix</a></li>
-<li class="chapter" data-level="7.2.6" data-path="getafix.html"><a href="getafix.html#putting-your-data-on-getafix"><i class="fa fa-check"></i><b>7.2.6</b> Putting your data on Getafix</a></li>
-<li class="chapter" data-level="7.2.7" data-path="getafix.html"><a href="getafix.html#sending-your-data-to-getafix"><i class="fa fa-check"></i><b>7.2.7</b> Sending your data to getafix</a></li>
+<li class="chapter" data-level="7.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#smp-high-performance-computing"><i class="fa fa-check"></i><b>7.2</b> SMP High Performance Computing</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#getafix-structure"><i class="fa fa-check"></i><b>7.2.1</b> Getafix Structure</a></li>
+<li class="chapter" data-level="7.2.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#slurm"><i class="fa fa-check"></i><b>7.2.2</b> SLURM</a></li>
+<li class="chapter" data-level="7.2.3" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#other-resources"><i class="fa fa-check"></i><b>7.2.3</b> Other Resources</a></li>
+<li class="chapter" data-level="7.2.4" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#getting-into-getafix"><i class="fa fa-check"></i><b>7.2.4</b> Getting into Getafix</a></li>
+<li class="chapter" data-level="7.2.5" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#putting-your-data-on-getafix"><i class="fa fa-check"></i><b>7.2.5</b> Putting your data on Getafix</a></li>
+<li class="chapter" data-level="7.2.6" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#sending-your-data-to-getafix"><i class="fa fa-check"></i><b>7.2.6</b> Sending your data to getafix</a></li>
+<li class="chapter" data-level="7.2.7" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#running-jobs-on-getafix"><i class="fa fa-check"></i><b>7.2.7</b> Running jobs on Getafix</a></li>
+<li class="chapter" data-level="7.2.8" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#debugging-rmd-files"><i class="fa fa-check"></i><b>7.2.8</b> Debugging Rmd files</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="getafix.html"><a href="getafix.html#running-jobs-on-getafix"><i class="fa fa-check"></i><b>7.3</b> Running jobs on Getafix</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="getafix.html"><a href="getafix.html#modules"><i class="fa fa-check"></i><b>7.3.1</b> Modules</a></li>
-<li class="chapter" data-level="7.3.2" data-path="getafix.html"><a href="getafix.html#r-on-getafix"><i class="fa fa-check"></i><b>7.3.2</b> R on Getafix</a></li>
-<li class="chapter" data-level="7.3.3" data-path="getafix.html"><a href="getafix.html#parameters-for-rmd-files"><i class="fa fa-check"></i><b>7.3.3</b> Parameters for Rmd files</a></li>
-<li class="chapter" data-level="7.3.4" data-path="getafix.html"><a href="getafix.html#slurm-1"><i class="fa fa-check"></i><b>7.3.4</b> SLURM</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="getafix.html"><a href="getafix.html#debugging-rmd-files"><i class="fa fa-check"></i><b>7.4</b> Debugging Rmd files</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="getafix.html"><a href="getafix.html#cache-on"><i class="fa fa-check"></i><b>7.4.1</b> Cache on</a></li>
-<li class="chapter" data-level="7.4.2" data-path="getafix.html"><a href="getafix.html#load-in-cache-dir"><i class="fa fa-check"></i><b>7.4.2</b> Load in cache dir</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="getafix.html"><a href="getafix.html#getting-results-back"><i class="fa fa-check"></i><b>7.5</b> Getting Results back</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="getafix.html"><a href="getafix.html#printed-text"><i class="fa fa-check"></i><b>7.5.1</b> Printed text</a></li>
-<li class="chapter" data-level="7.5.2" data-path="getafix.html"><a href="getafix.html#data.frames"><i class="fa fa-check"></i><b>7.5.2</b> Data.frames</a></li>
-<li class="chapter" data-level="7.5.3" data-path="getafix.html"><a href="getafix.html#plots"><i class="fa fa-check"></i><b>7.5.3</b> Plots</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="getafix.html"><a href="getafix.html#playing-nice"><i class="fa fa-check"></i><b>7.6</b> Playing nice</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="getafix.html"><a href="getafix.html#parallel-coding-in-r"><i class="fa fa-check"></i><b>7.6.1</b> Parallel coding in R</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="getafix.html"><a href="getafix.html#tricks"><i class="fa fa-check"></i><b>7.7</b> Tricks</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html"><i class="fa fa-check"></i><b>8</b> Supercomputing at UQ</a><ul>
-<li class="chapter" data-level="8.1" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#high-performance-computing-1"><i class="fa fa-check"></i><b>8.1</b> High Performance Computing</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#access"><i class="fa fa-check"></i><b>8.1.1</b> Access</a></li>
-<li class="chapter" data-level="8.1.2" data-path="supercomputing-at-uq.html"><a href="supercomputing-at-uq.html#logging-in"><i class="fa fa-check"></i><b>8.1.2</b> Logging in</a></li>
+<li class="chapter" data-level="7.3" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#general-hpc-guidance"><i class="fa fa-check"></i><b>7.3</b> General HPC Guidance</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#getting-results-back"><i class="fa fa-check"></i><b>7.3.1</b> Getting Results back</a></li>
+<li class="chapter" data-level="7.3.2" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#data.frames"><i class="fa fa-check"></i><b>7.3.2</b> Data.frames</a></li>
+<li class="chapter" data-level="7.3.3" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#plots"><i class="fa fa-check"></i><b>7.3.3</b> Plots</a></li>
+<li class="chapter" data-level="7.3.4" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#playing-nice"><i class="fa fa-check"></i><b>7.3.4</b> Playing nice</a></li>
+<li class="chapter" data-level="7.3.5" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#job-submission-tips"><i class="fa fa-check"></i><b>7.3.5</b> Job Submission Tips</a></li>
+<li class="chapter" data-level="7.3.6" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#what-hpc-should-i-use"><i class="fa fa-check"></i><b>7.3.6</b> What HPC should I use?</a></li>
+<li class="chapter" data-level="7.3.7" data-path="high-performance-computing-at-uq.html"><a href="high-performance-computing-at-uq.html#parallel-coding-in-r"><i class="fa fa-check"></i><b>7.3.7</b> Parallel coding in R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gcm.html"><a href="gcm.html"><i class="fa fa-check"></i><b>9</b> Using Global Climate Models</a><ul>
-<li class="chapter" data-level="9.1" data-path="gcm.html"><a href="gcm.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
-<li class="chapter" data-level="9.2" data-path="gcm.html"><a href="gcm.html#variable-choice"><i class="fa fa-check"></i><b>9.2</b> Variable Choice</a></li>
+<li class="chapter" data-level="8" data-path="gcm.html"><a href="gcm.html"><i class="fa fa-check"></i><b>8</b> Using Global Climate Models</a><ul>
+<li class="chapter" data-level="8.1" data-path="gcm.html"><a href="gcm.html#overview"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="gcm.html"><a href="gcm.html#variable-choice"><i class="fa fa-check"></i><b>8.2</b> Variable Choice</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="cdo.html"><a href="cdo.html"><i class="fa fa-check"></i><b>9</b> CMIP6 Models and CDO</a><ul>
+<li class="chapter" data-level="9.1" data-path="cdo.html"><a href="cdo.html#cmip6-models-what-the-f-is-that"><i class="fa fa-check"></i><b>9.1</b> CMIP6 models? What the F*** is that?</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="cdo.html"><a href="cdo.html#most-common-climate-scenarios"><i class="fa fa-check"></i><b>9.1.1</b> Most common climate scenarios</a></li>
+<li class="chapter" data-level="9.1.2" data-path="cdo.html"><a href="cdo.html#can-i-use-those-models"><i class="fa fa-check"></i><b>9.1.2</b> Can I use those models?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="cdo.html"><a href="cdo.html#variable-choice-1"><i class="fa fa-check"></i><b>9.2</b> Variable Choice</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="cdo.html"><a href="cdo.html#lets-play-with-filters"><i class="fa fa-check"></i><b>9.2.1</b> Let’s play with filters</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="cdo.html"><a href="cdo.html#working-with-cmip6-netcdf-files-using-cdo-climate-data-operators"><i class="fa fa-check"></i><b>9.3</b> Working with CMIP6 netCDF files using CDO (Climate data operators)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="cdo.html"><a href="cdo.html#installation-process"><i class="fa fa-check"></i><b>9.3.1</b> Installation Process</a></li>
+<li class="chapter" data-level="9.3.2" data-path="cdo.html"><a href="cdo.html#ncview-a-netcdf-visual-browser"><i class="fa fa-check"></i><b>9.3.2</b> Ncview: a netCDF visual browser</a></li>
+<li class="chapter" data-level="9.3.3" data-path="cdo.html"><a href="cdo.html#working-with-cdo-and-ncview"><i class="fa fa-check"></i><b>9.3.3</b> Working with CDO and ncview</a></li>
+<li class="chapter" data-level="9.3.4" data-path="cdo.html"><a href="cdo.html#files-in-directory"><i class="fa fa-check"></i><b>9.3.4</b> Files in directory</a></li>
+<li class="chapter" data-level="9.3.5" data-path="cdo.html"><a href="cdo.html#regridding-with-cdo"><i class="fa fa-check"></i><b>9.3.5</b> Regridding with CDO</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="cdo.html"><a href="cdo.html#cdo-with-multiple-input-modelsfiles"><i class="fa fa-check"></i><b>9.4</b> CDO with multiple input models/files</a></li>
+<li class="chapter" data-level="9.5" data-path="cdo.html"><a href="cdo.html#cdo-extra-functions"><i class="fa fa-check"></i><b>9.5</b> CDO extra functions</a></li>
+<li class="chapter" data-level="9.6" data-path="cdo.html"><a href="cdo.html#running-cdo-in-the-cluster-awoongaflashlite"><i class="fa fa-check"></i><b>9.6</b> Running CDO in the cluster (awoonga/flashlite)</a></li>
 </ul></li>
 </ul>
 
@@ -533,11 +535,11 @@ Opening this Project in a new Session opens up a new world of awesomeness from R
 <p>OK, actually, we’re just moving along this same problem that we know that we’ve created: Both Partner 1 and 2 have both added new information to the same line. You can see that the pop-up box is saying that there is a CONFLICT and the merge has not happened. OK. We can close that window and inspect.</p>
 <p>Notice that in the git tab, there are orange <code>U</code>s; this means that there is an unresolved conflict, and it is not staged with a check anymore because modifications have occurred to the file since it has been staged.</p>
 <p>Let’s look at the README file itself. We got a preview in the diff pane that there is some new text going on in our README file:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="op">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="st"> </span>HEAD
-Julie is collaborating on this README.
-<span class="op">==</span><span class="er">=====</span>
-<span class="er">**</span>Jamie is adding lines here.<span class="op">**</span>
-<span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="st"> </span>05a189b23372f0bdb5b42630f8cb318003cee19b</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="op">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="st"> </span>HEAD</a>
+<a class="sourceLine" id="cb82-2" data-line-number="2">Julie is collaborating on this README.</a>
+<a class="sourceLine" id="cb82-3" data-line-number="3"><span class="op">==</span><span class="er">=====</span></a>
+<a class="sourceLine" id="cb82-4" data-line-number="4"><span class="er">**</span>Jamie is adding lines here.<span class="op">**</span></a>
+<a class="sourceLine" id="cb82-5" data-line-number="5"><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="st"> </span>05a189b23372f0bdb5b42630f8cb318003cee19b</a></code></pre></div>
 <p>In this example, Partner 1 is Jamie and Partner 2 is Julie. GitHub is displaying the line that Julie wrote and the line Jamie wrote separated by <code>=======</code>. So these are the two choices that Partner 2 has to decide between, which one do you want to keep? Where where does this decision start and end? The lines are bounded by <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;long commit identifier</code>.</p>
 <p>So, to resolve this merge conflict, Partner 2 has to chose, and delete everything except the line they want. So, they will delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;HEAD</code>, <code>=====</code>, <code>&gt;&gt;&gt;&gt;long commit identifier</code> and one of the lines that they don’t want to keep.</p>
 <p>Do that, and let’s try again. In this example, we’ve kept Jamie’s line:</p>
@@ -629,46 +631,44 @@ Julie is collaborating on this README.
 <p>Here’s what we’ll be doing (from <a href="http://r4ds.had.co.nz/transform.html">R for Data Science’s Transform Chapter</a>):</p>
 <p><strong>Data</strong>: You will be exploring a dataset on flights departing New York City in 2013. These data are actually in a package called <code>nycflights13</code>, so we can load them the way we would any other package.</p>
 <p>Let’s have Person 1 write this in the RMarkdown document (Person 2 just listen for a moment; we will sync this to you in a moment).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nycflights13) <span class="co"># install.packages(&#39;nycflights13&#39;)</span>
-<span class="kw">library</span>(tidyverse)</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">library</span>(nycflights13) <span class="co"># install.packages(&#39;nycflights13&#39;)</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>This data frame contains all 336,776 flights that departed from New York City in 2013. The data comes from the US <a href="http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&amp;Link=0">Bureau of Transportation Statistics</a>, and is documented in <code>?flights</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">flights</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">flights</a></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
-##  1  2013     1     1      517            515         2      830
-##  2  2013     1     1      533            529         4      850
-##  3  2013     1     1      542            540         2      923
-##  4  2013     1     1      544            545        -1     1004
-##  5  2013     1     1      554            600        -6      812
-##  6  2013     1     1      554            558        -4      740
-##  7  2013     1     1      555            600        -5      913
-##  8  2013     1     1      557            600        -3      709
-##  9  2013     1     1      557            600        -3      838
-## 10  2013     1     1      558            600        -2      753
-## # … with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
-## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
-## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
-## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # … with 336,766 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Let’s select all flights on January 1st with:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 842 x 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
-##  1  2013     1     1      517            515         2      830
-##  2  2013     1     1      533            529         4      850
-##  3  2013     1     1      542            540         2      923
-##  4  2013     1     1      544            545        -1     1004
-##  5  2013     1     1      554            600        -6      812
-##  6  2013     1     1      554            558        -4      740
-##  7  2013     1     1      555            600        -5      913
-##  8  2013     1     1      557            600        -3      709
-##  9  2013     1     1      557            600        -3      838
-## 10  2013     1     1      558            600        -2      753
-## # … with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
-## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
-## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
-## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # … with 832 more rows, and 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>To use filtering effectively, you have to know how to select the observations that you want using the comparison operators. R provides the standard suite: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal). We learned these operations yesterday. But there are a few others to learn as well.</p>
 <div id="sync" class="section level4">
 <h4><span class="header-section-number">5.14.0.1</span> Sync</h4>
@@ -684,13 +684,13 @@ Julie is collaborating on this README.
 </ul>
 <p>Let’s have a look:</p>
 <p>The following code finds all flights that departed in November or December:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</a></code></pre></div>
 <p>The order of operations doesn’t work like English. You can’t write <code>filter(flights, month == 11 | 12)</code>, which you might literally translate into “finds all flights that departed in November or December”. Instead it finds all months that equal <code>11 | 12</code>, an expression that evaluates to <code>TRUE</code>. In a numeric context (like here), <code>TRUE</code> becomes one, so this finds all flights in January, not November or December. This is quite confusing!</p>
 <p>A useful short-hand for this problem is <code>x %in% y</code>. This will select every row where <code>x</code> is one of the values in <code>y</code>. We could use it to rewrite the code above:</p>
-<pre class="sourceCode r"><code class="sourceCode r">nov_dec &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">nov_dec &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">12</span>))</a></code></pre></div>
 <p>Sometimes you can simplify complicated subsetting by remembering De Morgan’s law: <code>!(x &amp; y)</code> is the same as <code>!x | !y</code>, and <code>!(x | y)</code> is the same as <code>!x &amp; !y</code>. For example, if you wanted to find flights that weren’t delayed (on arrival or departure) by more than two hours, you could use either of the following two filters:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(flights, <span class="op">!</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span> <span class="op">|</span><span class="st"> </span>dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>))
-<span class="kw">filter</span>(flights, arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>, dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>)</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="kw">filter</span>(flights, <span class="op">!</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span> <span class="op">|</span><span class="st"> </span>dep_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">120</span>))</a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">filter</span>(flights, arr_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>, dep_delay <span class="op">&lt;=</span><span class="st"> </span><span class="dv">120</span>)</a></code></pre></div>
 <p>Whenever you start using complicated, multipart expressions in <code>filter()</code>, consider making them explicit variables instead. That makes it much easier to check your work.</p>
 </div>
 </div>
@@ -729,30 +729,30 @@ Why is <code>FALSE &amp; NA</code> not missing? Can you figure out the general
 rule? (<code>NA * 0</code> is a tricky counterexample!)</p></li>
 </ol>
 <p>One important feature of R that can make comparison tricky are missing values, or <code>NA</code>s (“not availables”). <code>NA</code> represents an unknown value so missing values are “contagious”: almost any operation involving an unknown value will also be unknown.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="ot">NA</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="dv">10</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">10</span></code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="ot">NA</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>The most confusing result is this one:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>It’s easiest to understand why this is true with a bit more context:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let x be Mary&#39;s age. We don&#39;t know how old she is.</span>
-x &lt;-<span class="st"> </span><span class="ot">NA</span>
-
-<span class="co"># Let y be John&#39;s age. We don&#39;t know how old he is.</span>
-y &lt;-<span class="st"> </span><span class="ot">NA</span>
-
-<span class="co"># Are John and Mary the same age?</span>
-x <span class="op">==</span><span class="st"> </span>y</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># Let x be Mary&#39;s age. We don&#39;t know how old she is.</span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb102-4" data-line-number="4"><span class="co"># Let y be John&#39;s age. We don&#39;t know how old he is.</span></a>
+<a class="sourceLine" id="cb102-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb102-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb102-7" data-line-number="7"><span class="co"># Are John and Mary the same age?</span></a>
+<a class="sourceLine" id="cb102-8" data-line-number="8">x <span class="op">==</span><span class="st"> </span>y</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We don&#39;t know!</span></code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="co"># We don&#39;t know!</span></a></code></pre></div>
 <p>If you want to determine if a value is missing, use <code>is.na()</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(x)</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">is.na</span>(x)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 
 </div>
@@ -769,11 +769,13 @@ x <span class="op">==</span><span class="st"> </span>y</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -781,12 +783,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -798,6 +799,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -816,8 +821,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
