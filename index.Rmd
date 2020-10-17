@@ -37,26 +37,27 @@ Professory Anthony Richardson: ajr at maths.uq.edu.au
 
 ### Lab Communication {#comm}
 
-In progress......
-
 #### Email
 
 For formal communication that must be received, read and stored. 
 
 #### GitHub Issues Tracking
 
-For specific questions and issue tracking that relates to a project. Each issue can have its own converstaion chain. Tag people to notify them of something they need to deal with.
+As you will see below, the MME Lab is using GitHub for project tracking. So sign up and join MME (Send Jason an email to request access to MME)
+
+For specific questions and issue tracking that relates to a project. Each issue can have its own converstaion chain and we can track the progress of each question. Tag people to notify them of something they need to deal with. 
 
 #### Gitter
 
-For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. Just another messanger service, but one which is tied to GitHub.
+For idle chit-chat, tips/tricks, cool papers etc. Things that are not critical for people to see in a short timeframe. Just another messanger service, but one which is tied to GitHub. Sign up using your Github account.
+https://gitter.im
 
 
-### SMP Contacts
+### School of Maths and Physics
 
-HOS:  
-Finance:  
-HR:   
+You can find all the information you need about SMP and relevent contacts, forms etc at the SMP website.
+https://smp.uq.edu.au
+
 
 ### General IT Support
 All general UQ IT-related information can be found at:
@@ -71,7 +72,9 @@ This includes information and support services for student welfare, learning sup
 
 ## Computing
 
-Our lab are using the UQ Research Data Management (https://rdm.uq.edu.au/) to store data and write model output, and the UQ High Performace Computer *"Flashlite"* for computing tasks. More information on each is found below. If you have specific questions that can't be answered by your lab colleagues, you can search the Research Computing Centre website (https://rcc.uq.edu.au).
+Our lab are using the UQ Research Data Management (https://rdm.uq.edu.au/) to store data and write model output, and the UQ High Performace Computer *"Awoonga"*, *"Flashlite"* and *"Tinaroo"* for computing tasks. More information on each is at https://rcc.uq.edu.au/node/48.
+
+If you have specific questions that can't be answered by your lab colleagues, you can search the Research Computing Centre website (https://rcc.uq.edu.au).
 
 ### Research Data Manager
 
@@ -91,12 +94,6 @@ We have two collections on the RDM.
 1. **MathMarEcol Data Storage** (MME1DATA) which is where we store all our Read-Only datasets such as CMIP model outputs, satellite data, fisheries data etc. This is where you should store all the data sets you will be reading into your analysis. Please consult with Ant about your requirements and for access.
 
 2. **MathMarEcol Working Projects** (MME2WORK) is where we store all our dynamic output data (model outputs, figures etc). When you get access to this collection you should create a folder for your project (We suggest aligning this to the GitHub Repo name to avoid any confusion).
-
-### High Performance Computing
-
-We complete our high perfomance computing on the "Flashlite" computer......
-
-
 
 ## Useful Tools
 
@@ -129,6 +126,10 @@ http://adv-r.had.co.nz
 https://r-graphics.org
 
 
+**Efficient R Programming** by Colin Gillespie and Robin Lovelace.  This hands-on book teaches novices and experienced R users how to write efficient R code.
+https://csgillespie.github.io/efficientR/
+
+
 **R Packages** by Hadley Wickham. The goal of this book is to teach you how to develop packages so that you can write your own, not just use other people’s.    
 http://r-pkgs.had.co.nz
 
@@ -152,6 +153,10 @@ https://ropensci.org/commcalls/
 https://www.tidyverse.org  
 The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. 
 
+**Patchwork**
+https://patchwork.data-imaginist.com
+The goal of patchwork is to make it ridiculously simple to combine separate ggplots into the same graphic. As such it tries to solve the same problem as gridExtra::grid.arrange() and cowplot::plot_grid but using an API that incites exploration and iteration, and scales to arbitrily complex layouts.
+
 **Stars Package**  
 https://r-spatial.github.io/stars/  
 STARS is good for non-regular grid, which is what the hi-res oceanographic models generally are these days.
@@ -167,6 +172,15 @@ Text mining using dplyr, ggplot2, and other tidy tools
 **rOpenSci Packages**  
 https://ropensci.org/packages/  
 rOpenSci, which fosters a culture of open and reproducible research using shared data and reusable software, has collated a range of useful packages, including rNOAA, taxize, BOMrang and scrubr.
+
+**Paleteer**   
+https://emilhvitfeldt.github.io/paletteer/   
+The goal of paletteer is to be a comprehensive collection of color palettes in R using a common interface. This package includes 1771 from 50 different packages
+
+**Simple Features Package (sf)**   
+https://r-spatial.github.io/sf/articles/sf1.html   
+Simple features refers to a formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects. These are very easy to use with ggplot and are great for plotting maps and analysing spatial data in R.
+
 
 ## UN Sustainable Development Goals
 
